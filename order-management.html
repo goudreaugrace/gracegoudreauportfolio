@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management - Grace Goudreau</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            font-variation-settings: 'wdth' 100;
+        }
+
+        .password-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .content-container {
+            display: none;
+        }
+
+        .password-input {
+            outline: none;
+        }
+
+        .password-input:focus {
+            border-color: black;
+        }
+
+        /* Sticky back button */
+        .sticky-back-button {
+            position: sticky;
+            top: 60px;
+            z-index: 40;
+        }
+
+        /* Button hover effect - top to bottom fill */
+        .submit-button, .primary-button {
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+        }
+
+        .submit-button::before, .primary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: black;
+            transition: height 0.4s ease;
+            z-index: 0;
+        }
+
+        .submit-button:hover::before, .primary-button:hover::before {
+            height: 100%;
+        }
+
+        .submit-button span, .primary-button span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .submit-button:hover span, .primary-button:hover span {
+            color: white;
+        }
+
+        /* Navigation link hover */
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #767676;
+        }
+
+        /* LinkedIn underline animation from right to left */
+        .linkedin-link {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .linkedin-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color: black;
+            transition: width 0.3s ease;
+            right: 0;
+            left: auto;
+        }
+
+        .linkedin-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 46px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid black;
+            padding: 1.5rem 1rem 1rem 1rem;
+            z-index: 45;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex !important;
+            }
+            .desktop-nav {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Password Protection Screen -->
+    <div id="passwordScreen" class="password-container">
+        <div class="max-w-md w-full px-6">
+            <h1 class="text-4xl md:text-5xl tracking-[-0.05em] text-black mb-4 text-center">Order Management</h1>
+            <p class="text-lg tracking-[-0.05em] text-[#767676] mb-8 text-center">This project is password protected</p>
+            
+            <div class="border border-black p-8">
+                <label for="password" class="block text-lg tracking-[-0.05em] text-black mb-3">Enter Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    class="password-input w-full border border-black px-4 py-3 text-lg tracking-[-0.05em] text-black mb-4"
+                    placeholder="Password"
+                    onkeypress="if(event.key === 'Enter') checkPassword()"
+                >
+                <div id="errorMessage" class="error-message hidden">Incorrect password. Please try again.</div>
+                <button 
+                    onclick="checkPassword()" 
+                    class="submit-button w-full border border-black bg-white px-4 py-3 mt-4"
+                >
+                    <span class="text-lg tracking-[-0.05em] text-black">Submit</span>
+                </button>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="index.html" class="text-lg tracking-[-0.05em] text-[#767676] hover:text-black transition-colors">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden until password is correct) -->
+    <div id="mainContent" class="content-container">
+        <!-- Navigation -->
+        <nav class="w-full bg-white fixed top-0 z-50">
+        <div class="max-w-[1271px] mx-auto flex">
+            <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
+                <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+                <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
+                    <a href="index.html#featured-work" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                    <a href="process.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">My Design Process</a>
+                    <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="index.html#featured-work" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+            <a href="process.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">My Design Process</a>
+            <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
+        </div>
+
+        <!-- Main Container -->
+        <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
+            <!-- Sticky Back Button -->
+            <div class="sticky-back-button mb-4 md:mb-6">
+                <a href="index.html#featured-work" class="primary-button inline-flex items-center gap-2 border border-black bg-white px-4 py-2">
+                    <span class="text-base tracking-[-0.05em] text-black">← Back</span>
+                </a>
+            </div>
+
+            <!-- Header Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-[563px_563px] gap-8 lg:gap-[60px] mb-12 md:mb-16">
+                <div>
+                    <h1 class="text-5xl md:text-[72px] leading-[72px] tracking-[-3.6px] text-black">
+                        Order Management
+                    </h1>
+                </div>
+                <div class="space-y-0">
+                    <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
+                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Product:</span>
+                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">Desktop Web App</span>
+                    </div>
+                    <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
+                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Role:</span>
+                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">Primary UX Designer</span>
+                    </div>
+                    <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
+                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Timeline:</span>
+                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">May - Sept 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TL;DR Section -->
+            <section class="mb-12 md:mb-16 border-t border-black pt-8">
+                <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">TL;DR</h2>
+                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-black max-w-[1162px]">
+                    Currently food vendors can email, call, even fax, yes… FAX orders to PepsiCo for large orders of products. That is dated and not working, PepsiCo needed a solution. It is complex, complicated, and a short time line and lots of constraints, making for a high tension, high stress project.
+                </p>
+            </section>
+
+            <!-- My Role Section -->
+            <section class="mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">My Role</h2>
+                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-black max-w-[1157px]">
+                    I worked as the primary designer on this project, learning complicated product requirements, understanding engineering feasibility to create an ideal user experience, asking questions to identify the best user experience along the way.
+                </p>
+            </section>
+
+            <!-- About the Project Section -->
+            <section class="mb-12 md:mb-16 border-t border-black pt-8">
+                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.05em] text-black mb-8">About the Project</h2>
+                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-black mb-12 max-w-[943px]">
+                    Foodservice customers place orders through various manual methods - such as emails, faxes, PDF, & photos - which severely limit our ability to automate processing, tracking, and fulfillment
+                </p>
+
+                <!-- Statistics -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <p class="text-7xl md:text-[105px] leading-tight tracking-[-0.05em] text-black mb-4">33%</p>
+                        <p class="text-lg md:text-xl tracking-[-0.05em] text-black">of all orders are manually submitted</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-7xl md:text-[105px] leading-tight tracking-[-0.05em] text-black mb-4">43%</p>
+                        <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-black">of orders need some sort of manual user intervention</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-7xl md:text-[105px] leading-tight tracking-[-0.05em] text-black mb-4">50%</p>
+                        <p class="text-lg md:text-xl tracking-[-0.05em] text-black">of Frito-Lay orders are manually submitted</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Solution Section -->
+            <section class="mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">The Solution</h2>
+                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-black max-w-[880px] mb-8">
+                    A web app for submitting and managing order which allowed for more automation, better order tracking and communication between plants & sales representatives.
+                </p>
+                
+                <p class="text-lg md:text-xl tracking-[-0.05em] text-black mb-4">Prototype made with Figma Make.</p>
+                
+                <!-- Video -->
+                <div class="border border-black">
+                    <video 
+                        class="w-full h-auto" 
+                        autoplay 
+                        loop 
+                        muted 
+                        playsinline
+                        controlslist="nodownload"
+                    >
+                        <source src="OM Demo.mp4.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
+
+            <!-- Let's Connect Section -->
+            <section class="py-8 md:py-16 mb-16">
+                <div class="mb-10">
+                    <div class="w-full h-px bg-black mb-5"></div>
+                    <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.05em] text-black">Let's Connect!</h2>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.05em] text-black">
+                        goudreaugrace@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl tracking-[-0.05em] text-black w-fit">
+                        LinkedIn
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = "Design";
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Check if user already authenticated in this session
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            showContent();
+        }
+
+        function checkPassword() {
+            const input = document.getElementById('password');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (input.value === correctPassword) {
+                sessionStorage.setItem('authenticated', 'true');
+                showContent();
+            } else {
+                errorMessage.classList.remove('hidden');
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        function showContent() {
+            document.getElementById('passwordScreen').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+

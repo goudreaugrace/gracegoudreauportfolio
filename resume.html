@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Grace Goudreau</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            font-variation-settings: 'wdth' 100;
+        }
+
+        /* Sticky back button */
+        .sticky-back-button {
+            position: sticky;
+            top: 60px;
+            z-index: 40;
+        }
+
+        /* Button hover effect - black fill from top */
+        .primary-button {
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+        }
+
+        .primary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: black;
+            transition: height 0.4s ease;
+            z-index: 0;
+        }
+
+        .primary-button:hover::before {
+            height: 100%;
+        }
+
+        .primary-button span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .primary-button:hover span {
+            color: white;
+        }
+
+        .primary-button svg {
+            position: relative;
+            z-index: 1;
+        }
+
+        .primary-button svg path {
+            transition: fill 0.4s ease;
+        }
+
+        .primary-button:hover svg path {
+            fill: white;
+        }
+
+        /* LinkedIn underline animation from right to left */
+        .linkedin-link {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .linkedin-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color: black;
+            transition: width 0.3s ease;
+            right: 0;
+            left: auto;
+        }
+
+        .linkedin-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        /* Navigation link hover - simple color change */
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #767676;
+        }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 46px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid black;
+            padding: 1.5rem 1rem 1rem 1rem;
+            z-index: 45;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex !important;
+            }
+            .desktop-nav {
+                display: none !important;
+            }
+        }
+    </style>
+    <script>
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="w-full bg-white fixed top-0 z-50">
+        <div class="max-w-[1271px] mx-auto flex">
+            <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
+                <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
+                <a href="index.html#featured-work" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                <a href="process.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">My Design Process</a>
+                <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="index.html#featured-work" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+        <a href="process.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">My Design Process</a>
+        <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
+        <!-- Sticky Back Button -->
+        <div class="sticky-back-button mb-4 md:mb-6">
+            <a href="index.html" class="primary-button inline-flex items-center gap-2 border border-black bg-white px-4 py-2">
+                <span class="text-base tracking-[-0.05em] text-black">← Back</span>
+            </a>
+        </div>
+
+        <!-- Header Section -->
+        <section class="mb-12 md:mb-16">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <div>
+                    <h1 class="text-5xl md:text-7xl lg:text-[96px] leading-tight tracking-[-0.05em] text-black mb-2">
+                        Grace Goudreau
+                    </h1>
+                    <p class="text-2xl md:text-[32px] leading-tight tracking-[-0.05em] text-black">
+                        User Experience Designer
+                    </p>
+                </div>
+                <a href="GraceGoudreauResume.pdf" download class="primary-button border border-black bg-white px-5 py-2.5 flex items-center gap-2 w-fit">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12L4.5 7.5L5.925 6.075L8.25 8.4V0H9.75V8.4L12.075 6.075L13.5 7.5L9 12ZM2.25 18C1.6125 18 1.0625 17.7812 0.6 17.3438C0.1375 16.9062 0 16.3625 0 15.7125V12.375H1.5V15.75C1.5 15.9375 1.5625 16.0938 1.6875 16.2188C1.8125 16.3438 1.9625 16.4062 2.1375 16.4062H15.8625C16.0375 16.4062 16.1875 16.3438 16.3125 16.2188C16.4375 16.0938 16.5 15.9375 16.5 15.75V12.375H18V15.7125C18 16.3625 17.7812 16.9062 17.3438 17.3438C16.9062 17.7812 16.3625 18 15.7125 18H2.25Z" fill="black"/>
+                    </svg>
+                    <span class="text-base tracking-[-0.05em] text-black">Download PDF</span>
+                </a>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="flex flex-wrap items-center gap-3 md:gap-5 mt-8 md:mt-12 text-lg">
+                <a href="tel:331.222.6175" class="text-black tracking-[-0.05em]">331.222.6175</a>
+                <span class="text-[#767676]">|</span>
+                <a href="mailto:goudreaugrace@gmail.com" class="text-black tracking-[-0.05em]">goudreaugrace@gmail.com</a>
+                <span class="text-[#767676]">|</span>
+                <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="text-black tracking-[-0.05em]">LinkedIn</a>
+            </div>
+        </section>
+
+        <!-- About Me & Education -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[60px] mb-12 md:mb-16">
+            <div>
+                <h2 class="text-2xl md:text-[28px] tracking-[-0.05em] text-black mb-4">About Me</h2>
+                <p class="text-lg leading-[1.5] tracking-[-0.05em] text-black">
+                    I specialize in transforming ambiguous requirements into intuitive, scalable interfaces that support enterprise workflows. Known for strong stakeholder relationships, visual craft, and the ability to lead high-impact design efforts independently.
+                </p>
+            </div>
+            <div>
+                <h2 class="text-2xl md:text-[28px] tracking-[-0.05em] text-black mb-4">Education</h2>
+                <p class="text-lg leading-[1.3] tracking-[-0.05em] text-black mb-2">
+                    Bachelor of Science in UX Design,<br>
+                    Minor in Design & Innovation
+                </p>
+                <p class="text-lg tracking-[-0.05em] text-[#767676]">
+                    Purdue University, Aug 2020 – May 2024
+                </p>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-[40px] leading-tight tracking-[-0.05em] text-black mb-8 md:mb-10">Experience</h2>
+
+            <!-- PepsiCo -->
+            <div class="border-b border-[#e0e0e0] pb-8 md:pb-10 mb-8 md:mb-10">
+                <div class="mb-4">
+                    <h3 class="text-xl md:text-2xl tracking-[-0.05em] text-black mb-1">PepsiCo | UX Designer</h3>
+                    <p class="text-lg tracking-[-0.05em] text-[#767676]">Chicago, IL, July 2024 – Present</p>
+                </div>
+                <ul class="list-disc pl-5 space-y-3">
+                    <li class="text-lg leading-[1.5] tracking-[-0.05em] text-black">
+                        Owned end-to-end design for two releases of a supply chain forecasting tool, serving as the sole designer collaborating closely with product and engineering across all phases
+                    </li>
+                    <li class="text-lg leading-[1.5] tracking-[-0.05em] text-black">
+                        Started conversations on how to integrate AI tools into ways of working, focusing on the prototyping phase and increasing productivity while address stakeholder needs
+                    </li>
+                    <li class="text-lg leading-[1.5] tracking-[-0.05em] text-black">
+                        Drove UX efforts across multiple internal platforms, turning minimal requirements into polished workflows, custom components, and interactive prototypes
+                    </li>
+                    <li class="text-lg leading-[1.5] tracking-[-0.05em] text-black">
+                        Successfully migrated a legacy product into PepsiCo's design system, earning full trust to lead design conversion, system mapping, and stakeholder alignment
+                    </li>
+                    <li class="text-lg leading-[1.5] tracking-[-0.05em] text-black">
+                        Built and presented high-fidelity Figma prototypes to align cross-functional teams and improve stakeholder understanding of design intent and usability
+                    </li>
+                </ul>
+            </div>
+
+            <!-- West Monroe -->
+            <div class="border-b border-[#e0e0e0] pb-8 md:pb-10 mb-8 md:mb-10">
+                <div class="mb-4">
+                    <h3 class="text-xl md:text-2xl tracking-[-0.05em] text-black mb-1">West Monroe | Product Design Intern</h3>
+                    <p class="text-lg tracking-[-0.05em] text-[#767676]">Chicago, IL, May 2023 – Aug 2023</p>
+                </div>
+                <ul class="list-disc pl-5 space-y-3">
+                    <li class="text-lg leading-[1.5] tracking-[-0.05em] text-black">
+                        Collaborated closely with the design lead to craft intuitive mobile and desktop interfaces through meticulous design and prototyping efforts
+                    </li>
+                    <li class="text-lg leading-[1.5] tracking-[-0.05em] text-black">
+                        Enhanced the application's user experience by adeptly translating client requirements, business objectives, and technical constraints into actionable design solutions
+                    </li>
+                </ul>
+            </div>
+
+            <!-- EnvelopIQ -->
+            <div class="mb-8 md:mb-10">
+                <div class="mb-4">
+                    <h3 class="text-xl md:text-2xl tracking-[-0.05em] text-black mb-1">EnvelopIQ | UX Design Intern</h3>
+                    <p class="text-lg tracking-[-0.05em] text-[#767676]">Indianapolis, IN, June 2022 – Aug 2022</p>
+                </div>
+                <ul class="list-disc pl-5 space-y-3">
+                    <li class="text-lg leading-[1.5] tracking-[-0.05em] text-black">
+                        Transformed EnvelopIQ's design approach and client readiness by introducing UX methods & artifacts to enhance current design practices
+                    </li>
+                    <li class="text-lg leading-[1.5] tracking-[-0.05em] text-black">
+                        Successfully researched & delivered essential UX artifacts to external clients, providing critical visual context that significantly enhanced project understanding and decision-making processes
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="mb-16 md:mb-24">
+            <h2 class="text-3xl md:text-[40px] leading-tight tracking-[-0.05em] text-black mb-6 md:mb-8">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 md:gap-x-12 gap-y-3">
+                <p class="text-lg tracking-[-0.05em] text-black">Figma</p>
+                <p class="text-lg tracking-[-0.05em] text-black">Design Thinking</p>
+                <p class="text-lg tracking-[-0.05em] text-black">Stakeholder Collaboration</p>
+                <p class="text-lg tracking-[-0.05em] text-black">Design Systems</p>
+                <p class="text-lg tracking-[-0.05em] text-black">Rapid Iteration</p>
+                <p class="text-lg tracking-[-0.05em] text-black">Ownership</p>
+                <p class="text-lg tracking-[-0.05em] text-black">User Research</p>
+                <p class="text-lg tracking-[-0.05em] text-black">Prototyping</p>
+                <p class="text-lg tracking-[-0.05em] text-black">Communication</p>
+            </div>
+        </section>
+
+        <!-- Let's Connect Section -->
+        <section class="py-8 md:py-16 mb-16">
+            <div class="mb-10">
+                <div class="w-full h-px bg-black mb-5"></div>
+                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.05em] text-black">Let's Connect!</h2>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.05em] text-black">
+                    goudreaugrace@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl tracking-[-0.05em] text-black w-fit">
+                    LinkedIn
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+

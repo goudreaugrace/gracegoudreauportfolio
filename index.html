@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace Goudreau - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            font-variation-settings: 'wdth' 100;
+        }
+
+        /* Button hover effect - black fill from top */
+        .primary-button {
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+        }
+
+        .primary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: black;
+            transition: height 0.4s ease;
+            z-index: 0;
+        }
+
+        .primary-button:hover::before {
+            height: 100%;
+        }
+
+        .primary-button span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .primary-button:hover span {
+            color: white;
+        }
+
+        /* LinkedIn underline animation from right to left */
+        .linkedin-link {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .linkedin-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color: black;
+            transition: width 0.3s ease;
+            right: 0;
+            left: auto;
+        }
+
+        .linkedin-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        /* Project card border animation - circular sequence */
+        .case-study-card {
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .case-study-card .border-top,
+        .case-study-card .border-right,
+        .case-study-card .border-bottom,
+        .case-study-card .border-left {
+            position: absolute;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
+
+        .case-study-card .border-top {
+            top: 0;
+            left: 0;
+            height: 1px;
+            width: 0;
+        }
+
+        .case-study-card .border-right {
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 0;
+        }
+
+        .case-study-card .border-bottom {
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            width: 0;
+        }
+
+        .case-study-card .border-left {
+            bottom: 0;
+            left: 0;
+            width: 1px;
+            height: 0;
+        }
+
+        .case-study-card:hover .border-top {
+            width: 100%;
+            transition-delay: 0s;
+        }
+
+        .case-study-card:hover .border-right {
+            height: 100%;
+            transition-delay: 0.3s;
+        }
+
+        .case-study-card:hover .border-bottom {
+            width: 100%;
+            transition-delay: 0.6s;
+        }
+
+        .case-study-card:hover .border-left {
+            height: 100%;
+            transition-delay: 0.9s;
+        }
+
+        /* Navigation link hover - simple color change */
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #767676;
+        }
+
+        /* Scroll margin for anchor links to account for fixed header */
+        #featured-work {
+            scroll-margin-top: 80px;
+        }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 46px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid black;
+            padding: 1.5rem 1rem 1rem 1rem;
+            z-index: 45;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex !important;
+            }
+            .desktop-nav {
+                display: none !important;
+            }
+        }
+    </style>
+    <script>
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth scroll to section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle hash on page load
+            if (window.location.hash) {
+                setTimeout(function() {
+                    const element = document.querySelector(window.location.hash);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
+
+            // Handle clicks on anchor links on the same page
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="w-full bg-white fixed top-0 z-50">
+        <div class="max-w-[1271px] mx-auto flex">
+            <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
+                <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
+                <a href="index.html#featured-work" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                <a href="process.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">My Design Process</a>
+                <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="index.html#featured-work" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+        <a href="process.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">My Design Process</a>
+        <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-20 md:pt-24">
+        <!-- Hero Section -->
+        <section class="mt-8 md:mt-16 mb-16 md:mb-24">
+            <div class="flex flex-col gap-6">
+                <h1 class="text-4xl md:text-6xl lg:text-[96px] leading-tight md:leading-[1.05] tracking-[-0.05em] text-black">
+                    Turning vision into seamless product journeys
+                </h1>
+                <p class="text-lg md:text-2xl leading-[1.4] tracking-[-0.05em] text-[#767676] max-w-[703px]">
+                    I specialize in shaping complexity into clean, purposeful experiences that empower both businesses and the people they serve.
+                </p>
+                <a href="process.html" class="primary-button border border-black bg-white px-4 py-2 w-fit flex items-center gap-2">
+                    <span class="text-base md:text-lg tracking-[-0.05em] text-black whitespace-nowrap">Explore my AI-assisted design process</span>
+                    <span class="text-base md:text-lg tracking-[-0.05em] text-black">→</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Featured Work Section -->
+        <section id="featured-work" class="mb-16 md:mb-24">
+            <div class="mb-10">
+                <div class="w-full h-px bg-black mb-5"></div>
+                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.05em] text-black">Featured Work</h2>
+            </div>
+
+            <!-- Case Studies Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-6 lg:mb-10">
+                <!-- Order Management Card -->
+                <a href="order-management.html" class="case-study-card p-8 md:p-10 min-h-[300px] md:min-h-[341px] block">
+                    <div class="border-top"></div>
+                    <div class="border-right"></div>
+                    <div class="border-bottom"></div>
+                    <div class="border-left"></div>
+                    
+                    <div class="flex flex-col justify-between h-full">
+                        <div>
+                            <h3 class="text-3xl md:text-[48px] leading-tight tracking-[-0.05em] text-black mb-4 md:mb-8">
+                                Order Management
+                            </h3>
+                            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-[#767676] mb-8 md:mb-12">
+                                A web app for submitting and managing orders, enabling automation, better order tracking, and improved communication between plants and sales representatives.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <p class="text-base tracking-[-0.05em] text-black mb-1">Role</p>
+                                    <p class="text-base tracking-[-0.05em] text-[#767676]">Primary UX Designer</p>
+                                </div>
+                                <div>
+                                    <p class="text-base tracking-[-0.05em] text-black mb-1">Timeline</p>
+                                    <p class="text-base tracking-[-0.05em] text-[#767676]">May - Sept 2025</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.05em] text-black">Product Design</span>
+                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.05em] text-black">Internal Tool</span>
+                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.05em] text-black">Figma Make</span>
+                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.05em] text-black">PepsiCo</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Forecast Analysis Card -->
+                <a href="forecast-analysis.html" class="case-study-card p-8 md:p-10 min-h-[350px] md:min-h-[389px] block">
+                    <div class="border-top"></div>
+                    <div class="border-right"></div>
+                    <div class="border-bottom"></div>
+                    <div class="border-left"></div>
+                    
+                    <div class="flex flex-col justify-between h-full">
+                        <div>
+                            <h3 class="text-3xl md:text-[48px] leading-tight tracking-[-0.05em] text-black mb-4 md:mb-8">
+                                Forecast Analysis Internal Tool
+                            </h3>
+                            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-[#767676] mb-8 md:mb-12">
+                                Creating a tool that removes dependency between Forecast Analysts and Data Scientists, allowing Analysts to work more efficiently and independently.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <p class="text-base tracking-[-0.05em] text-black mb-1">Role</p>
+                                    <p class="text-base tracking-[-0.05em] text-[#767676]">Primary UX Designer</p>
+                                </div>
+                                <div>
+                                    <p class="text-base tracking-[-0.05em] text-black mb-1">Timeline</p>
+                                    <p class="text-base tracking-[-0.05em] text-[#767676]">July 2024 - Feb 2025</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.05em] text-black">Product Design</span>
+                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.05em] text-black">Internal Tool</span>
+                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.05em] text-black">Data Visualization</span>
+                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.05em] text-black">PepsiCo</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Coming Soon Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+                <div class="border border-[#767676] flex items-center justify-center p-16 md:p-20">
+                    <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-[#767676]">
+                        More case studies coming soon
+                    </p>
+                </div>
+                <div class="border border-[#767676] flex items-center justify-center p-16 md:p-20">
+                    <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-[#767676]">
+                        More case studies coming soon
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Let's Connect Section -->
+        <section class="mb-16 md:mb-24">
+            <div class="mb-10">
+                <div class="w-full h-px bg-black mb-5"></div>
+                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.05em] text-black">Let's Connect!</h2>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.05em] text-black">
+                    goudreaugrace@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl tracking-[-0.05em] text-black w-fit">
+                    LinkedIn
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
