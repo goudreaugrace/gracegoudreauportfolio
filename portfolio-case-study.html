@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building this Portfolio - Grace Goudreau</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            font-variation-settings: 'wdth' 100;
+        }
+
+        /* Sticky back button */
+        .sticky-back-button {
+            position: sticky;
+            top: 60px;
+            z-index: 40;
+        }
+
+        /* Button hover effect - top to bottom fill */
+        .primary-button {
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+        }
+
+        .primary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: black;
+            transition: height 0.4s ease;
+            z-index: 0;
+        }
+
+        .primary-button:hover::before {
+            height: 100%;
+        }
+
+        .primary-button span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .primary-button:hover span {
+            color: white;
+        }
+
+        /* Navigation link hover */
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #767676;
+        }
+
+        /* LinkedIn underline animation from right to left */
+        .linkedin-link {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .linkedin-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color: black;
+            transition: width 0.3s ease;
+            right: 0;
+            left: auto;
+        }
+
+        .linkedin-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 46px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid black;
+            padding: 1.5rem 1rem 1rem 1rem;
+            z-index: 45;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex !important;
+            }
+            .desktop-nav {
+                display: none !important;
+            }
+        }
+    </style>
+    <script>
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="w-full bg-white fixed top-0 z-50">
+        <div class="max-w-[1271px] mx-auto flex">
+            <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
+                <a href="/" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
+                <a href="/#featured-work" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                <a href="process.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">My Design Process</a>
+                <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="/#featured-work" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+        <a href="process.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">My Design Process</a>
+        <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
+        <!-- Sticky Back Button -->
+        <div class="sticky-back-button mb-4 md:mb-6">
+            <a href="/#featured-work" class="primary-button inline-flex items-center gap-2 border border-black bg-white px-4 py-2">
+                <span class="text-base tracking-[-0.5px] text-black">← Back</span>
+            </a>
+        </div>
+
+        <!-- Header Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-[563px_563px] gap-8 lg:gap-[60px] mb-12 md:mb-16">
+            <div>
+                <h1 class="text-5xl md:text-[72px] leading-[72px] tracking-[-3.6px] text-black">
+                    Building this Portfolio
+                </h1>
+            </div>
+            <div class="space-y-0">
+                <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
+                    <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Product:</span>
+                    <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">Portfolio Website</span>
+                </div>
+                <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
+                    <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Role:</span>
+                    <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">Designer & Developer</span>
+                </div>
+                <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
+                    <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Timeline:</span>
+                    <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">January 2025</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TL;DR Section -->
+        <section class="mb-12 md:mb-16 border-t border-black pt-8">
+            <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">TL;DR</h2>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1162px]">
+                This portfolio was created through a modern design and development workflow: starting with rapid ideation in Figma Make, refining designs in Figma Design, and bringing everything to life with Cursor AI. The entire process showcased how AI-assisted development can accelerate the journey from concept to production-ready code.
+            </p>
+        </section>
+
+        <!-- Ideation with Figma Make Section -->
+        <section class="mb-12 md:mb-16 border-t border-black pt-8">
+            <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black mb-8">Ideation with Figma Make</h2>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black mb-8 max-w-[943px]">
+                The journey began with Figma Make, where I rapidly explored different layout concepts and visual directions. This AI-powered tool allowed me to iterate quickly on wireframes and initial design ideas without getting bogged down in pixel-perfect details.
+            </p>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[943px]">
+                Key explorations included navigation patterns, project card layouts, and overall information architecture. The speed of Figma Make enabled me to test multiple approaches in hours rather than days, helping me converge on a clean, minimal aesthetic that would showcase my work without distraction.
+            </p>
+        </section>
+
+        <!-- Design Refinement Section -->
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">Design Refinement in Figma Design</h2>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black mb-8 max-w-[943px]">
+                Once the core concepts were established, I moved into Figma Design to polish every detail. This phase focused on typography hierarchy, spacing systems, and interaction states. I established a consistent design system with sharp edges (no border radius), clean typography using Instrument Sans, and subtle hover effects.
+            </p>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[943px]">
+                The refined designs became the source of truth for development, with every screen, component state, and responsive breakpoint documented. This preparation was crucial for the next phase: translating design into code.
+            </p>
+        </section>
+
+        <!-- Development with Cursor Section -->
+        <section class="mb-12 md:mb-16 border-t border-black pt-8">
+            <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black mb-8">Development with Cursor AI</h2>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black mb-8 max-w-[943px]">
+                Cursor AI transformed the development process from what could have been weeks of coding into a matter of days. By connecting directly to my Figma designs, Cursor generated pixel-perfect HTML and Tailwind CSS that matched my specifications exactly.
+            </p>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black mb-8 max-w-[943px]">
+                The AI understood design patterns and best practices, automatically implementing responsive breakpoints, accessibility features, and performance optimizations. When I requested changes—like converting the navigation to a hamburger menu on mobile or adding password protection to project pages—Cursor handled the implementation while I focused on design decisions.
+            </p>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[943px]">
+                The workflow became iterative and conversational: I'd describe what I wanted, Cursor would implement it, and we'd refine together. This collaboration between human creativity and AI capability resulted in clean, maintainable code that follows modern web standards.
+            </p>
+        </section>
+
+        <!-- Using Cursor Plan Section -->
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">Using Cursor Plan for This Page</h2>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black mb-8 max-w-[943px]">
+                In a meta twist, this very page you're reading was created using Cursor's Plan mode. Instead of diving straight into code, I first described what I wanted: a project page documenting the portfolio creation process, following the same structure as my other work.
+            </p>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[943px]">
+                Cursor Plan helped me think through the structure, asking clarifying questions about placement, content, and styling before writing a single line of code. Once the plan was approved, implementation was straightforward—matching the established patterns while creating new content sections. This planning phase prevented false starts and ensured consistency across the entire portfolio.
+            </p>
+        </section>
+
+        <!-- What I Learned Section -->
+        <section class="mb-12 md:mb-16 border-t border-black pt-8">
+            <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black mb-8">What I Learned</h2>
+            <ul class="list-none space-y-4 max-w-[943px]">
+                <li class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black flex gap-4">
+                    <span class="flex-shrink-0">•</span>
+                    <span>Using annotations in Figma for interactions is super important and makes sending designs to Cursor so much smoother</span>
+                </li>
+                <li class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black flex gap-4">
+                    <span class="flex-shrink-0">•</span>
+                    <span>Design is still super important, you have to know the basics in order to have good results but tools like Figma Make, Lovable, and Cursor make it faster and easier to get there</span>
+                </li>
+                <li class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black flex gap-4">
+                    <span class="flex-shrink-0">•</span>
+                    <span>AI is allowing me to do more faster, which then allows me to take on more projects, work, and opportunities</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Let's Connect Section -->
+        <section class="py-8 md:py-16 mb-16">
+            <div class="mb-10">
+                <div class="w-full h-px bg-black mb-5"></div>
+                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.5px] text-black">
+                    goudreaugrace@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl tracking-[-0.5px] text-black w-fit">
+                    LinkedIn
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+

@@ -161,15 +161,15 @@
     <!-- Password Protection Screen -->
     <div id="passwordScreen" class="password-container">
         <div class="max-w-md w-full px-6">
-            <h1 class="text-4xl md:text-5xl tracking-[-0.05em] text-black mb-4 text-center">Forecast Analysis Internal Tool</h1>
-            <p class="text-lg tracking-[-0.05em] text-[#767676] mb-8 text-center">This project is password protected</p>
+            <h1 class="text-4xl md:text-5xl tracking-[-0.5px] text-black mb-4 text-center">Forecast Analysis Internal Tool</h1>
+            <p class="text-lg tracking-[-0.5px] text-[#767676] mb-8 text-center">This project is password protected</p>
             
             <div class="border border-black p-8">
-                <label for="password" class="block text-lg tracking-[-0.05em] text-black mb-3">Enter Password</label>
+                <label for="password" class="block text-lg tracking-[-0.5px] text-black mb-3">Enter Password</label>
                 <input 
                     type="password" 
                     id="password" 
-                    class="password-input w-full border border-black px-4 py-3 text-lg tracking-[-0.05em] text-black mb-4"
+                    class="password-input w-full border border-black px-4 py-3 text-lg tracking-[-0.5px] text-black mb-4"
                     placeholder="Password"
                     onkeypress="if(event.key === 'Enter') checkPassword()"
                 >
@@ -178,12 +178,12 @@
                     onclick="checkPassword()" 
                     class="submit-button w-full border border-black bg-white px-4 py-3 mt-4"
                 >
-                    <span class="text-lg tracking-[-0.05em] text-black">Submit</span>
+                    <span class="text-lg tracking-[-0.5px] text-black">Submit</span>
                 </button>
             </div>
 
             <div class="text-center mt-8">
-                <a href="index.html" class="text-lg tracking-[-0.05em] text-[#767676] hover:text-black transition-colors">← Back to Portfolio</a>
+                <a href="/" class="text-lg tracking-[-0.5px] text-[#767676] hover:text-black transition-colors">← Back to Portfolio</a>
             </div>
         </div>
     </div>
@@ -194,7 +194,7 @@
         <nav class="w-full bg-white fixed top-0 z-50">
         <div class="max-w-[1271px] mx-auto flex">
             <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
-                <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
+                <a href="/" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
                 <div class="hamburger" onclick="toggleMobileMenu()">
                     <span></span>
                     <span></span>
@@ -202,7 +202,7 @@
                 </div>
             </div>
                 <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
-                    <a href="index.html#featured-work" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                    <a href="/#featured-work" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
                     <a href="process.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">My Design Process</a>
                     <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
                 </div>
@@ -211,7 +211,7 @@
 
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="mobile-menu">
-            <a href="index.html#featured-work" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+            <a href="/#featured-work" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
             <a href="process.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">My Design Process</a>
             <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
         </div>
@@ -220,8 +220,8 @@
         <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
             <!-- Sticky Back Button -->
             <div class="sticky-back-button mb-4 md:mb-6">
-                <a href="index.html#featured-work" class="primary-button inline-flex items-center gap-2 border border-black bg-white px-4 py-2">
-                    <span class="text-base tracking-[-0.05em] text-black">← Back</span>
+                <a href="/#featured-work" class="primary-button inline-flex items-center gap-2 border border-black bg-white px-4 py-2">
+                    <span class="text-base tracking-[-0.5px] text-black">← Back</span>
                 </a>
             </div>
 
@@ -251,7 +251,7 @@
             <!-- TL;DR Section -->
             <section class="mb-12 md:mb-16 border-t border-black pt-8">
                 <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">TL;DR</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-black max-w-[1086px]">
+                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1086px]">
                     Currently Forecast Analysts are dependent on data scientists to do their job. Creating the tool Forecast Analysis UI (FA UI) removes the dependency and allows Forecast Analysts to do their job more efficiently.
                 </p>
             </section>
@@ -259,15 +259,15 @@
             <!-- My Role Section -->
             <section class="mb-12 md:mb-16">
                 <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">My Role</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-black max-w-[1157px]">
+                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1157px]">
                     I worked as the primary designer on this project, learning complicated product requirements, understanding engineering feasibility to create an ideal user experience, asking questions to identify the best user experience along the way.
                 </p>
             </section>
 
             <!-- About the Project Section -->
             <section class="mb-12 md:mb-16 border-t border-black pt-8">
-                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.05em] text-black mb-8">About the Project</h2>
-                <p class="text-xl md:text-2xl leading-tight tracking-[-0.05em] text-black mb-12 max-w-[975px]">
+                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black mb-8">About the Project</h2>
+                <p class="text-xl md:text-2xl leading-tight tracking-[-0.5px] text-black mb-12 max-w-[975px]">
                     Forecast Analyst (FA) UI changes the amount of work and workload and dependency between Forecast Analysts and Data Science allowing Forecast Analysts to do their job without a dependency
                 </p>
 
@@ -280,13 +280,13 @@
                 <div class="space-y-0">
                     <div class="border-b border-black py-6 md:py-8 px-4">
                         <h3 class="text-2xl md:text-[37px] tracking-[-0.03em] text-black mb-4">Data Scientist</h3>
-                        <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-black max-w-[1074px]">
+                        <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1074px]">
                             a Data Scientist owns the forecasting models and logics in the PFE and enhances models and capabilities based on Forecast Analysis feedback to support forecast improvement
                         </p>
                     </div>
                     <div class="py-6 md:py-8 px-4">
                         <h3 class="text-2xl md:text-[37px] tracking-[-0.03em] text-black mb-4">Forecast Analyst</h3>
-                        <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-black max-w-[1126px]">
+                        <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1126px]">
                             a Forecast Analyst ensures the driver based forecast quality and drives its continuous improvement adjusting forecast engine configuration and working with Data Scientists and Demand Planners.
                         </p>
                     </div>
@@ -296,14 +296,14 @@
             <!-- The Solution Section -->
             <section class="mb-12 md:mb-16">
                 <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">The Solution</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.05em] text-black max-w-[880px]">
+                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[880px]">
                     A web app for submitting and managing order which allowed for more automation, better order tracking and communication between plants & sales representatives.
                 </p>
             </section>
 
             <!-- Design Iterations -->
             <section class="mb-16 md:mb-24">
-                <h3 class="text-lg md:text-xl tracking-[-0.05em] text-black mb-6">Design Iterations</h3>
+                <h3 class="text-lg md:text-xl tracking-[-0.5px] text-black mb-6">Design Iterations</h3>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="border border-neutral-100">
                         <img src="http://localhost:3845/assets/bc48f50e893092d3584f76ac35cfa54f9b6c5098.png" alt="Design Iteration 1" class="w-full h-auto">
@@ -318,14 +318,14 @@
             <section class="py-8 md:py-16 mb-16">
                 <div class="mb-10">
                     <div class="w-full h-px bg-black mb-5"></div>
-                    <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.05em] text-black">Let's Connect!</h2>
+                    <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.05em] text-black">
+                    <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.5px] text-black">
                         goudreaugrace@gmail.com
                     </a>
-                    <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl tracking-[-0.05em] text-black w-fit">
+                    <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl tracking-[-0.5px] text-black w-fit">
                         LinkedIn
                     </a>
                 </div>
