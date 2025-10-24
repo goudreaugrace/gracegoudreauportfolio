@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonder 3D Prints - Grace Goudreau</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            font-variation-settings: 'wdth' 100;
+        }
+
+        /* Sticky back button */
+        .sticky-back-button {
+            position: sticky;
+            top: 60px;
+            z-index: 40;
+        }
+
+        /* Button hover effect - top to bottom fill */
+        .primary-button {
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+        }
+
+        .primary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: black;
+            transition: height 0.4s ease;
+            z-index: 0;
+        }
+
+        .primary-button:hover::before {
+            height: 100%;
+        }
+
+        .primary-button span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .primary-button:hover span {
+            color: white;
+        }
+
+        /* Navigation link hover */
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #767676;
+        }
+
+        /* LinkedIn underline animation from right to left */
+        .linkedin-link {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .linkedin-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color: black;
+            transition: width 0.3s ease;
+            right: 0;
+            left: auto;
+        }
+
+        .linkedin-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #111111;
+            transition: 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: white;
+            z-index: 1000;
+            padding: 80px 20px 20px;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 10px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .desktop-nav {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+
+        /* Letter spacing for all body text */
+        body, p, span, div, h1, h2, h3, h4, h5, h6 {
+            letter-spacing: -0.5px;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="w-full bg-white fixed top-0 z-50">
+        <div class="max-w-[1271px] mx-auto flex">
+            <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
+                <a href="/" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
+                <a href="/#featured-work" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                <a href="process.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">My Design Process</a>
+                <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="/#featured-work" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+        <a href="process.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">My Design Process</a>
+        <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-20 md:pt-24">
+        <!-- Back Button -->
+        <div class="sticky-back-button mb-8">
+            <a href="/" class="primary-button border border-black bg-white px-4 py-2 w-fit flex items-center gap-2">
+                <span class="text-base md:text-lg tracking-[-0.5px] text-black whitespace-nowrap">← Back</span>
+            </a>
+        </div>
+
+        <!-- Header Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-[563px_563px] gap-8 lg:gap-[60px] mb-12 md:mb-16">
+            <div>
+                <h1 class="text-5xl md:text-[72px] leading-[72px] tracking-[-3.6px] text-black">
+                    Wonder 3D Prints
+                </h1>
+            </div>
+            <div class="space-y-0">
+                <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
+                    <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Role:</span>
+                    <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">Web Designer</span>
+                </div>
+                <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
+                    <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Timeline:</span>
+                    <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">July 2025</span>
+                </div>
+                <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
+                    <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Website:</span>
+                    <a href="https://wonder3dprints.com" target="_blank" class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right hover:text-black transition-colors">wonder3dprints.com</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TL;DR Section -->
+        <section class="mb-12 md:mb-16 border-t border-black pt-8">
+            <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">TL;DR</h2>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1162px]">
+                Designed and developed an ecommerce website for Wonder 3D Prints using Figma for design, Instant for rapid development, and Shopify for the storefront. The project showcased how modern design tools and AI assistance can create efficient ecommerce solutions.
+            </p>
+        </section>
+
+        <!-- My Role Section -->
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">My Role</h2>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1157px]">
+                I worked as the web designer on this project, creating the visual design and user experience for the ecommerce site, ensuring seamless integration between design tools and the Shopify platform.
+            </p>
+        </section>
+
+        <!-- About the Project Section -->
+        <section class="mb-12 md:mb-16 border-t border-black pt-8">
+            <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black mb-8">About the Project</h2>
+            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black mb-12 max-w-[943px]">
+                Wonder 3D Prints needed a modern ecommerce website to showcase their unique 3D printed products and enable customers to easily browse and purchase items online.
+            </p>
+        </section>
+
+
+        <!-- Project Content -->
+        <section class="mb-16 md:mb-24">
+            <!-- First paragraph with image -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-8">
+                <!-- Left Column - First Paragraph -->
+                <div>
+                    <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black mb-6">
+                        Figma allowed me to create the vision and the wireframe of the website. Shopify powers the storefront, ensuring secure and scalable ecommerce. Instant allowed me to design the website like a designer, with a UI and workflow similar to Figma and Framer I was able to design a Shopify site efficiently.
+                    </p>
+                </div>
+
+                <!-- Right Column - Group 3.png Image -->
+                <div>
+                    <img src="Group 3.png" alt="Design workflow tools" class="w-full h-auto rounded-lg">
+                </div>
+            </div>
+
+            <!-- Second paragraph - Full width -->
+            <div class="mb-8">
+                <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                    I also used ChatGPT, Lovable, and other AI generators for design inspiration, optimizing text for SEO, and analyzing the website from different personas. Using these AI tools allowed me to work faster and have more efficient results.
+                </p>
+            </div>
+
+            <!-- Final Design Section -->
+            <div class="mt-16">
+                <div class="mb-10">
+                    <div class="w-full h-px bg-black mb-5"></div>
+                    <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Final Design</h2>
+                </div>
+                
+                <a href="https://wonder3dprints.com" target="_blank" class="block">
+                    <img src="Device - Macbook Air.png" alt="Wonder 3D Prints website on MacBook Air" class="w-full h-auto rounded-lg hover:opacity-90 transition-opacity">
+                </a>
+            </div>
+        </section>
+
+        <!-- Let's Connect Section -->
+        <section class="mb-16 md:mb-24">
+            <div class="mb-10">
+                <div class="w-full h-px bg-black mb-5"></div>
+                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.5px] text-black">
+                    goudreaugrace@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl tracking-[-0.5px] text-black w-fit">
+                    LinkedIn
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth scroll to section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle hash on page load
+            if (window.location.hash) {
+                setTimeout(function() {
+                    const element = document.querySelector(window.location.hash);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
+
+            // Handle clicks on anchor links on the same page
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
