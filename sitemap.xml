@@ -6,29 +6,33 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gracegoudreau.com/process.html</loc>
+    <loc>https://gracegoudreau.com/design-process</loc>
     <lastmod>2025-01-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gracegoudreau.com/resume.html</loc>
+    <loc>https://gracegoudreau.com/resume</loc>
     <lastmod>2025-01-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gracegoudreau.com/order-management.html</loc>
+    <loc>https://gracegoudreau.com/order-management</loc>
     <lastmod>2025-01-22</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gracegoudreau.com/forecast-analysis.html</loc>
+    <loc>https://gracegoudreau.com/forecast-analysis</loc>
     <lastmod>2025-01-22</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gracegoudreau.com/portfolio-case-study.html</loc>
+    <loc>https://gracegoudreau.com/portfolio-case-study</loc>
     <lastmod>2025-01-22</lastmod>
     <priority>0.8</priority>
   </url>
-</urlset>
+  <url>
+    <loc>https://gracegoudreau.com/wonder-3d-prints</loc>
+    <lastmod>2025-01-22</lastmod>
+    <priority>0.8</priority>
+  </url>
 

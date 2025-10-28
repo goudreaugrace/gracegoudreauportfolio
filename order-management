@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forecast Analysis Internal Tool - Grace Goudreau</title>
+    <title>Order Management - Grace Goudreau</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -161,7 +161,7 @@
     <!-- Password Protection Screen -->
     <div id="passwordScreen" class="password-container">
         <div class="max-w-md w-full px-6">
-            <h1 class="text-4xl md:text-5xl tracking-[-0.5px] text-black mb-4 text-center">Forecast Analysis Internal Tool</h1>
+            <h1 class="text-4xl md:text-5xl tracking-[-0.5px] text-black mb-4 text-center">Order Management</h1>
             <p class="text-lg tracking-[-0.5px] text-[#767676] mb-8 text-center">This project is password protected</p>
             
             <div class="border border-black p-8">
@@ -203,8 +203,8 @@
             </div>
                 <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
                     <a href="/#featured-work" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
-                    <a href="process.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">My Design Process</a>
-                    <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
+                    <a href="design-process" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">My Design Process</a>
+                    <a href="resume" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
                 </div>
             </div>
         </nav>
@@ -212,8 +212,8 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="mobile-menu">
             <a href="/#featured-work" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
-            <a href="process.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">My Design Process</a>
-            <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
+            <a href="design-process" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">My Design Process</a>
+            <a href="resume" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
         </div>
 
         <!-- Main Container -->
@@ -229,7 +229,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-[563px_563px] gap-8 lg:gap-[60px] mb-12 md:mb-16">
                 <div>
                     <h1 class="text-5xl md:text-[72px] leading-[72px] tracking-[-3.6px] text-black">
-                        Forecast Analysis Internal Tool
+                        Order Management
                     </h1>
                 </div>
                 <div class="space-y-0">
@@ -243,7 +243,7 @@
                     </div>
                     <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
                         <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Timeline:</span>
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">July 2024 - Feb 2025</span>
+                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">May - Sept 2025</span>
                     </div>
                 </div>
             </div>
@@ -251,8 +251,8 @@
             <!-- TL;DR Section -->
             <section class="mb-12 md:mb-16 border-t border-black pt-8">
                 <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">TL;DR</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1086px]">
-                    Currently Forecast Analysts are dependent on data scientists to do their job. Creating the tool Forecast Analysis UI (FA UI) removes the dependency and allows Forecast Analysts to do their job more efficiently.
+                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1162px]">
+                    Currently food vendors can email, call, even fax, yes… FAX orders to PepsiCo for large orders of products. That is dated and not working, PepsiCo needed a solution. It is complex, complicated, and a short time line and lots of constraints, making for a high tension, high stress project.
                 </p>
             </section>
 
@@ -267,28 +267,23 @@
             <!-- About the Project Section -->
             <section class="mb-12 md:mb-16 border-t border-black pt-8">
                 <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black mb-8">About the Project</h2>
-                <p class="text-xl md:text-2xl leading-tight tracking-[-0.5px] text-black mb-12 max-w-[975px]">
-                    Forecast Analyst (FA) UI changes the amount of work and workload and dependency between Forecast Analysts and Data Science allowing Forecast Analysts to do their job without a dependency
+                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black mb-12 max-w-[943px]">
+                    Foodservice customers place orders through various manual methods - such as emails, faxes, PDF, & photos - which severely limit our ability to automate processing, tracking, and fulfillment
                 </p>
 
-                <!-- Diagram -->
-                <div class="flex justify-center mb-12">
-                    <img src="FA UI Workload.png" alt="Workflow Diagram" class="max-w-full h-auto">
-                </div>
-
-                <!-- Definitions -->
-                <div class="space-y-0">
-                    <div class="border-b border-black py-6 md:py-8 px-4">
-                        <h3 class="text-2xl md:text-[37px] tracking-[-0.03em] text-black mb-4">Data Scientist</h3>
-                        <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1074px]">
-                            a Data Scientist owns the forecasting models and logics in the PFE and enhances models and capabilities based on Forecast Analysis feedback to support forecast improvement
-                        </p>
+                <!-- Statistics -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <p class="text-7xl md:text-[105px] leading-tight tracking-[-0.5px] text-black mb-4">33%</p>
+                        <p class="text-lg md:text-xl tracking-[-0.5px] text-black">of all orders are manually submitted</p>
                     </div>
-                    <div class="py-6 md:py-8 px-4">
-                        <h3 class="text-2xl md:text-[37px] tracking-[-0.03em] text-black mb-4">Forecast Analyst</h3>
-                        <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1126px]">
-                            a Forecast Analyst ensures the driver based forecast quality and drives its continuous improvement adjusting forecast engine configuration and working with Data Scientists and Demand Planners.
-                        </p>
+                    <div class="text-center">
+                        <p class="text-7xl md:text-[105px] leading-tight tracking-[-0.5px] text-black mb-4">43%</p>
+                        <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black">of orders need some sort of manual user intervention</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-7xl md:text-[105px] leading-tight tracking-[-0.5px] text-black mb-4">50%</p>
+                        <p class="text-lg md:text-xl tracking-[-0.5px] text-black">of Frito-Lay orders are manually submitted</p>
                     </div>
                 </div>
             </section>
@@ -296,21 +291,25 @@
             <!-- The Solution Section -->
             <section class="mb-12 md:mb-16">
                 <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">The Solution</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[880px]">
+                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[880px] mb-8">
                     A web app for submitting and managing order which allowed for more automation, better order tracking and communication between plants & sales representatives.
                 </p>
-            </section>
-
-            <!-- Design Iterations -->
-            <section class="mb-16 md:mb-24">
-                <h3 class="text-lg md:text-xl tracking-[-0.5px] text-black mb-6">Design Iterations</h3>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="border border-neutral-100">
-                        <img src="Request Experiment -_ Base.png" alt="Design Iteration 1" class="w-full h-auto">
-                    </div>
-                    <div class="border border-neutral-100">
-                        <img src="Request Experiment -_ Experiment Design.png" alt="Design Iteration 2" class="w-full h-auto">
-                    </div>
+                
+                <p class="text-lg md:text-xl tracking-[-0.5px] text-black mb-4">Prototype made with Figma Make.</p>
+                
+                <!-- Video -->
+                <div class="border border-black">
+                    <video 
+                        class="w-full h-auto" 
+                        autoplay 
+                        loop 
+                        muted 
+                        playsinline
+                        controlslist="nodownload"
+                    >
+                        <source src="OM Demo.mp4.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </section>
 
