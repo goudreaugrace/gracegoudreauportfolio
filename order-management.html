@@ -227,51 +227,74 @@
             </div>
 
             <!-- Header Section -->
-            <div class="grid grid-cols-1 lg:grid-cols-[563px_563px] gap-8 lg:gap-[60px] mb-12 md:mb-16">
-                <div>
-                    <h1 class="text-5xl md:text-[72px] leading-[72px] tracking-[-3.6px] text-black">
-                        Order Management
-                    </h1>
-                </div>
-                <div class="space-y-0">
-                    <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Product:</span>
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">Desktop Web App</span>
-                    </div>
-                    <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Role:</span>
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">Primary UX Designer</span>
-                    </div>
-                    <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Timeline:</span>
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">May - Sept 2025</span>
-                    </div>
-                </div>
+            <div class="mb-12 md:mb-16">
+                <h1 class="text-5xl md:text-[72px] leading-[72px] tracking-[-3.6px] text-black">
+                    Order Management
+                </h1>
             </div>
 
-            <!-- TL;DR Section -->
-            <section class="mb-12 md:mb-16 border-t border-black pt-8">
-                <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">TL;DR</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1162px]">
-                    Currently food vendors can email, call, even fax, yes… FAX orders to PepsiCo for large orders of products. That is dated and not working, PepsiCo needed a solution. It is complex, complicated, and a short time line and lots of constraints, making for a high tension, high stress project.
-                </p>
+            <!-- Final Solution Video - Featured at Top -->
+            <section class="mb-8 md:mb-12">
+                <div class="border border-black">
+                    <video 
+                        class="w-full h-auto" 
+                        autoplay 
+                        loop 
+                        muted 
+                        playsinline
+                        controlslist="nodownload"
+                    >
+                        <source src="OMLandingDemo.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </section>
 
-            <!-- My Role Section -->
+            <!-- Metadata Boxes -->
             <section class="mb-12 md:mb-16">
-                <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">My Role</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1157px]">
-                    I worked as the primary designer on this project, learning complicated product requirements, understanding engineering feasibility to create an ideal user experience, asking questions to identify the best user experience along the way.
-                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-[#767676] mb-2">ROLE</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">Primary UX Designer</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-[#767676] mb-2">DURATION</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">May 2025 - Current</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-[#767676] mb-2">TOOL</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">Figma Make, Figma Design</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-[#767676] mb-2">TEAM</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">Product Manager, UX Designers, Engineers, Stakeholders</p>
+                    </div>
+                </div>
             </section>
 
-            <!-- About the Project Section -->
-            <section class="mb-12 md:mb-16 border-t border-black pt-8">
-                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black mb-8">About the Project</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black mb-12 max-w-[943px]">
-                    Foodservice customers place orders through various manual methods - such as emails, faxes, PDF, & photos - which severely limit our ability to automate processing, tracking, and fulfillment
+            <!-- LONG STORY SHORT Section -->
+            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">LONG STORY SHORT</h2>
+                <p class="text-2xl md:text-3xl leading-tight tracking-[-0.5px] text-black mb-8 max-w-[1162px] font-medium">
+                    How can we eliminate manual order submission methods (email, fax, PDF) that prevent automation and create tracking nightmares?
                 </p>
+                <div class="space-y-4 max-w-[1162px]">
+                    <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-[#767676]">
+                        Currently food vendors can email, call, even fax orders to PepsiCo for large orders of products.
+                    </p>
+                    <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-[#767676]">
+                        This dated process severely limits automation, creates tracking issues, and requires constant manual intervention.
+                    </p>
+                    <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-[#767676]">
+                        With a complex system, short timeline, and lots of constraints, this was a high-tension project that needed a modern solution.
+                    </p>
+                </div>
+            </section>
 
+            <!-- RESEARCH Section -->
+            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">RESEARCH</h2>
+                
                 <!-- Statistics -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     <div class="text-center">
@@ -287,30 +310,207 @@
                         <p class="text-lg md:text-xl tracking-[-0.5px] text-black">of Frito-Lay orders are manually submitted</p>
                     </div>
                 </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                    <div>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">→ KEY PAIN POINTS</h3>
+                        <ul class="space-y-5">
+                            <li class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                <strong class="text-black">No standardization:</strong> Each order format is different, requiring manual interpretation and data entry
+                            </li>
+                            <li class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                <strong class="text-black">Communication gaps:</strong> Sales reps and plants operate in silos, leading to miscommunication and delays
+                            </li>
+                            <li class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                <strong class="text-black">Time waste:</strong> Hours spent on manual data entry that could be automated
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">→ KEY INSIGHT</h3>
+                        <div class="space-y-4">
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                The core problem wasn't just the manual methods—it was the lack of a centralized system.
+                            </p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                A web-based solution could standardize order submission, enable real-time tracking, and facilitate communication between all stakeholders.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <!-- The Solution Section -->
-            <section class="mb-12 md:mb-16">
-                <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">The Solution</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[880px] mb-8">
-                    A web app for submitting and managing order which allowed for more automation, better order tracking and communication between plants & sales representatives.
-                </p>
+            <!-- SOLUTION Section -->
+            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">SOLUTION</h2>
                 
-                <p class="text-lg md:text-xl tracking-[-0.5px] text-black mb-4">Prototype made with Figma Make.</p>
+                <!-- Overview -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+                    <div>
+                        <div class="space-y-4">
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                A web application for submitting and managing orders that enables automation, provides real-time tracking, and improves communication between plants and sales representatives.
+                            </p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                The solution standardizes order submission while maintaining flexibility for different customer needs.
+                            </p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black font-semibold mt-6">
+                                Key benefits:
+                            </p>
+                            <ul class="space-y-2 ml-6 list-disc">
+                                <li class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">Reduced manual data entry</li>
+                                <li class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">Improved order accuracy</li>
+                                <li class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">Enhanced visibility throughout the order lifecycle</li>
+                                <li class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">Streamlined communication channels</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Screen Recording 1 -->
+                        <div class="border border-black">
+                            <video 
+                                class="w-full h-auto" 
+                                autoplay 
+                                loop 
+                                muted 
+                                playsinline
+                                controlslist="nodownload"
+                            >
+                                <source src="OMLandingDemo.mov" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Monitoring -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+                    <div>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">→ ORDER MONITORING</h3>
+                        <div class="space-y-4">
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                A comprehensive screen for viewing all orders and their current statuses in one centralized location.
+                            </p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                Users can navigate through orders with powerful filters to personalize their views, making it easy to find specific orders, track progress, and manage workflows efficiently.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Order Monitoring Video -->
+                        <div class="border border-black">
+                            <video 
+                                class="w-full h-auto" 
+                                autoplay 
+                                loop 
+                                muted 
+                                playsinline
+                                controlslist="nodownload"
+                            >
+                                <source src="OrderMonitoringDemo.mov" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modification Request Tracking & Creation -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+                    <div>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">→ MODIFICATION REQUEST TRACKING & CREATION</h3>
+                        <div class="space-y-4">
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                A centralized hub for managing all order modifications in one place.
+                            </p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                Users can view all modification requests, track their status, and create new requests seamlessly—providing complete visibility and control over order changes throughout the process.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Modification Request Video -->
+                        <div class="border border-black">
+                            <video 
+                                class="w-full h-auto" 
+                                autoplay 
+                                loop 
+                                muted 
+                                playsinline
+                                controlslist="nodownload"
+                            >
+                                <source src="ModRequestDemo.mov" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creating a New Order -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+                    <div>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">→ CREATING A NEW ORDER</h3>
+                        <div class="space-y-4">
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                A streamlined workflow for creating orders directly within the tool when needed.
+                            </p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                This feature eliminates the need for external order submission methods, allowing users to input order information directly into the system with a structured, standardized format that ensures accuracy and consistency.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Creating New Order Video -->
+                        <div class="border border-black">
+                            <video 
+                                class="w-full h-auto" 
+                                autoplay 
+                                loop 
+                                muted 
+                                playsinline
+                                controlslist="nodownload"
+                            >
+                                <source src="CreateOrderDemo.mov" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- REFLECTION Section -->
+            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">REFLECTION</h2>
                 
-                <!-- Video -->
-                <div class="border border-black">
-                    <video 
-                        class="w-full h-auto" 
-                        autoplay 
-                        loop 
-                        muted 
-                        playsinline
-                        controlslist="nodownload"
-                    >
-                        <source src="OM Demo.mp4.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <div class="mb-10">
+                    <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">→ CHALLENGES</h3>
+                    <div class="space-y-4 max-w-[880px]">
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            The complexity of the existing order system and the short timeline created significant pressure.
+                        </p>
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            Balancing the ideal user experience with technical constraints and business requirements required constant negotiation and prioritization.
+                        </p>
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            Working with multiple stakeholder groups with different priorities and needs required careful communication and alignment to ensure the solution addressed everyone's core concerns.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">→ WHAT I LEARNED</h3>
+                    <div class="space-y-4 max-w-[880px]">
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            Designing for complex business problems made me realize how important it is to ask questions and have a holistic view of every change and requirement given.
+                        </p>
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            When moving into new markets, learning how to balance when to customize to fit a requirement versus understanding if something already built can fit the requirement.
+                        </p>
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            Learning how to balance engineering feasibility and when to advocate for the designs versus make changes based on engineering constraints.
+                        </p>
+                    </div>
                 </div>
             </section>
 

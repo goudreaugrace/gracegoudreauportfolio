@@ -227,90 +227,234 @@
             </div>
 
             <!-- Header Section -->
-            <div class="grid grid-cols-1 lg:grid-cols-[563px_563px] gap-8 lg:gap-[60px] mb-12 md:mb-16">
-                <div>
+            <div class="mb-12 md:mb-16">
                 <h1 class="text-5xl md:text-[72px] leading-[72px] tracking-[-3.6px] text-black">
                     Forecast Analysis
                 </h1>
-                </div>
-                <div class="space-y-0">
-                    <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Product:</span>
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">Desktop Web App</span>
-                    </div>
-                    <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Role:</span>
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">Primary UX Designer</span>
-                    </div>
-                    <div class="border-b border-[#767676] py-3 flex justify-between items-start gap-4">
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] flex-shrink-0">Timeline:</span>
-                        <span class="text-lg md:text-xl tracking-[-1px] text-[#767676] text-right">July 2024 - Feb 2025</span>
-                    </div>
-                </div>
             </div>
 
-            <!-- TL;DR Section -->
-            <section class="mb-12 md:mb-16 border-t border-black pt-8">
-                <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">TL;DR</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1086px]">
-                    Currently Forecast Analysts are dependent on data scientists to do their job. Creating the tool Forecast Analysis UI (FA UI) removes the dependency and allows Forecast Analysts to do their job more efficiently.
-                </p>
-            </section>
-
-            <!-- My Role Section -->
+            <!-- Metadata Boxes -->
             <section class="mb-12 md:mb-16">
-                <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">My Role</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1157px]">
-                    I worked as the primary designer on this project, learning complicated product requirements, understanding engineering feasibility to create an ideal user experience, asking questions to identify the best user experience along the way.
-                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-[#767676] mb-2">ROLE</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">Primary UX Designer</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-[#767676] mb-2">DURATION</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">July 2024 - Feb 2025</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-[#767676] mb-2">TOOL</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">Figma, Data Visualization</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-[#767676] mb-2">TEAM</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">Product Manager, UX Designers, Engineers, Stakeholders</p>
+                    </div>
+                </div>
             </section>
 
-            <!-- About the Project Section -->
-            <section class="mb-12 md:mb-16 border-t border-black pt-8">
-                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black mb-8">About the Project</h2>
-                <p class="text-xl md:text-2xl leading-tight tracking-[-0.5px] text-black mb-12 max-w-[975px]">
-                    Forecast Analyst (FA) UI changes the amount of work and workload and dependency between Forecast Analysts and Data Science allowing Forecast Analysts to do their job without a dependency
+            <!-- LONG STORY SHORT Section -->
+            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">LONG STORY SHORT</h2>
+                <p class="text-2xl md:text-3xl leading-tight tracking-[-0.5px] text-black mb-8 max-w-[1086px] font-medium">
+                    How can we remove the dependency between Forecast Analysts and Data Scientists so Analysts can work independently?
+                </p>
+                <div class="space-y-4 max-w-[1086px]">
+                    <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-[#767676]">
+                        Currently Forecast Analysts are dependent on data scientists to perform their core responsibilities.
+                    </p>
+                    <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-[#767676]">
+                        Creating Forecast Analysis UI (FA UI) removes this dependency and allows Forecast Analysts to work more efficiently and independently.
+                    </p>
+                    <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-[#767676]">
+                        Data Scientists can focus on model enhancement rather than routine tasks.
+                    </p>
+                </div>
+            </section>
+
+            <!-- RESEARCH Section -->
+            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">RESEARCH</h2>
+                
+                <!-- Workflow Diagram -->
+                <div class="flex justify-center mb-12">
+                    <div class="border border-black">
+                        <img src="FA UI Workload.png" alt="Workflow Diagram showing dependency reduction" class="max-w-full h-auto">
+                    </div>
+                </div>
+                <p class="text-base md:text-lg tracking-[-0.5px] text-[#767676] text-center mb-12">
+                    Workflow diagram illustrating how FA UI reduces dependency between Forecast Analysts and Data Scientists
                 </p>
 
-                <!-- Diagram -->
-                <div class="flex justify-center mb-12">
-                    <img src="FA UI Workload.png" alt="Workflow Diagram" class="max-w-full h-auto">
-                </div>
-
-                <!-- Definitions -->
-                <div class="space-y-0">
+                <!-- Role Definitions -->
+                <div class="space-y-0 mb-12">
                     <div class="border-b border-black py-6 md:py-8 px-4">
                         <h3 class="text-2xl md:text-[37px] tracking-[-0.03em] text-black mb-4">Data Scientist</h3>
-                        <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1074px]">
-                            a Data Scientist owns the forecasting models and logics in the PFE and enhances models and capabilities based on Forecast Analysis feedback to support forecast improvement
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black max-w-[1074px]">
+                            A Data Scientist owns the forecasting models and logics in the PFE and enhances models and capabilities based on Forecast Analysis feedback to support forecast improvement.
                         </p>
                     </div>
                     <div class="py-6 md:py-8 px-4">
                         <h3 class="text-2xl md:text-[37px] tracking-[-0.03em] text-black mb-4">Forecast Analyst</h3>
-                        <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[1126px]">
-                            a Forecast Analyst ensures the driver based forecast quality and drives its continuous improvement adjusting forecast engine configuration and working with Data Scientists and Demand Planners.
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black max-w-[1126px]">
+                            A Forecast Analyst ensures the driver-based forecast quality and drives its continuous improvement by adjusting forecast engine configuration and working with Data Scientists and Demand Planners.
                         </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                    <div>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">→ PAIN POINTS</h3>
+                        <ul class="space-y-5">
+                            <li class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                <strong class="text-black">Bottleneck dependency:</strong> Forecast Analysts cannot proceed with their work until Data Scientists complete requests
+                            </li>
+                            <li class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                <strong class="text-black">Limited autonomy:</strong> Analysts understand what they need but can't execute it themselves
+                            </li>
+                            <li class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                <strong class="text-black">Inefficient resource use:</strong> Data Scientists spend time on routine tasks instead of model enhancement
+                            </li>
+                            <li class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                <strong class="text-black">Delayed improvements:</strong> Forecast quality improvements are delayed by dependency chains
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">→ KEY INSIGHT</h3>
+                        <div class="space-y-4">
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            Forecast Analysts have the domain knowledge to make decisions but lack the technical interface to execute experiments and analyses.
+                            </p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            By creating a self-service tool that abstracts the complexity while maintaining the power, we could enable independence without requiring Data Scientist intervention for routine tasks.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- The Solution Section -->
-            <section class="mb-12 md:mb-16">
-                <h2 class="text-2xl md:text-[30px] tracking-[-0.02em] text-black mb-6">The Solution</h2>
-                <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-black max-w-[880px]">
-                    A web app for submitting and managing order which allowed for more automation, better order tracking and communication between plants & sales representatives.
-                </p>
+            <!-- SOLUTION Section -->
+            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">SOLUTION</h2>
+                
+                <!-- Overview -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+                    <div>
+                        <div class="space-y-4">
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                Forecast Analysis UI (FA UI) is a web application that enables Forecast Analysts to independently run experiments, analyze forecast data, and make configuration adjustments without requiring Data Scientist intervention.
+                            </p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                The solution provides a user-friendly interface that abstracts the underlying complexity while maintaining the analytical power Forecast Analysts need.
+                            </p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                This empowers them to work autonomously while freeing Data Scientists to focus on model enhancement and strategic improvements.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Overview Image Placeholder -->
+                        <div class="border-2 border-dashed border-[#767676] bg-gray-50 p-8 flex items-center justify-center h-full min-h-[300px]">
+                            <div class="text-center">
+                                <p class="text-base md:text-lg tracking-[-0.5px] text-[#767676]">[PLACEHOLDER: Image]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Features -->
+                <div class="mb-12">
+                    <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-8 font-semibold">→ KEY FEATURES</h3>
+                    
+                    <!-- Feature 1: Experiment Request Interface -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+                        <div>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black mb-4 font-semibold">Experiment Request Interface</p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                A structured interface that allows Forecast Analysts to request and configure experiments without needing to understand the underlying technical implementation.
+                            </p>
+                        </div>
+                        <div>
+                            <!-- Experiment Request Interface Image -->
+                            <div class="border border-black">
+                                <img src="Request Experiment -_ Base.png" alt="Experiment Request Interface" class="w-full h-auto">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2: Data Analysis Tools -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+                        <div>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black mb-4 font-semibold">Data Analysis Tools</p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                Self-service data visualization and analysis capabilities that enable Forecast Analysts to explore forecast data and identify improvement opportunities independently.
+                            </p>
+                        </div>
+                        <div>
+                            <!-- Data Analysis Tools Image Placeholder -->
+                            <div class="border-2 border-dashed border-[#767676] bg-gray-50 p-8 flex items-center justify-center h-full min-h-[300px]">
+                                <div class="text-center">
+                                    <p class="text-base md:text-lg tracking-[-0.5px] text-[#767676]">[PLACEHOLDER: Image]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3: Configuration Management -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+                        <div>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black mb-4 font-semibold">Configuration Management</p>
+                            <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                                Tools for adjusting forecast engine configuration that abstract complexity while maintaining the flexibility Analysts need to optimize forecasts.
+                            </p>
+                        </div>
+                        <div>
+                            <!-- Configuration Management Image Placeholder -->
+                            <div class="border-2 border-dashed border-[#767676] bg-gray-50 p-8 flex items-center justify-center h-full min-h-[300px]">
+                                <div class="text-center">
+                                    <p class="text-base md:text-lg tracking-[-0.5px] text-[#767676]">[PLACEHOLDER: Image]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <!-- Design Iterations -->
-            <section class="mb-16 md:mb-24">
-                <h3 class="text-lg md:text-xl tracking-[-0.5px] text-black mb-6">Design Iterations</h3>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="border border-neutral-100">
-                        <img src="Request Experiment -_ Base.png" alt="Design Iteration 1" class="w-full h-auto">
+            <!-- REFLECTION Section -->
+            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">REFLECTION</h2>
+                
+                <div class="mb-10">
+                    <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">→ CHALLENGES</h3>
+                    <div class="space-y-4 max-w-[880px]">
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            Balancing simplicity with functionality was challenging. Forecast Analysts needed powerful tools but couldn't handle the complexity that Data Scientists work with.
+                        </p>
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            Finding the right level of abstraction required careful consideration of what to expose and what to hide.
+                        </p>
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            Working with complex data visualization requirements while maintaining usability required multiple iterations and close collaboration with both user groups to ensure the solution met everyone's needs.
+                        </p>
                     </div>
-                    <div class="border border-neutral-100">
-                        <img src="Request Experiment -_ Experiment Design.png" alt="Design Iteration 2" class="w-full h-auto">
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">→ WHAT I LEARNED</h3>
+                    <div class="space-y-4 max-w-[880px]">
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            This project taught me the importance of understanding the full ecosystem before designing. The dependency problem wasn't just about tools—it was about workflow, communication, and resource allocation.
+                        </p>
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            Solving it required thinking about how both teams work, not just one.
+                        </p>
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            Designing for domain experts who aren't technical experts requires careful abstraction. The challenge is maintaining the power they need while hiding complexity they don't need to understand. This project reinforced that good UX for internal tools is just as important as consumer-facing products.
+                        </p>
                     </div>
                 </div>
             </section>
