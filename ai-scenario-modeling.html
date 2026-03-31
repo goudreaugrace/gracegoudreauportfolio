@@ -392,18 +392,21 @@
             </section>
 
             <!-- Final Solution Video - Featured at Top -->
-            <section class="mb-12 md:mb-16" aria-labelledby="video-workspace-label">
-                <p id="video-workspace-label" class="text-sm tracking-[0.08em] uppercase text-black mb-3">Workspace overview</p>
+            <section class="mb-12 md:mb-16" aria-labelledby="video-product-demo-label">
+                <p id="video-product-demo-label" class="text-sm tracking-[0.08em] uppercase text-black mb-3">Product demo</p>
                 <div class="border border-black">
                     <video
                         class="w-full h-auto"
+                        src="AIScenarioModelingDemo.mov"
                         autoplay
                         loop
                         muted
                         playsinline
+                        preload="auto"
+                        controls
                         controlslist="nodownload"
+                        poster="gtm-scenario-workspace.png"
                     >
-                        <source src="GTMScenarioWorkspaceDemo.mov" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -512,7 +515,7 @@
             <section id="solution" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">SOLUTION (PHASE 1)</h2>
                 <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black mb-10">
-                    Phase 1 is a <strong class="font-semibold">manual, step-by-step flow</strong>: people define scope, choose stores, read baseline truth, run scenarios with chosen or default parameters, read results against that baseline, and compare runs. Nothing is “magic” yet—but that loop produces the structured data and habits the product needs before <strong class="font-semibold">predictive scenario modeling</strong> can land. The workspace video above is where work is listed and picked up; the clip here walks the core modeling path.
+                    Phase 1 is a <strong class="font-semibold">manual, step-by-step flow</strong>: people define scope, choose stores, read baseline truth, run scenarios with chosen or default parameters, read results against that baseline, and compare runs. Nothing is “magic” yet—but that loop produces the structured data and habits the product needs before <strong class="font-semibold">predictive scenario modeling</strong> can land. The product demo above shows the workspace and scenario flow; the clip here walks the core modeling path.
                 </p>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 items-start">
@@ -568,13 +571,15 @@
                         <div class="border border-black">
                             <video
                                 class="w-full h-auto"
+                                src="ModelingDemo.mov"
                                 autoplay
                                 loop
                                 muted
                                 playsinline
+                                preload="auto"
+                                controls
                                 controlslist="nodownload"
                             >
-                                <source src="ScenarioModelingDemo.mov" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -740,6 +745,18 @@
         function showContent() {
             document.getElementById('passwordScreen').style.display = 'none';
             document.getElementById('mainContent').style.display = 'block';
+            // Autoplay often fails while content was display:none; start playback after layout.
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    document.querySelectorAll('#mainContent video').forEach(function (video) {
+                        video.load();
+                        var playPromise = video.play();
+                        if (playPromise && typeof playPromise.catch === 'function') {
+                            playPromise.catch(function () {});
+                        }
+                    });
+                });
+            });
         }
     </script>
 </body>
