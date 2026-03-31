@@ -22,4 +22,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Exceeds GitHub 100MB per-file limit; add via Git LFS or host externally, then update src in ai-scenario-modeling.html if needed
+GTMScenarioWorkspaceDemo.mov
+
 

@@ -34,11 +34,95 @@
             border-color: black;
         }
 
-        /* Sticky back button */
-        .sticky-back-button {
+        /* Case study: sticky subnav (back + section links) */
+        .case-sticky-cluster {
             position: sticky;
-            top: 60px;
+            top: 49px;
             z-index: 40;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-sizing: border-box;
+            margin-bottom: 1.75rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid black;
+            margin-left: -1rem;
+            margin-right: -1rem;
+        }
+        @media (min-width: 768px) {
+            .case-sticky-cluster {
+                top: 51px;
+                gap: 1rem;
+                margin-bottom: 2rem;
+                margin-left: -15px;
+                margin-right: -15px;
+                padding: 0.5rem 15px;
+            }
+        }
+        .case-toc {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            align-self: center;
+            border-left: 1px solid #111;
+            padding-left: 0.75rem;
+            min-height: 0;
+        }
+        @media (min-width: 768px) {
+            .case-toc {
+                padding-left: 1rem;
+            }
+        }
+        .case-toc-inner {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 0.75rem 1.125rem;
+            font-size: 0.8125rem;
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
+            min-height: 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .case-toc-inner::-webkit-scrollbar {
+            display: none;
+        }
+        .case-toc a {
+            flex-shrink: 0;
+            white-space: nowrap;
+            color: #111;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease, opacity 0.2s ease;
+        }
+        .case-toc a:hover {
+            border-bottom-color: #111;
+        }
+        .case-sticky-cluster .case-back-link {
+            font-size: 0.8125rem;
+        }
+        .case-back-link {
+            text-decoration: none;
+            color: #111;
+            line-height: 1.2;
+            padding: 0;
+            transition: opacity 0.2s ease;
+        }
+        .case-back-link:hover {
+            opacity: 0.6;
+        }
+        .case-back-link:focus-visible {
+            outline: 2px solid #111;
+            outline-offset: 3px;
         }
 
         /* Button hover effect - top to bottom fill */
@@ -219,11 +303,17 @@
 
         <!-- Main Container -->
         <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
-            <!-- Sticky Back Button -->
-            <div class="sticky-back-button mb-4 md:mb-6">
-                <a href="/#featured-work" class="primary-button inline-flex items-center gap-2 border border-black bg-white px-4 py-2">
-                    <span class="text-base tracking-[-0.5px] text-black">← Back</span>
-                </a>
+            <div class="case-sticky-cluster">
+                <a href="/#featured-work" class="case-back-link shrink-0 inline-flex items-center tracking-[-0.5px]">← Back</a>
+                <nav class="case-toc" aria-label="Jump to sections">
+                    <div class="case-toc-inner">
+                        <a href="#overview">Overview</a>
+                        <a href="#story">Story</a>
+                        <a href="#research">Research</a>
+                        <a href="#solution">Solution</a>
+                        <a href="#reflection">Reflection</a>
+                    </div>
+                </nav>
             </div>
 
             <!-- Header Section -->
@@ -234,7 +324,7 @@
             </div>
 
             <!-- Metadata Boxes -->
-            <section class="mb-12 md:mb-16">
+            <section id="overview" class="mb-12 md:mb-16 scroll-mt-32">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <div class="border border-black p-4 md:p-6">
                         <p class="text-sm md:text-base tracking-[-0.5px] text-[#767676] mb-2">ROLE</p>
@@ -256,7 +346,7 @@
             </section>
 
             <!-- LONG STORY SHORT Section -->
-            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+            <section id="story" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">LONG STORY SHORT</h2>
                 <p class="text-2xl md:text-3xl leading-tight tracking-[-0.5px] text-black mb-8 max-w-[1086px] font-medium">
                     How can we remove the dependency between Forecast Analysts and Data Scientists so Analysts can work independently?
@@ -275,7 +365,7 @@
             </section>
 
             <!-- RESEARCH Section -->
-            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+            <section id="research" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">RESEARCH</h2>
                 
                 <!-- Workflow Diagram -->
@@ -338,7 +428,7 @@
             </section>
 
             <!-- SOLUTION Section -->
-            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+            <section id="solution" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">SOLUTION</h2>
                 
                 <!-- Overview -->
@@ -419,7 +509,7 @@
             </section>
 
             <!-- REFLECTION Section -->
-            <section class="mb-16 md:mb-20 border-t border-black pt-8">
+            <section id="reflection" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">REFLECTION</h2>
                 
                 <div class="mb-10">

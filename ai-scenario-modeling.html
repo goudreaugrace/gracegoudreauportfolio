@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Scenario Modeling - Grace Goudreau</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            font-variation-settings: 'wdth' 100;
+        }
+
+        .password-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .content-container {
+            display: none;
+        }
+
+        .password-input {
+            outline: none;
+        }
+
+        .password-input:focus {
+            border-color: black;
+        }
+
+        /* Back + jump links: one row, height hugs content; links scroll horizontally instead of wrapping */
+        .case-sticky-cluster {
+            position: sticky;
+            top: 49px;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-sizing: border-box;
+            margin-bottom: 1.75rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid black;
+            margin-left: -1rem;
+            margin-right: -1rem;
+        }
+        @media (min-width: 768px) {
+            .case-sticky-cluster {
+                top: 51px;
+                gap: 1rem;
+                margin-bottom: 2rem;
+                margin-left: -15px;
+                margin-right: -15px;
+                padding: 0.5rem 15px;
+            }
+        }
+
+        .submit-button, .primary-button {
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+        }
+
+        .submit-button::before, .primary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: black;
+            transition: height 0.4s ease;
+            z-index: 0;
+        }
+
+        .submit-button:hover::before, .primary-button:hover::before {
+            height: 100%;
+        }
+
+        .submit-button span, .primary-button span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .submit-button:hover span, .primary-button:hover span {
+            color: white;
+        }
+
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #111111;
+            opacity: 0.75;
+        }
+
+        .linkedin-link {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .linkedin-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color: black;
+            transition: width 0.3s ease;
+            right: 0;
+            left: auto;
+        }
+
+        .linkedin-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 46px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid black;
+            padding: 1.5rem 1rem 1rem 1rem;
+            z-index: 45;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex !important;
+            }
+            .desktop-nav {
+                display: none !important;
+            }
+        }
+
+        .case-toc {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            align-self: center;
+            border-left: 1px solid #111;
+            padding-left: 0.75rem;
+            min-height: 0;
+        }
+        @media (min-width: 768px) {
+            .case-toc {
+                padding-left: 1rem;
+            }
+        }
+        .case-toc-inner {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 0.75rem 1.125rem;
+            font-size: 0.8125rem;
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
+            min-height: 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .case-toc-inner::-webkit-scrollbar {
+            display: none;
+        }
+        .case-toc a {
+            flex-shrink: 0;
+            white-space: nowrap;
+            color: #111;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease, opacity 0.2s ease;
+        }
+        .case-toc a:hover {
+            border-bottom-color: #111;
+        }
+
+        .case-sticky-cluster .case-back-link {
+            font-size: 0.8125rem;
+        }
+        .case-back-link {
+            text-decoration: none;
+            color: #111;
+            line-height: 1.2;
+            padding: 0;
+            transition: opacity 0.2s ease;
+        }
+        .case-back-link:hover {
+            opacity: 0.6;
+        }
+        .case-back-link:focus-visible {
+            outline: 2px solid #111;
+            outline-offset: 3px;
+        }
+
+        .section-alt {
+            background: #fafafa;
+            margin-left: -1rem;
+            margin-right: -1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (min-width: 768px) {
+            .section-alt {
+                margin-left: -15px;
+                margin-right: -15px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
+        .timeline-track {
+            position: relative;
+        }
+        .timeline-step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+        }
+        @media (min-width: 1024px) {
+            .timeline-step {
+                gap: 1.25rem;
+            }
+        }
+        .timeline-step:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-badge {
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #111;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Password Protection Screen -->
+    <div id="passwordScreen" class="password-container">
+        <div class="max-w-md w-full px-6">
+            <h1 class="text-4xl md:text-5xl tracking-[-0.5px] text-black mb-4 text-center">AI Scenario Modeling</h1>
+            <p class="text-lg tracking-[-0.5px] text-black mb-8 text-center">This project is password protected</p>
+
+            <div class="border border-black p-8">
+                <label for="password" class="block text-lg tracking-[-0.5px] text-black mb-3">Enter Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    class="password-input w-full border border-black px-4 py-3 text-lg tracking-[-0.5px] text-black mb-4"
+                    placeholder="Password"
+                    onkeypress="if(event.key === 'Enter') checkPassword()"
+                >
+                <div id="errorMessage" class="error-message hidden">Incorrect password. Please try again.</div>
+                <button
+                    onclick="checkPassword()"
+                    class="submit-button w-full border border-black bg-white px-4 py-3 mt-4"
+                >
+                    <span class="text-lg tracking-[-0.5px] text-black">Submit</span>
+                </button>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="/" class="text-lg tracking-[-0.5px] text-black hover:opacity-70 transition-opacity">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden until password is correct) -->
+    <div id="mainContent" class="content-container">
+        <nav class="w-full bg-white fixed top-0 z-50">
+        <div class="max-w-[1271px] mx-auto flex">
+            <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
+                <a href="/" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-black transition-colors">Grace Goudreau</a>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+                <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
+                    <a href="/#featured-work" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                    <a href="design-process.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">My Design Process</a>
+                    <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
+                </div>
+            </div>
+        </nav>
+
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="/#featured-work" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-black transition-colors" onclick="toggleMobileMenu()">Work</a>
+            <a href="design-process.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-black transition-colors" onclick="toggleMobileMenu()">My Design Process</a>
+            <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-black transition-colors" onclick="toggleMobileMenu()">Resume</a>
+        </div>
+
+        <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
+            <div class="case-sticky-cluster">
+                <a href="/#featured-work" class="case-back-link shrink-0 inline-flex items-center tracking-[-0.5px]">← Back</a>
+                <nav class="case-toc" aria-label="Jump to sections">
+                    <div class="case-toc-inner">
+                        <a href="#about">About</a>
+                        <a href="#problem">Problem</a>
+                        <a href="#challenge">Challenge</a>
+                        <a href="#solution">Solution</a>
+                        <a href="#collaboration">Collaboration</a>
+                        <a href="#reflection">Reflection</a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Header Section -->
+            <div class="mb-10 md:mb-14">
+                <h1 class="text-5xl md:text-[72px] leading-[72px] tracking-[-3.6px] text-black">
+                    AI Scenario Modeling
+                </h1>
+                <p class="text-xl md:text-2xl leading-snug tracking-[-0.5px] text-black mt-6 md:mt-8">
+                    Building the first chapter of PepsiCo’s GTM Scenario Tool—where scenario work earns a real home, and where predictive modeling has room to grow.
+                </p>
+            </div>
+
+            <!-- Metadata Boxes -->
+            <section class="mb-8 md:mb-12">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-black mb-2">ROLE</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">Lead UX Designer</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-black mb-2">DURATION</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">February 2026 – Present</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-black mb-2">TOOL</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">Figma, Figma MCP, Cursor</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm md:text-base tracking-[-0.5px] text-black mb-2">TEAM</p>
+                        <p class="text-base md:text-lg tracking-[-0.5px] text-black">Google, PepsiCo, Product, Engineering</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Solution Video - Featured at Top -->
+            <section class="mb-12 md:mb-16" aria-labelledby="video-workspace-label">
+                <p id="video-workspace-label" class="text-sm tracking-[0.08em] uppercase text-black mb-3">Workspace overview</p>
+                <div class="border border-black">
+                    <video
+                        class="w-full h-auto"
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                        controlslist="nodownload"
+                    >
+                        <source src="GTMScenarioWorkspaceDemo.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
+
+            <!-- About the project -->
+            <section id="about" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">ABOUT THE PROJECT</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start mb-10">
+                    <div class="lg:col-span-7">
+                        <p class="text-2xl md:text-3xl leading-tight tracking-[-0.5px] text-black mb-6 font-medium">
+                            When plans have to lock, can the org still show <em>one</em> clear picture of scenarios—or only a patchwork of files and threads?
+                        </p>
+                        <div class="space-y-4 text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black">
+                            <p>
+                                Scenario work splinters across tools and conversations; ownership and truth get fuzzy right when leadership needs alignment.
+                            </p>
+                            <p>
+                                The bet is <strong class="font-medium">predictive scenario modeling</strong>. <strong class="font-medium">Phase 1</strong> doesn’t ship that yet—it builds the governed workspace first. I lead UX with Google and PepsiCo.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 border border-black p-6 md:p-8 bg-[#fafafa]" aria-hidden="true">
+                        <p class="text-xs tracking-[0.12em] uppercase text-black mb-6">From fragmented → aligned</p>
+                        <svg viewBox="0 0 320 200" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="24" width="72" height="44" stroke="#111" stroke-width="1"/>
+                            <rect x="96" y="12" width="56" height="36" stroke="#111" stroke-width="1"/>
+                            <rect x="168" y="32" width="64" height="40" stroke="#111" stroke-width="1"/>
+                            <rect x="248" y="20" width="48" height="48" stroke="#111" stroke-width="1"/>
+                            <path d="M160 120v12M160 132l-6-8M160 132l6-8" stroke="#111" stroke-width="1"/>
+                            <rect x="88" y="152" width="144" height="36" stroke="#111" stroke-width="2"/>
+                        </svg>
+                        <p class="text-center text-sm tracking-[-0.3px] text-black mt-4">One governed workspace</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Problem & intent -->
+            <section id="problem" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">PROBLEM &amp; INTENT</h2>
+                <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black mb-10">
+                    From <strong class="text-black font-medium">deterministic &amp; manual</strong> to <strong class="text-black font-medium">predictive &amp; guided</strong>—so people log in and see what models ran and what needs attention, not just another crowded UI. <strong class="text-black font-medium">Phase 1</strong> doesn’t ship that yet; it builds the governed workspace so prediction has somewhere credible to land.
+                </p>
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 lg:gap-10">
+                    <div class="border border-black p-6 md:p-8">
+                        <h3 class="text-lg md:text-xl tracking-[-0.5px] text-black font-semibold mb-5">Today — deterministic &amp; manual</h3>
+                        <ul class="space-y-3 text-base md:text-lg leading-[1.4] tracking-[-0.5px] text-black list-disc pl-5">
+                            <li>Heavy manual work, complicated interactions, <strong class="text-black font-medium">no predictions</strong></li>
+                            <li>Scenarios and context splinter across tools; ownership and status get lost</li>
+                        </ul>
+                    </div>
+                    <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 items-center justify-center w-12 h-12 bg-white border border-black" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M5 12h12M13 6l6 6-6 6" stroke="#111" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div class="border border-black p-6 md:p-8 bg-[#fafafa]">
+                        <h3 class="text-lg md:text-xl tracking-[-0.5px] text-black font-semibold mb-5">Where we’re headed — predictive &amp; guided</h3>
+                        <ul class="space-y-3 text-base md:text-lg leading-[1.4] tracking-[-0.5px] text-black list-disc pl-5">
+                            <li><strong class="font-semibold">Predictive modeling</strong> in-product—runs, deltas, and what to act on</li>
+                            <li>On login: <strong class="font-semibold">what the model ran</strong> and <strong class="font-semibold">what deserves attention</strong></li>
+                            <li><strong class="font-semibold">Phase 1</strong> workspace (scenarios, portfolio, status) becomes the shell for that guidance</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black mt-10">
+                    That work lives in the <strong class="font-semibold">GTM Scenario Tool</strong>: a <strong class="font-semibold">scenario</strong> here is a real object in the product—bounded “what if” work that can be owned, tracked, and compared—not a slide title. Phase 1 is how that vocabulary shows up in the UI.
+                </p>
+            </section>
+
+            <!-- The Challenge -->
+            <section id="challenge" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">THE CHALLENGE</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                    <div class="border border-black p-6 flex flex-col">
+                        <div class="mb-5 text-black" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 4L6 10v10c0 8.5 6 15.5 14 17 8-1.5 14-8.5 14-17V10L20 4z" stroke="#111" stroke-width="1.2"/><path d="M20 14v8M20 26h.02" stroke="#111" stroke-width="1.2" stroke-linecap="round"/></svg>
+                        </div>
+                        <p class="text-sm tracking-[0.08em] uppercase text-black mb-3">Trust</p>
+                        <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black flex-1">
+                            <strong class="font-semibold">Credibility under pressure:</strong> high-stakes planning—every label and state builds trust or erodes it while models evolve.
+                        </p>
+                    </div>
+                    <div class="border border-black p-6 flex flex-col bg-[#fafafa]">
+                        <div class="mb-5 text-black" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="5" stroke="#111" stroke-width="1.2"/><circle cx="26" cy="14" r="5" stroke="#111" stroke-width="1.2"/><path d="M10 28c2-4 6-6 10-6s8 2 10 6" stroke="#111" stroke-width="1.2"/></svg>
+                        </div>
+                        <p class="text-sm tracking-[0.08em] uppercase text-black mb-3">One workspace</p>
+                        <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black flex-1">
+                            <strong class="font-semibold">Novices and power users together:</strong> first-time scenario owners and daily operators share the same home.
+                        </p>
+                    </div>
+                    <div class="border border-black p-6 flex flex-col md:col-span-1">
+                        <div class="mb-5 text-black" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 28V12l8-6 8 6v16" stroke="#111" stroke-width="1.2"/><path d="M16 20h8v8H16z" stroke="#111" stroke-width="1.2"/><path d="M28 12l4 4v12H8V16l4-4" stroke="#111" stroke-width="1.2" stroke-dasharray="2 2"/></svg>
+                        </div>
+                        <p class="text-sm tracking-[0.08em] uppercase text-black mb-3">Portfolios</p>
+                        <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black flex-1">
+                            <strong class="font-semibold">Different realities:</strong> GTM and supply constraints still need to read as <em>one</em> leadership picture.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SOLUTION (Phase 1) -->
+            <section id="solution" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">SOLUTION (PHASE 1)</h2>
+                <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black mb-10">
+                    Phase 1 is a <strong class="font-semibold">manual, step-by-step flow</strong>: people define scope, choose stores, read baseline truth, run scenarios with chosen or default parameters, read results against that baseline, and compare runs. Nothing is “magic” yet—but that loop produces the structured data and habits the product needs before <strong class="font-semibold">predictive scenario modeling</strong> can land. The workspace video above is where work is listed and picked up; the clip here walks the core modeling path.
+                </p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 items-start">
+                    <div class="timeline-track">
+                        <div class="timeline-step">
+                            <span class="timeline-badge" aria-hidden="true">01</span>
+                            <div>
+                                <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-3 font-semibold">Create &amp; scope</h3>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">
+                                    Define scope, then <strong class="font-semibold">select stores</strong> or <strong class="font-semibold">upload a list</strong> for the run.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <span class="timeline-badge" aria-hidden="true">02</span>
+                            <div>
+                                <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-3 font-semibold">Baseline</h3>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">
+                                    <strong class="font-semibold">Baseline data</strong>—actuals for those stores in the <strong class="font-semibold">selected period</strong>—before anything changes.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <span class="timeline-badge" aria-hidden="true">03</span>
+                            <div>
+                                <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-3 font-semibold">Run</h3>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">
+                                    <strong class="font-semibold">Adjust parameters</strong> or <strong class="font-semibold">run with defaults</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <span class="timeline-badge" aria-hidden="true">04</span>
+                            <div>
+                                <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-3 font-semibold">Results</h3>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">
+                                    <strong class="font-semibold">Executive summary</strong> vs the baseline—did the scenario work?
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <span class="timeline-badge" aria-hidden="true">05</span>
+                            <div>
+                                <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-3 font-semibold">Compare</h3>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">
+                                    <strong class="font-semibold">Two scenarios</strong> side by side—<strong class="font-semibold">where each wins</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:sticky lg:top-36">
+                        <p class="text-sm tracking-[0.08em] uppercase text-black mb-3">Modeling walkthrough</p>
+                        <div class="border border-black">
+                            <video
+                                class="w-full h-auto"
+                                autoplay
+                                loop
+                                muted
+                                playsinline
+                                controlslist="nodownload"
+                            >
+                                <source src="ScenarioModelingDemo.mov" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black mt-4">
+                            Manual today—structured so prediction has real runs to learn from tomorrow.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section-alt py-10 md:py-12 border-t border-b border-black mb-10">
+                    <div>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">Groundwork for prediction</h3>
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black mb-10">
+                            This manual state is intentional: it <strong class="font-semibold">lays the groundwork</strong> for predictive scenario modeling as <strong class="font-semibold">data accumulates</strong> and the <strong class="font-semibold">AI system is trained</strong> on real runs—not on guesses layered over a broken workflow.
+                        </p>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-6 font-semibold">Where the product goes next</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="border border-black p-5 bg-white">
+                                <p class="text-3xl font-semibold tracking-tight text-black mb-2">01</p>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">Predictive modeling from richer history and trained models</p>
+                            </div>
+                            <div class="border border-black p-5 bg-white">
+                                <p class="text-3xl font-semibold tracking-tight text-black mb-2">02</p>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">Guided experiences tuned to what “attention-worthy” means per portfolio</p>
+                            </div>
+                            <div class="border border-black p-5 bg-white">
+                                <p class="text-3xl font-semibold tracking-tight text-black mb-2">03</p>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">Automation and AI steps on the same baseline / compare model Phase 1 establishes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COLLABORATION -->
+            <section id="collaboration" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">COLLABORATION: GOOGLE × PEPSICO</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                    <div class="border border-black p-8 md:p-10 flex flex-col justify-center min-h-[140px]">
+                        <p class="text-xs tracking-[0.12em] uppercase text-black mb-2">Partner</p>
+                        <p class="text-2xl md:text-3xl font-semibold tracking-tight text-black">PepsiCo</p>
+                        <p class="text-base md:text-lg text-black mt-3 leading-snug">Ground truth on how work really happens</p>
+                    </div>
+                    <div class="border border-black p-8 md:p-10 flex flex-col justify-center min-h-[140px] bg-[#fafafa]">
+                        <p class="text-xs tracking-[0.12em] uppercase text-black mb-2">Partner</p>
+                        <p class="text-2xl md:text-3xl font-semibold tracking-tight text-black">Google</p>
+                        <p class="text-base md:text-lg text-black mt-3 leading-snug">Patterns, platform scale, and what we owe users</p>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-5 font-semibold">How we work together</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="border border-black p-5">
+                                <p class="text-sm tracking-[0.08em] uppercase text-black mb-2">Cadence</p>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">Standing design and product conversations—not periodic readouts—so feedback lands while it can still change the experience.</p>
+                            </div>
+                            <div class="border border-black p-5">
+                                <p class="text-sm tracking-[0.08em] uppercase text-black mb-2">Critique</p>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">Both sides bring constraints: PepsiCo on operations, Google on scalable patterns and what we owe users when models misbehave.</p>
+                            </div>
+                            <div class="border border-black p-5">
+                                <p class="text-sm tracking-[0.08em] uppercase text-black mb-2">System of record</p>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">One Figma home: components, states, annotations, and accessibility notes that survive into build.</p>
+                            </div>
+                            <div class="border border-black p-5">
+                                <p class="text-sm tracking-[0.08em] uppercase text-black mb-2">Sequencing</p>
+                                <p class="text-base md:text-lg leading-[1.45] tracking-[-0.5px] text-black">Joint sequencing with engineering so Phase 1 ships as a coherent story, not a scattered MVP.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-alt py-8 px-6 md:px-8 border border-black">
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-4 font-semibold">Ownership</h3>
+                        <p class="text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black m-0">
+                            I own the UX narrative end to end: clarifying problems with PepsiCo, pairing with Google on IA and interaction patterns, and insisting the interface stay honest—especially when AI or modeling edges are still catching up. Partners own feasibility and roadmap; I own whether the product still reads as trustworthy when you’re tired and under deadline.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REFLECTION -->
+            <section id="reflection" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-8">REFLECTION</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12">
+                    <div class="border border-black p-8 md:p-10 flex flex-col">
+                        <div class="w-12 h-12 border border-black flex items-center justify-center mb-6" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4v4M12 16v4M4 12h4M16 12h4" stroke="#111" stroke-width="1.2"/></svg>
+                        </div>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-5 font-semibold">Challenges</h3>
+                        <div class="space-y-4 text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black flex-1">
+                            <p>
+                                Balancing work across two teams came with a learning curve—but everyone showed up ready to collaborate, which turned the friction into one of the most valuable parts of the project: learning from new partners and designers while still sharpening my own craft.
+                            </p>
+                            <p>
+                                A collaboration and product shaped like this was a first for PepsiCo, so we were all learning as we went. That made the room genuinely supportive—but “first” still meant ambiguity, course-corrections, and challenges we had to surface and solve together.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border border-black p-8 md:p-10 flex flex-col bg-[#fafafa]">
+                        <div class="w-12 h-12 border border-black bg-white flex items-center justify-center mb-6" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12l4 4L19 6" stroke="#111" stroke-width="1.2"/></svg>
+                        </div>
+                        <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-5 font-semibold">What I’m carrying forward</h3>
+                        <div class="space-y-4 text-lg md:text-xl leading-[1.4] tracking-[-0.5px] text-black flex-1">
+                            <p>
+                                This work isn’t only about <strong class="font-semibold">designing for AI</strong>—it’s about <strong class="font-semibold">designing with AI</strong>. From Phase 2 onward, I want to weave in more AI tooling so handoffs stay faster and clearer for everyone involved.
+                            </p>
+                            <p>
+                                AI-assisted prototypes already improved shared understanding; the next step is handing off front-end code where it makes sense, so design-to-build is tighter end to end.
+                            </p>
+                            <p>
+                                I’m also carrying the collaboration habits—and the excitement—to keep learning and designing alongside others, not in a silo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-8 md:py-16 mb-16">
+                <div class="mb-10">
+                    <div class="w-full h-px bg-black mb-5"></div>
+                    <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.5px] text-black">
+                        goudreaugrace@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl tracking-[-0.5px] text-black w-fit">
+                        LinkedIn
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = "Design";
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            showContent();
+        }
+
+        function checkPassword() {
+            const input = document.getElementById('password');
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (input.value === correctPassword) {
+                sessionStorage.setItem('authenticated', 'true');
+                showContent();
+            } else {
+                errorMessage.classList.remove('hidden');
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        function showContent() {
+            document.getElementById('passwordScreen').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
