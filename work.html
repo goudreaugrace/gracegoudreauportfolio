@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Work - Grace Goudreau</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            font-variation-settings: 'wdth' 100;
+        }
+
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #767676;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 46px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid black;
+            padding: 1.5rem 1rem 1rem 1rem;
+            z-index: 45;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .case-study-card {
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .case-study-card .border-top,
+        .case-study-card .border-right,
+        .case-study-card .border-bottom,
+        .case-study-card .border-left {
+            position: absolute;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
+
+        .case-study-card .border-top {
+            top: 0;
+            left: 0;
+            height: 1px;
+            width: 0;
+        }
+
+        .case-study-card .border-right {
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 0;
+        }
+
+        .case-study-card .border-bottom {
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            width: 0;
+        }
+
+        .case-study-card .border-left {
+            bottom: 0;
+            left: 0;
+            width: 1px;
+            height: 0;
+        }
+
+        .case-study-card:hover .border-top {
+            width: 100%;
+            transition-delay: 0s;
+        }
+
+        .case-study-card:hover .border-right {
+            height: 100%;
+            transition-delay: 0.3s;
+        }
+
+        .case-study-card:hover .border-bottom {
+            width: 100%;
+            transition-delay: 0.6s;
+        }
+
+        .case-study-card:hover .border-left {
+            height: 100%;
+            transition-delay: 0.9s;
+        }
+
+        .work-grid-card {
+            min-height: 540px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .work-grid-media {
+            height: 210px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(49, 93, 255, 0.12), transparent 26%),
+                radial-gradient(circle at 78% 20%, rgba(251, 188, 5, 0.16), transparent 24%),
+                radial-gradient(circle at 70% 82%, rgba(52, 168, 83, 0.14), transparent 24%),
+                #f7f9fb;
+        }
+
+        .work-grid-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .work-grid-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .work-placeholder {
+            height: 100%;
+            padding: 1.5rem;
+            display: grid;
+            gap: 0.75rem;
+            align-content: center;
+        }
+
+        .work-placeholder span {
+            display: block;
+            height: 2.75rem;
+            border: 1px solid #d8dfdc;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.68);
+        }
+
+        .work-placeholder span:nth-child(2) {
+            width: 82%;
+        }
+
+        .work-placeholder span:nth-child(3) {
+            width: 64%;
+        }
+
+        .mini-color-dot {
+            width: 0.72rem;
+            height: 0.72rem;
+            border-radius: 999px;
+            display: inline-block;
+        }
+
+        .dot-blue { background: #4285f4; }
+        .dot-red { background: #ea4335; }
+        .dot-yellow { background: #fbbc05; }
+        .dot-green { background: #34a853; }
+
+        .recruiter-chip {
+            border: 1px solid #d8dfdc;
+            background: #fff;
+            color: #1f2523;
+        }
+
+        .linkedin-link {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .linkedin-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color: black;
+            transition: width 0.3s ease;
+            right: 0;
+            left: auto;
+        }
+
+        .linkedin-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex !important;
+            }
+
+            .desktop-nav {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .work-grid-card {
+                min-height: 500px;
+            }
+
+            .work-grid-media {
+                height: 180px;
+            }
+        }
+    </style>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+    </script>
+    <link rel="stylesheet" href="visual-refresh.css">
+</head>
+<body class="bg-white">
+    <nav class="w-full bg-white fixed top-0 z-50">
+        <div class="max-w-[1271px] mx-auto flex">
+            <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
+                <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
+                <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">About</a>
+                <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+        <a href="about.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">About</a>
+        <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
+    </div>
+
+    <main class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-20 md:pt-24">
+        <header class="mt-8 md:mt-14 mb-12 md:mb-16">
+            <p class="text-sm md:text-base uppercase text-[#315dff] mb-5">All case studies</p>
+            <h1 class="text-5xl md:text-7xl lg:text-[104px] leading-[0.98] text-black max-w-[980px]">
+                Recent Work
+            </h1>
+        </header>
+
+        <section class="mb-24 md:mb-36" aria-label="Recent work">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
+                <a href="my-pepsico-content-agent.html" class="case-study-card work-grid-card border border-black">
+                    <span class="border-top"></span>
+                    <span class="border-right"></span>
+                    <span class="border-bottom"></span>
+                    <span class="border-left"></span>
+                    <div class="work-grid-media" aria-hidden="true">
+                        <div class="work-placeholder">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="work-grid-body p-6 md:p-8">
+                        <div>
+                            <div class="flex items-center gap-2 mb-5">
+                                <span class="mini-color-dot dot-green"></span>
+                                <p class="text-sm uppercase text-black">01 / Product Strategy</p>
+                            </div>
+                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">MyPepsiCo Content Agent</h2>
+                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
+                                A self-initiated POC that turned a manager's workflow pain point into a working content-agent demo now moving toward leadership review.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="recruiter-chip px-3 py-2 text-sm">Initiative</span>
+                            <span class="recruiter-chip px-3 py-2 text-sm">Product Strategy</span>
+                            <span class="recruiter-chip px-3 py-2 text-sm">POC Build</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="ai-scenario-modeling.html" class="case-study-card work-grid-card border border-black">
+                    <span class="border-top"></span>
+                    <span class="border-right"></span>
+                    <span class="border-bottom"></span>
+                    <span class="border-left"></span>
+                    <div class="work-grid-media">
+                        <img src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview">
+                    </div>
+                    <div class="work-grid-body p-6 md:p-8">
+                        <div>
+                            <div class="flex items-center gap-2 mb-5">
+                                <span class="mini-color-dot dot-blue"></span>
+                                <p class="text-sm uppercase text-black">02 / Lead UX + Strategy</p>
+                            </div>
+                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Scenario Modeling Workspace</h2>
+                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
+                                A governed planning workspace for defining scope, comparing runs, and helping teams trust high-stakes scenario work.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="recruiter-chip px-3 py-2 text-sm">Enterprise UX</span>
+                            <span class="recruiter-chip px-3 py-2 text-sm">Product Strategy</span>
+                            <span class="recruiter-chip px-3 py-2 text-sm">Google + PepsiCo</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="order-management.html" class="case-study-card work-grid-card border border-black">
+                    <span class="border-top"></span>
+                    <span class="border-right"></span>
+                    <span class="border-bottom"></span>
+                    <span class="border-left"></span>
+                    <div class="work-grid-media" aria-hidden="true">
+                        <div class="work-placeholder">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="work-grid-body p-6 md:p-8">
+                        <div>
+                            <div class="flex items-center gap-2 mb-5">
+                                <span class="mini-color-dot dot-red"></span>
+                                <p class="text-sm uppercase text-black">03 / Primary UX Design</p>
+                            </div>
+                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Order Management</h2>
+                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
+                                Replaced fragmented order intake with a clearer workflow for submission, tracking, communication, and automation.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="recruiter-chip px-3 py-2 text-sm">Workflow Design</span>
+                            <span class="recruiter-chip px-3 py-2 text-sm">Internal Tools</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="forecast-analysis.html" class="case-study-card work-grid-card border border-black">
+                    <span class="border-top"></span>
+                    <span class="border-right"></span>
+                    <span class="border-bottom"></span>
+                    <span class="border-left"></span>
+                    <div class="work-grid-media">
+                        <img src="FA UI Workload.png" alt="Forecast analysis workflow preview">
+                    </div>
+                    <div class="work-grid-body p-6 md:p-8">
+                        <div>
+                            <div class="flex items-center gap-2 mb-5">
+                                <span class="mini-color-dot dot-yellow"></span>
+                                <p class="text-sm uppercase text-black">04 / Data-heavy UX</p>
+                            </div>
+                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Forecast Analysis</h2>
+                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
+                                A decision-support tool that helps analysts work more independently with complex data and clearer model outputs.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="recruiter-chip px-3 py-2 text-sm">Analytics UX</span>
+                            <span class="recruiter-chip px-3 py-2 text-sm">Decision Support</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="wonder-3d-prints.html" class="case-study-card work-grid-card border border-black">
+                    <span class="border-top"></span>
+                    <span class="border-right"></span>
+                    <span class="border-bottom"></span>
+                    <span class="border-left"></span>
+                    <div class="work-grid-media">
+                        <img src="Wonder3DPrintsHomePage.png" alt="Wonder 3D Prints ecommerce homepage preview">
+                    </div>
+                    <div class="work-grid-body p-6 md:p-8">
+                        <div>
+                            <div class="flex items-center gap-2 mb-5">
+                                <span class="mini-color-dot dot-green"></span>
+                                <p class="text-sm uppercase text-black">05 / Ecommerce UX</p>
+                            </div>
+                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Wonder 3D Prints</h2>
+                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
+                                A fast ecommerce design sprint focused on clearer browsing, trust-building product presentation, and checkout momentum.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="recruiter-chip px-3 py-2 text-sm">Ecommerce</span>
+                            <span class="recruiter-chip px-3 py-2 text-sm">Conversion Flow</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="portfolio-case-study.html" class="case-study-card work-grid-card border border-black">
+                    <span class="border-top"></span>
+                    <span class="border-right"></span>
+                    <span class="border-bottom"></span>
+                    <span class="border-left"></span>
+                    <div class="work-grid-media" aria-hidden="true">
+                        <div class="work-placeholder">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="work-grid-body p-6 md:p-8">
+                        <div>
+                            <div class="flex items-center gap-2 mb-5">
+                                <span class="mini-color-dot dot-blue"></span>
+                                <p class="text-sm uppercase text-black">06 / Design Process</p>
+                            </div>
+                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Portfolio Build</h2>
+                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
+                                A meta case study on using modern design tools, fast prototyping, and handoff thinking to move from concept to responsive site.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="recruiter-chip px-3 py-2 text-sm">Prototyping</span>
+                            <span class="recruiter-chip px-3 py-2 text-sm">Systems Thinking</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <footer class="mb-16 md:mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                <div class="lg:col-span-7">
+                    <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
+                </div>
+                <div class="lg:col-span-5 flex flex-col justify-end gap-4">
+                    <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.5px] text-black">
+                        goudreaugrace@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl tracking-[-0.5px] text-black w-fit">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

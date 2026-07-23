@@ -1,0 +1,234 @@
+:root {
+    --page: #ffffff;
+    --surface: #ffffff;
+    --surface-soft: #eef3f1;
+    --ink: #1f2523;
+    --muted: #66706d;
+    --line: #e4e8e6;
+    --line-strong: #aeb9b5;
+    --accent: #315dff;
+    --accent-soft: #edf1ff;
+    --shadow-soft: 0 18px 45px rgba(31, 37, 35, 0.07);
+}
+
+html {
+    background: var(--page);
+}
+
+body {
+    background: var(--page) !important;
+    color: var(--ink);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+nav,
+.mobile-menu {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.border-black,
+.border-b,
+.border-t,
+.border-l,
+.border-r {
+    border-color: var(--line) !important;
+}
+
+.bg-white {
+    background-color: var(--page) !important;
+}
+
+.bg-black {
+    background-color: var(--ink) !important;
+}
+
+.text-black,
+.text-\[\#111111\] {
+    color: var(--ink) !important;
+}
+
+.text-\[\#767676\],
+.text-\[\#4f4f4f\] {
+    color: var(--muted) !important;
+}
+
+.signal-accent,
+.text-\[\#0057ff\] {
+    color: var(--accent) !important;
+}
+
+.signal-bg,
+.bg-\[\#fafafa\],
+.bg-neutral-100 {
+    background-color: var(--surface-soft) !important;
+}
+
+.signal-border {
+    border-color: var(--accent) !important;
+}
+
+a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+}
+
+.primary-button,
+button,
+input,
+.case-study-card,
+.source-chip,
+.question-button,
+.chat-bubble,
+.timeline-badge,
+.timeline-step,
+section [class*="border"] {
+    border-radius: 8px;
+}
+
+nav [class*="border"],
+.case-sticky-cluster,
+.mobile-menu {
+    border-radius: 0;
+}
+
+.primary-button,
+.case-study-card,
+.question-button,
+input,
+section a[class*="border"],
+section div[class*="border"] {
+    background-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.signal-bg,
+.chat-bubble-assistant,
+section .signal-bg[class*="border"] {
+    background-color: var(--surface-soft) !important;
+}
+
+.case-study-card {
+    border: 1px solid var(--line);
+    box-shadow: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.case-study-card:hover {
+    border-color: var(--line-strong);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-3px);
+}
+
+.case-study-card .border-top,
+.case-study-card .border-right,
+.case-study-card .border-bottom,
+.case-study-card .border-left {
+    display: none;
+}
+
+.primary-button::before,
+.submit-button::before {
+    background-color: var(--accent) !important;
+}
+
+.primary-button,
+.submit-button,
+.question-button,
+section a[class*="hover:bg-black"] {
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.primary-button:hover,
+.submit-button:hover,
+.question-button:hover,
+.question-button.active,
+section a[class*="hover:bg-black"]:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-1px);
+}
+
+.question-button.active,
+.question-button:hover,
+section a[class*="hover:bg-black"]:hover {
+    background-color: var(--accent) !important;
+    color: white !important;
+}
+
+.ask-button {
+    border: 1px dashed #c9cfcc;
+    background: white;
+    color: var(--muted);
+    text-align: left;
+    border-radius: 999px;
+    font-size: clamp(1rem, 1.25vw, 1.2rem) !important;
+    line-height: 1.25 !important;
+    padding: 0.72rem 1.15rem !important;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.ask-button:hover,
+.ask-button.active {
+    background: #f7f9fb !important;
+    border-color: var(--accent) !important;
+    color: var(--ink) !important;
+    transform: translateY(-1px);
+}
+
+section a[class*="hover:bg-black"]:hover * {
+    color: white !important;
+}
+
+.source-chip {
+    background: var(--accent-soft) !important;
+    border-color: rgba(49, 93, 255, 0.22) !important;
+    color: var(--accent) !important;
+}
+
+.chat-bubble-user {
+    background: var(--ink) !important;
+    color: white !important;
+}
+
+.chat-bubble-assistant {
+    background: var(--accent-soft) !important;
+    border-color: rgba(49, 93, 255, 0.22) !important;
+}
+
+.placeholder-grid {
+    background-color: var(--surface);
+    background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px) !important;
+}
+
+h1,
+h2,
+h3 {
+    letter-spacing: 0 !important;
+}
+
+p,
+li,
+a,
+button,
+input,
+span {
+    letter-spacing: 0 !important;
+}
+
+video,
+img {
+    border-radius: 8px;
+}
+
+.case-sticky-cluster {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-color: var(--line) !important;
+}
+
+::selection {
+    background: var(--accent-soft);
+    color: var(--ink);
+}

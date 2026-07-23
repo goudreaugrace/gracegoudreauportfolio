@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grace Goudreau - Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,6 +152,204 @@
             scroll-margin-top: 80px;
         }
 
+        .signal-accent {
+            color: #0057ff;
+        }
+
+        .signal-bg {
+            background: #f4f7ff;
+        }
+
+        .signal-border {
+            border-color: #0057ff;
+        }
+
+        .home-hero-word {
+            display: inline-block;
+            padding: 0 0.08em;
+            border-radius: 0.14em;
+        }
+
+        .home-hero-word.blue {
+            background: #edf1ff;
+        }
+
+        .home-hero-word.green {
+            background: #eaf6ef;
+        }
+
+        .home-hero-word.yellow {
+            background: #fff6d8;
+        }
+
+        .home-hero-word.red {
+            background: #ffeceb;
+        }
+
+        .recruiter-chip {
+            border: 1px solid #d8dfdc;
+            background: #fff;
+            color: #1f2523;
+        }
+
+        .project-preview {
+            min-height: 260px;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(49, 93, 255, 0.12), transparent 26%),
+                radial-gradient(circle at 78% 20%, rgba(251, 188, 5, 0.16), transparent 24%),
+                radial-gradient(circle at 70% 82%, rgba(52, 168, 83, 0.14), transparent 24%),
+                #f7f9fb;
+        }
+
+        .project-preview img {
+            width: 100%;
+            height: 100%;
+            min-height: 260px;
+            object-fit: cover;
+        }
+
+        .mini-color-dot {
+            width: 0.72rem;
+            height: 0.72rem;
+            border-radius: 999px;
+            display: inline-block;
+        }
+
+        .dot-blue { background: #4285f4; }
+        .dot-red { background: #ea4335; }
+        .dot-yellow { background: #fbbc05; }
+        .dot-green { background: #34a853; }
+
+        .work-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 1.5rem;
+        }
+
+        .work-rail-shell {
+            margin-left: -1rem;
+            margin-right: -1rem;
+            overflow: hidden;
+        }
+
+        .work-rail {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 0 1rem 1rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .work-rail::-webkit-scrollbar {
+            display: none;
+        }
+
+        .work-card {
+            flex: 0 0 min(78vw, 340px);
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            scroll-snap-align: start;
+        }
+
+        .work-card-media {
+            height: 150px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(49, 93, 255, 0.12), transparent 26%),
+                radial-gradient(circle at 78% 20%, rgba(251, 188, 5, 0.16), transparent 24%),
+                radial-gradient(circle at 70% 82%, rgba(52, 168, 83, 0.14), transparent 24%),
+                #f7f9fb;
+        }
+
+        .work-card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .work-card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .work-card h3 {
+            font-size: clamp(1.55rem, 2.4vw, 2rem) !important;
+            line-height: 1.08 !important;
+        }
+
+        .work-card p:not(.text-sm) {
+            font-size: 0.98rem !important;
+        }
+
+        .work-card p.text-sm {
+            font-size: 0.76rem !important;
+        }
+
+        .work-card .recruiter-chip {
+            padding: 0.42rem 0.65rem !important;
+            font-size: 0.82rem !important;
+        }
+
+        .work-placeholder {
+            height: 100%;
+            padding: 1.25rem;
+            display: grid;
+            gap: 0.75rem;
+            align-content: center;
+        }
+
+        .work-placeholder span {
+            display: block;
+            height: 2.5rem;
+            border: 1px solid #d8dfdc;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.68);
+        }
+
+        .work-placeholder span:nth-child(2) {
+            width: 82%;
+        }
+
+        .work-placeholder span:nth-child(3) {
+            width: 64%;
+        }
+
+        @media (min-width: 1024px) {
+            .work-row {
+                grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+            }
+
+            .work-rail-shell {
+                margin-left: calc((100vw - min(100vw, 1271px)) / -2);
+                margin-right: calc((100vw - min(100vw, 1271px)) / -2);
+            }
+
+            .work-rail {
+                padding-left: calc((100vw - min(100vw, 1271px)) / 2 + 15px);
+                padding-right: calc((100vw - min(100vw, 1271px)) / 2 + 15px);
+                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .work-card {
+                flex-basis: 82vw;
+                height: 440px;
+            }
+
+            .work-card-media {
+                height: 150px;
+            }
+        }
+
         /* Hamburger menu styles */
         .hamburger {
             display: none;
@@ -224,15 +422,44 @@
                     }
                 });
             });
+
+            const answers = {
+                thinking: "I start by clarifying the decision the product needs to support: who is using it, what they are trying to understand, what is getting in their way, and what the business needs to be true. From there I move into flows, states, hierarchy, and interaction detail.",
+                strengths: "I am strongest where product strategy and UX craft meet. I can zoom out to structure messy problems, then zoom in to make the actual screen, workflow, and handoff feel clear.",
+                collaboration: "I work best as a close partner to product, engineering, data, and business teams. I like bringing people into the design logic early so decisions feel shared, not handed over at the end.",
+                ambiguity: "I turn ambiguity into something teams can react to. That usually means mapping what we know, naming the riskiest assumptions, making lightweight prototypes, and using feedback to narrow the path.",
+                craft: "Good UX craft means the product feels understandable before someone has to think too hard. I care about information hierarchy, edge cases, accessibility, empty states, microcopy, and the small details that make complex work feel calmer.",
+                growth: "I am growing deeper in product strategy, systems thinking, and modern tool-enabled workflows. I want to keep building products where clear design can change how a team makes decisions."
+            };
+
+            const answerText = document.getElementById('askAnswerText');
+            const answerLabel = document.getElementById('askAnswerLabel');
+            const buttons = document.querySelectorAll('[data-answer]');
+
+            function setAnswer(key) {
+                const button = document.querySelector(`[data-answer="${key}"]`);
+                if (!answerText || !answerLabel || !button || !answers[key]) return;
+
+                answerLabel.textContent = button.textContent.trim();
+                answerText.textContent = answers[key];
+                buttons.forEach(item => item.classList.toggle('active', item.dataset.answer === key));
+            }
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => setAnswer(button.dataset.answer));
+            });
+
+            setAnswer('thinking');
         });
     </script>
+    <link rel="stylesheet" href="visual-refresh.css">
 </head>
 <body class="bg-white">
     <!-- Navigation -->
     <nav class="w-full bg-white fixed top-0 z-50">
         <div class="max-w-[1271px] mx-auto flex">
             <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
-                <a href="/" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
+                <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
                 <div class="hamburger" onclick="toggleMobileMenu()">
                     <span></span>
                     <span></span>
@@ -240,8 +467,8 @@
                 </div>
             </div>
             <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
-                <a href="/#featured-work" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
-                <a href="design-process.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">My Design Process</a>
+                <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">About</a>
                 <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
             </div>
         </div>
@@ -249,253 +476,219 @@
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu">
-        <a href="/#featured-work" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
-        <a href="design-process.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">My Design Process</a>
+        <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+        <a href="about.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">About</a>
         <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
     </div>
 
     <!-- Main Container -->
     <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-20 md:pt-24">
         <!-- Hero Section -->
-        <section class="mt-8 md:mt-16 mb-16 md:mb-24">
-            <div class="flex flex-col gap-6">
-                <h1 class="text-4xl md:text-6xl lg:text-[96px] leading-tight md:leading-[1.05] tracking-[-0.5px] text-black">
-                    Turning vision into seamless product journeys
+        <section class="mt-8 md:mt-14 mb-10 md:mb-16">
+            <div>
+                <p class="text-sm md:text-base uppercase text-[#315dff] mb-5">UX / Product Designer</p>
+                <h1 class="text-5xl md:text-7xl lg:text-[104px] leading-[0.98] text-black mb-6 max-w-[980px]">
+                    Designing <span class="home-hero-word blue">clear</span> product experiences for <span class="home-hero-word green">complex</span> work.
                 </h1>
-                <p class="text-lg md:text-2xl leading-[1.4] tracking-[-0.5px] text-[#767676] max-w-[703px]">
-                    I specialize in shaping complexity into clean, purposeful experiences that empower both businesses and the people they serve.
+                <p class="text-xl md:text-2xl leading-[1.35] text-[#4f4f4f] max-w-[820px]">
+                    I help teams turn messy workflows, dense data, and ambiguous product problems into tools people can understand, trust, and use.
                 </p>
-                <a href="design-process.html" class="primary-button border border-black bg-white px-4 py-2 w-fit flex items-center gap-2">
-                    <span class="text-base md:text-lg tracking-[-0.5px] text-black whitespace-nowrap">Explore my AI-assisted design process</span>
-                    <span class="text-base md:text-lg tracking-[-0.5px] text-black">→</span>
-                </a>
             </div>
         </section>
 
         <!-- Featured Work Section -->
-        <section id="featured-work" class="mb-16 md:mb-24">
-            <div class="mb-10">
-                <div class="w-full h-px bg-black mb-5"></div>
-                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Featured Work</h2>
-            </div>
-
-            <!-- Case Studies Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-6 lg:mb-10">
-                <!-- AI Scenario Modeling Card -->
-                <a href="ai-scenario-modeling.html" class="case-study-card p-8 md:p-10 min-h-[300px] md:min-h-[341px] block">
-                    <div class="border-top"></div>
-                    <div class="border-right"></div>
-                    <div class="border-bottom"></div>
-                    <div class="border-left"></div>
-
-                    <div class="flex flex-col justify-between h-full">
-                        <div>
-                            <h3 class="text-3xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-4 md:mb-8">
-                                AI Scenario Modeling
-                            </h3>
-                            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-[#767676] mb-6 md:mb-8">
-                                Lead UX designer on an AI-native supply chain scenario modeling tool, partnering directly with Google<br />
-                                and PepsiCo teams to define a pioneering enterprise AI experience
-                            </p>
+        <section id="featured-work" class="mb-24 md:mb-36">
+            <div class="work-rail-shell">
+                <div class="work-rail" aria-label="Selected case studies">
+                    <a href="my-pepsico-content-agent.html" class="case-study-card work-card overflow-hidden">
+                        <div class="work-card-media" aria-hidden="true">
+                            <div class="work-placeholder">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                         </div>
-
-                        <div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <div>
-                                    <p class="text-base tracking-[-0.5px] text-black mb-1">Role</p>
-                                    <p class="text-base tracking-[-0.5px] text-[#767676]">Lead UX Designer</p>
+                        <div class="work-card-body p-6">
+                            <div>
+                                <div class="flex items-center gap-2 mb-5">
+                                    <span class="mini-color-dot dot-green"></span>
+                                    <p class="text-sm uppercase text-black">01 / Product Strategy</p>
                                 </div>
-                                <div>
-                                    <p class="text-base tracking-[-0.5px] text-black mb-1">Timeline</p>
-                                    <p class="text-base tracking-[-0.5px] text-[#767676]">February 2026 – Present</p>
-                                </div>
+                                <h3 class="text-3xl md:text-[52px] leading-tight text-black mb-4">MyPepsiCo Content Agent</h3>
+                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
+                                    A multi-agent editorial system that turns scattered content ops into one grounded, reviewable workflow.
+                                </p>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Product Design</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">AI-Native</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Cursor</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Password Protected</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Agent Workflow</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Content Ops</span>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
-                <!-- Order Management Card -->
-                <a href="order-management.html" class="case-study-card p-8 md:p-10 min-h-[300px] md:min-h-[341px] block">
-                    <div class="border-top"></div>
-                    <div class="border-right"></div>
-                    <div class="border-bottom"></div>
-                    <div class="border-left"></div>
-                    
-                    <div class="flex flex-col justify-between h-full">
-                        <div>
-                            <h3 class="text-3xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-4 md:mb-8">
-                                Order Management
-                            </h3>
-                            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-[#767676] mb-6 md:mb-8">
-                                A web app for submitting and managing orders, enabling automation, better order tracking, and improved communication between plants and sales representatives.
-                            </p>
+                    <a href="ai-scenario-modeling.html" class="case-study-card work-card overflow-hidden">
+                        <div class="work-card-media">
+                            <img src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview">
                         </div>
-                        
-                        <div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <div>
-                                    <p class="text-base tracking-[-0.5px] text-black mb-1">Role</p>
-                                    <p class="text-base tracking-[-0.5px] text-[#767676]">Primary UX Designer</p>
+                        <div class="work-card-body p-6">
+                            <div>
+                                <div class="flex items-center gap-2 mb-5">
+                                    <span class="mini-color-dot dot-blue"></span>
+                                    <p class="text-sm uppercase text-black">02 / Lead UX + Strategy</p>
                                 </div>
-                                <div>
-                                    <p class="text-base tracking-[-0.5px] text-black mb-1">Timeline</p>
-                                    <p class="text-base tracking-[-0.5px] text-[#767676]">May - Sept 2025</p>
-                                </div>
+                                <h3 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Scenario Modeling Workspace</h3>
+                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
+                                    A governed planning workspace for defining scope, comparing runs, and helping teams trust high-stakes scenario work.
+                                </p>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Product Design</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Internal Tool</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Figma Make</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">PepsiCo</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Password Protected</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Enterprise UX</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Product Strategy</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Google + PepsiCo</span>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
 
-            <!-- Second Row Cards -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
-                <!-- Building Portfolio Card -->
-                <a href="portfolio-case-study.html" class="case-study-card p-8 md:p-10 min-h-[300px] md:min-h-[341px] block">
-                    <div class="border-top"></div>
-                    <div class="border-right"></div>
-                    <div class="border-bottom"></div>
-                    <div class="border-left"></div>
-
-                    <div class="flex flex-col justify-between h-full">
-                        <div>
-                            <h3 class="text-3xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-4 md:mb-8">
-                                Building this Portfolio
-                            </h3>
-                            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-[#767676] mb-6 md:mb-8">
-                                Creating a responsive portfolio website using Figma Make for ideation, Figma Design for refinement, and Cursor AI to bring designs to life
-                            </p>
+                    <a href="order-management.html" class="case-study-card work-card overflow-hidden">
+                        <div class="work-card-media" aria-hidden="true">
+                            <div class="work-placeholder">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                         </div>
-
-                        <div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <div>
-                                    <p class="text-base tracking-[-0.5px] text-black mb-1">Role</p>
-                                    <p class="text-base tracking-[-0.5px] text-[#767676]">Designer & Developer</p>
+                        <div class="work-card-body p-6">
+                            <div>
+                                <div class="flex items-center gap-2 mb-5">
+                                    <span class="mini-color-dot dot-red"></span>
+                                    <p class="text-sm uppercase text-black">03 / Primary UX Design</p>
                                 </div>
-                                <div>
-                                    <p class="text-base tracking-[-0.5px] text-black mb-1">Timeline</p>
-                                    <p class="text-base tracking-[-0.5px] text-[#767676]">October 2025</p>
-                                </div>
+                                <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Order Management</h3>
+                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
+                                    Replaced fragmented order intake with a clearer workflow for submission, tracking, communication, and automation.
+                                </p>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Figma</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Cursor</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Web Development</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">AI-Assisted</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Workflow Design</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Internal Tools</span>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
-                <!-- Forecast Analysis Card -->
-                <a href="forecast-analysis.html" class="case-study-card p-8 md:p-10 min-h-[300px] md:min-h-[341px] block">
-                    <div class="border-top"></div>
-                    <div class="border-right"></div>
-                    <div class="border-bottom"></div>
-                    <div class="border-left"></div>
-                    
-                    <div class="flex flex-col justify-between h-full">
-                        <div>
-                            <h3 class="text-3xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-4 md:mb-8">
-                                Forecast Analysis
-                            </h3>
-                            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-[#767676] mb-6 md:mb-8">
-                                Creating a tool that removes dependency between Forecast Analysts and Data Scientists, allowing Analysts to work more efficiently and independently.
-                            </p>
+                    <a href="forecast-analysis.html" class="case-study-card work-card overflow-hidden">
+                        <div class="work-card-media">
+                            <img src="FA UI Workload.png" alt="Forecast analysis workflow preview">
                         </div>
-                        
-                        <div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <div>
-                                    <p class="text-base tracking-[-0.5px] text-black mb-1">Role</p>
-                                    <p class="text-base tracking-[-0.5px] text-[#767676]">Primary UX Designer</p>
+                        <div class="work-card-body p-6">
+                            <div>
+                                <div class="flex items-center gap-2 mb-5">
+                                    <span class="mini-color-dot dot-yellow"></span>
+                                    <p class="text-sm uppercase text-black">04 / Data-heavy UX</p>
                                 </div>
-                                <div>
-                                    <p class="text-base tracking-[-0.5px] text-black mb-1">Timeline</p>
-                                    <p class="text-base tracking-[-0.5px] text-[#767676]">July 2024 - Feb 2025</p>
-                                </div>
+                                <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Forecast Analysis</h3>
+                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
+                                    A decision-support tool that helps analysts work more independently with complex data and clearer model outputs.
+                                </p>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Product Design</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Internal Tool</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Data Visualization</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">PepsiCo</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Password Protected</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Analytics UX</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Decision Support</span>
                             </div>
                         </div>
-                    </div>
-                </a>
-                
-                <!-- Wonder 3D Prints Card -->
-                <a href="wonder-3d-prints.html" class="case-study-card p-8 md:p-10 min-h-[300px] md:min-h-[341px] block">
-                    <div class="border-top"></div>
-                    <div class="border-right"></div>
-                    <div class="border-bottom"></div>
-                    <div class="border-left"></div>
-                    
-                    <div class="flex flex-col justify-between h-full">
-                        <div>
-                            <h3 class="text-3xl md:text-[48px] leading-tight tracking-[-0.5px] text-black mb-4 md:mb-8">
-                                Lovable x Shopify Design
-                            </h3>
-                            <p class="text-lg md:text-xl leading-[1.21] tracking-[-0.5px] text-[#767676] mb-6 md:mb-8">
-                                Designing an ecommerce site for Wonder 3D Prints
-                            </p>
+                    </a>
+
+                    <a href="wonder-3d-prints.html" class="case-study-card work-card overflow-hidden">
+                        <div class="work-card-media">
+                            <img src="Wonder3DPrintsHomePage.png" alt="Wonder 3D Prints ecommerce homepage preview">
                         </div>
-                        
-                        <div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <div>
-                                    <p class="text-base tracking-[-0.5px] text-black mb-1">Role</p>
-                                    <p class="text-base tracking-[-0.5px] text-[#767676]">Product Designer</p>
+                        <div class="work-card-body p-6">
+                            <div>
+                                <div class="flex items-center gap-2 mb-5">
+                                    <span class="mini-color-dot dot-green"></span>
+                                    <p class="text-sm uppercase text-black">05 / Ecommerce UX</p>
                                 </div>
-                                <div>
-                                    <p class="text-base tracking-[-0.5px] text-black mb-1">Timeline</p>
-                                    <p class="text-base tracking-[-0.5px] text-[#767676]">January 2026</p>
-                                </div>
+                                <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Wonder 3D Prints</h3>
+                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
+                                    A fast ecommerce design sprint focused on clearer browsing, trust-building product presentation, and checkout momentum.
+                                </p>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Lovable</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Shopify</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Product Design</span>
-                                <span class="border border-black px-3 py-1 text-sm tracking-[-0.5px] text-black">Freelance</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Ecommerce</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Conversion Flow</span>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+
+                    <a href="portfolio-case-study.html" class="case-study-card work-card overflow-hidden">
+                        <div class="work-card-media" aria-hidden="true">
+                            <div class="work-placeholder">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="work-card-body p-6">
+                            <div>
+                                <div class="flex items-center gap-2 mb-5">
+                                    <span class="mini-color-dot dot-blue"></span>
+                                    <p class="text-sm uppercase text-black">06 / Design Process</p>
+                                </div>
+                                <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Portfolio Build</h3>
+                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
+                                    A meta case study on using modern design tools, fast prototyping, and handoff thinking to move from concept to responsive site.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="recruiter-chip px-3 py-2 text-sm">Prototyping</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Systems Thinking</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- Let's Connect Section -->
-        <section class="mb-16 md:mb-24">
-            <div class="mb-10">
-                <div class="w-full h-px bg-black mb-5"></div>
-                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
+        <!-- More About Me -->
+        <section class="mb-24 md:mb-36">
+            <div class="mb-10 md:mb-14">
+                <h2 class="text-4xl md:text-[64px] leading-tight text-black">More about me</h2>
             </div>
 
-            <div class="flex flex-col gap-4">
-                <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.5px] text-black">
-                    goudreaugrace@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl tracking-[-0.5px] text-black w-fit">
-                    LinkedIn
-                </a>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+                <div class="lg:col-span-6">
+                    <div class="flex flex-col items-start gap-4 md:gap-5">
+                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-0" data-answer="thinking">How do you think through a product problem?</button>
+                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-16" data-answer="strengths">Where are you strongest as a designer?</button>
+                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-0" data-answer="collaboration">How do you work with product and engineering?</button>
+                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-24" data-answer="ambiguity">How do you handle ambiguity?</button>
+                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-8" data-answer="craft">What does good UX craft mean to you?</button>
+                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-20" data-answer="growth">Where are you growing next?</button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 lg:pt-3">
+                    <p id="askAnswerLabel" class="text-sm uppercase text-[#315dff] mb-4"></p>
+                    <p id="askAnswerText" class="text-2xl md:text-3xl leading-[1.35] text-[#4f4f4f] max-w-[680px]"></p>
+                </div>
             </div>
         </section>
+
+        <!-- Footer -->
+        <footer class="mb-16 md:mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                <div class="lg:col-span-7">
+                    <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
+                </div>
+                <div class="lg:col-span-5 flex flex-col justify-end gap-4">
+                    <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.5px] text-black">
+                        goudreaugrace@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl tracking-[-0.5px] text-black w-fit">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
-

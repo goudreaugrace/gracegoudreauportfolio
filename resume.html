@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Grace Goudreau</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,13 +152,14 @@
             menu.classList.toggle('active');
         }
     </script>
+    <link rel="stylesheet" href="visual-refresh.css">
 </head>
 <body class="bg-white">
     <!-- Navigation -->
     <nav class="w-full bg-white fixed top-0 z-50">
         <div class="max-w-[1271px] mx-auto flex">
             <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
-                <a href="/" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
+                <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
                 <div class="hamburger" onclick="toggleMobileMenu()">
                     <span></span>
                     <span></span>
@@ -166,8 +167,8 @@
                 </div>
             </div>
             <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
-                <a href="/#featured-work" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
-                <a href="design-process.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">My Design Process</a>
+                <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">About</a>
                 <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
             </div>
         </div>
@@ -175,20 +176,13 @@
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu">
-        <a href="/#featured-work" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
-        <a href="design-process.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">My Design Process</a>
+        <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+        <a href="about.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">About</a>
         <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
     </div>
 
     <!-- Main Container -->
     <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
-        <!-- Sticky Back Button -->
-        <div class="sticky-back-button mb-4 md:mb-6">
-            <a href="index.html" class="primary-button inline-flex items-center gap-2 border border-black bg-white px-4 py-2">
-                <span class="text-base tracking-[-0.5px] text-black">← Back</span>
-            </a>
-        </div>
-
         <!-- Header Section -->
         <section class="mb-12 md:mb-16">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -197,10 +191,10 @@
                         Grace Goudreau
                     </h1>
                     <p class="text-2xl md:text-[32px] leading-tight tracking-[-0.5px] text-black">
-                        UX Designer
+                        Product Designer
                     </p>
                 </div>
-                <a href="GraceGoudreauUXDesignResume.pdf" download="GraceGoudreauUXDesignResume.pdf" class="primary-button border border-black bg-white px-5 py-2.5 flex items-center gap-2 w-fit">
+                <a href="GraceGoudreau_Resume.pdf" download="GraceGoudreau_Resume.pdf" class="primary-button border border-black bg-white px-5 py-2.5 flex items-center gap-2 w-fit">
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 12L4.5 7.5L5.925 6.075L8.25 8.4V0H9.75V8.4L12.075 6.075L13.5 7.5L9 12ZM2.25 18C1.6125 18 1.0625 17.7812 0.6 17.3438C0.1375 16.9062 0 16.3625 0 15.7125V12.375H1.5V15.75C1.5 15.9375 1.5625 16.0938 1.6875 16.2188C1.8125 16.3438 1.9625 16.4062 2.1375 16.4062H15.8625C16.0375 16.4062 16.1875 16.3438 16.3125 16.2188C16.4375 16.0938 16.5 15.9375 16.5 15.75V12.375H18V15.7125C18 16.3625 17.7812 16.9062 17.3438 17.3438C16.9062 17.7812 16.3625 18 15.7125 18H2.25Z" fill="black"/>
                     </svg>
@@ -214,26 +208,26 @@
                 <span class="text-[#767676]">|</span>
                 <a href="mailto:goudreaugrace@gmail.com" class="text-black tracking-[-0.5px]">goudreaugrace@gmail.com</a>
                 <span class="text-[#767676]">|</span>
-                <a href="https://www.gracegoudreau.com" class="text-black tracking-[-0.5px]">www.gracegoudreau.com</a>
+                <a href="https://www.gracegoudreau.com" class="text-black tracking-[-0.5px]">GraceGoudreau.com</a>
             </div>
         </section>
 
-        <!-- About Me & Education -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[60px] mb-12 md:mb-16">
-            <div>
-                <h2 class="text-2xl md:text-[28px] tracking-[-0.5px] text-black mb-4">Professional Summary</h2>
+        <!-- Summary & Education -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-[60px] mb-12 md:mb-16">
+            <div class="md:col-span-8">
+                <h2 class="text-2xl md:text-[28px] tracking-[-0.5px] text-black mb-4">Summary</h2>
                 <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                    UX Designer specializing in AI-native product design for enterprise scale. Known for thinking beyond the immediate brief, building AI design frameworks, pioneering digital twin testing concepts, and shipping solutions adopted across global markets. Equally strong in hands-on craft and strategic influence, with deep experience in Figma, design systems, and cross-functional collaboration.
+                    Product designer specializing in complex enterprise tools, where I turn ambiguity into clear, usable, high-craft experiences. I own the full end-to-end process - discovery, problem framing, high-fidelity design, and production-ready prototypes - and move work forward by aligning product, engineering, and business partners around a shared direction. I'm a strong cross-functional partner and systems thinker, with an AI-native toolkit that lets me prototype, test, and iterate quickly.
                 </p>
             </div>
-            <div>
+            <div class="md:col-span-4">
                 <h2 class="text-2xl md:text-[28px] tracking-[-0.5px] text-black mb-4">Education</h2>
                 <p class="text-lg leading-[1.3] tracking-[-0.5px] text-black mb-2">
-                    Bachelor of Science in UX Design,<br>
-                    Minor in Design & Innovation
+                    Purdue University
                 </p>
-                <p class="text-lg tracking-[-0.5px] text-[#767676]">
-                    Purdue University, Aug 2020 – May 2024
+                <p class="text-lg leading-[1.4] tracking-[-0.5px] text-[#767676]">
+                    B.S. in UX Design<br>
+                    Aug 2020 - May 2024
                 </p>
             </div>
         </section>
@@ -242,43 +236,72 @@
         <section class="mb-12 md:mb-16">
             <h2 class="text-3xl md:text-[40px] leading-tight tracking-[-0.5px] text-black mb-8 md:mb-10">Experience</h2>
 
-            <!-- PepsiCo -->
             <div class="border-b border-[#e0e0e0] pb-8 md:pb-10 mb-8 md:mb-10">
                 <div class="mb-4">
-                    <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-1">PepsiCo | UX Designer</h3>
-                    <p class="text-lg tracking-[-0.5px] text-[#767676]">Chicago, IL, July 2024 – Present</p>
+                    <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-1">Senior UX Designer - PepsiCo</h3>
+                    <p class="text-lg tracking-[-0.5px] text-[#767676]">Apr 2026 - Present</p>
                 </div>
                 <ul class="list-disc pl-5 space-y-3">
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        Lead UX designer on an AI-native supply chain scenario modeling tool, partnering directly with Google and PepsiCo teams to define a pioneering enterprise AI experience
+                        Owned UX strategy, vision, and research for an AI negotiation-support tool used by a high-stakes commercial team, turning fragmented data and unadopted AI agents into a trust-first, evidence-backed decision experience and validated prototype plan.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        Driving AI-first design adoption across PepsiCo by building frameworks, patterns, and workshops — regularly presenting to and collaborating with cross-functional teams to modernize design workflows
+                        Lead UX designer for a supply-chain forecasting and AI scenario-modeling product (CTX suite), driving major releases end-to-end from user research and problem framing through high-fidelity UI, prototyping, and user testing.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        Led UX design for Order Management tooling with accessibility standards embedded throughout, with the solution adopted across 3 additional global markets — driving AI-enabled workflow automation, higher order accuracy, and faster end-to-end processing
+                        Turned dense, ambiguous supply-chain data into decision-ready workflows for non-technical planners, partnering with product, engineering, and business stakeholders to resolve tradeoffs and align on direction in a complex domain.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        Designing a proof-of-concept internal digital twin tool for AI-powered user testing — enabling teams to validate ideas and designs before ever engaging real users, reducing research overhead and accelerating decision-making
+                        Championed an AI-driven design-to-build model that repositions design from downstream execution to upstream product decision-making, defining a continuous research-to-ship learning loop and prototyping with AI tools for faster ideation and concept testing.
                     </li>
                 </ul>
             </div>
 
-            <!-- West Monroe -->
-            <div class="mb-8 md:mb-10">
+            <div class="border-b border-[#e0e0e0] pb-8 md:pb-10 mb-8 md:mb-10">
                 <div class="mb-4">
-                    <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-1">West Monroe | Product Design Intern</h3>
-                    <p class="text-lg tracking-[-0.5px] text-[#767676]">Chicago, IL, May 2023 – August 2023</p>
+                    <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-1">UX Designer - PepsiCo</h3>
+                    <p class="text-lg tracking-[-0.5px] text-[#767676]">Jul 2024 - Apr 2026</p>
                 </div>
                 <ul class="list-disc pl-5 space-y-3">
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        Partnered with the design lead to deliver polished mobile and desktop experiences across the full design lifecycle
+                        Designer on an internal order-monitoring tool spanning the full order lifecycle from intake to SAP confirmation, now in global rollout to Poland, DACH, France, the UK, and NWE markets.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        Turned complex client requirements and technical constraints into clean, actionable design solutions
+                        Redesigned a fragmented, multi-system process into a single guided workflow with real-time order visibility, giving ops teams a clear line of sight across the order lifecycle and speeding end-to-end processing.
+                    </li>
+                    <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
+                        Partnered with product owners, engineers, and business stakeholders to translate complex operational requirements into a clear, scalable end-to-end experience.
                     </li>
                 </ul>
             </div>
+
+            <div>
+                <div class="mb-4">
+                    <h3 class="text-xl md:text-2xl tracking-[-0.5px] text-black mb-1">Product Design Intern - West Monroe</h3>
+                    <p class="text-lg tracking-[-0.5px] text-[#767676]">May 2023 - Aug 2023</p>
+                </div>
+                <ul class="list-disc pl-5 space-y-3">
+                    <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
+                        Translated user needs, client goals, and technical constraints into scalable design solutions across multiple client engagements.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects & Leadership -->
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-[40px] leading-tight tracking-[-0.5px] text-black mb-8 md:mb-10">Projects &amp; Leadership</h2>
+            <ul class="list-disc pl-5 space-y-3">
+                <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
+                    <span class="font-semibold">AI-Native Design Proof-of-Concept (Figma Make).</span> Built and publicly shared an end-to-end POC demonstrating the AI-first design workflow - a working argument for designing experiences over screens.
+                </li>
+                <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
+                    <span class="font-semibold">AI workflow enablement.</span> Delivered multiple presentations to UX designers and developers on integrating AI into team workflows, showing how AI-assisted design and build accelerate iteration, reduce design-to-development friction, and help teams work more efficiently.
+                </li>
+                <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
+                    <span class="font-semibold">Thought leadership.</span> Ongoing LinkedIn writing on the "Design Thinking Era," documenting firsthand AI workflow experiments and the shift toward designing experiences over screens.
+                </li>
+            </ul>
         </section>
 
         <!-- Skills -->
@@ -286,20 +309,16 @@
             <h2 class="text-3xl md:text-[40px] leading-tight tracking-[-0.5px] text-black mb-6 md:mb-8">Skills</h2>
             <div class="space-y-8">
                 <div>
-                    <h3 class="text-lg font-semibold tracking-[-0.5px] text-black mb-2">Design Tools</h3>
-                    <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">Figma, FigJam, Figma Make, Prototyping, High-Fidelity Wireframing, Claude, Cursor</p>
+                    <h3 class="text-lg font-semibold tracking-[-0.5px] text-black mb-2">Design</h3>
+                    <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">Product Design, UX Strategy, AI Interaction Design, Design Systems, User Research, Information Architecture, AI Prototyping</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold tracking-[-0.5px] text-black mb-2">AI &amp; Innovation</h3>
-                    <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">AI-Native Design, AI Workflow Integration, Digital Twin Concepts, Prompt Design, Proof-of-Concept Development</p>
+                    <h3 class="text-lg font-semibold tracking-[-0.5px] text-black mb-2">AI &amp; Build</h3>
+                    <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">Figma Make, Figma MCP / Dev Mode, Cursor, Codex, Claude Code, Claude Cowork</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold tracking-[-0.5px] text-black mb-2">Design Practice</h3>
-                    <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">Design Systems, User Research, Usability Testing, Accessibility &amp; WCAG, Journey Mapping, Service Blueprinting, Information Architecture, Design Thinking, Rapid Iteration</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold tracking-[-0.5px] text-black mb-2">Collaboration &amp; Leadership</h3>
-                    <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">Stakeholder Collaboration, Cross-Functional Leadership, Workshop Facilitation, Presentation, Design Advocacy</p>
+                    <h3 class="text-lg font-semibold tracking-[-0.5px] text-black mb-2">Collaboration</h3>
+                    <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">Stakeholder Alignment, Cross-Functional Partnership, Engineering Enablement</p>
                 </div>
             </div>
         </section>
@@ -323,4 +342,3 @@
     </div>
 </body>
 </html>
-
