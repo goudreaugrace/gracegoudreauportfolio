@@ -312,6 +312,47 @@
             text-transform: uppercase;
         }
 
+        .agent-architecture-map {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .agent-node,
+        .agent-core {
+            border: 1px solid #111;
+            padding: clamp(1rem, 2vw, 1.5rem);
+            min-height: 8.5rem;
+            background: #fff;
+        }
+
+        .agent-core {
+            grid-column: 1 / -1;
+            background: #eef4ff;
+        }
+
+        .agent-node p:first-child,
+        .agent-core p:first-child {
+            color: #315dff;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.55rem;
+            text-transform: uppercase;
+        }
+
+        .agent-node p:last-child,
+        .agent-core p:last-child {
+            color: #111;
+            font-size: clamp(1rem, 1.4vw, 1.125rem);
+            line-height: 1.35;
+        }
+
+        @media (min-width: 768px) {
+            .agent-core {
+                grid-column: 1 / -1;
+            }
+        }
+
         @media (max-width: 768px) {
             .hamburger {
                 display: flex !important;
@@ -383,6 +424,7 @@
                     <div class="case-toc-inner">
                         <a href="#overview">Overview</a>
                         <a href="#origin">Story</a>
+                        <a href="#architecture">Architecture</a>
                         <a href="#problem">Problem</a>
                         <a href="#system">POC</a>
                         <a href="#decisions">Decisions</a>
@@ -409,7 +451,7 @@
                     </div>
                     <div class="border border-black p-4 md:p-6">
                         <p class="text-sm uppercase text-black mb-2">Timeline</p>
-                        <p class="text-base md:text-lg text-black">~6 weeks</p>
+                        <p class="text-base md:text-lg text-black">3 Weeks to MVP / 6 Weeks to Enterprise Validation</p>
                     </div>
                     <div class="border border-black p-4 md:p-6">
                         <p class="text-sm uppercase text-black mb-2">Stack</p>
@@ -417,7 +459,7 @@
                     </div>
                     <div class="border border-black p-4 md:p-6">
                         <p class="text-sm uppercase text-black mb-2">Status</p>
-                        <p class="text-base md:text-lg text-black">Being prepared for leadership review</p>
+                        <p class="text-base md:text-lg text-black">Delivered to executive leadership; secured corporate funding for centralized global rollout.</p>
                     </div>
                 </div>
             </section>
@@ -457,7 +499,7 @@
                                 <p class="story-number">04</p>
                                 <div>
                                     <h3>The prototype created a path forward.</h3>
-                                    <p>The POC is now being brought in front of leadership as a candidate for real development and integration into the internal MyPepsiCo workflow.</p>
+                                    <p>The proof-of-concept completely shifted executive perspective on UX-driven AI strategy, securing direct corporate funding and engineering commitment to scale the architecture across the enterprise employee ecosystem.</p>
                                 </div>
                             </article>
                         </div>
@@ -488,6 +530,53 @@
                         <span>Full workflow demo</span>
                     </figcaption>
                 </figure>
+            </section>
+
+            <section id="architecture" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The Multi-Agent Architecture</h2>
+                <div class="space-y-10 md:space-y-12">
+                    <div>
+                        <p class="text-2xl md:text-3xl leading-tight text-black max-w-[920px]">
+                            I architected the interaction model around a visible orchestrator, giving human authors transparent control over modular AI sub-processes instead of hiding automation inside a black box.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="agent-architecture-map">
+                            <div class="agent-core">
+                                <p>Core Orchestrator</p>
+                                <p>Coordinates the agent sequence, preserves handoffs, and keeps the author aware of what is happening at each step.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Intake</p>
+                                <p>Checks that the brief has the minimum context needed to begin.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Clarifier</p>
+                                <p>Surfaces missing details before the system commits to generation.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Router</p>
+                                <p>Directs the request to the right sector, market, audience, and source logic.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Market</p>
+                                <p>Adapts content against local conventions, language, and operating context.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Compliance</p>
+                                <p>Flags policy-sensitive content so reviewers can see risk before publication.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Revision</p>
+                                <p>Turns critique into an updated draft while preserving reviewer intent.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Translation</p>
+                                <p>Prepares localized variants once the source content is approved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="problem" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
@@ -563,9 +652,40 @@
             <section id="decisions" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Key Product Decisions</h2>
                 <div class="space-y-8">
+                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8 section-soft">
+                        <div class="lg:col-span-4">
+                            <p class="text-sm uppercase text-[#315dff] mb-3">01 / Permission model</p>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Separate admin governance from author workflows</h3>
+                        </div>
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Problem</p>
+                                <p>A single view mixed enterprise governance with everyday article management.</p>
+                            </div>
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Move</p>
+                                <p>Split the experience by permission level: admins get system-wide controls; writers and managers get focused ownership tools.</p>
+                            </div>
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Result</p>
+                                <p>Each role sees the right scope without extra operational noise.</p>
+                            </div>
+                            <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="border border-black p-4 bg-white">
+                                    <p class="text-sm uppercase text-black mb-2">Admin view</p>
+                                    <p>Monitor article health, spot stale or low-performing content, and alert owners to review, update, consolidate, or remove.</p>
+                                </div>
+                                <div class="border border-black p-4 bg-white">
+                                    <p class="text-sm uppercase text-black mb-2">Non-admin view</p>
+                                    <p>Manage owned and direct-report articles, track stale reviews, filter by owner/status, transfer ownership, and make updates.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
                     <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8">
                         <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-[#315dff] mb-3">01 / IA model</p>
+                            <p class="text-sm uppercase text-[#315dff] mb-3">02 / IA model</p>
                             <h3 class="text-2xl md:text-3xl leading-tight text-black">Sector before market, not market alone</h3>
                         </div>
                         <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
@@ -581,12 +701,16 @@
                                 <p class="text-sm uppercase text-black mb-2">Result</p>
                                 <p>Authors choose "PFNA → United States," so the POC feels specific to PepsiCo's operating model.</p>
                             </div>
+                            <div class="md:col-span-3 border border-black p-4 section-soft">
+                                <p class="text-sm uppercase text-black mb-2">Technical Alignment</p>
+                                <p>Ensured data indexing paths match PepsiCo's operational hierarchy, mapping API calls directly to sector boundaries.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8 section-soft">
                         <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-[#315dff] mb-3">02 / Workflow surface</p>
+                            <p class="text-sm uppercase text-[#315dff] mb-3">03 / Workflow surface</p>
                             <h3 class="text-2xl md:text-3xl leading-tight text-black">Merge review queue into content library</h3>
                         </div>
                         <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
@@ -602,12 +726,16 @@
                                 <p class="text-sm uppercase text-black mb-2">Result</p>
                                 <p>Reviewers and authors can move between work-in-progress and live content without losing context.</p>
                             </div>
+                            <div class="md:col-span-3 border border-black p-4 bg-white">
+                                <p class="text-sm uppercase text-black mb-2">Technical Alignment</p>
+                                <p>Optimized state management in React to prevent rendering lag when toggling between dense, real-time localized dataset tables.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8">
                         <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-[#315dff] mb-3">03 / Grounding model</p>
+                            <p class="text-sm uppercase text-[#315dff] mb-3">04 / Grounding model</p>
                             <h3 class="text-2xl md:text-3xl leading-tight text-black">Sources as profile data, not per-article attachments</h3>
                         </div>
                         <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
@@ -623,6 +751,10 @@
                                 <p class="text-sm uppercase text-black mb-2">Result</p>
                                 <p>Grounding follows ownership: PFNA sources guide PFNA content; US sources guide US procedures.</p>
                             </div>
+                            <div class="md:col-span-3 border border-black p-4 section-soft">
+                                <p class="text-sm uppercase text-black mb-2">Technical Alignment</p>
+                                <p>Caching system data globally on sector profiles drastically reduced payload sizes and context-window token overhead for subsequent Claude API inference cycles.</p>
+                            </div>
                         </div>
                     </article>
 
@@ -636,20 +768,20 @@
                         <div class="border border-black p-6 section-soft">
                             <p class="text-sm uppercase text-black mb-4">Current outcome</p>
                             <p class="text-xl md:text-2xl leading-tight text-black">
-                                The working POC is being brought to leadership as a candidate for real internal development.
+                                The functional proof-of-concept successfully passed executive validation, pivoting corporate strategy toward an AI-first internal delivery model.
                             </p>
                         </div>
                         <div class="border border-black p-6">
                             <p class="text-sm uppercase text-black mb-4">Why it matters</p>
                             <p class="text-xl md:text-2xl leading-tight text-black">
-                                It moved a loose pain point into something stakeholders can react to, test, and scope.
+                                It converted a legacy, highly distributed workflow into an automated orchestrator, establishing a benchmark for how UX scales business value through rapid, high-craft functional prototyping.
                             </p>
                         </div>
                     </div>
                     <div class="lg:col-span-5 border border-black p-6 md:p-8">
                         <p class="text-sm uppercase text-black mb-5">Next validation</p>
                         <p class="text-2xl md:text-3xl leading-tight text-black">
-                            Decide what should become product behavior, what needs engineering investment, and where to pilot first.
+                            Architecting the phase-one production pipeline, establishing LLM evaluation metrics for market-specific compliance accuracy, and kickstarting engineering integration.
                         </p>
                     </div>
                 </div>

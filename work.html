@@ -183,6 +183,49 @@
             width: 64%;
         }
 
+        .atlas-card-visual {
+            height: 100%;
+            display: grid;
+            align-content: center;
+            gap: 1rem;
+            padding: 1.35rem;
+            background:
+                linear-gradient(90deg, rgba(49, 93, 255, 0.1), transparent 45%),
+                #ffffff;
+        }
+
+        .atlas-card-row {
+            display: grid;
+            grid-template-columns: 0.72fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .atlas-card-panel {
+            min-height: 3.5rem;
+            border: 1px solid #d8dfdc;
+            border-radius: 8px;
+            background: #fff;
+            padding: 0.75rem;
+        }
+
+        .atlas-card-panel.accent {
+            border-color: rgba(49, 93, 255, 0.28);
+            background: #edf1ff;
+        }
+
+        .atlas-card-line {
+            display: block;
+            height: 0.5rem;
+            width: 100%;
+            border-radius: 99px;
+            background: #d8dfdc;
+        }
+
+        .atlas-card-line.short {
+            width: 64%;
+            margin-top: 0.55rem;
+        }
+
         .mini-color-dot {
             width: 0.72rem;
             height: 0.72rem;
@@ -288,6 +331,47 @@
 
         <section class="mb-24 md:mb-36" aria-label="Recent work">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
+                <a href="atlas-decision-intelligence.html" class="case-study-card work-grid-card border border-black">
+                    <span class="border-top"></span>
+                    <span class="border-right"></span>
+                    <span class="border-bottom"></span>
+                    <span class="border-left"></span>
+                    <div class="work-grid-media" aria-hidden="true">
+                        <div class="atlas-card-visual">
+                            <div class="atlas-card-row">
+                                <div class="atlas-card-panel">
+                                    <span class="atlas-card-line"></span>
+                                    <span class="atlas-card-line short"></span>
+                                </div>
+                                <div class="atlas-card-panel accent">
+                                    <span class="atlas-card-line"></span>
+                                    <span class="atlas-card-line short"></span>
+                                </div>
+                            </div>
+                            <div class="atlas-card-panel">
+                                <span class="atlas-card-line"></span>
+                                <span class="atlas-card-line short"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-grid-body p-6 md:p-8">
+                        <div>
+                            <div class="flex items-center gap-2 mb-5">
+                                <span class="mini-color-dot dot-blue"></span>
+                                <p class="text-sm uppercase text-black">01 / Product Strategy</p>
+                            </div>
+                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">ATLAS Decision Intelligence</h2>
+                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
+                                A user-led product strategy sprint that reframed an AI negotiation idea into a decision-intelligence workspace.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="recruiter-chip px-3 py-2 text-sm">UX Strategy</span>
+                            <span class="recruiter-chip px-3 py-2 text-sm">AI Product</span>
+                        </div>
+                    </div>
+                </a>
+
                 <a href="my-pepsico-content-agent.html" class="case-study-card work-grid-card border border-black">
                     <span class="border-top"></span>
                     <span class="border-right"></span>
@@ -300,7 +384,7 @@
                         <div>
                             <div class="flex items-center gap-2 mb-5">
                                 <span class="mini-color-dot dot-green"></span>
-                                <p class="text-sm uppercase text-black">01 / Product Strategy</p>
+                                <p class="text-sm uppercase text-black">02 / Product Strategy</p>
                             </div>
                             <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">MyPepsiCo Content Agent</h2>
                             <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
@@ -327,7 +411,7 @@
                         <div>
                             <div class="flex items-center gap-2 mb-5">
                                 <span class="mini-color-dot dot-blue"></span>
-                                <p class="text-sm uppercase text-black">02 / Lead UX + Strategy</p>
+                                <p class="text-sm uppercase text-black">03 / Lead UX + Strategy</p>
                             </div>
                             <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Scenario Modeling Workspace</h2>
                             <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
@@ -353,7 +437,7 @@
                         <div>
                             <div class="flex items-center gap-2 mb-5">
                                 <span class="mini-color-dot dot-red"></span>
-                                <p class="text-sm uppercase text-black">03 / Primary UX Design</p>
+                                <p class="text-sm uppercase text-black">04 / Primary UX Design</p>
                             </div>
                             <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Order Management</h2>
                             <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
@@ -379,7 +463,7 @@
                         <div>
                             <div class="flex items-center gap-2 mb-5">
                                 <span class="mini-color-dot dot-blue"></span>
-                                <p class="text-sm uppercase text-black">04 / Design Process</p>
+                                <p class="text-sm uppercase text-black">05 / Design Process</p>
                             </div>
                             <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Portfolio Build</h2>
                             <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
@@ -405,7 +489,7 @@
                         <div>
                             <div class="flex items-center gap-2 mb-5">
                                 <span class="mini-color-dot dot-yellow"></span>
-                                <p class="text-sm uppercase text-black">05 / Data-heavy UX</p>
+                                <p class="text-sm uppercase text-black">06 / Data-heavy UX</p>
                             </div>
                             <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Forecast Analysis</h2>
                             <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
@@ -431,7 +515,7 @@
                         <div>
                             <div class="flex items-center gap-2 mb-5">
                                 <span class="mini-color-dot dot-green"></span>
-                                <p class="text-sm uppercase text-black">06 / Ecommerce UX</p>
+                                <p class="text-sm uppercase text-black">07 / Ecommerce UX</p>
                             </div>
                             <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Wonder 3D Prints</h2>
                             <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">

@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATLAS Decision Intelligence - Grace Goudreau</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            font-variation-settings: 'wdth' 100;
+        }
+
+        .password-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .content-container {
+            display: none;
+        }
+
+        .password-input {
+            outline: none;
+        }
+
+        .password-input:focus {
+            border-color: black;
+        }
+
+        .case-sticky-cluster {
+            position: sticky;
+            top: 49px;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-sizing: border-box;
+            margin-bottom: 1.75rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid black;
+            margin-left: -1rem;
+            margin-right: -1rem;
+        }
+
+        @media (min-width: 768px) {
+            .case-sticky-cluster {
+                top: 51px;
+                gap: 1rem;
+                margin-bottom: 2rem;
+                margin-left: -15px;
+                margin-right: -15px;
+                padding: 0.5rem 15px;
+            }
+        }
+
+        .case-toc {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            align-self: center;
+            border-left: 1px solid #111;
+            padding-left: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .case-toc {
+                padding-left: 1rem;
+            }
+        }
+
+        .case-toc-inner {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 0.75rem 1.125rem;
+            font-size: 0.8125rem;
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .case-toc-inner::-webkit-scrollbar {
+            display: none;
+        }
+
+        .case-toc a,
+        .case-back-link {
+            flex-shrink: 0;
+            white-space: nowrap;
+            color: #111;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .case-toc a:hover {
+            border-bottom-color: #111;
+        }
+
+        .case-back-link:hover {
+            opacity: 0.65;
+        }
+
+        .submit-button,
+        .primary-button {
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+        }
+
+        .submit-button::before,
+        .primary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: black;
+            transition: height 0.4s ease;
+            z-index: 0;
+        }
+
+        .submit-button:hover::before,
+        .primary-button:hover::before {
+            height: 100%;
+        }
+
+        .submit-button span,
+        .primary-button span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .submit-button:hover span,
+        .primary-button:hover span {
+            color: white;
+        }
+
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #111111;
+            opacity: 0.75;
+        }
+
+        .linkedin-link {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .linkedin-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color: black;
+            transition: width 0.3s ease;
+            right: 0;
+            left: auto;
+        }
+
+        .linkedin-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 46px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid black;
+            padding: 1.5rem 1rem 1rem 1rem;
+            z-index: 45;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .section-soft {
+            background: #f7f9fb;
+        }
+
+        .story-step {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr);
+            gap: 1.25rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .story-step:not(:last-child) {
+            border-bottom: 1px solid #d8dfdc;
+        }
+
+        .story-number {
+            color: #315dff;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            line-height: 1.2;
+            text-transform: uppercase;
+            padding-top: 0.45rem;
+        }
+
+        .story-step h3 {
+            color: #111;
+            font-size: clamp(1.45rem, 2.3vw, 2rem);
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+        }
+
+        .story-step p:last-child {
+            color: #4f4f4f;
+            font-size: clamp(1rem, 1.5vw, 1.18rem);
+            line-height: 1.45;
+            max-width: 44rem;
+        }
+
+        .visual-placeholder {
+            min-height: clamp(340px, 45vw, 560px);
+            border: 1px dashed #aeb9b5;
+            background:
+                linear-gradient(90deg, rgba(49, 93, 255, 0.08), transparent 34%),
+                linear-gradient(180deg, #ffffff, #f7f9fb);
+            display: grid;
+            align-content: center;
+            gap: 1.25rem;
+            padding: clamp(1.25rem, 3vw, 2.5rem);
+        }
+
+        .visual-placeholder.compact {
+            min-height: 280px;
+        }
+
+        .visual-placeholder-label {
+            color: #315dff;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .visual-placeholder h3 {
+            max-width: 46rem;
+        }
+
+        .demo-media {
+            background: #f7f9fb;
+            border: 1px solid black;
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        .atlas-demo-frame {
+            aspect-ratio: 16 / 10;
+        }
+
+        .demo-media video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 0;
+            background: white;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .demo-media-caption {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            padding: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        @media (min-width: 768px) {
+            .demo-media-caption {
+                grid-template-columns: minmax(0, 1fr) auto;
+                align-items: end;
+            }
+        }
+
+        .demo-media-caption p {
+            color: #4f4f4f;
+            font-size: clamp(1rem, 1.45vw, 1.18rem);
+            line-height: 1.4;
+            max-width: 50rem;
+        }
+
+        .demo-media-caption span {
+            color: #315dff;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .placeholder-lines {
+            display: grid;
+            gap: 0.75rem;
+            max-width: 44rem;
+        }
+
+        .placeholder-lines span {
+            display: block;
+            height: 2.75rem;
+            border: 1px solid #d8dfdc;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.74);
+        }
+
+        .placeholder-lines span:nth-child(2) {
+            width: 78%;
+        }
+
+        .placeholder-lines span:nth-child(3) {
+            width: 56%;
+        }
+
+        .loop-diagram {
+            display: grid;
+            gap: 1rem;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .loop-diagram {
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+                align-items: stretch;
+            }
+        }
+
+        .decision-loop {
+            border: 1px solid #d8dfdc;
+            background:
+                linear-gradient(90deg, rgba(49, 93, 255, 0.08), transparent 40%),
+                #ffffff;
+            padding: clamp(1rem, 2.8vw, 2rem);
+        }
+
+        .loop-step {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            min-height: 13rem;
+            border: 1px solid #d8dfdc;
+            border-radius: 8px;
+            background: #fff;
+            padding: 1rem;
+        }
+
+        .loop-step.is-key {
+            border-color: rgba(49, 93, 255, 0.34);
+            background: #edf1ff;
+        }
+
+        .loop-step-number {
+            width: 2rem;
+            height: 2rem;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 999px;
+            background: #315dff;
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .loop-step h4 {
+            color: #111;
+            font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+            line-height: 1.08;
+        }
+
+        .loop-step p {
+            color: #4f4f4f;
+            font-size: 0.95rem;
+            line-height: 1.35;
+        }
+
+        .loop-arrow {
+            color: #315dff;
+            font-size: 1.35rem;
+            line-height: 1;
+        }
+
+        @media (min-width: 768px) {
+            .loop-step:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: -0.72rem;
+                width: 0.72rem;
+                border-top: 1px dashed #aeb9b5;
+            }
+
+            .loop-arrow {
+                display: none;
+            }
+        }
+
+        .loop-feedback {
+            margin-top: 1rem;
+            border: 1px dashed #aeb9b5;
+            border-radius: 999px;
+            padding: 0.85rem 1rem;
+            color: #111;
+            background: #f7f9fb;
+            font-size: 0.95rem;
+            line-height: 1.35;
+            text-align: center;
+        }
+
+        @media (max-width: 767px) {
+            .loop-step {
+                min-height: auto;
+            }
+
+            .loop-arrow {
+                justify-self: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex !important;
+            }
+
+            .desktop-nav {
+                display: none !important;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="visual-refresh.css">
+</head>
+<body class="bg-white">
+    <div id="passwordScreen" class="password-container">
+        <div class="max-w-md w-full px-6">
+            <h1 class="text-4xl md:text-5xl text-black mb-4 text-center">ATLAS Decision Intelligence</h1>
+            <p class="text-lg text-black mb-8 text-center">This project is password protected</p>
+
+            <div class="border border-black p-8">
+                <label for="password" class="block text-lg text-black mb-3">Enter Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    class="password-input w-full border border-black px-4 py-3 text-lg text-black mb-4"
+                    placeholder="Password"
+                    onkeypress="if(event.key === 'Enter') checkPassword()"
+                >
+                <div id="errorMessage" class="error-message hidden">Incorrect password. Please try again.</div>
+                <button onclick="checkPassword()" class="submit-button w-full border border-black bg-white px-4 py-3 mt-4">
+                    <span class="text-lg text-black">Submit</span>
+                </button>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="index.html" class="text-lg text-black hover:opacity-70 transition-opacity">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainContent" class="content-container">
+        <nav class="w-full bg-white fixed top-0 z-50">
+            <div class="max-w-[1271px] mx-auto flex">
+                <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
+                    <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
+                    <div class="hamburger" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
+                    <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                    <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">About</a>
+                    <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
+                </div>
+            </div>
+        </nav>
+
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+            <a href="about.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">About</a>
+            <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
+        </div>
+
+        <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
+            <div class="case-sticky-cluster">
+                <a href="work.html" class="case-back-link shrink-0 inline-flex items-center">← Back</a>
+                <nav class="case-toc" aria-label="Jump to sections">
+                    <div class="case-toc-inner">
+                        <a href="#overview">Overview</a>
+                        <a href="#story">Story</a>
+                        <a href="#problem">Problem</a>
+                        <a href="#insights">Insights</a>
+                        <a href="#solution">Solution</a>
+                        <a href="#visuals">Visuals</a>
+                        <a href="#outcome">Outcome</a>
+                    </div>
+                </nav>
+            </div>
+
+            <header id="overview" class="mb-12 md:mb-16 scroll-mt-32">
+                <p class="text-sm md:text-base uppercase text-[#315dff] mb-5">Product strategy + UX / Decision intelligence sprint</p>
+                <h1 class="text-5xl md:text-[84px] leading-[0.98] text-black max-w-[1100px]">
+                    ATLAS Decision Intelligence
+                </h1>
+                <p class="text-2xl md:text-3xl leading-tight text-black mt-6 md:mt-8 max-w-[980px]">
+                    Turning a broad AI negotiation idea into a user-led product thesis for high-stakes commercial decisions.
+                </p>
+            </header>
+
+            <section class="mb-10 md:mb-14">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm uppercase text-black mb-2">Role</p>
+                        <p class="text-base md:text-lg text-black">UX / product design lead</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm uppercase text-black mb-2">Timeline</p>
+                        <p class="text-base md:text-lg text-black">July 2026, 3-week reimagine sprint</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm uppercase text-black mb-2">Team</p>
+                        <p class="text-base md:text-lg text-black">4 UX designers</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm uppercase text-black mb-2">Users</p>
+                        <p class="text-base md:text-lg text-black">CNO negotiators and strategists</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16 md:mb-20" aria-label="ATLAS prototype demo">
+                <figure class="demo-media atlas-demo-frame">
+                    <video
+                        autoplay
+                        class="atlas-demo-video"
+                        controls
+                        loop
+                        muted
+                        playsinline
+                        preload="metadata"
+                        aria-label="ATLAS decision intelligence demo walkthrough."
+                    >
+                        <source src="assets/atlas-decision-intelligence-demo.mp4" type="video/mp4">
+                        <source src="assets/atlas-decision-intelligence-demo.mov" type="video/quicktime">
+                        Your browser does not support embedded video.
+                    </video>
+                    <figcaption class="demo-media-caption">
+                        <p>
+                            Demo walkthrough of the ATLAS direction at the beginning of the case study, showing how the product starts to frame negotiation complexity as decision intelligence.
+                        </p>
+                        <span>Prototype demo / 1.5x</span>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section id="story" class="mb-16 md:mb-20 scroll-mt-32">
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The Story</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                    <div class="lg:col-span-5">
+                        <p class="text-2xl md:text-3xl leading-tight text-black max-w-[560px]">
+                            ATLAS started as a broad AI opportunity. My work was to pull it out of AI novelty and anchor it in the decisions negotiators actually needed to make.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <div class="space-y-5">
+                            <article class="story-step">
+                                <p class="story-number">01</p>
+                                <div>
+                                    <h3>The prompt was exciting but dangerously open-ended.</h3>
+                                    <p>PepsiCo had fragmented pricing, margin, market, buyer, and negotiation data. Without a strong product point of view, ATLAS could have become another AI dashboard.</p>
+                                </div>
+                            </article>
+                            <article class="story-step">
+                                <p class="story-number">02</p>
+                                <div>
+                                    <h3>I pushed the sprint toward user decisions.</h3>
+                                    <p>Instead of starting with what AI could generate, I focused the team on what users needed to decide: what changed, why it mattered, what move to make, and what evidence could defend it.</p>
+                                </div>
+                            </article>
+                            <article class="story-step">
+                                <p class="story-number">03</p>
+                                <div>
+                                    <h3>I created a research cadence to de-risk the product.</h3>
+                                    <p>I framed weekly user sessions around a clear value and KPI: discovery, co-design, concept trust, and final validation. Research was not a checkpoint. It was the engine of the sprint.</p>
+                                </div>
+                            </article>
+                            <article class="story-step">
+                                <p class="story-number">04</p>
+                                <div>
+                                    <h3>The product became a decision-intelligence workspace.</h3>
+                                    <p>The final direction helped negotiators understand changes, model scenarios, predict buyer response, prepare arguments, generate outputs, and capture learning for the next round.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="problem" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The Problem</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                    <div class="border border-black p-6">
+                        <p class="text-sm uppercase text-black mb-4">Context</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Negotiation work did not follow a clean software workflow.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">
+                            Work moved across Excel, PowerPoint, SharePoint, Outlook, customer systems, commodity data, meetings, calls, and human memory.
+                        </p>
+                    </div>
+                    <div class="border border-black p-6 section-soft">
+                        <p class="text-sm uppercase text-black mb-4">User need</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Users had data. They needed confidence.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">
+                            The real question was not "what does the data say?" It was "so what do we do now, and can we defend it under pressure?"
+                        </p>
+                    </div>
+                    <div class="border border-black p-6">
+                        <p class="text-sm uppercase text-black mb-4">Product challenge</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">AI recommendations had to be explainable.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">
+                            In a high-stakes commercial setting, a confident answer without provenance creates more risk than value.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16 md:mb-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div class="border border-black p-6 md:p-8">
+                        <p class="text-sm uppercase text-black mb-4">Before</p>
+                        <p class="text-2xl md:text-3xl leading-tight text-black">
+                            A potential AI reporting tool that could summarize fragmented negotiation data.
+                        </p>
+                    </div>
+                    <div class="border border-black p-6 md:p-8 section-soft">
+                        <p class="text-sm uppercase text-black mb-4">After</p>
+                        <p class="text-2xl md:text-3xl leading-tight text-black">
+                            A scenario-led workspace that guides decisions, explains tradeoffs, and packages evidence for action.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="insights" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">User Insights That Shaped the Build</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+                    <article class="border border-black p-6">
+                        <p class="text-sm uppercase text-[#315dff] mb-3">01 / Data confidence</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Data was everywhere, and it would not sit still.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">Every recommendation needed a visible source posture: sourced, AI-modeled, assumed, stale, or missing.</p>
+                    </article>
+                    <article class="border border-black p-6 section-soft">
+                        <p class="text-sm uppercase text-[#315dff] mb-3">02 / Action</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">The product needed to answer "now what?"</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">Insights had to connect to a next move, the evidence behind it, and the risk that remained.</p>
+                    </article>
+                    <article class="border border-black p-6 section-soft">
+                        <p class="text-sm uppercase text-[#315dff] mb-3">03 / Scenario modeling</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Scenario modeling was the core value.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">Users wanted AI to run more permutations than a human team could manage, then narrow complexity into the best few options.</p>
+                    </article>
+                    <article class="border border-black p-6">
+                        <p class="text-sm uppercase text-[#315dff] mb-3">04 / Buyer memory</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Buyer history was active intelligence.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">Past negotiation behavior became an input into prediction: likely objections, rounds, concessions, and where to hold firm.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="mb-16 md:mb-20" aria-label="Decision loop diagram">
+                <div class="decision-loop">
+                    <p class="visual-placeholder-label mb-4">Prototype architecture / decision loop</p>
+                    <h3 class="text-3xl md:text-[44px] leading-tight text-black">
+                        The loop that anchored the product direction.
+                    </h3>
+                    <p class="text-base md:text-lg leading-[1.45] text-[#4f4f4f] max-w-[760px] mt-4 mb-8">
+                        I narrowed the prototype around one repeatable decision flow: notice the change, understand the risk, compare possible moves, prepare the argument, then capture what happened so the system gets smarter.
+                    </p>
+
+                    <div class="loop-diagram">
+                        <article class="loop-step">
+                            <span class="loop-step-number">01</span>
+                            <div>
+                                <h4>Monitor change</h4>
+                                <p>What shifted in pricing, margin, market signals, customer ask, or source freshness?</p>
+                            </div>
+                            <span class="loop-arrow" aria-hidden="true">↓</span>
+                        </article>
+                        <article class="loop-step">
+                            <span class="loop-step-number">02</span>
+                            <div>
+                                <h4>Diagnose risk</h4>
+                                <p>Which negotiations are exposed, and where are target, red line, or relationship risks emerging?</p>
+                            </div>
+                            <span class="loop-arrow" aria-hidden="true">↓</span>
+                        </article>
+                        <article class="loop-step is-key">
+                            <span class="loop-step-number">03</span>
+                            <div>
+                                <h4>Model scenarios</h4>
+                                <p>Compare recommended, conservative, aggressive, and user-authored moves with tradeoffs visible.</p>
+                            </div>
+                            <span class="loop-arrow" aria-hidden="true">↓</span>
+                        </article>
+                        <article class="loop-step">
+                            <span class="loop-step-number">04</span>
+                            <div>
+                                <h4>Predict buyer</h4>
+                                <p>Use buyer memory to anticipate likely objections, timing pressure, and response patterns.</p>
+                            </div>
+                            <span class="loop-arrow" aria-hidden="true">↓</span>
+                        </article>
+                        <article class="loop-step is-key">
+                            <span class="loop-step-number">05</span>
+                            <div>
+                                <h4>Prepare argument</h4>
+                                <p>Package evidence, pushback responses, and audience-safe outputs for the next conversation.</p>
+                            </div>
+                            <span class="loop-arrow" aria-hidden="true">↓</span>
+                        </article>
+                        <article class="loop-step">
+                            <span class="loop-step-number">06</span>
+                            <div>
+                                <h4>Capture debrief</h4>
+                                <p>Turn negotiation outcomes into memory that informs future buyer guidance and scenario quality.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <p class="loop-feedback">Debrief learning feeds back into buyer memory, source confidence, and the next scenario recommendation.</p>
+                </div>
+            </section>
+
+            <section id="solution" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Product Direction</h2>
+                <div class="space-y-8">
+                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8">
+                        <div class="lg:col-span-4">
+                            <p class="text-sm uppercase text-[#315dff] mb-3">01 / Product thesis</p>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">AI as decision support, not content generation</h3>
+                        </div>
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Signal</p>
+                                <p>Users did not need another report.</p>
+                            </div>
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Move</p>
+                                <p>Make ATLAS reason through risk, compare paths, and recommend next moves.</p>
+                            </div>
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Result</p>
+                                <p>A sharper product thesis the team could explain through user pressure and decision quality.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8 section-soft">
+                        <div class="lg:col-span-4">
+                            <p class="text-sm uppercase text-[#315dff] mb-3">02 / Trust model</p>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Trust as a product feature</h3>
+                        </div>
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Signal</p>
+                                <p>Recommendations had to be defensible to leadership, KAMs, and customers.</p>
+                            </div>
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Move</p>
+                                <p>Design source labels, confidence states, assumption editing, and evidence trails into the core flow.</p>
+                            </div>
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Result</p>
+                                <p>Trust moved from explanation copy into visible product behavior.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8">
+                        <div class="lg:col-span-4">
+                            <p class="text-sm uppercase text-[#315dff] mb-3">03 / Core capability</p>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Buyer memory as active intelligence</h3>
+                        </div>
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Signal</p>
+                                <p>Negotiators keep mental models of buyer behavior and relationship dynamics.</p>
+                            </div>
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Move</p>
+                                <p>Turn profiles into prediction inputs: likely objections, timeline patterns, and concession preferences.</p>
+                            </div>
+                            <div>
+                                <p class="text-sm uppercase text-black mb-2">Result</p>
+                                <p>ATLAS became more than static context. It could guide strategy for the next round.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="mb-16 md:mb-20">
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Solution Surfaces</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <div class="border border-black p-6">
+                        <p class="text-sm uppercase text-black mb-4">Intelligence Hub</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black">What changed, what needs attention, and which negotiations are affected.</p>
+                    </div>
+                    <div class="border border-black p-6 section-soft">
+                        <p class="text-sm uppercase text-black mb-4">Current Position</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black">Current price, target, red line, gaps, margin impact, freshness, and risk drivers.</p>
+                    </div>
+                    <div class="border border-black p-6">
+                        <p class="text-sm uppercase text-black mb-4">Scenario Lab</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black">Recommended, conservative, aggressive, and user-authored scenarios with tradeoffs.</p>
+                    </div>
+                    <div class="border border-black p-6 section-soft">
+                        <p class="text-sm uppercase text-black mb-4">Buyer Intelligence</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black">Behavior patterns, likely objections, relationship risk, and negotiation memory.</p>
+                    </div>
+                    <div class="border border-black p-6">
+                        <p class="text-sm uppercase text-black mb-4">Argument Builder</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black">Pushback maps and evidence-backed responses tied to the selected scenario.</p>
+                    </div>
+                    <div class="border border-black p-6 section-soft">
+                        <p class="text-sm uppercase text-black mb-4">Output Generator</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black">Audience-safe briefs for CNO, leadership, KAM cascade, and customer-facing use.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="visuals" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Visuals To Add</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+                    <div class="visual-placeholder compact">
+                        <p class="visual-placeholder-label">Placeholder / Scenario Lab</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black">Add a scenario comparison screen.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-[#4f4f4f]">Show recommended, conservative, aggressive, and manual scenarios with confidence, financial impact, and buyer response.</p>
+                    </div>
+                    <div class="visual-placeholder compact">
+                        <p class="visual-placeholder-label">Placeholder / Trust layer</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black">Add source provenance and assumption states.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-[#4f4f4f]">Show how users know whether numbers are sourced, modeled, stale, missing, or manually edited.</p>
+                    </div>
+                    <div class="visual-placeholder compact">
+                        <p class="visual-placeholder-label">Placeholder / Buyer memory</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black">Add buyer behavior and negotiation memory.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-[#4f4f4f]">Show likely objections, round history, response patterns, and recommended framing.</p>
+                    </div>
+                    <div class="visual-placeholder compact">
+                        <p class="visual-placeholder-label">Placeholder / Output generator</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black">Add generated brief variations.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-[#4f4f4f]">Show internal CNO brief, leadership summary, KAM cascade pack, and customer-safe argument.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="outcome" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Outcome + Reflection</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-black p-6 section-soft">
+                            <p class="text-sm uppercase text-black mb-4">Outcome</p>
+                            <p class="text-xl md:text-2xl leading-tight text-black">
+                                ATLAS was reframed from dashboard/chatbot to decision-intelligence partner, with scenario modeling as the core engine.
+                            </p>
+                        </div>
+                        <div class="border border-black p-6">
+                            <p class="text-sm uppercase text-black mb-4">Product impact</p>
+                            <p class="text-xl md:text-2xl leading-tight text-black">
+                                The sprint produced a clearer product direction, prototype architecture, and pitch narrative grounded in user evidence.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 border border-black p-6 md:p-8">
+                        <p class="text-sm uppercase text-black mb-5">What this shows</p>
+                        <p class="text-2xl md:text-3xl leading-tight text-black">
+                            I can champion UX when the brief is ambiguous: define the product point of view, protect the real problem, and turn user insight into buildable strategy.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-8 md:py-16 mb-16">
+                <div class="mb-10">
+                    <h2 class="text-4xl md:text-[64px] leading-tight text-black">Let's Connect!</h2>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl text-black">
+                        goudreaugrace@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl text-black w-fit">
+                        LinkedIn
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = "Design";
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            showContent();
+        }
+
+        function checkPassword() {
+            const input = document.getElementById('password');
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (input.value === correctPassword) {
+                sessionStorage.setItem('authenticated', 'true');
+                showContent();
+            } else {
+                errorMessage.classList.remove('hidden');
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        function showContent() {
+            document.getElementById('passwordScreen').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            setDemoVideoSpeed();
+        }
+
+        function setDemoVideoSpeed() {
+            const demoVideos = document.querySelectorAll('.atlas-demo-video');
+            demoVideos.forEach((demoVideo) => {
+                demoVideo.playbackRate = 1.5;
+                demoVideo.defaultPlaybackRate = 1.5;
+            });
+        }
+    </script>
+</body>
+</html>
