@@ -142,6 +142,15 @@
             border-radius: 0;
         }
 
+        .work-grid-media img.content-engine-card-image {
+            object-fit: contain;
+            background: #fff;
+        }
+
+        .work-grid-media img.align-left-card-image {
+            object-position: left center;
+        }
+
         .work-grid-body {
             flex: 1;
             display: flex;
@@ -284,12 +293,8 @@
                     <span class="border-right"></span>
                     <span class="border-bottom"></span>
                     <span class="border-left"></span>
-                    <div class="work-grid-media" aria-hidden="true">
-                        <div class="work-placeholder">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                    <div class="work-grid-media">
+                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="MyPepsiCo content engine workflow showing submit, agents work, and review stages">
                     </div>
                     <div class="work-grid-body p-6 md:p-8">
                         <div>
@@ -332,7 +337,6 @@
                         <div class="flex flex-wrap gap-2">
                             <span class="recruiter-chip px-3 py-2 text-sm">Enterprise UX</span>
                             <span class="recruiter-chip px-3 py-2 text-sm">Product Strategy</span>
-                            <span class="recruiter-chip px-3 py-2 text-sm">Google + PepsiCo</span>
                         </div>
                     </div>
                 </a>
@@ -342,12 +346,8 @@
                     <span class="border-right"></span>
                     <span class="border-bottom"></span>
                     <span class="border-left"></span>
-                    <div class="work-grid-media" aria-hidden="true">
-                        <div class="work-placeholder">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                    <div class="work-grid-media">
+                        <img class="align-left-card-image" src="assets/order-management-card.png" alt="Order Management modification request tracker dashboard preview">
                     </div>
                     <div class="work-grid-body p-6 md:p-8">
                         <div>
@@ -367,6 +367,32 @@
                     </div>
                 </a>
 
+                <a href="portfolio-case-study.html" class="case-study-card work-grid-card border border-black">
+                    <span class="border-top"></span>
+                    <span class="border-right"></span>
+                    <span class="border-bottom"></span>
+                    <span class="border-left"></span>
+                    <div class="work-grid-media">
+                        <img src="assets/portfolio-build-card.png" alt="Portfolio homepage preview with hero typography and horizontal work cards">
+                    </div>
+                    <div class="work-grid-body p-6 md:p-8">
+                        <div>
+                            <div class="flex items-center gap-2 mb-5">
+                                <span class="mini-color-dot dot-blue"></span>
+                                <p class="text-sm uppercase text-black">04 / Design Process</p>
+                            </div>
+                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Portfolio Build</h2>
+                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
+                                A meta case study on using modern design tools, fast prototyping, and handoff thinking to move from concept to responsive site.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="recruiter-chip px-3 py-2 text-sm">Prototyping</span>
+                            <span class="recruiter-chip px-3 py-2 text-sm">Systems Thinking</span>
+                        </div>
+                    </div>
+                </a>
+
                 <a href="forecast-analysis.html" class="case-study-card work-grid-card border border-black">
                     <span class="border-top"></span>
                     <span class="border-right"></span>
@@ -379,7 +405,7 @@
                         <div>
                             <div class="flex items-center gap-2 mb-5">
                                 <span class="mini-color-dot dot-yellow"></span>
-                                <p class="text-sm uppercase text-black">04 / Data-heavy UX</p>
+                                <p class="text-sm uppercase text-black">05 / Data-heavy UX</p>
                             </div>
                             <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Forecast Analysis</h2>
                             <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
@@ -405,7 +431,7 @@
                         <div>
                             <div class="flex items-center gap-2 mb-5">
                                 <span class="mini-color-dot dot-green"></span>
-                                <p class="text-sm uppercase text-black">05 / Ecommerce UX</p>
+                                <p class="text-sm uppercase text-black">06 / Ecommerce UX</p>
                             </div>
                             <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Wonder 3D Prints</h2>
                             <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
@@ -415,36 +441,6 @@
                         <div class="flex flex-wrap gap-2">
                             <span class="recruiter-chip px-3 py-2 text-sm">Ecommerce</span>
                             <span class="recruiter-chip px-3 py-2 text-sm">Conversion Flow</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="portfolio-case-study.html" class="case-study-card work-grid-card border border-black">
-                    <span class="border-top"></span>
-                    <span class="border-right"></span>
-                    <span class="border-bottom"></span>
-                    <span class="border-left"></span>
-                    <div class="work-grid-media" aria-hidden="true">
-                        <div class="work-placeholder">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="work-grid-body p-6 md:p-8">
-                        <div>
-                            <div class="flex items-center gap-2 mb-5">
-                                <span class="mini-color-dot dot-blue"></span>
-                                <p class="text-sm uppercase text-black">06 / Design Process</p>
-                            </div>
-                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Portfolio Build</h2>
-                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
-                                A meta case study on using modern design tools, fast prototyping, and handoff thinking to move from concept to responsive site.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="recruiter-chip px-3 py-2 text-sm">Prototyping</span>
-                            <span class="recruiter-chip px-3 py-2 text-sm">Systems Thinking</span>
                         </div>
                     </div>
                 </a>

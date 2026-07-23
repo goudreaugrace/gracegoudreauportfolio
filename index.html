@@ -249,14 +249,17 @@
 
         .work-card {
             flex: 0 0 min(78vw, 340px);
-            height: 450px;
+            height: 500px;
+            min-height: 500px;
             display: flex;
             flex-direction: column;
             scroll-snap-align: start;
         }
 
         .work-card-media {
-            height: 150px;
+            flex: 0 0 170px;
+            height: 170px;
+            min-height: 170px;
             overflow: hidden;
             background:
                 radial-gradient(circle at 12% 18%, rgba(49, 93, 255, 0.12), transparent 26%),
@@ -272,8 +275,18 @@
             border-radius: 0;
         }
 
+        .work-card-media img.content-engine-card-image {
+            object-fit: contain;
+            background: #fff;
+        }
+
+        .work-card-media img.align-left-card-image {
+            object-position: left center;
+        }
+
         .work-card-body {
             flex: 1;
+            min-height: 0;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -342,11 +355,14 @@
         @media (max-width: 640px) {
             .work-card {
                 flex-basis: 82vw;
-                height: 440px;
+                height: 480px;
+                min-height: 480px;
             }
 
             .work-card-media {
-                height: 150px;
+                flex-basis: 155px;
+                height: 155px;
+                min-height: 155px;
             }
         }
 
@@ -501,12 +517,8 @@
             <div class="work-rail-shell">
                 <div class="work-rail" aria-label="Selected case studies">
                     <a href="my-pepsico-content-agent.html" class="case-study-card work-card overflow-hidden">
-                        <div class="work-card-media" aria-hidden="true">
-                            <div class="work-placeholder">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
+                        <div class="work-card-media">
+                            <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="MyPepsiCo content engine workflow showing submit, agents work, and review stages">
                         </div>
                         <div class="work-card-body p-6">
                             <div>
@@ -544,18 +556,13 @@
                             <div class="flex flex-wrap gap-2">
                                 <span class="recruiter-chip px-3 py-2 text-sm">Enterprise UX</span>
                                 <span class="recruiter-chip px-3 py-2 text-sm">Product Strategy</span>
-                                <span class="recruiter-chip px-3 py-2 text-sm">Google + PepsiCo</span>
                             </div>
                         </div>
                     </a>
 
                     <a href="order-management.html" class="case-study-card work-card overflow-hidden">
-                        <div class="work-card-media" aria-hidden="true">
-                            <div class="work-placeholder">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
+                        <div class="work-card-media">
+                            <img class="align-left-card-image" src="assets/order-management-card.png" alt="Order Management modification request tracker dashboard preview">
                         </div>
                         <div class="work-card-body p-6">
                             <div>
@@ -575,6 +582,28 @@
                         </div>
                     </a>
 
+                    <a href="portfolio-case-study.html" class="case-study-card work-card overflow-hidden">
+                        <div class="work-card-media">
+                            <img src="assets/portfolio-build-card.png" alt="Portfolio homepage preview with hero typography and horizontal work cards">
+                        </div>
+                        <div class="work-card-body p-6">
+                            <div>
+                                <div class="flex items-center gap-2 mb-5">
+                                    <span class="mini-color-dot dot-blue"></span>
+                                    <p class="text-sm uppercase text-black">04 / Design Process</p>
+                                </div>
+                                <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Portfolio Build</h3>
+                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
+                                    A meta case study on using modern design tools, fast prototyping, and handoff thinking to move from concept to responsive site.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="recruiter-chip px-3 py-2 text-sm">Prototyping</span>
+                                <span class="recruiter-chip px-3 py-2 text-sm">Systems Thinking</span>
+                            </div>
+                        </div>
+                    </a>
+
                     <a href="forecast-analysis.html" class="case-study-card work-card overflow-hidden">
                         <div class="work-card-media">
                             <img src="FA UI Workload.png" alt="Forecast analysis workflow preview">
@@ -583,7 +612,7 @@
                             <div>
                                 <div class="flex items-center gap-2 mb-5">
                                     <span class="mini-color-dot dot-yellow"></span>
-                                    <p class="text-sm uppercase text-black">04 / Data-heavy UX</p>
+                                    <p class="text-sm uppercase text-black">05 / Data-heavy UX</p>
                                 </div>
                                 <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Forecast Analysis</h3>
                                 <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
@@ -605,7 +634,7 @@
                             <div>
                                 <div class="flex items-center gap-2 mb-5">
                                     <span class="mini-color-dot dot-green"></span>
-                                    <p class="text-sm uppercase text-black">05 / Ecommerce UX</p>
+                                    <p class="text-sm uppercase text-black">06 / Ecommerce UX</p>
                                 </div>
                                 <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Wonder 3D Prints</h3>
                                 <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
@@ -615,32 +644,6 @@
                             <div class="flex flex-wrap gap-2">
                                 <span class="recruiter-chip px-3 py-2 text-sm">Ecommerce</span>
                                 <span class="recruiter-chip px-3 py-2 text-sm">Conversion Flow</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="portfolio-case-study.html" class="case-study-card work-card overflow-hidden">
-                        <div class="work-card-media" aria-hidden="true">
-                            <div class="work-placeholder">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="work-card-body p-6">
-                            <div>
-                                <div class="flex items-center gap-2 mb-5">
-                                    <span class="mini-color-dot dot-blue"></span>
-                                    <p class="text-sm uppercase text-black">06 / Design Process</p>
-                                </div>
-                                <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Portfolio Build</h3>
-                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
-                                    A meta case study on using modern design tools, fast prototyping, and handoff thinking to move from concept to responsive site.
-                                </p>
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="recruiter-chip px-3 py-2 text-sm">Prototyping</span>
-                                <span class="recruiter-chip px-3 py-2 text-sm">Systems Thinking</span>
                             </div>
                         </div>
                     </a>
