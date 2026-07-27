@@ -424,10 +424,10 @@
                     <div class="case-toc-inner">
                         <a href="#overview">Overview</a>
                         <a href="#origin">Story</a>
-                        <a href="#architecture">Architecture</a>
                         <a href="#problem">Problem</a>
                         <a href="#workflow-delta">Workflow Delta</a>
                         <a href="#system">POC</a>
+                        <a href="#architecture">Architecture</a>
                         <a href="#decisions">Decisions</a>
                         <a href="#next">Next</a>
                     </div>
@@ -500,7 +500,7 @@
                                 <p class="story-number">04</p>
                                 <div>
                                     <h3>The prototype created a path forward.</h3>
-                                    <p>The proof-of-concept completely shifted executive perspective on UX-driven AI strategy, securing direct corporate funding and engineering commitment to scale the architecture across the enterprise employee ecosystem.</p>
+                                    <p>The proof-of-concept gave leadership something concrete to evaluate: a working product direction, not a slide deck or abstract AI strategy.</p>
                                 </div>
                             </article>
                         </div>
@@ -508,81 +508,9 @@
                 </div>
             </section>
 
-            <section class="mb-16 md:mb-20" aria-label="Product demo video">
-                <figure class="demo-media">
-                    <video
-                        autoplay
-                        class="agent-demo-video"
-                        controls
-                        loop
-                        muted
-                        playsinline
-                        preload="metadata"
-                        aria-label="MyPepsiCo Content Agent demo showing the seven-agent workflow moving around the core orchestrator."
-                    >
-                        <source src="assets/my-pepsico-agents-demo.mp4" type="video/mp4">
-                        <source src="assets/my-pepsico-agents-demo.mov" type="video/quicktime">
-                        Your browser does not support embedded video.
-                    </video>
-                    <figcaption class="demo-media-caption">
-                        <p>
-                            Demo moment showing the POC in motion: the agent workflow cycles through Intake, Clarifier, Router, Market, Compliance, Revision, and Translation around the core orchestrator.
-                        </p>
-                        <span>Full workflow demo</span>
-                    </figcaption>
-                </figure>
-            </section>
-
-            <section id="architecture" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The Multi-Agent Architecture</h2>
-                <div class="space-y-10 md:space-y-12">
-                    <div>
-                        <p class="text-2xl md:text-3xl leading-tight text-black max-w-[920px]">
-                            I architected the interaction model around a visible orchestrator, giving human authors transparent control over modular AI sub-processes instead of hiding automation inside a black box.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="agent-architecture-map">
-                            <div class="agent-core">
-                                <p>Core Orchestrator</p>
-                                <p>Coordinates the agent sequence, preserves handoffs, and keeps the author aware of what is happening at each step.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Intake</p>
-                                <p>Checks that the brief has the minimum context needed to begin.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Clarifier</p>
-                                <p>Surfaces missing details before the system commits to generation.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Router</p>
-                                <p>Directs the request to the right sector, market, audience, and source logic.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Market</p>
-                                <p>Adapts content against local conventions, language, and operating context.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Compliance</p>
-                                <p>Flags policy-sensitive content so reviewers can see risk before publication.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Revision</p>
-                                <p>Turns critique into an updated draft while preserving reviewer intent.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Translation</p>
-                                <p>Prepares localized variants once the source content is approved.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <section id="problem" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The Problem I Heard</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="border border-black p-6">
                         <p class="text-sm uppercase text-black mb-4">Workflow</p>
                         <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Content work was too distributed to manage cleanly.</h3>
@@ -598,13 +526,6 @@
                             <li>Inconsistent spelling or tone</li>
                             <li>Policy language drifting by market</li>
                         </ul>
-                    </div>
-                    <div class="border border-black p-6">
-                        <p class="text-sm uppercase text-black mb-4">POC question</p>
-                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Could a tool make the workflow easier to trust?</h3>
-                        <p class="text-base md:text-lg leading-[1.45] text-black">
-                            Could a focused POC make the workflow easier to understand, trust, and bring to leadership?
-                        </p>
                     </div>
                 </div>
             </section>
@@ -679,6 +600,75 @@
                         <span>POC review demo / 2x</span>
                     </figcaption>
                 </figure>
+            </section>
+
+            <section id="architecture" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The Multi-Agent Architecture</h2>
+                <div class="space-y-10 md:space-y-12">
+                    <div>
+                        <p class="text-2xl md:text-3xl leading-tight text-black max-w-[920px]">
+                            I architected the interaction model around a visible orchestrator, giving human authors transparent control over modular AI sub-processes instead of hiding automation inside a black box.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="agent-architecture-map">
+                            <div class="agent-core">
+                                <p>Core Orchestrator</p>
+                                <p>Coordinates the agent sequence, preserves handoffs, and keeps the author aware of what is happening at each step.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Intake</p>
+                                <p>Checks that the brief has the minimum context needed to begin.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Clarifier</p>
+                                <p>Surfaces missing details before the system commits to generation.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Router</p>
+                                <p>Directs the request to the right sector, market, audience, and source logic.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Market</p>
+                                <p>Adapts content against local conventions, language, and operating context.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Compliance</p>
+                                <p>Flags policy-sensitive content so reviewers can see risk before publication.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Revision</p>
+                                <p>Turns critique into an updated draft while preserving reviewer intent.</p>
+                            </div>
+                            <div class="agent-node">
+                                <p>Translation</p>
+                                <p>Prepares localized variants once the source content is approved.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <figure class="demo-media">
+                        <video
+                            autoplay
+                            class="agent-demo-video"
+                            controls
+                            loop
+                            muted
+                            playsinline
+                            preload="metadata"
+                            aria-label="MyPepsiCo Content Agent demo showing the seven-agent workflow moving around the core orchestrator."
+                        >
+                            <source src="assets/my-pepsico-agents-demo.mp4" type="video/mp4">
+                            <source src="assets/my-pepsico-agents-demo.mov" type="video/quicktime">
+                            Your browser does not support embedded video.
+                        </video>
+                        <figcaption class="demo-media-caption">
+                            <p>
+                                Demo moment showing the visible orchestrator model in motion.
+                            </p>
+                            <span>Agent architecture demo</span>
+                        </figcaption>
+                    </figure>
+                </div>
             </section>
 
             <section id="decisions" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
@@ -795,22 +785,14 @@
 
             <section id="next" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Outcome + What's Next</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="border border-black p-6 section-soft">
-                            <p class="text-sm uppercase text-black mb-4">Current outcome</p>
-                            <p class="text-xl md:text-2xl leading-tight text-black">
-                                The functional proof-of-concept successfully passed executive validation, pivoting corporate strategy toward an AI-first internal delivery model.
-                            </p>
-                        </div>
-                        <div class="border border-black p-6">
-                            <p class="text-sm uppercase text-black mb-4">Why it matters</p>
-                            <p class="text-xl md:text-2xl leading-tight text-black">
-                                It converted a legacy, highly distributed workflow into an automated orchestrator, establishing a benchmark for how UX scales business value through rapid, high-craft functional prototyping.
-                            </p>
-                        </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+                    <div class="border border-black p-6 md:p-8 section-soft">
+                        <p class="text-sm uppercase text-black mb-5">Current outcome</p>
+                        <p class="text-2xl md:text-3xl leading-tight text-black">
+                            The functional proof-of-concept passed executive validation and secured corporate funding for a centralized global rollout.
+                        </p>
                     </div>
-                    <div class="lg:col-span-5 border border-black p-6 md:p-8">
+                    <div class="border border-black p-6 md:p-8">
                         <p class="text-sm uppercase text-black mb-5">Next validation</p>
                         <p class="text-2xl md:text-3xl leading-tight text-black">
                             Architecting the phase-one production pipeline, establishing LLM evaluation metrics for market-specific compliance accuracy, and kickstarting engineering integration.
