@@ -418,37 +418,55 @@
         .feature-capability-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: clamp(1rem, 2vw, 1.5rem);
-        }
-
-        @media (min-width: 900px) {
-            .feature-capability-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .feature-capability-card-wide {
-                grid-column: 1 / -1;
-            }
+            gap: clamp(1.5rem, 4vw, 3rem);
         }
 
         .feature-capability-card {
             display: grid;
-            align-content: start;
-            gap: 1.25rem;
-            min-height: 100%;
+            align-items: center;
+            gap: clamp(1.25rem, 3vw, 3rem);
             border: 1px solid black;
             padding: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        @media (min-width: 900px) {
+            .feature-capability-card {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+            }
+
+            .feature-capability-card.is-reversed .feature-image-slot {
+                order: 2;
+            }
+
+            .feature-capability-card.is-reversed .feature-capability-content {
+                order: 1;
+            }
+        }
+
+        .feature-capability-content {
+            display: grid;
+            align-content: center;
         }
 
         .feature-image-slot {
             display: grid;
             place-items: center;
-            min-height: clamp(220px, 24vw, 340px);
+            min-height: clamp(240px, 32vw, 460px);
             border: 1px dashed #aeb9b5;
             background:
                 linear-gradient(90deg, rgba(49, 93, 255, 0.07), transparent 36%),
                 linear-gradient(180deg, #ffffff, #f7f9fb);
             padding: 1.25rem;
+        }
+
+        @media (min-width: 900px) {
+            .feature-image-slot {
+                grid-column: span 7;
+            }
+
+            .feature-capability-content {
+                grid-column: span 5;
+            }
         }
 
         .feature-image-slot.has-image {
@@ -479,12 +497,6 @@
         .feature-capability-copy {
             display: grid;
             gap: 1rem;
-        }
-
-        @media (min-width: 640px) {
-            .feature-capability-copy {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
         }
 
         @media (max-width: 767px) {
@@ -815,7 +827,7 @@
                         <div class="feature-image-slot has-image">
                             <img src="assets/atlas-intelligent-alerting.png" alt="ATLAS intelligent alerting screen showing prioritized buying group alerts and recommended scenario actions.">
                         </div>
-                        <div>
+                        <div class="feature-capability-content">
                             <p class="text-sm uppercase text-[#315dff] mb-3">Feature 01</p>
                             <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Intelligent Alerting</h3>
                             <div class="feature-capability-copy">
@@ -830,11 +842,11 @@
                             </div>
                         </div>
                     </article>
-                    <article class="feature-capability-card section-soft">
-                        <div class="feature-image-slot">
-                            <p>Add image: scenario controls with editable assumptions, custom levers, and buyer-specific inputs.</p>
+                    <article class="feature-capability-card is-reversed section-soft">
+                        <div class="feature-image-slot has-image">
+                            <img src="assets/atlas-scenario-controls.png" alt="ATLAS manual scenario controls screen showing adjustable levers and predicted buyer response.">
                         </div>
-                        <div>
+                        <div class="feature-capability-content">
                             <p class="text-sm uppercase text-[#315dff] mb-3">Feature 02</p>
                             <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Manual Scenario Controls</h3>
                             <div class="feature-capability-copy">
@@ -849,11 +861,11 @@
                             </div>
                         </div>
                     </article>
-                    <article class="feature-capability-card section-soft">
+                    <article class="feature-capability-card">
                         <div class="feature-image-slot">
                             <p>Add image: buying group workspace with behavior patterns, objections, relationship cues, and handoff context.</p>
                         </div>
-                        <div>
+                        <div class="feature-capability-content">
                             <p class="text-sm uppercase text-[#315dff] mb-3">Feature 03</p>
                             <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Buying Group Intelligence</h3>
                             <div class="feature-capability-copy">
@@ -868,11 +880,11 @@
                             </div>
                         </div>
                     </article>
-                    <article class="feature-capability-card">
+                    <article class="feature-capability-card is-reversed section-soft">
                         <div class="feature-image-slot">
                             <p>Add image: pushback map connecting a recommendation to proof, objections, and suggested responses.</p>
                         </div>
-                        <div>
+                        <div class="feature-capability-content">
                             <p class="text-sm uppercase text-[#315dff] mb-3">Feature 04</p>
                             <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Pushback and Argument Support</h3>
                             <div class="feature-capability-copy">
@@ -891,7 +903,7 @@
                         <div class="feature-image-slot">
                             <p>Add image: source confidence layer with freshness, provenance, confidence, and stale-data warnings.</p>
                         </div>
-                        <div>
+                        <div class="feature-capability-content">
                             <p class="text-sm uppercase text-[#315dff] mb-3">Feature 05</p>
                             <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Source Confidence and Evidence Layer</h3>
                             <div class="feature-capability-copy">
@@ -906,11 +918,11 @@
                             </div>
                         </div>
                     </article>
-                    <article class="feature-capability-card section-soft">
+                    <article class="feature-capability-card is-reversed section-soft">
                         <div class="feature-image-slot">
                             <p>Add image: output generator showing CNO, leadership, KAM/CAM, and customer-safe brief versions.</p>
                         </div>
-                        <div>
+                        <div class="feature-capability-content">
                             <p class="text-sm uppercase text-[#315dff] mb-3">Feature 06</p>
                             <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Output and Brief Generation</h3>
                             <div class="feature-capability-copy">
@@ -925,11 +937,11 @@
                             </div>
                         </div>
                     </article>
-                    <article class="feature-capability-card feature-capability-card-wide section-soft">
+                    <article class="feature-capability-card">
                         <div class="feature-image-slot">
                             <p>Add image: debrief capture flow showing outcomes, concessions, buyer behavior, and lessons feeding future guidance.</p>
                         </div>
-                        <div>
+                        <div class="feature-capability-content">
                             <p class="text-sm uppercase text-[#315dff] mb-3">Feature 07</p>
                             <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Debrief Memory Loop</h3>
                             <div class="feature-capability-copy">
