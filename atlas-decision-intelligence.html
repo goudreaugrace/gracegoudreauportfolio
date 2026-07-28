@@ -451,6 +451,23 @@
             padding: 1.25rem;
         }
 
+        .feature-image-slot.has-image {
+            aspect-ratio: 16 / 10;
+            min-height: 0;
+            padding: 0;
+            overflow: hidden;
+            border-style: solid;
+            background: #f7f9fb;
+        }
+
+        .feature-image-slot img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
         .feature-image-slot p {
             color: #4f4f4f;
             font-size: clamp(1rem, 1.5vw, 1.2rem);
@@ -795,12 +812,12 @@
                 </p>
                 <div class="feature-capability-grid">
                     <article class="feature-capability-card">
-                        <div class="feature-image-slot">
-                            <p>Add image: triage hub showing what changed, why it matters, and the recommended next move.</p>
+                        <div class="feature-image-slot has-image">
+                            <img src="assets/atlas-intelligent-alerting.png" alt="ATLAS intelligent alerting screen showing prioritized buying group alerts and recommended scenario actions.">
                         </div>
                         <div>
                             <p class="text-sm uppercase text-[#315dff] mb-3">Feature 01</p>
-                            <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Intelligence Hub / Triage Command Center</h3>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Intelligent Alerting</h3>
                             <div class="feature-capability-copy">
                                 <div>
                                     <p class="text-sm uppercase text-black mb-2">User insight</p>
