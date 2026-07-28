@@ -415,6 +415,61 @@
             text-align: center;
         }
 
+        .feature-capability-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        @media (min-width: 900px) {
+            .feature-capability-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .feature-capability-card-wide {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .feature-capability-card {
+            display: grid;
+            align-content: start;
+            gap: 1.25rem;
+            min-height: 100%;
+            border: 1px solid black;
+            padding: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .feature-image-slot {
+            display: grid;
+            place-items: center;
+            min-height: clamp(220px, 24vw, 340px);
+            border: 1px dashed #aeb9b5;
+            background:
+                linear-gradient(90deg, rgba(49, 93, 255, 0.07), transparent 36%),
+                linear-gradient(180deg, #ffffff, #f7f9fb);
+            padding: 1.25rem;
+        }
+
+        .feature-image-slot p {
+            color: #4f4f4f;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            line-height: 1.35;
+            max-width: 22rem;
+            text-align: center;
+        }
+
+        .feature-capability-copy {
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .feature-capability-copy {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
         @media (max-width: 767px) {
             .loop-step {
                 min-height: auto;
@@ -735,106 +790,141 @@
 
             <section id="insights" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">User Feedback → Product Capabilities</h2>
-                <p class="text-2xl md:text-3xl leading-tight text-black max-w-[980px] mb-10">
+                <p class="text-2xl md:text-3xl leading-tight text-black max-w-[980px] mb-12">
                     User feedback showed the problem was not access to more information. It was confidence in what to do next. Each major feature translated one feedback theme into a product capability.
                 </p>
-                <div class="space-y-4">
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-4 border border-black p-5 md:p-6">
-                        <div class="lg:col-span-3">
-                            <p class="text-sm uppercase text-[#315dff] mb-2">Feature</p>
-                            <h3 class="text-xl md:text-2xl leading-tight text-black">Intelligence Hub / Triage Command Center</h3>
+                <div class="feature-capability-grid">
+                    <article class="feature-capability-card">
+                        <div class="feature-image-slot">
+                            <p>Add image: triage hub showing what changed, why it matters, and the recommended next move.</p>
                         </div>
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-black mb-2">User insight</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">Users did not need another report; they needed "now what?" guidance from data.</p>
-                        </div>
-                        <div class="lg:col-span-5">
-                            <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">The hub prioritized what changed, why it mattered, and what action should happen next.</p>
-                        </div>
-                    </article>
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-4 border border-black p-5 md:p-6 section-soft">
-                        <div class="lg:col-span-3">
-                            <p class="text-sm uppercase text-[#315dff] mb-2">Feature</p>
-                            <h3 class="text-xl md:text-2xl leading-tight text-black">Manual Scenario Controls</h3>
-                        </div>
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-black mb-2">User insight</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">Scenarios need custom variables because buyer, market, and region context varies.</p>
-                        </div>
-                        <div class="lg:col-span-5">
-                            <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">Editable assumptions, custom levers, and market/buyer-specific inputs let users adjust AI recommendations.</p>
+                        <div>
+                            <p class="text-sm uppercase text-[#315dff] mb-3">Feature 01</p>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Intelligence Hub / Triage Command Center</h3>
+                            <div class="feature-capability-copy">
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">User insight</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">Users did not need another report; they needed "now what?" guidance from data.</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">The hub prioritized what changed, why it mattered, and what action should happen next.</p>
+                                </div>
+                            </div>
                         </div>
                     </article>
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-4 border border-black p-5 md:p-6">
-                        <div class="lg:col-span-3">
-                            <p class="text-sm uppercase text-[#315dff] mb-2">Feature</p>
-                            <h3 class="text-xl md:text-2xl leading-tight text-black">Buying Group Intelligence</h3>
+                    <article class="feature-capability-card section-soft">
+                        <div class="feature-image-slot">
+                            <p>Add image: scenario controls with editable assumptions, custom levers, and buyer-specific inputs.</p>
                         </div>
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-black mb-2">User insight</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">Buyer behavior is tracked today in spreadsheets and memory, but it is not truly intelligent.</p>
-                        </div>
-                        <div class="lg:col-span-5">
-                            <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">Buying group workspaces turned history into guidance: behavior patterns, objections, handoff context, and relationship cues.</p>
-                        </div>
-                    </article>
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-4 border border-black p-5 md:p-6 section-soft">
-                        <div class="lg:col-span-3">
-                            <p class="text-sm uppercase text-[#315dff] mb-2">Feature</p>
-                            <h3 class="text-xl md:text-2xl leading-tight text-black">Pushback and Argument Support</h3>
-                        </div>
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-black mb-2">User insight</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">Negotiation prep is about building a defensible argument, not just collecting data.</p>
-                        </div>
-                        <div class="lg:col-span-5">
-                            <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">ATLAS connected recommendations to proof, objection forecasts, pushback maps, and suggested responses users could bring into the room.</p>
+                        <div>
+                            <p class="text-sm uppercase text-[#315dff] mb-3">Feature 02</p>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Manual Scenario Controls</h3>
+                            <div class="feature-capability-copy">
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">User insight</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">Scenarios need custom variables because buyer, market, and region context varies.</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">Editable assumptions, custom levers, and market/buyer-specific inputs let users adjust AI recommendations.</p>
+                                </div>
+                            </div>
                         </div>
                     </article>
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-4 border border-black p-5 md:p-6">
-                        <div class="lg:col-span-3">
-                            <p class="text-sm uppercase text-[#315dff] mb-2">Feature</p>
-                            <h3 class="text-xl md:text-2xl leading-tight text-black">Source Confidence and Evidence Layer</h3>
+                    <article class="feature-capability-card section-soft">
+                        <div class="feature-image-slot">
+                            <p>Add image: buying group workspace with behavior patterns, objections, relationship cues, and handoff context.</p>
                         </div>
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-black mb-2">User insight</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">Data lives across fragmented internal, customer, third-party, and spreadsheet sources.</p>
-                        </div>
-                        <div class="lg:col-span-5">
-                            <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">Source labels, freshness, confidence, provenance, and stale/missing-data warnings became core trust features.</p>
-                        </div>
-                    </article>
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-4 border border-black p-5 md:p-6 section-soft">
-                        <div class="lg:col-span-3">
-                            <p class="text-sm uppercase text-[#315dff] mb-2">Feature</p>
-                            <h3 class="text-xl md:text-2xl leading-tight text-black">Output and Brief Generation</h3>
-                        </div>
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-black mb-2">User insight</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">Outputs need to be usable by different audiences, not generic AI prose.</p>
-                        </div>
-                        <div class="lg:col-span-5">
-                            <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">The output layer created audience-safe briefs: CNO, leadership-safe, KAM/CAM-safe, and customer-safe versions.</p>
+                        <div>
+                            <p class="text-sm uppercase text-[#315dff] mb-3">Feature 03</p>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Buying Group Intelligence</h3>
+                            <div class="feature-capability-copy">
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">User insight</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">Buyer behavior is tracked today in spreadsheets and memory, but it is not truly intelligent.</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">Buying group workspaces turned history into guidance: behavior patterns, objections, handoff context, and relationship cues.</p>
+                                </div>
+                            </div>
                         </div>
                     </article>
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-4 border border-black p-5 md:p-6">
-                        <div class="lg:col-span-3">
-                            <p class="text-sm uppercase text-[#315dff] mb-2">Feature</p>
-                            <h3 class="text-xl md:text-2xl leading-tight text-black">Debrief Memory Loop</h3>
+                    <article class="feature-capability-card">
+                        <div class="feature-image-slot">
+                            <p>Add image: pushback map connecting a recommendation to proof, objections, and suggested responses.</p>
                         </div>
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-black mb-2">User insight</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">Live recording may be legally complex, but post-meeting debrief capture is practical.</p>
+                        <div>
+                            <p class="text-sm uppercase text-[#315dff] mb-3">Feature 04</p>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Pushback and Argument Support</h3>
+                            <div class="feature-capability-copy">
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">User insight</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">Negotiation prep is about building a defensible argument, not just collecting data.</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">ATLAS connected recommendations to proof, objection forecasts, pushback maps, and suggested responses users could bring into the room.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="lg:col-span-5">
-                            <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
-                            <p class="text-base md:text-lg leading-[1.45] text-black">The product emphasized post-session debriefs that capture outcomes, concessions, buyer behavior, and lessons for future negotiations.</p>
+                    </article>
+                    <article class="feature-capability-card">
+                        <div class="feature-image-slot">
+                            <p>Add image: source confidence layer with freshness, provenance, confidence, and stale-data warnings.</p>
+                        </div>
+                        <div>
+                            <p class="text-sm uppercase text-[#315dff] mb-3">Feature 05</p>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Source Confidence and Evidence Layer</h3>
+                            <div class="feature-capability-copy">
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">User insight</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">Data lives across fragmented internal, customer, third-party, and spreadsheet sources.</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">Source labels, freshness, confidence, provenance, and stale/missing-data warnings became core trust features.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="feature-capability-card section-soft">
+                        <div class="feature-image-slot">
+                            <p>Add image: output generator showing CNO, leadership, KAM/CAM, and customer-safe brief versions.</p>
+                        </div>
+                        <div>
+                            <p class="text-sm uppercase text-[#315dff] mb-3">Feature 06</p>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Output and Brief Generation</h3>
+                            <div class="feature-capability-copy">
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">User insight</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">Outputs need to be usable by different audiences, not generic AI prose.</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">The output layer created audience-safe briefs: CNO, leadership-safe, KAM/CAM-safe, and customer-safe versions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="feature-capability-card feature-capability-card-wide section-soft">
+                        <div class="feature-image-slot">
+                            <p>Add image: debrief capture flow showing outcomes, concessions, buyer behavior, and lessons feeding future guidance.</p>
+                        </div>
+                        <div>
+                            <p class="text-sm uppercase text-[#315dff] mb-3">Feature 07</p>
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black mb-5">Debrief Memory Loop</h3>
+                            <div class="feature-capability-copy">
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">User insight</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">Live recording may be legally complex, but post-meeting debrief capture is practical.</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm uppercase text-black mb-2">How it shaped the build</p>
+                                    <p class="text-base md:text-lg leading-[1.45] text-black">The product emphasized post-session debriefs that capture outcomes, concessions, buyer behavior, and lessons for future negotiations.</p>
+                                </div>
+                            </div>
                         </div>
                     </article>
                 </div>
