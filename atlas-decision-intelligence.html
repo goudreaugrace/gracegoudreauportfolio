@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATLAS Decision Intelligence - Grace Goudreau</title>
+    <title>Designing a Decision-Intelligence POC in 3 Weeks - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -499,6 +499,62 @@
             gap: 1rem;
         }
 
+        .priority-board {
+            display: grid;
+            gap: clamp(1.25rem, 3vw, 2rem);
+        }
+
+        @media (min-width: 900px) {
+            .priority-board {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .priority-column {
+            border: 1px solid black;
+            padding: clamp(1.25rem, 2.6vw, 2rem);
+        }
+
+        .priority-column.is-later {
+            border-color: #d8dfdc;
+            background: #f7f9fb;
+        }
+
+        .priority-list {
+            display: grid;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .priority-item {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr);
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .priority-index {
+            color: #315dff;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            line-height: 1.2;
+            padding-top: 0.25rem;
+            text-transform: uppercase;
+        }
+
+        .priority-item h3 {
+            color: #111;
+            font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+            line-height: 1.12;
+            margin-bottom: 0.4rem;
+        }
+
+        .priority-item p {
+            color: #4f4f4f;
+            font-size: clamp(0.98rem, 1.35vw, 1.12rem);
+            line-height: 1.4;
+        }
+
         @media (max-width: 767px) {
             .loop-step {
                 min-height: auto;
@@ -524,7 +580,7 @@
 <body class="bg-white">
     <div id="passwordScreen" class="password-container">
         <div class="max-w-md w-full px-6">
-            <h1 class="text-4xl md:text-5xl text-black mb-4 text-center">ATLAS Decision Intelligence</h1>
+            <h1 class="text-4xl md:text-5xl text-black mb-4 text-center">Designing a Decision-Intelligence POC in 3 Weeks</h1>
             <p class="text-lg text-black mb-8 text-center">This project is password protected</p>
 
             <div class="border border-black p-8">
@@ -583,20 +639,22 @@
                         <a href="#problem">Problem</a>
                         <a href="#workflow">Workflow</a>
                         <a href="#loop">Loop</a>
-                        <a href="#insights">Feedback Map</a>
+                        <a href="#insights">Feedback</a>
+                        <a href="#prioritization">Choices</a>
                         <a href="#solution">Direction</a>
+                        <a href="#working-model">Model</a>
                         <a href="#outcome">Outcome</a>
                     </div>
                 </nav>
             </div>
 
             <header id="overview" class="mb-12 md:mb-16 scroll-mt-32">
-                <p class="text-sm md:text-base uppercase text-[#315dff] mb-5">Product strategy + UX / Decision intelligence sprint</p>
+                <p class="text-sm md:text-base uppercase text-[#315dff] mb-5">3-week UX strategy sprint / AI-assisted POC build</p>
                 <h1 class="text-5xl md:text-[84px] leading-[0.98] text-black max-w-[1100px]">
-                    ATLAS Decision Intelligence
+                    Designing a Decision-Intelligence POC in 3 Weeks
                 </h1>
                 <p class="text-2xl md:text-3xl leading-tight text-black mt-6 md:mt-8 max-w-[980px]">
-                    Turning a broad AI negotiation idea into a user-led product thesis for high-stakes commercial decisions.
+                    Exploring what UX design can do in 3 weeks when AI tools, a functional proof of concept, and tight user feedback loops are used to turn an ambiguous opportunity into a credible product direction.
                 </p>
                 <div class="mt-8">
                     <a
@@ -611,14 +669,14 @@
             </header>
 
             <section class="mb-10 md:mb-14">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
                     <div class="border border-black p-4 md:p-6">
                         <p class="text-sm uppercase text-black mb-2">Role</p>
-                        <p class="text-base md:text-lg text-black">UX / product design lead</p>
+                        <p class="text-base md:text-lg text-black">UX strategy + POC lead</p>
                     </div>
                     <div class="border border-black p-4 md:p-6">
                         <p class="text-sm uppercase text-black mb-2">Timeline</p>
-                        <p class="text-base md:text-lg text-black">July 2026, 3-week reimagine sprint</p>
+                        <p class="text-base md:text-lg text-black">July 2026, 3-week sprint</p>
                     </div>
                     <div class="border border-black p-4 md:p-6">
                         <p class="text-sm uppercase text-black mb-2">Team</p>
@@ -626,12 +684,30 @@
                     </div>
                     <div class="border border-black p-4 md:p-6">
                         <p class="text-sm uppercase text-black mb-2">Users</p>
-                        <p class="text-base md:text-lg text-black">CNO negotiators and strategists</p>
+                        <p class="text-base md:text-lg text-black">Commercial negotiators and strategists</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6 section-soft">
+                        <p class="text-sm uppercase text-black mb-2">Output</p>
+                        <p class="text-base md:text-lg text-black">Validated product thesis, working POC, prioritized roadmap</p>
                     </div>
                 </div>
             </section>
 
-            <section class="mb-16 md:mb-20" aria-label="ATLAS prototype demo">
+            <section class="mb-16 md:mb-20 border border-black p-6 md:p-8 section-soft" aria-label="My role in the ATLAS sprint">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+                    <div class="lg:col-span-4">
+                        <p class="text-sm uppercase text-[#315dff] mb-3">My role</p>
+                        <h2 class="text-3xl md:text-[44px] leading-tight text-black">Turning feedback into a buildable POC.</h2>
+                    </div>
+                    <div class="lg:col-span-8">
+                        <p class="text-2xl md:text-3xl leading-tight text-black">
+                            I led the UX strategy for the sprint: synthesized user feedback into product priorities, shaped the decision loop and IA, used Codex to translate product decisions into a working POC, and kept the build reviewable in GitHub so design, product, and engineering could align around the same artifact.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16 md:mb-20" aria-label="ATLAS POC demo">
                 <figure class="demo-media atlas-demo-frame">
                     <video
                         autoplay
@@ -651,7 +727,7 @@
                         <p>
                             Demo walkthrough of the ATLAS direction at the beginning of the case study, showing how the product starts to frame negotiation complexity as decision intelligence.
                         </p>
-                        <span>Prototype demo / 1.5x</span>
+                        <span>POC demo / 1.5x</span>
                     </figcaption>
                 </figure>
             </section>
@@ -661,7 +737,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                     <div class="lg:col-span-5">
                         <p class="text-2xl md:text-3xl leading-tight text-black max-w-[560px]">
-                            ATLAS started as a broad AI opportunity. My work was to pull it out of AI novelty and anchor it in the decisions negotiators actually needed to make.
+                            ATLAS started as a 3-week challenge: how far can UX push an ambiguous AI opportunity when the team builds quickly, listens closely, and keeps the product grounded in real decision-making?
                         </p>
                     </div>
                     <div class="lg:col-span-7">
@@ -669,8 +745,8 @@
                             <article class="story-step">
                                 <p class="story-number">01</p>
                                 <div>
-                                    <h3>The prompt was exciting but dangerously open-ended.</h3>
-                                    <p>PepsiCo had fragmented pricing, margin, market, buyer, and negotiation data. Without a strong product point of view, ATLAS could have become another AI dashboard.</p>
+                                    <h3>The prompt was exciting, but too open-ended to build from.</h3>
+                                    <p>PepsiCo had fragmented pricing, margin, market, buyer, and negotiation data. Without a strong product point of view, a fast AI sprint could have produced novelty instead of utility.</p>
                                 </div>
                             </article>
                             <article class="story-step">
@@ -684,14 +760,14 @@
                                 <p class="story-number">03</p>
                                 <div>
                                     <h3>I created a research cadence to de-risk the product.</h3>
-                                    <p>I framed weekly user sessions around a clear value and KPI: discovery, co-design, concept trust, and final validation. Research was not a checkpoint. It was the engine of the sprint.</p>
+                                    <p>I framed weekly user sessions around discovery, co-design, concept trust, and final validation. Research was not a checkpoint. It was the engine that kept the POC grounded while we moved fast.</p>
                                 </div>
                             </article>
                             <article class="story-step">
                                 <p class="story-number">04</p>
                                 <div>
-                                    <h3>The product became a decision-intelligence workspace.</h3>
-                                    <p>The final direction helped negotiators understand changes, model scenarios, predict buyer response, prepare arguments, generate outputs, and capture learning for the next round.</p>
+                                    <h3>The product became proof of a faster UX operating model.</h3>
+                                    <p>In 3 weeks, the team moved from a broad AI idea to a functional decision-intelligence POC, a sharper product thesis, and a set of roadmap choices grounded in user feedback.</p>
                                 </div>
                             </article>
                         </div>
@@ -756,12 +832,12 @@
 
             <section id="loop" class="mb-16 md:mb-20 scroll-mt-32" aria-label="Decision loop diagram">
                 <div class="decision-loop">
-                    <p class="visual-placeholder-label mb-4">Prototype architecture / decision loop</p>
+                    <p class="visual-placeholder-label mb-4">POC architecture / decision loop</p>
                     <h3 class="text-3xl md:text-[44px] leading-tight text-black">
                         The loop that anchored the product direction.
                     </h3>
                     <p class="text-base md:text-lg leading-[1.45] text-[#4f4f4f] max-w-[760px] mt-4 mb-8">
-                        I narrowed the prototype around one repeatable decision flow: notice the change, understand the risk, compare possible moves, prepare the argument, then capture what happened so the system gets smarter.
+                        I narrowed the POC around one repeatable decision flow: notice the change, understand the risk, compare possible moves, prepare the argument, then capture what happened so the system gets smarter.
                     </p>
 
                     <div class="loop-diagram">
@@ -882,7 +958,7 @@
                     </article>
                     <article class="feature-capability-card is-reversed section-soft">
                         <div class="feature-image-slot has-image">
-                            <img src="assets/atlas-predictive-buyer-response.png" alt="ATLAS predictive buyer response screen showing likely counter behavior, response likelihood, and recommended CNO move.">
+                            <img src="assets/atlas-predictive-buyer-response.png" alt="ATLAS predictive buyer response screen showing likely counter behavior, response likelihood, and recommended negotiation move.">
                         </div>
                         <div class="feature-capability-content">
                             <p class="text-sm uppercase text-[#315dff] mb-3">Feature 04</p>
@@ -899,6 +975,97 @@
                             </div>
                         </div>
                     </article>
+                </div>
+            </section>
+
+            <section id="prioritization" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-10">
+                    <div class="lg:col-span-5">
+                        <p class="text-sm uppercase text-[#315dff] mb-4">Prioritization under constraint</p>
+                        <h2 class="text-4xl md:text-[56px] leading-tight text-black">What we chose to build first.</h2>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <p class="text-2xl md:text-3xl leading-tight text-black">
+                            We collected more feedback than the sprint could responsibly absorb. My role was to turn that feedback into product decisions: build the capabilities that unlocked trust, decision quality, and user confidence first, then move lower-fit or higher-risk ideas into the backlog.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="priority-board">
+                    <div class="priority-column">
+                        <p class="text-sm uppercase text-[#315dff]">Used to continue the build</p>
+                        <div class="priority-list">
+                            <article class="priority-item">
+                                <span class="priority-index">01</span>
+                                <div>
+                                    <h3>Clarify the information architecture</h3>
+                                    <p>Feedback showed the IA was hard to scan, so the MVP shifted toward a triage-first model that made priority signals easier to find.</p>
+                                </div>
+                            </article>
+                            <article class="priority-item">
+                                <span class="priority-index">02</span>
+                                <div>
+                                    <h3>Increase the trust layer</h3>
+                                    <p>Every number and recommendation needed source, freshness, confidence, and known gaps, so trust became visible product behavior.</p>
+                                </div>
+                            </article>
+                            <article class="priority-item">
+                                <span class="priority-index">03</span>
+                                <div>
+                                    <h3>Prioritize predictive modeling</h3>
+                                    <p>Users could only test a limited number of scenarios manually, so ATLAS focused on evaluating many paths and returning the strongest few.</p>
+                                </div>
+                            </article>
+                            <article class="priority-item">
+                                <span class="priority-index">04</span>
+                                <div>
+                                    <h3>Support brief generation</h3>
+                                    <p>Commercial negotiators were already gathering documents and reports before key conversations, so generated outputs became a practical handoff moment.</p>
+                                </div>
+                            </article>
+                            <article class="priority-item">
+                                <span class="priority-index">05</span>
+                                <div>
+                                    <h3>Strengthen buying group profiles</h3>
+                                    <p>Negotiators often work with the same buyers for years, making buyer memory a core input for closed-loop recommendations.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="priority-column is-later">
+                        <p class="text-sm uppercase text-black">Saved for later</p>
+                        <div class="priority-list">
+                            <article class="priority-item">
+                                <span class="priority-index">01</span>
+                                <div>
+                                    <h3>Live negotiation capture</h3>
+                                    <p>High-value, but live listening introduced legal and implementation complexity that made it wrong for the MVP.</p>
+                                </div>
+                            </article>
+                            <article class="priority-item">
+                                <span class="priority-index">02</span>
+                                <div>
+                                    <h3>Account-manager feature depth</h3>
+                                    <p>Account-manager needs were important, but the clearest first wedge was the commercial strategy workflow, with broader persona support kept in the roadmap.</p>
+                                </div>
+                            </article>
+                            <article class="priority-item">
+                                <span class="priority-index">03</span>
+                                <div>
+                                    <h3>Standalone market views</h3>
+                                    <p>Market context mattered, but research pointed to alerting and filtering as the sharper MVP expression.</p>
+                                </div>
+                            </article>
+                            <article class="priority-item">
+                                <span class="priority-index">04</span>
+                                <div>
+                                    <h3>Deep scenario precision</h3>
+                                    <p>Product-level and highly granular modeling were valuable, but the sprint needed to validate the core scenario engine first.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -934,7 +1101,7 @@
                         <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
                             <div>
                                 <p class="text-sm uppercase text-black mb-2">Signal</p>
-                                <p>Recommendations had to be defensible to leadership, KAMs, and customers.</p>
+                                <p>Recommendations had to be defensible to leadership, account teams, and customers.</p>
                             </div>
                             <div>
                                 <p class="text-sm uppercase text-black mb-2">Move</p>
@@ -970,6 +1137,44 @@
                 </div>
             </section>
 
+            <section id="working-model" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-10">
+                    <div class="lg:col-span-5">
+                        <p class="text-sm uppercase text-[#315dff] mb-4">Working model</p>
+                        <h2 class="text-4xl md:text-[56px] leading-tight text-black">How we collaborated to move faster.</h2>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <p class="text-2xl md:text-3xl leading-tight text-black">
+                            The POC also became a test of how UX designers can use AI tools and GitHub to work more like a product team: make decisions visible, build in shared code, and give engineering, product, and leadership one artifact to inspect together.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                    <article class="border border-black p-6 section-soft">
+                        <p class="text-sm uppercase text-[#315dff] mb-4">01 / Codex as build partner</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Design moved from static intent to working behavior.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-[#4f4f4f]">
+                            Codex helped turn product decisions into functional UI quickly, making interactions, edge cases, and system logic easier to evaluate than a flat mockup.
+                        </p>
+                    </article>
+                    <article class="border border-black p-6">
+                        <p class="text-sm uppercase text-[#315dff] mb-4">02 / GitHub as source of truth</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">The work became reviewable and collaborative.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-[#4f4f4f]">
+                            Using GitHub created a shared record of decisions, iterations, and implementation details, so the team could discuss the actual build instead of translating between separate design and engineering artifacts.
+                        </p>
+                    </article>
+                    <article class="border border-black p-6 section-soft">
+                        <p class="text-sm uppercase text-[#315dff] mb-4">03 / UX closer to delivery</p>
+                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Designers could contribute earlier to technical alignment.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-[#4f4f4f]">
+                            This model let UX explore IA, flows, states, and product logic in a format the larger team could validate, refine, and eventually hand off with less ambiguity.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
             <section id="outcome" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Outcome + Reflection</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
@@ -977,20 +1182,20 @@
                         <div class="border border-black p-6 section-soft">
                             <p class="text-sm uppercase text-black mb-4">Outcome</p>
                             <p class="text-xl md:text-2xl leading-tight text-black">
-                                ATLAS was reframed from dashboard/chatbot to decision-intelligence partner, with scenario modeling as the core engine.
+                                In 3 weeks, ATLAS moved from an ambiguous AI opportunity to a validated product direction, working POC, and prioritized roadmap.
                             </p>
                         </div>
                         <div class="border border-black p-6">
                             <p class="text-sm uppercase text-black mb-4">Product impact</p>
                             <p class="text-xl md:text-2xl leading-tight text-black">
-                                The sprint produced a clearer product direction, prototype architecture, and pitch narrative grounded in user evidence.
+                                The sprint turned design exploration into a concrete artifact the team could critique, refine, and use to make roadmap decisions.
                             </p>
                         </div>
                     </div>
                     <div class="lg:col-span-5 border border-black p-6 md:p-8">
                         <p class="text-sm uppercase text-black mb-5">What this shows</p>
                         <p class="text-2xl md:text-3xl leading-tight text-black">
-                            I can champion UX when the brief is ambiguous: define the product point of view, protect the real problem, and turn user insight into buildable strategy.
+                            I can lead a fast, evidence-backed POC: define the problem, prioritize scope, translate strategy into working behavior, and make the future tangible.
                         </p>
                     </div>
                 </div>
