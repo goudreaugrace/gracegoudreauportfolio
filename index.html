@@ -293,21 +293,48 @@
             min-height: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            gap: 1.5rem;
+            justify-content: flex-start;
+            gap: 0;
+        }
+
+        .work-card-body > div:first-child {
+            display: grid;
+            grid-template-rows: 2.2rem 4.65rem 5.65rem;
+            row-gap: 0.75rem;
+        }
+
+        .work-card-body > div:first-child > .flex {
+            margin-bottom: 0 !important;
+            align-items: flex-start;
         }
 
         .work-card h3 {
             font-size: clamp(1.55rem, 2.4vw, 2rem) !important;
             line-height: 1.08 !important;
+            margin-bottom: 0 !important;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
         }
 
         .work-card p:not(.text-sm) {
             font-size: 0.98rem !important;
+            margin: 0 !important;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
         }
 
         .work-card p.text-sm {
             font-size: 0.76rem !important;
+        }
+
+        .work-card-body > .flex:last-child {
+            margin-top: auto;
+            min-height: 3.1rem;
+            align-content: flex-start;
         }
 
         .work-card .recruiter-chip {
@@ -410,6 +437,10 @@
                 flex-basis: 155px;
                 height: 155px;
                 min-height: 155px;
+            }
+
+            .work-card-body > div:first-child {
+                grid-template-rows: 2.1rem 4.45rem 5.2rem;
             }
         }
 
@@ -572,7 +603,7 @@
                                     <span class="mini-color-dot dot-blue"></span>
                                     <p class="text-sm uppercase text-black">01 / Product Strategy & AI Discovery</p>
                                 </div>
-                                <h3 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Designing a Decision-Intelligence POC in 3 Weeks</h3>
+                                <h3 class="text-3xl md:text-[52px] leading-tight text-black mb-4">3-Week Decision-Intelligence POC</h3>
                                 <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
                                     A UX strategy sprint using an AI-assisted proof of concept, user feedback, and product judgment to turn ambiguity into a buildable direction.
                                 </p>
