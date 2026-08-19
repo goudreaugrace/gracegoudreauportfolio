@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Compass Visual Redesign - Grace Goudreau</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            font-variation-settings: 'wdth' 100;
+        }
+
+        .password-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .content-container {
+            display: none;
+        }
+
+        .password-input {
+            outline: none;
+        }
+
+        .password-input:focus {
+            border-color: black;
+        }
+
+        .case-sticky-cluster {
+            position: sticky;
+            top: 49px;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-sizing: border-box;
+            margin-bottom: 1.75rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid black;
+            margin-left: -1rem;
+            margin-right: -1rem;
+        }
+
+        @media (min-width: 768px) {
+            .case-sticky-cluster {
+                top: 51px;
+                gap: 1rem;
+                margin-bottom: 2rem;
+                margin-left: -15px;
+                margin-right: -15px;
+                padding: 0.5rem 15px;
+            }
+        }
+
+        .case-toc {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            align-self: center;
+            border-left: 1px solid #111;
+            padding-left: 0.75rem;
+            min-height: 0;
+        }
+
+        @media (min-width: 768px) {
+            .case-toc {
+                padding-left: 1rem;
+            }
+        }
+
+        .case-toc-inner {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 0.75rem 1.125rem;
+            font-size: 0.8125rem;
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
+            min-height: 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .case-toc-inner::-webkit-scrollbar {
+            display: none;
+        }
+
+        .case-toc a {
+            flex-shrink: 0;
+            white-space: nowrap;
+            color: #111;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .case-toc a:hover {
+            border-bottom-color: #111;
+        }
+
+        .case-sticky-cluster .case-back-link {
+            font-size: 0.8125rem;
+        }
+
+        .case-back-link {
+            text-decoration: none;
+            color: #111;
+            line-height: 1.2;
+            padding: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .case-back-link:hover {
+            opacity: 0.6;
+        }
+
+        .case-back-link:focus-visible {
+            outline: 2px solid #111;
+            outline-offset: 3px;
+        }
+
+        .submit-button, .primary-button {
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+        }
+
+        .submit-button::before, .primary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: black;
+            transition: height 0.4s ease;
+            z-index: 0;
+        }
+
+        .submit-button:hover::before, .primary-button:hover::before {
+            height: 100%;
+        }
+
+        .submit-button span, .primary-button span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .submit-button:hover span, .primary-button:hover span {
+            color: white;
+        }
+
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #767676;
+        }
+
+        .linkedin-link {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .linkedin-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color: black;
+            transition: width 0.3s ease;
+            right: 0;
+            left: auto;
+        }
+
+        .linkedin-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 46px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid black;
+            padding: 1.5rem 1rem 1rem 1rem;
+            z-index: 45;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex !important;
+            }
+
+            .desktop-nav {
+                display: none !important;
+            }
+        }
+
+        .screen-frame {
+            background: transparent;
+        }
+
+        .screen-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid rgba(31, 37, 35, 0.16);
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .compare-label {
+            display: inline-flex;
+            align-items: center;
+            min-height: 2rem;
+            border: 1px solid #d8dfdc;
+            border-radius: 999px;
+            padding: 0.35rem 0.8rem;
+            font-size: 0.875rem;
+            color: #1f2523;
+            background: #fff;
+        }
+
+        .audit-impact {
+            margin-top: 0.6rem;
+            color: #66706d;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .audit-list {
+            border-top: 1px solid #d8dfdc;
+        }
+
+        .audit-list-item {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #d8dfdc;
+        }
+
+        .snapshot-list,
+        .snapshot-list .audit-list-item {
+            border: 0;
+        }
+
+        .snapshot-list .audit-list-item {
+            padding: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="visual-refresh.css">
+</head>
+<body class="bg-white">
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div id="passwordScreen" class="password-container">
+        <div class="max-w-md w-full px-6">
+            <h1 class="text-4xl md:text-5xl text-black mb-4 text-center">Cost Compass Visual Redesign</h1>
+            <p class="text-lg text-black mb-8 text-center">This project is password protected</p>
+
+            <div class="border border-black p-8">
+                <label for="password" class="block text-lg text-black mb-3">Enter Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    class="password-input w-full border border-black px-4 py-3 text-lg text-black mb-4"
+                    placeholder="Password"
+                    onkeypress="if(event.key === 'Enter') checkPassword()"
+                >
+                <div id="errorMessage" class="error-message hidden">Incorrect password. Please try again.</div>
+                <button
+                    onclick="checkPassword()"
+                    class="submit-button w-full border border-black bg-white px-4 py-3 mt-4"
+                >
+                    <span class="text-lg text-black">Submit</span>
+                </button>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="index.html" class="text-lg text-black hover:opacity-70 transition-opacity">&larr; Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainContent" class="content-container">
+        <nav class="w-full bg-white fixed top-0 z-50">
+            <div class="max-w-[1271px] mx-auto flex">
+                <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
+                    <a href="index.html" class="text-[#111111] text-lg md:text-xl hover:text-[#767676] transition-colors">Grace Goudreau</a>
+                    <div class="hamburger" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
+                    <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl">Work</a>
+                    <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl">About</a>
+                    <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl">Resume</a>
+                </div>
+            </div>
+        </nav>
+
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="work.html" class="text-[#111111] text-lg py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+            <a href="about.html" class="text-[#111111] text-lg py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">About</a>
+            <a href="resume.html" class="text-[#111111] text-lg py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
+        </div>
+
+        <main class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
+            <div class="case-sticky-cluster">
+                <a href="work.html" class="case-back-link shrink-0 inline-flex items-center">&larr; Back</a>
+                <nav class="case-toc" aria-label="Jump to sections">
+                    <div class="case-toc-inner">
+                        <a href="#overview">Overview</a>
+                        <a href="#outcome-snapshot">Outcome</a>
+                        <a href="#before-after">Before After</a>
+                        <a href="#audit">Audit</a>
+                        <a href="#direction">Direction</a>
+                        <a href="#craft">Craft</a>
+                        <a href="#tradeoffs">Tradeoffs</a>
+                        <a href="#impact">Impact</a>
+                    </div>
+                </nav>
+            </div>
+
+            <header id="overview" class="mb-12 md:mb-16 scroll-mt-32">
+                <p class="text-sm md:text-base uppercase text-[#315dff] mb-5">Visual design / Enterprise UX / CTX suite alignment</p>
+                <h1 class="text-5xl md:text-[84px] leading-[0.98] text-black max-w-[1080px]">
+                    Cost Compass Visual Redesign
+                </h1>
+                <p class="text-2xl md:text-3xl leading-tight text-black mt-6 md:mt-8 max-w-[980px]">
+                    Redesigning a dense agency-led analytics concept into a cleaner CTX product experience aligned to Scoping Pro.
+                </p>
+            </header>
+
+            <section class="mb-10 md:mb-14">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm uppercase text-black mb-2">Role</p>
+                        <p class="text-base md:text-lg text-black">Redesign lead and consulting-group design partner</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm uppercase text-black mb-2">Timeline</p>
+                        <p class="text-base md:text-lg text-black">2 weeks</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm uppercase text-black mb-2">Product</p>
+                        <p class="text-base md:text-lg text-black">Cost Compass, CTX suite</p>
+                    </div>
+                    <div class="border border-black p-4 md:p-6">
+                        <p class="text-sm uppercase text-black mb-2">Reference system</p>
+                        <p class="text-base md:text-lg text-black">Scoping Pro scenario modeling</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="outcome-snapshot" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                    <div class="lg:col-span-5">
+                        <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-4">Outcome Snapshot</h2>
+                        <p class="text-xl md:text-2xl leading-tight text-black">
+                            The story, compressed.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-7 audit-list snapshot-list grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                        <div class="audit-list-item">
+                            <p class="text-sm uppercase text-black mb-3">Problem</p>
+                            <p class="text-xl md:text-2xl leading-tight text-black">The agency direction was not landing with users or stakeholders.</p>
+                            <p class="audit-impact">The screen felt dense, heavily branded, and disconnected from the cleaner CTX suite direction.</p>
+                        </div>
+                        <div class="audit-list-item">
+                            <p class="text-sm uppercase text-black mb-3">My move</p>
+                            <p class="text-xl md:text-2xl leading-tight text-black">I redesigned the page around Scoping Pro's cleaner CTX language.</p>
+                            <p class="audit-impact">I partnered with the consulting designer while using the existing Scenario Modeling product as the visual reference point.</p>
+                        </div>
+                        <div class="audit-list-item">
+                            <p class="text-sm uppercase text-black mb-3">Tradeoff</p>
+                            <p class="text-xl md:text-2xl leading-tight text-black">Improved hierarchy and suite alignment without reopening the full product model.</p>
+                            <p class="audit-impact">The work focused on visual direction, navigation clarity, and density reduction inside a two-week window.</p>
+                        </div>
+                        <div class="audit-list-item">
+                            <p class="text-sm uppercase text-black mb-3">Outcome</p>
+                            <p class="text-xl md:text-2xl leading-tight text-black">Improved visual direction and a stronger pattern for future pages.</p>
+                            <p class="audit-impact">Cost Compass moved closer to a product-led CTX experience instead of feeling like a separate agency concept.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="before-after" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <div class="mb-8">
+                    <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-4">Before And After</h2>
+                    <p class="text-xl md:text-2xl leading-tight text-black max-w-[940px]">
+                        From a dense agency concept to a cleaner CTX-aligned analytics workspace.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
+                    <figure>
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <figcaption class="compare-label">Original agency direction</figcaption>
+                            <p class="text-sm text-[#4f4f4f]">Dense hierarchy</p>
+                        </div>
+                        <div class="screen-frame">
+                            <img src="assets/cost-compass-original.png" alt="Original Cost Compass Move Transport screen with dark header, large blue PepsiCo banner, dense controls, matrix, and prioritization chart">
+                        </div>
+                    </figure>
+
+                    <figure>
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <figcaption class="compare-label">Redesigned CTX direction</figcaption>
+                            <p class="text-sm text-[#4f4f4f]">Cleaner workspace</p>
+                        </div>
+                        <div class="screen-frame">
+                            <img src="assets/cost-compass-redesign.png" alt="Redesigned Cost Compass Move Transport screen with white header, clearer module navigation, cohort controls, opportunity summary, matrix, and prioritization chart">
+                        </div>
+                    </figure>
+                </div>
+            </section>
+
+            <section id="audit" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                    <div class="lg:col-span-5">
+                        <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-4">What Was Not Working</h2>
+                        <p class="text-xl md:text-2xl leading-tight text-black">
+                            Strong functional coverage, but too much friction in the visual system.
+                        </p>
+                    </div>
+                    <ol class="audit-list lg:col-span-7">
+                        <li class="audit-list-item">
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Tabs felt local, not page-level.</h3>
+                            <p class="audit-impact">Why it mattered: users could not easily tell which navigation controlled the full page versus one section.</p>
+                        </li>
+                        <li class="audit-list-item">
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Everything competed for attention.</h3>
+                            <p class="audit-impact">Why it mattered: the page needed to guide users toward the benchmarking insight, not ask them to prioritize the interface themselves.</p>
+                        </li>
+                        <li class="audit-list-item">
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Controls and data arrived too quickly.</h3>
+                            <p class="audit-impact">Why it mattered: a dense analytics tool needs deliberate spacing so users can scan, compare, and act with confidence.</p>
+                        </li>
+                        <li class="audit-list-item">
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">It felt separate from the CTX suite.</h3>
+                            <p class="audit-impact">Why it mattered: stakeholders wanted Cost Compass to align to Scoping Pro and the cleaner UI direction emerging across CTX.</p>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="direction" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <div class="mb-8 md:mb-10">
+                    <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-4">Design Direction</h2>
+                    <p class="text-xl md:text-2xl leading-tight text-black max-w-[900px]">
+                        I used Scoping Pro as the north star for a quieter, more product-led CTX interface.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                    <div class="border border-black p-6 md:p-8">
+                        <p class="text-sm uppercase text-black mb-4">Principle 01</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black">Make the active module and page state obvious.</p>
+                    </div>
+                    <div class="border border-black p-6 md:p-8 section-soft">
+                        <p class="text-sm uppercase text-black mb-4">Principle 02</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black">Reduce visual noise so users can focus on benchmarking data.</p>
+                    </div>
+                    <div class="border border-black p-6 md:p-8">
+                        <p class="text-sm uppercase text-black mb-4">Principle 03</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black">Align Cost Compass to the cleaner UI language emerging across CTX.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="craft" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                    <div class="lg:col-span-5">
+                        <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-4">Visual Craft Moves</h2>
+                        <p class="text-xl md:text-2xl leading-tight text-black">
+                            The redesign focused on hierarchy, restraint, and suite consistency.
+                        </p>
+                    </div>
+                    <ul class="audit-list lg:col-span-7">
+                        <li class="audit-list-item">
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Header and navigation</h3>
+                            <p class="audit-impact">Removed the heavy branded frame and made Move - Transport feel like a true product module.</p>
+                        </li>
+                        <li class="audit-list-item">
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Page flow</h3>
+                            <p class="audit-impact">Reordered the screen from module context to setup to insight, creating a calmer reading path.</p>
+                        </li>
+                        <li class="audit-list-item">
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Controls</h3>
+                            <p class="audit-impact">Reduced competing button and tab styles so filters felt like one connected system.</p>
+                        </li>
+                        <li class="audit-list-item">
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Data surfaces</h3>
+                            <p class="audit-impact">Used lighter borders, spacing, and restrained color so the matrix and map could carry the page.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="tradeoffs" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                    <div class="lg:col-span-5">
+                        <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-4">Tradeoffs</h2>
+                        <p class="text-xl md:text-2xl leading-tight text-black">
+                            The redesign had to improve trust without reopening the product model.
+                        </p>
+                    </div>
+                    <ul class="audit-list lg:col-span-7">
+                        <li class="audit-list-item">
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Preserve the workflow.</h3>
+                            <p class="audit-impact">I kept the benchmarking flow intact so the team could improve visual direction within the two-week window.</p>
+                        </li>
+                        <li class="audit-list-item">
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Prioritize suite alignment.</h3>
+                            <p class="audit-impact">Scoping Pro became the reference point, which helped Cost Compass feel like part of CTX instead of a one-off tool.</p>
+                        </li>
+                        <li class="audit-list-item">
+                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Reduce noise, not data.</h3>
+                            <p class="audit-impact">The page stayed analytically dense, but the visual system made scanning and comparison easier.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="impact" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Impact And Reflection</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
+                    <article class="border border-black p-6 md:p-8">
+                        <p class="text-sm uppercase text-black mb-4">Impact</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black mb-5">
+                            The redesign improved the visual direction of Cost Compass and aligned it to the cleaner, newer UI look within the CTX suite.
+                        </p>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">
+                            It gave stakeholders a clearer path forward for the product experience and created a stronger foundation for future Cost Compass pages to follow.
+                        </p>
+                    </article>
+                    <article class="border border-black p-6 md:p-8 section-soft">
+                        <p class="text-sm uppercase text-black mb-4">Reflection</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black mb-5">
+                            Visual design was not just polish here. It changed how understandable and credible the product felt.
+                        </p>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">
+                            The biggest lesson was that navigation and page structure have to reinforce each other. If tabs look attached to one section, users will not trust that they control the whole page. By simplifying the structure and aligning the design to Scoping Pro, Cost Compass became easier to read as one connected CTX workflow.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="py-8 md:py-16 mb-16">
+                <div class="mb-10">
+                    <div class="w-full h-px bg-black mb-5"></div>
+                    <h2 class="text-4xl md:text-[64px] leading-tight text-black">Let's Connect!</h2>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl text-black">
+                        goudreaugrace@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl text-black w-fit">
+                        LinkedIn
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const correctPassword = "Design";
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            showContent();
+        }
+
+        function checkPassword() {
+            const input = document.getElementById('password');
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (input.value === correctPassword) {
+                sessionStorage.setItem('authenticated', 'true');
+                showContent();
+            } else {
+                errorMessage.classList.remove('hidden');
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        function showContent() {
+            document.getElementById('passwordScreen').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            initReadingProgress();
+        }
+
+        function initReadingProgress() {
+            const progress = document.getElementById('readingProgress');
+            if (!progress) return;
+
+            function updateProgress() {
+                const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+                const progressValue = scrollable > 0 ? window.scrollY / scrollable : 0;
+                progress.style.transform = `scaleX(${Math.min(Math.max(progressValue, 0), 1)})`;
+            }
+
+            updateProgress();
+            window.addEventListener('scroll', updateProgress, { passive: true });
+            window.addEventListener('resize', updateProgress);
+        }
+    </script>
+    <script src="assets/case-study-nav.js"></script>
+</body>
+</html>

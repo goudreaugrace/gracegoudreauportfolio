@@ -289,6 +289,7 @@
     <link rel="stylesheet" href="visual-refresh.css">
 </head>
 <body class="bg-white">
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <!-- Password Protection Screen -->
     <div id="passwordScreen" class="password-container">
         <div class="max-w-md w-full px-6">
@@ -388,6 +389,33 @@
                     <div class="border border-black p-4 md:p-6">
                         <p class="text-sm md:text-base tracking-[-0.5px] text-black mb-2">TEAM</p>
                         <p class="text-base md:text-lg tracking-[-0.5px] text-black">Google, PepsiCo, Product, Engineering</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                    <div class="lg:col-span-4">
+                        <p class="text-sm uppercase text-[#315dff] mb-3">30-second proof</p>
+                        <h2 class="text-4xl md:text-[56px] leading-tight text-black">Fragmented planning needed one governed workspace.</h2>
+                    </div>
+                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-black p-5 md:p-6">
+                            <p class="text-sm uppercase text-black mb-3">Problem</p>
+                            <p class="text-xl md:text-2xl leading-tight text-black">Scenario work lived across files, conversations, and disconnected ownership models.</p>
+                        </div>
+                        <div class="border border-black p-5 md:p-6 section-soft">
+                            <p class="text-sm uppercase text-black mb-3">My decision</p>
+                            <p class="text-xl md:text-2xl leading-tight text-black">Design Phase 1 as the trusted workspace before layering in predictive modeling.</p>
+                        </div>
+                        <div class="border border-black p-5 md:p-6">
+                            <p class="text-sm uppercase text-black mb-3">Tradeoff</p>
+                            <p class="text-xl md:text-2xl leading-tight text-black">Avoided overpromising AI; focused first on clarity, ownership, status, and comparison.</p>
+                        </div>
+                        <div class="border border-black p-5 md:p-6">
+                            <p class="text-sm uppercase text-black mb-3">Evidence</p>
+                            <p class="text-xl md:text-2xl leading-tight text-black">UX direction shaped with Google, PepsiCo product, and engineering partners.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -746,6 +774,7 @@
         function showContent() {
             document.getElementById('passwordScreen').style.display = 'none';
             document.getElementById('mainContent').style.display = 'block';
+            initReadingProgress();
             // Autoplay often fails while content was display:none; start playback after layout.
             requestAnimationFrame(function () {
                 requestAnimationFrame(function () {
@@ -758,6 +787,21 @@
                     });
                 });
             });
+        }
+
+        function initReadingProgress() {
+            const progress = document.getElementById('readingProgress');
+            if (!progress) return;
+
+            function updateProgress() {
+                const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+                const progressValue = scrollable > 0 ? window.scrollY / scrollable : 0;
+                progress.style.transform = `scaleX(${Math.min(Math.max(progressValue, 0), 1)})`;
+            }
+
+            updateProgress();
+            window.addEventListener('scroll', updateProgress, { passive: true });
+            window.addEventListener('resize', updateProgress);
         }
     </script>
     <script src="assets/case-study-nav.js"></script>

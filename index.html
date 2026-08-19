@@ -10,9 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Instrument Sans', sans-serif;
             font-variation-settings: 'wdth' 100;
+            overflow-x: hidden;
+            max-width: 100vw;
         }
 
         /* Button hover effect - black fill from top */
@@ -74,70 +80,6 @@
             right: auto;
         }
 
-        /* Project card border animation - circular sequence */
-        .case-study-card {
-            position: relative;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .case-study-card .border-top,
-        .case-study-card .border-right,
-        .case-study-card .border-bottom,
-        .case-study-card .border-left {
-            position: absolute;
-            background-color: black;
-            transition: all 0.3s ease;
-        }
-
-        .case-study-card .border-top {
-            top: 0;
-            left: 0;
-            height: 1px;
-            width: 0;
-        }
-
-        .case-study-card .border-right {
-            top: 0;
-            right: 0;
-            width: 1px;
-            height: 0;
-        }
-
-        .case-study-card .border-bottom {
-            bottom: 0;
-            right: 0;
-            height: 1px;
-            width: 0;
-        }
-
-        .case-study-card .border-left {
-            bottom: 0;
-            left: 0;
-            width: 1px;
-            height: 0;
-        }
-
-        .case-study-card:hover .border-top {
-            width: 100%;
-            transition-delay: 0s;
-        }
-
-        .case-study-card:hover .border-right {
-            height: 100%;
-            transition-delay: 0.3s;
-        }
-
-        .case-study-card:hover .border-bottom {
-            width: 100%;
-            transition-delay: 0.6s;
-        }
-
-        .case-study-card:hover .border-left {
-            height: 100%;
-            transition-delay: 0.9s;
-        }
-
         /* Navigation link hover - simple color change */
         .nav-link {
             transition: color 0.2s ease;
@@ -153,7 +95,7 @@
         }
 
         .signal-accent {
-            color: #0057ff;
+            color: #1f2523;
         }
 
         .signal-bg {
@@ -161,286 +103,290 @@
         }
 
         .signal-border {
-            border-color: #0057ff;
+            border-color: #1f2523;
         }
 
-        .home-hero-word {
-            display: inline-block;
-            padding: 0 0.08em;
-            border-radius: 0.14em;
-        }
-
-        .home-hero-word.blue {
-            background: #edf1ff;
-        }
-
-        .home-hero-word.green {
-            background: #eaf6ef;
-        }
-
-        .home-hero-word.yellow {
-            background: #fff6d8;
-        }
-
-        .home-hero-word.red {
-            background: #ffeceb;
+        .home-shell {
+            width: min(1271px, calc(100% - 2rem));
+            margin: 0 auto;
+            padding-top: 5.5rem;
         }
 
         .recruiter-chip {
             border: 1px solid #d8dfdc;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.72);
             color: #1f2523;
         }
 
-        .project-preview {
-            min-height: 260px;
-            background:
-                radial-gradient(circle at 12% 18%, rgba(49, 93, 255, 0.12), transparent 26%),
-                radial-gradient(circle at 78% 20%, rgba(251, 188, 5, 0.16), transparent 24%),
-                radial-gradient(circle at 70% 82%, rgba(52, 168, 83, 0.14), transparent 24%),
-                #f7f9fb;
-        }
-
-        .project-preview img {
-            width: 100%;
-            height: 100%;
-            min-height: 260px;
-            object-fit: cover;
-        }
-
-        .mini-color-dot {
-            width: 0.72rem;
-            height: 0.72rem;
-            border-radius: 999px;
-            display: inline-block;
-        }
-
-        .dot-blue { background: #4285f4; }
-        .dot-red { background: #ea4335; }
-        .dot-yellow { background: #fbbc05; }
-        .dot-green { background: #34a853; }
-
-        .work-row {
+        .featured-work-header {
             display: grid;
-            grid-template-columns: minmax(0, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+            gap: clamp(2rem, 7vw, 7rem);
+            align-items: start;
+            margin-bottom: 3rem;
+            min-width: 0;
         }
 
-        .work-rail-shell {
-            margin-left: -1rem;
-            margin-right: -1rem;
+        .featured-work-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            min-width: 0;
+            width: 100%;
+            max-width: 100%;
+            border-top: 1px solid rgba(31, 37, 35, 0.14);
+        }
+
+        .portfolio-card {
+            border: 0;
+            border-bottom: 1px solid rgba(31, 37, 35, 0.14);
+            text-decoration: none;
+            color: inherit;
+            display: grid;
+            grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+            gap: clamp(1.5rem, 4vw, 4rem);
+            align-items: center;
+            min-height: 0;
+            background: transparent;
+            border-radius: 0;
+            overflow: visible;
+            padding: clamp(1.65rem, 3.5vw, 3rem) 0;
+            transition: color 0.2s ease;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .portfolio-card * {
+            min-width: 0;
+        }
+
+        .portfolio-card:hover {
+            transform: none;
+            border-color: rgba(31, 37, 35, 0.14);
+            box-shadow: none;
+        }
+
+        .portfolio-card-media {
+            position: relative;
+            height: clamp(180px, 19vw, 248px);
             overflow: hidden;
+            border: 1px solid rgba(31, 37, 35, 0.12);
+            background: #f8f8f6;
+            border-radius: 4px;
         }
 
-        .work-rail {
-            display: flex;
-            gap: 1rem;
-            overflow-x: auto;
-            overflow-y: hidden;
-            padding: 0 1rem 1rem;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-
-        .work-rail::-webkit-scrollbar {
-            display: none;
-        }
-
-        .work-card {
-            flex: 0 0 min(78vw, 340px);
-            height: 500px;
-            min-height: 500px;
-            display: flex;
-            flex-direction: column;
-            scroll-snap-align: start;
-        }
-
-        .work-card-media {
-            flex: 0 0 170px;
-            height: 170px;
-            min-height: 170px;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 12% 18%, rgba(49, 93, 255, 0.12), transparent 26%),
-                radial-gradient(circle at 78% 20%, rgba(251, 188, 5, 0.16), transparent 24%),
-                radial-gradient(circle at 70% 82%, rgba(52, 168, 83, 0.14), transparent 24%),
-                #f7f9fb;
-        }
-
-        .work-card-media img {
+        .portfolio-card-media img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 0;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .work-card-media img.content-engine-card-image {
-            object-fit: contain;
+        .portfolio-card:hover .portfolio-card-media img {
+            transform: scale(1.018);
+            filter: saturate(1.02);
+        }
+
+        .portfolio-card-media img.content-engine-card-image {
+            object-fit: cover;
+            object-position: center top;
             background: #fff;
         }
 
-        .work-card-media img.align-left-card-image {
-            object-position: left center;
-        }
-
-        .work-card-media img.atlas-thumbnail-image {
+        .portfolio-card-media img.atlas-thumbnail-image {
             object-position: top center;
         }
 
-        .work-card-body {
+        .portfolio-card-body {
             flex: 1;
-            min-height: 0;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            gap: 0;
+            gap: 0.75rem;
+            padding: 0;
+            min-width: 0;
         }
 
-        .work-card-body > div:first-child {
+        .portfolio-card-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.8rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            color: #7b817f;
+        }
+
+        .portfolio-card h3 {
+            font-size: clamp(1.75rem, 3vw, 2.75rem);
+            line-height: 1.04;
+            color: #111;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            white-space: normal;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .portfolio-card-summary {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: #4f4f4f;
+            max-width: 44rem;
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .additional-work-list {
+            border-top: 1px solid #1f2523;
+        }
+
+        .additional-work-row {
             display: grid;
-            grid-template-rows: 2.2rem 4.65rem 5.65rem;
-            row-gap: 0.75rem;
+            grid-template-columns: 4rem minmax(0, 0.95fr) minmax(0, 1.2fr) auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1.35rem 0;
+            border-bottom: 1px solid #d8dfdc;
+            text-decoration: none;
+            color: inherit;
+            min-width: 0;
         }
 
-        .work-card-body > div:first-child > .flex {
-            margin-bottom: 0 !important;
-            align-items: flex-start;
+        .additional-work-row:hover h3 {
+            color: #1f2523;
         }
 
-        .work-card h3 {
-            font-size: clamp(1.55rem, 2.4vw, 2rem) !important;
-            line-height: 1.08 !important;
-            margin-bottom: 0 !important;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+        .additional-work-row:hover .work-arrow {
+            transform: translateX(4px);
         }
 
-        .work-card p:not(.text-sm) {
-            font-size: 0.98rem !important;
-            margin: 0 !important;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
+        .additional-work-row h3 {
+            font-size: clamp(1.35rem, 3vw, 2rem);
+            line-height: 1.05;
+            color: #111;
+            transition: color 0.2s ease;
         }
 
-        .work-card p.text-sm {
-            font-size: 0.76rem !important;
+        .additional-work-row p {
+            color: #4f4f4f;
+            line-height: 1.4;
         }
 
-        .work-card-body > .flex:last-child {
-            margin-top: auto;
-            min-height: 3.1rem;
-            align-content: flex-start;
+        .work-number {
+            font-size: 0.85rem;
+            color: #66706d;
         }
 
-        .work-card .recruiter-chip {
-            padding: 0.42rem 0.65rem !important;
-            font-size: 0.82rem !important;
+        .work-arrow {
+            font-size: 1.5rem;
+            line-height: 1;
+            color: #1f2523;
+            transition: transform 0.2s ease;
         }
 
-        .work-placeholder {
-            height: 100%;
-            padding: 1.25rem;
+        .work-methods {
+            display: grid;
+            grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+            gap: clamp(2rem, 5vw, 5rem);
+            align-items: start;
+        }
+
+        .method-list {
             display: grid;
             gap: 0.75rem;
-            align-content: center;
         }
 
-        .work-placeholder span {
-            display: block;
-            height: 2.5rem;
-            border: 1px solid #d8dfdc;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.68);
-        }
-
-        .work-placeholder span:nth-child(2) {
-            width: 82%;
-        }
-
-        .work-placeholder span:nth-child(3) {
-            width: 64%;
-        }
-
-        .atlas-card-visual {
-            height: 100%;
+        .method-item {
             display: grid;
-            align-content: center;
-            gap: 0.85rem;
-            padding: 1.1rem;
-            background:
-                linear-gradient(90deg, rgba(49, 93, 255, 0.1), transparent 45%),
-                #ffffff;
+            grid-template-columns: 2.5rem minmax(0, 1fr);
+            gap: 1rem;
+            padding: 1rem 0;
+            border-top: 1px solid rgba(31, 37, 35, 0.12);
         }
 
-        .atlas-card-row {
-            display: grid;
-            grid-template-columns: 0.72fr 1fr;
-            gap: 0.65rem;
+        .method-number {
+            color: #7b817f;
+            font-size: 0.88rem;
+            font-weight: 500;
         }
 
-        .atlas-card-panel {
-            min-height: 2.8rem;
-            border: 1px solid #d8dfdc;
-            border-radius: 8px;
-            background: #fff;
-            padding: 0.55rem;
+        .method-item h3 {
+            color: #1f2523;
+            font-size: clamp(1.35rem, 2.6vw, 2rem);
+            line-height: 1.05;
+            margin-bottom: 0.45rem;
         }
 
-        .atlas-card-panel.accent {
-            border-color: rgba(49, 93, 255, 0.28);
-            background: #edf1ff;
-        }
-
-        .atlas-card-line {
-            display: block;
-            height: 0.42rem;
-            width: 100%;
-            border-radius: 99px;
-            background: #d8dfdc;
-        }
-
-        .atlas-card-line.short {
-            width: 64%;
-            margin-top: 0.45rem;
-        }
-
-        @media (min-width: 1024px) {
-            .work-row {
-                grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-            }
-
-            .work-rail-shell {
-                margin-left: calc((100vw - min(100vw, 1271px)) / -2);
-                margin-right: calc((100vw - min(100vw, 1271px)) / -2);
-            }
-
-            .work-rail {
-                padding-left: calc((100vw - min(100vw, 1271px)) / 2 + 15px);
-                padding-right: calc((100vw - min(100vw, 1271px)) / 2 + 15px);
-                gap: 1.25rem;
-            }
+        .method-item p {
+            color: #66706d;
+            line-height: 1.42;
         }
 
         @media (max-width: 640px) {
-            .work-card {
-                flex-basis: 82vw;
-                height: 480px;
-                min-height: 480px;
+            .home-shell,
+            .editorial-surface {
+                min-width: 0;
+                max-width: 100%;
             }
 
-            .work-card-media {
-                flex-basis: 155px;
-                height: 155px;
-                min-height: 155px;
+            .home-hero h1 {
+                max-width: calc(100vw - 2rem);
+                font-size: clamp(2.15rem, 9.2vw, 2.5rem) !important;
+                line-height: 1.08 !important;
+                text-wrap: balance;
             }
 
-            .work-card-body > div:first-child {
-                grid-template-rows: 2.1rem 4.45rem 5.2rem;
+            .home-hero p {
+                max-width: calc(100vw - 2rem);
+                font-size: 1.08rem !important;
+                line-height: 1.42 !important;
+                overflow-wrap: break-word;
+            }
+
+            .featured-work-header,
+            .featured-work-grid,
+            .additional-work-row,
+            .work-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .home-shell {
+                width: calc(100% - 2rem);
+                padding-top: 5rem;
+            }
+
+            .portfolio-card {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                min-height: auto;
+                width: 100%;
+            }
+
+            .portfolio-card-media {
+                height: 168px;
+            }
+
+            .portfolio-card h3 {
+                font-size: 1.58rem;
+                line-height: 1.08;
+            }
+
+            .portfolio-card-body {
+                padding: 1.25rem;
+            }
+
+            .portfolio-card-summary {
+                font-size: 0.96rem;
+                line-height: 1.38;
+            }
+
+            .additional-work-row {
+                gap: 0.55rem;
+            }
+
+            .work-arrow {
+                display: none;
             }
         }
 
@@ -495,6 +441,8 @@
 
         // Smooth scroll to section
         document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('ready');
+
             // Handle hash on page load
             if (window.location.hash) {
                 setTimeout(function() {
@@ -517,32 +465,17 @@
                 });
             });
 
-            const answers = {
-                diagnosis: "I treat user friction as a business diagnostic. I work backward from the core operational bottleneck to map out multi-layered technical workflows early, isolating where user agency fails and defining where a modular feature framework can drive clear business value.",
-                engineering: "I speak code fluently. Instead of handing off static layouts, I use a build stack including React, TypeScript, and component-driven AI tools to engineer functional interactive prototypes. This gives developers a precise target for frontend state management, massively accelerating implementation.",
-                strategy: "True strategy means knowing what not to build. I don't just dress up predefined feature lists—I question the underlying assumptions to structure systems that ensure complex tasks, like scaling multi-agent workflows, align with long-term product metrics.",
-                ambiguity: "I lean into functional proof-of-concepts. When structural guidelines don't exist, I rapidly build high-fidelity working spaces to validate concepts directly with engineering teams, converting executive skepticism into direct project funding.",
-                craft: "Craft is the uncompromising elimination of visual and cognitive noise. For complex enterprise products, high craft means stripping away non-essential elements so the user's focus is entirely directed toward strict information architecture and zero-friction interactions."
-            };
+            const revealItems = document.querySelectorAll('.reveal-on-scroll');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
 
-            const answerText = document.getElementById('askAnswerText');
-            const answerLabel = document.getElementById('askAnswerLabel');
-            const buttons = document.querySelectorAll('[data-answer]');
-
-            function setAnswer(key) {
-                const button = document.querySelector(`[data-answer="${key}"]`);
-                if (!answerText || !answerLabel || !button || !answers[key]) return;
-
-                answerLabel.textContent = button.textContent.trim();
-                answerText.textContent = answers[key];
-                buttons.forEach(item => item.classList.toggle('active', item.dataset.answer === key));
-            }
-
-            buttons.forEach(button => {
-                button.addEventListener('click', () => setAnswer(button.dataset.answer));
-            });
-
-            setAnswer('diagnosis');
+            revealItems.forEach((item) => revealObserver.observe(item));
         });
     </script>
     <link rel="stylesheet" href="visual-refresh.css">
@@ -575,201 +508,122 @@
     </div>
 
     <!-- Main Container -->
-    <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-20 md:pt-24">
+    <div class="home-shell">
         <!-- Hero Section -->
-        <section class="mt-8 md:mt-14 mb-10 md:mb-16">
-            <div>
-                <p class="text-sm md:text-base uppercase text-[#315dff] mb-5">UX / Product Designer & Strategist</p>
-                <h1 class="text-5xl md:text-7xl lg:text-[104px] leading-[0.98] text-black mb-6 max-w-[980px]">
-                    Designing <span class="home-hero-word blue">clear</span> product experiences for <span class="home-hero-word green">complex</span> work.
+        <section class="mt-8 md:mt-12 mb-24 md:mb-32">
+            <div class="reveal-on-load">
+                <p class="section-kicker mb-5">Product Designer</p>
+                <h1 class="text-5xl md:text-6xl lg:text-[72px] leading-[1.04] text-black mb-6 max-w-[880px]">
+                    Clear product design for complex decisions.
                 </h1>
-                <p class="text-xl md:text-2xl leading-[1.35] text-[#4f4f4f] max-w-[820px]">
-                    I partner with cross-functional teams to diagnose abstract operational problems and engineer high-craft product strategies. Using functional code prototyping, I transform dense enterprise complexity into intuitive, scalable interactive solutions.
+                <p class="text-lg md:text-xl leading-[1.45] text-[#4f4f4f] max-w-[680px]">
+                    I turn ambiguous workflows into systems people can understand, trust, and move through with confidence.
                 </p>
             </div>
         </section>
 
         <!-- Featured Work Section -->
-        <section id="featured-work" class="mb-24 md:mb-36">
-            <div class="work-rail-shell">
-                <div class="work-rail" aria-label="Selected case studies">
-                    <a href="atlas-decision-intelligence.html" class="case-study-card work-card overflow-hidden">
-                        <div class="work-card-media">
-                            <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts">
-                        </div>
-                        <div class="work-card-body p-6">
-                            <div>
-                                <div class="flex items-center gap-2 mb-5">
-                                    <span class="mini-color-dot dot-blue"></span>
-                                    <p class="text-sm uppercase text-black">01 / Product Strategy & AI Discovery</p>
-                                </div>
-                                <h3 class="text-3xl md:text-[52px] leading-tight text-black mb-4">3-Week Decision-Intelligence POC</h3>
-                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
-                                    A UX strategy sprint using an AI-assisted proof of concept, user feedback, and product judgment to turn ambiguity into a buildable direction.
-                                </p>
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="recruiter-chip px-3 py-2 text-sm">UX Strategy</span>
-                                <span class="recruiter-chip px-3 py-2 text-sm">AI Product</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="my-pepsico-content-agent.html" class="case-study-card work-card overflow-hidden">
-                        <div class="work-card-media">
-                            <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="MyPepsiCo content engine workflow showing submit, agents work, and review stages">
-                        </div>
-                        <div class="work-card-body p-6">
-                            <div>
-                                <div class="flex items-center gap-2 mb-5">
-                                    <span class="mini-color-dot dot-green"></span>
-                                    <p class="text-sm uppercase text-black">02 / AI Orchestration & High-Craft MVP</p>
-                                </div>
-                                <h3 class="text-3xl md:text-[52px] leading-tight text-black mb-4">MyPepsiCo Content Agent</h3>
-                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
-                                    A multi-agent editorial system that turns scattered content ops into one grounded, reviewable workflow.
-                                </p>
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="recruiter-chip px-3 py-2 text-sm">Agent Workflow</span>
-                                <span class="recruiter-chip px-3 py-2 text-sm">Functional Prototype</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="ai-scenario-modeling.html" class="case-study-card work-card overflow-hidden">
-                        <div class="work-card-media">
-                            <img src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview">
-                        </div>
-                        <div class="work-card-body p-6">
-                            <div>
-                                <div class="flex items-center gap-2 mb-5">
-                                    <span class="mini-color-dot dot-blue"></span>
-                                    <p class="text-sm uppercase text-black">03 / BigTech Co-Development & IA</p>
-                                </div>
-                                <h3 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Scenario Modeling Workspace</h3>
-                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
-                                    A governed planning workspace for defining scope, comparing runs, and helping teams trust high-stakes scenario work.
-                                </p>
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="recruiter-chip px-3 py-2 text-sm">Systems Strategy</span>
-                                <span class="recruiter-chip px-3 py-2 text-sm">Product Strategy</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="order-management.html" class="case-study-card work-card overflow-hidden">
-                        <div class="work-card-media">
-                            <img class="align-left-card-image" src="assets/order-management-card.png" alt="Order Management modification request tracker dashboard preview">
-                        </div>
-                        <div class="work-card-body p-6">
-                            <div>
-                                <div class="flex items-center gap-2 mb-5">
-                                    <span class="mini-color-dot dot-red"></span>
-                                    <p class="text-sm uppercase text-black">04 / End-to-End Transaction Flow</p>
-                                </div>
-                                <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Order Management</h3>
-                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
-                                    Replaced fragmented order intake with a clearer workflow for submission, tracking, communication, and automation.
-                                </p>
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="recruiter-chip px-3 py-2 text-sm">Workflow Design</span>
-                                <span class="recruiter-chip px-3 py-2 text-sm">Logistics UX</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="portfolio-case-study.html" class="case-study-card work-card overflow-hidden">
-                        <div class="work-card-media">
-                            <img src="assets/portfolio-build-card.png" alt="Portfolio homepage preview with hero typography and horizontal work cards">
-                        </div>
-                        <div class="work-card-body p-6">
-                            <div>
-                                <div class="flex items-center gap-2 mb-5">
-                                    <span class="mini-color-dot dot-blue"></span>
-                                    <p class="text-sm uppercase text-black">05 / Design Process</p>
-                                </div>
-                                <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Portfolio Build</h3>
-                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
-                                    A meta case study on using modern design tools, fast prototyping, and handoff thinking to move from concept to responsive site.
-                                </p>
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="recruiter-chip px-3 py-2 text-sm">Prototyping</span>
-                                <span class="recruiter-chip px-3 py-2 text-sm">Systems Thinking</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="forecast-analysis.html" class="case-study-card work-card overflow-hidden">
-                        <div class="work-card-media">
-                            <img src="FA UI Workload.png" alt="Forecast analysis workflow preview">
-                        </div>
-                        <div class="work-card-body p-6">
-                            <div>
-                                <div class="flex items-center gap-2 mb-5">
-                                    <span class="mini-color-dot dot-yellow"></span>
-                                    <p class="text-sm uppercase text-black">06 / Data-heavy UX</p>
-                                </div>
-                                <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Forecast Analysis</h3>
-                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
-                                    A decision-support tool that helps analysts work more independently with complex data and clearer model outputs.
-                                </p>
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="recruiter-chip px-3 py-2 text-sm">Analytics UX</span>
-                                <span class="recruiter-chip px-3 py-2 text-sm">Decision Support</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="wonder-3d-prints.html" class="case-study-card work-card overflow-hidden">
-                        <div class="work-card-media">
-                            <img src="Wonder3DPrintsHomePage.png" alt="Wonder 3D Prints ecommerce homepage preview">
-                        </div>
-                        <div class="work-card-body p-6">
-                            <div>
-                                <div class="flex items-center gap-2 mb-5">
-                                    <span class="mini-color-dot dot-green"></span>
-                                    <p class="text-sm uppercase text-black">07 / Ecommerce UX</p>
-                                </div>
-                                <h3 class="text-3xl md:text-[44px] leading-tight text-black mb-4">Wonder 3D Prints</h3>
-                                <p class="text-base md:text-lg leading-[1.42] text-[#4f4f4f]">
-                                    A fast ecommerce design sprint focused on clearer browsing, trust-building product presentation, and checkout momentum.
-                                </p>
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="recruiter-chip px-3 py-2 text-sm">Ecommerce</span>
-                                <span class="recruiter-chip px-3 py-2 text-sm">Conversion Flow</span>
-                            </div>
-                        </div>
-                    </a>
+        <section id="featured-work" class="mb-28 md:mb-44 reveal-on-scroll">
+            <div class="featured-work-header">
+                <div>
+                    <p class="section-kicker mb-4">Selected case studies</p>
+                    <h2 class="text-4xl md:text-[56px] leading-tight text-black">Work that shows how I think.</h2>
                 </div>
+                <p class="text-lg md:text-xl leading-[1.45] text-[#4f4f4f] max-w-[620px]">
+                    Four projects selected for product judgment, visual clarity, working prototypes, and measurable momentum.
+                </p>
+            </div>
+
+            <div class="featured-work-grid" aria-label="Featured case studies">
+                <a href="atlas-decision-intelligence.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
+                        <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>01 / AI product strategy</span>
+                            <span>3 weeks</span>
+                        </div>
+                        <h3>3-Week Decision-Intelligence POC</h3>
+                        <p class="portfolio-card-summary">Led a fast AI product sprint from vague opportunity to working decision-intelligence POC, shaping the thesis, IA, and roadmap.</p>
+                    </div>
+                </a>
+
+                <a href="my-pepsico-content-agent.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
+                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="MyPepsiCo content engine workflow showing submit, agents work, and review stages">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>02 / AI workflow design</span>
+                            <span>POC</span>
+                        </div>
+                        <h3>Content Operations Agent</h3>
+                        <p class="portfolio-card-summary">Self-initiated an AI content workflow POC that moved from manager pain point to executive validation and funding.</p>
+                    </div>
+                </a>
+
+                <a href="ai-scenario-modeling.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
+                        <img src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>03 / Enterprise decision systems</span>
+                            <span>Lead UX</span>
+                        </div>
+                        <h3>Scenario Modeling Workspace</h3>
+                        <p class="portfolio-card-summary">Led UX with Google and PepsiCo to turn fragmented GTM scenario planning into a governed workspace pattern.</p>
+                    </div>
+                </a>
+
+                <a href="cost-compass-redesign.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
+                        <img class="content-engine-card-image" src="assets/cost-compass-card.png" alt="Cost Compass redesigned Move Transport analytics page preview">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>04 / Visual design</span>
+                            <span>2 weeks</span>
+                        </div>
+                        <h3>Cost Compass Redesign</h3>
+                        <p class="portfolio-card-summary">Redesigned a dense agency-led analytics screen into a cleaner CTX direction with stronger hierarchy and suite alignment.</p>
+                    </div>
+                </a>
             </div>
         </section>
 
-        <!-- More About Me -->
-        <section class="mb-24 md:mb-36">
-            <div class="mb-10 md:mb-14">
-                <h2 class="text-4xl md:text-[64px] leading-tight text-black">More about me</h2>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-                <div class="lg:col-span-6">
-                    <div class="flex flex-col items-start gap-4 md:gap-5">
-                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-0" data-answer="diagnosis">How do you diagnose a vague product problem?</button>
-                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-16" data-answer="engineering">Where do you bridge product and engineering?</button>
-                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-0" data-answer="strategy">What does product strategy look like in your workflow?</button>
-                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-24" data-answer="ambiguity">How do you handle severe project ambiguity?</button>
-                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-8" data-answer="craft">What does exceptional interface craft mean to you?</button>
-                    </div>
+        <section class="mb-28 md:mb-44 reveal-on-scroll" aria-label="How I work">
+            <div class="work-methods">
+                <div>
+                    <p class="section-kicker mb-4">How I work</p>
+                    <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">Calm systems, concrete artifacts.</h2>
+                    <p class="text-lg md:text-xl leading-[1.45] text-[#4f4f4f] max-w-[620px]">
+                        The pattern across the work is simple: frame the system, prototype the behavior, and make the decision path easier for teams to trust.
+                    </p>
                 </div>
-
-                <div class="lg:col-span-6 lg:pt-3">
-                    <p id="askAnswerLabel" class="text-sm uppercase text-[#315dff] mb-4"></p>
-                    <p id="askAnswerText" class="text-2xl md:text-3xl leading-[1.35] text-[#4f4f4f] max-w-[680px]"></p>
+                <div class="method-list">
+                    <article class="method-item">
+                        <span class="method-number">01</span>
+                        <div>
+                            <h3>Frame the system</h3>
+                            <p>Map the people, constraints, and decision moments before choosing the interface shape.</p>
+                        </div>
+                    </article>
+                    <article class="method-item">
+                        <span class="method-number">02</span>
+                        <div>
+                            <h3>Prototype the behavior</h3>
+                            <p>Use working prototypes when static screens are not enough to test logic, flow, or trust.</p>
+                        </div>
+                    </article>
+                    <article class="method-item">
+                        <span class="method-number">03</span>
+                        <div>
+                            <h3>Clarify the path forward</h3>
+                            <p>Turn feedback into product choices, tradeoffs, and artifacts teams can actually move with.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>

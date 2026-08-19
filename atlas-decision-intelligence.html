@@ -335,9 +335,7 @@
 
         .decision-loop {
             border: 1px solid #d8dfdc;
-            background:
-                linear-gradient(90deg, rgba(49, 93, 255, 0.08), transparent 40%),
-                #ffffff;
+            background: #ffffff;
             padding: clamp(1rem, 2.8vw, 2rem);
         }
 
@@ -455,9 +453,7 @@
             min-height: 0;
             border: 1px dashed #aeb9b5;
             border-radius: 8px;
-            background:
-                linear-gradient(90deg, rgba(49, 93, 255, 0.07), transparent 36%),
-                linear-gradient(180deg, #ffffff, #f7f9fb);
+            background: #f7f9fb;
             padding: 1.25rem;
         }
 
@@ -578,6 +574,7 @@
     <link rel="stylesheet" href="visual-refresh.css">
 </head>
 <body class="bg-white">
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div id="passwordScreen" class="password-container">
         <div class="max-w-md w-full px-6">
             <h1 class="text-4xl md:text-5xl text-black mb-4 text-center">3-Week Decision-Intelligence POC</h1>
@@ -648,61 +645,43 @@
                 </nav>
             </div>
 
-            <header id="overview" class="mb-12 md:mb-16 scroll-mt-32">
-                <p class="text-sm md:text-base uppercase text-[#315dff] mb-5">3-week UX strategy sprint / AI-assisted POC build</p>
-                <h1 class="text-5xl md:text-[84px] leading-[0.98] text-black max-w-[1100px]">
+            <header id="overview" class="mb-8 md:mb-10 scroll-mt-32">
+                <p class="text-sm md:text-base uppercase text-black mb-5">3-week UX strategy sprint / AI-assisted POC build</p>
+                <h1 class="text-5xl md:text-[76px] leading-[1.02] text-black max-w-[1040px]">
                     3-Week Decision-Intelligence POC
                 </h1>
-                <p class="text-2xl md:text-3xl leading-tight text-black mt-6 md:mt-8 max-w-[980px]">
-                    Exploring what UX design can do in 3 weeks when AI tools, a functional proof of concept, and tight user feedback loops are used to turn an ambiguous opportunity into a credible product direction.
+                <p class="text-xl md:text-2xl leading-[1.35] text-black mt-5 md:mt-6 max-w-[820px]">
+                    I turned a broad AI opportunity into a working product direction for commercial negotiation strategy.
                 </p>
                 <div class="mt-8">
                     <a
                         href="https://atlas-build-eight.vercel.app"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex w-fit border border-[#315dff] text-[#315dff] px-5 py-3 text-base md:text-lg hover:bg-[#315dff] hover:text-white transition-colors"
+                        class="inline-flex w-fit border border-black text-black px-5 py-3 text-base md:text-lg hover:bg-black hover:text-white transition-colors"
                     >
                         View live build
                     </a>
                 </div>
             </header>
 
-            <section class="mb-10 md:mb-14">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-                    <div class="border border-black p-4 md:p-6">
-                        <p class="text-sm uppercase text-black mb-2">Role</p>
+            <section class="mb-10 md:mb-12 border-t border-black pt-5">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+                    <div>
+                        <p class="text-sm uppercase text-black mb-1">Role</p>
                         <p class="text-base md:text-lg text-black">UX strategy + POC lead</p>
                     </div>
-                    <div class="border border-black p-4 md:p-6">
-                        <p class="text-sm uppercase text-black mb-2">Timeline</p>
-                        <p class="text-base md:text-lg text-black">July 2026, 3-week sprint</p>
+                    <div>
+                        <p class="text-sm uppercase text-black mb-1">Timeline</p>
+                        <p class="text-base md:text-lg text-black">3 weeks</p>
                     </div>
-                    <div class="border border-black p-4 md:p-6">
-                        <p class="text-sm uppercase text-black mb-2">Team</p>
-                        <p class="text-base md:text-lg text-black">4 UX designers</p>
+                    <div>
+                        <p class="text-sm uppercase text-black mb-1">Users</p>
+                        <p class="text-base md:text-lg text-black">Commercial negotiators</p>
                     </div>
-                    <div class="border border-black p-4 md:p-6">
-                        <p class="text-sm uppercase text-black mb-2">Users</p>
-                        <p class="text-base md:text-lg text-black">Commercial negotiators and strategists</p>
-                    </div>
-                    <div class="border border-black p-4 md:p-6 section-soft">
-                        <p class="text-sm uppercase text-black mb-2">Output</p>
-                        <p class="text-base md:text-lg text-black">Validated product thesis, working POC, prioritized roadmap</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mb-16 md:mb-20 border border-black p-6 md:p-8 section-soft" aria-label="My role in the ATLAS sprint">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
-                    <div class="lg:col-span-4">
-                        <p class="text-sm uppercase text-[#315dff] mb-3">My role</p>
-                        <h2 class="text-3xl md:text-[44px] leading-tight text-black">Turning feedback into a buildable POC.</h2>
-                    </div>
-                    <div class="lg:col-span-8">
-                        <p class="text-2xl md:text-3xl leading-tight text-black">
-                            I led the UX strategy for the sprint: synthesized user feedback into product priorities, shaped the decision loop and IA, used Codex to translate product decisions into a working POC, and kept the build reviewable in GitHub so design, product, and engineering could align around the same artifact.
-                        </p>
+                    <div>
+                        <p class="text-sm uppercase text-black mb-1">Output</p>
+                        <p class="text-base md:text-lg text-black">Working POC + roadmap</p>
                     </div>
                 </div>
             </section>
@@ -725,7 +704,7 @@
                     </video>
                     <figcaption class="demo-media-caption">
                         <p>
-                            Demo walkthrough of the ATLAS direction at the beginning of the case study, showing how the product starts to frame negotiation complexity as decision intelligence.
+                            Demo walkthrough of the ATLAS direction: priority signals, scenario controls, buyer context, and recommended negotiation moves.
                         </p>
                         <span>POC demo / 1.5x</span>
                     </figcaption>
@@ -1248,6 +1227,7 @@
             document.getElementById('passwordScreen').style.display = 'none';
             document.getElementById('mainContent').style.display = 'block';
             setDemoVideoSpeed();
+            initReadingProgress();
         }
 
         function setDemoVideoSpeed() {
@@ -1256,6 +1236,21 @@
                 demoVideo.playbackRate = 1.5;
                 demoVideo.defaultPlaybackRate = 1.5;
             });
+        }
+
+        function initReadingProgress() {
+            const progress = document.getElementById('readingProgress');
+            if (!progress) return;
+
+            function updateProgress() {
+                const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+                const progressValue = scrollable > 0 ? window.scrollY / scrollable : 0;
+                progress.style.transform = `scaleX(${Math.min(Math.max(progressValue, 0), 1)})`;
+            }
+
+            updateProgress();
+            window.addEventListener('scroll', updateProgress, { passive: true });
+            window.addEventListener('resize', updateProgress);
         }
     </script>
     <script src="assets/case-study-nav.js"></script>

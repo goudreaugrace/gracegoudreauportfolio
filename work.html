@@ -10,9 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Instrument Sans', sans-serif;
             font-variation-settings: 'wdth' 100;
+            overflow-x: hidden;
+            max-width: 100vw;
         }
 
         .nav-link {
@@ -55,199 +61,6 @@
             gap: 1rem;
         }
 
-        .case-study-card {
-            position: relative;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .case-study-card .border-top,
-        .case-study-card .border-right,
-        .case-study-card .border-bottom,
-        .case-study-card .border-left {
-            position: absolute;
-            background-color: black;
-            transition: all 0.3s ease;
-        }
-
-        .case-study-card .border-top {
-            top: 0;
-            left: 0;
-            height: 1px;
-            width: 0;
-        }
-
-        .case-study-card .border-right {
-            top: 0;
-            right: 0;
-            width: 1px;
-            height: 0;
-        }
-
-        .case-study-card .border-bottom {
-            bottom: 0;
-            right: 0;
-            height: 1px;
-            width: 0;
-        }
-
-        .case-study-card .border-left {
-            bottom: 0;
-            left: 0;
-            width: 1px;
-            height: 0;
-        }
-
-        .case-study-card:hover .border-top {
-            width: 100%;
-            transition-delay: 0s;
-        }
-
-        .case-study-card:hover .border-right {
-            height: 100%;
-            transition-delay: 0.3s;
-        }
-
-        .case-study-card:hover .border-bottom {
-            width: 100%;
-            transition-delay: 0.6s;
-        }
-
-        .case-study-card:hover .border-left {
-            height: 100%;
-            transition-delay: 0.9s;
-        }
-
-        .work-grid-card {
-            min-height: 540px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .work-grid-media {
-            height: 210px;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 12% 18%, rgba(49, 93, 255, 0.12), transparent 26%),
-                radial-gradient(circle at 78% 20%, rgba(251, 188, 5, 0.16), transparent 24%),
-                radial-gradient(circle at 70% 82%, rgba(52, 168, 83, 0.14), transparent 24%),
-                #f7f9fb;
-        }
-
-        .work-grid-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0;
-        }
-
-        .work-grid-media img.content-engine-card-image {
-            object-fit: contain;
-            background: #fff;
-        }
-
-        .work-grid-media img.align-left-card-image {
-            object-position: left center;
-        }
-
-        .work-grid-media img.atlas-thumbnail-image {
-            object-position: top center;
-        }
-
-        .work-grid-body {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-
-        .work-placeholder {
-            height: 100%;
-            padding: 1.5rem;
-            display: grid;
-            gap: 0.75rem;
-            align-content: center;
-        }
-
-        .work-placeholder span {
-            display: block;
-            height: 2.75rem;
-            border: 1px solid #d8dfdc;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.68);
-        }
-
-        .work-placeholder span:nth-child(2) {
-            width: 82%;
-        }
-
-        .work-placeholder span:nth-child(3) {
-            width: 64%;
-        }
-
-        .atlas-card-visual {
-            height: 100%;
-            display: grid;
-            align-content: center;
-            gap: 1rem;
-            padding: 1.35rem;
-            background:
-                linear-gradient(90deg, rgba(49, 93, 255, 0.1), transparent 45%),
-                #ffffff;
-        }
-
-        .atlas-card-row {
-            display: grid;
-            grid-template-columns: 0.72fr 1fr;
-            gap: 0.8rem;
-        }
-
-        .atlas-card-panel {
-            min-height: 3.5rem;
-            border: 1px solid #d8dfdc;
-            border-radius: 8px;
-            background: #fff;
-            padding: 0.75rem;
-        }
-
-        .atlas-card-panel.accent {
-            border-color: rgba(49, 93, 255, 0.28);
-            background: #edf1ff;
-        }
-
-        .atlas-card-line {
-            display: block;
-            height: 0.5rem;
-            width: 100%;
-            border-radius: 99px;
-            background: #d8dfdc;
-        }
-
-        .atlas-card-line.short {
-            width: 64%;
-            margin-top: 0.55rem;
-        }
-
-        .mini-color-dot {
-            width: 0.72rem;
-            height: 0.72rem;
-            border-radius: 999px;
-            display: inline-block;
-        }
-
-        .dot-blue { background: #4285f4; }
-        .dot-red { background: #ea4335; }
-        .dot-yellow { background: #fbbc05; }
-        .dot-green { background: #34a853; }
-
-        .recruiter-chip {
-            border: 1px solid #d8dfdc;
-            background: #fff;
-            color: #1f2523;
-        }
-
         .linkedin-link {
             position: relative;
             text-decoration: none;
@@ -272,6 +85,183 @@
             right: auto;
         }
 
+        .work-page-shell {
+            width: min(1271px, calc(100% - 2rem));
+            margin: 0 auto;
+            padding-top: 5rem;
+            overflow: hidden;
+        }
+
+        .work-intro {
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+            gap: 2rem;
+            align-items: end;
+            min-width: 0;
+        }
+
+        .featured-work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25rem;
+            min-width: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .portfolio-card {
+            border: 1px solid #d8dfdc;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            min-height: 520px;
+            background: #fff;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .portfolio-card * {
+            min-width: 0;
+        }
+
+        .portfolio-card:hover {
+            transform: none;
+            border-color: #1f2523;
+        }
+
+        .portfolio-card-media {
+            height: 205px;
+            overflow: hidden;
+            border-bottom: 1px solid #d8dfdc;
+            background: #f7f9fb;
+        }
+
+        .portfolio-card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .portfolio-card-media img.content-engine-card-image {
+            object-fit: cover;
+            object-position: center top;
+            background: #fff;
+        }
+
+        .portfolio-card-media img.atlas-thumbnail-image {
+            object-position: top center;
+        }
+
+        .portfolio-card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1.5rem;
+            min-width: 0;
+        }
+
+        .portfolio-card-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.8rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            color: #66706d;
+        }
+
+        .portfolio-card h2,
+        .portfolio-card h3 {
+            font-size: clamp(1.9rem, 3.4vw, 2.85rem);
+            line-height: 1;
+            color: #111;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            white-space: normal;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .portfolio-card-summary {
+            font-size: 1.05rem;
+            line-height: 1.42;
+            color: #4f4f4f;
+            max-width: 34rem;
+            min-width: 0;
+            overflow-wrap: anywhere;
+            max-width: 100%;
+        }
+
+        .portfolio-card-details {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #d8dfdc;
+            margin-top: auto;
+        }
+
+        .portfolio-card-details dt {
+            font-size: 0.72rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            color: #66706d;
+            margin-bottom: 0.35rem;
+        }
+
+        .portfolio-card-details dd {
+            font-size: 0.95rem;
+            line-height: 1.35;
+            color: #1f2523;
+        }
+
+        .additional-work-list {
+            border-top: 1px solid #1f2523;
+        }
+
+        .additional-work-row {
+            display: grid;
+            grid-template-columns: 4rem minmax(0, 0.95fr) minmax(0, 1.2fr) auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1.35rem 0;
+            border-bottom: 1px solid #d8dfdc;
+            text-decoration: none;
+            color: inherit;
+            min-width: 0;
+        }
+
+        .additional-work-row:hover h3 {
+            color: #1f2523;
+        }
+
+        .additional-work-row h3 {
+            font-size: clamp(1.35rem, 3vw, 2rem);
+            line-height: 1.05;
+            color: #111;
+            transition: color 0.2s ease;
+        }
+
+        .additional-work-row p {
+            color: #4f4f4f;
+            line-height: 1.4;
+        }
+
+        .work-number {
+            font-size: 0.85rem;
+            color: #66706d;
+        }
+
+        .work-arrow {
+            font-size: 1.5rem;
+            line-height: 1;
+            color: #1f2523;
+        }
+
         @media (max-width: 768px) {
             .hamburger {
                 display: flex !important;
@@ -283,12 +273,51 @@
         }
 
         @media (max-width: 640px) {
-            .work-grid-card {
-                min-height: 500px;
+            .work-page-shell {
+                width: calc(100% - 2rem);
+                padding-top: 5rem;
             }
 
-            .work-grid-media {
-                height: 180px;
+            .work-intro,
+            .featured-work-grid,
+            .additional-work-row {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-card {
+                min-height: auto;
+                width: 100%;
+            }
+
+            .portfolio-card-media {
+                height: 168px;
+            }
+
+            .portfolio-card h2,
+            .portfolio-card h3 {
+                font-size: 1.58rem;
+                line-height: 1.08;
+            }
+
+            .portfolio-card-body {
+                padding: 1.25rem;
+            }
+
+            .portfolio-card-summary {
+                font-size: 0.96rem;
+                line-height: 1.38;
+            }
+
+            .portfolio-card-details {
+                grid-template-columns: 1fr;
+            }
+
+            .additional-work-row {
+                gap: 0.55rem;
+            }
+
+            .work-arrow {
+                display: none;
             }
         }
     </style>
@@ -325,197 +354,172 @@
         <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
     </div>
 
-    <main class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-20 md:pt-24">
-        <header class="mt-8 md:mt-14 mb-12 md:mb-16">
-            <p class="text-sm md:text-base uppercase text-[#315dff] mb-5">All case studies</p>
-            <h1 class="text-5xl md:text-7xl lg:text-[104px] leading-[0.98] text-black max-w-[980px]">
-                Recent Work
-            </h1>
+    <main class="work-page-shell">
+        <header class="mt-8 md:mt-14 mb-16 md:mb-20">
+            <div class="work-intro">
+                <div>
+                    <p class="section-kicker mb-5">Selected case studies</p>
+                    <h1 class="text-5xl md:text-7xl lg:text-[88px] leading-[0.98] text-black max-w-[820px]">
+                        Recent Work
+                    </h1>
+                </div>
+                <p class="text-xl md:text-2xl leading-tight text-[#4f4f4f] max-w-[640px]">
+                    A curated view of product strategy, AI-enabled workflow design, enterprise decision systems, and visual craft across complex tools.
+                </p>
+            </div>
         </header>
 
-        <section class="mb-24 md:mb-36" aria-label="Recent work">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
-                <a href="atlas-decision-intelligence.html" class="case-study-card work-grid-card border border-black">
-                    <span class="border-top"></span>
-                    <span class="border-right"></span>
-                    <span class="border-bottom"></span>
-                    <span class="border-left"></span>
-                    <div class="work-grid-media">
+        <section class="mb-20 md:mb-28" aria-label="Featured case studies">
+            <div class="featured-work-grid">
+                <a href="atlas-decision-intelligence.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
                         <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts">
                     </div>
-                    <div class="work-grid-body p-6 md:p-8">
-                        <div>
-                            <div class="flex items-center gap-2 mb-5">
-                                <span class="mini-color-dot dot-blue"></span>
-                                <p class="text-sm uppercase text-black">01 / Product Strategy & AI Discovery</p>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>01 / AI product strategy</span>
+                            <span>3 weeks</span>
+                        </div>
+                        <h2>3-Week Decision-Intelligence POC</h2>
+                        <p class="portfolio-card-summary">Led a fast AI product sprint from vague opportunity to working decision-intelligence POC, shaping the thesis, IA, and roadmap.</p>
+                        <div class="portfolio-card-proof">
+                            <span>Proof</span>
+                            <p>Working build, user-feedback loops, and prioritized roadmap choices.</p>
+                        </div>
+                        <dl class="portfolio-card-details">
+                            <div>
+                                <dt>My role</dt>
+                                <dd>UX strategy and functional prototype lead</dd>
                             </div>
-                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">3-Week Decision-Intelligence POC</h2>
-                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
-                                A UX strategy sprint using an AI-assisted proof of concept, user feedback, and product judgment to turn ambiguity into a buildable direction.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="recruiter-chip px-3 py-2 text-sm">UX Strategy</span>
-                            <span class="recruiter-chip px-3 py-2 text-sm">AI Product</span>
-                        </div>
+                            <div>
+                                <dt>Design challenge</dt>
+                                <dd>Ambiguity to product direction</dd>
+                            </div>
+                        </dl>
                     </div>
                 </a>
 
-                <a href="my-pepsico-content-agent.html" class="case-study-card work-grid-card border border-black">
-                    <span class="border-top"></span>
-                    <span class="border-right"></span>
-                    <span class="border-bottom"></span>
-                    <span class="border-left"></span>
-                    <div class="work-grid-media">
+                <a href="my-pepsico-content-agent.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
                         <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="MyPepsiCo content engine workflow showing submit, agents work, and review stages">
                     </div>
-                    <div class="work-grid-body p-6 md:p-8">
-                        <div>
-                            <div class="flex items-center gap-2 mb-5">
-                                <span class="mini-color-dot dot-green"></span>
-                                <p class="text-sm uppercase text-black">02 / Product Strategy</p>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>02 / AI workflow design</span>
+                            <span>POC</span>
+                        </div>
+                        <h2>Content Operations Agent</h2>
+                        <p class="portfolio-card-summary">Self-initiated an AI content workflow POC that moved from manager pain point to executive validation and funding.</p>
+                        <div class="portfolio-card-proof">
+                            <span>Proof</span>
+                            <p>Secured corporate funding for a centralized global rollout.</p>
+                        </div>
+                        <dl class="portfolio-card-details">
+                            <div>
+                                <dt>My role</dt>
+                                <dd>Self-initiated product strategy and prototype</dd>
                             </div>
-                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">MyPepsiCo Content Agent</h2>
-                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
-                                A self-initiated POC that turned a manager's workflow pain point into a working content-agent demo now moving toward leadership review.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="recruiter-chip px-3 py-2 text-sm">Initiative</span>
-                            <span class="recruiter-chip px-3 py-2 text-sm">Product Strategy</span>
-                            <span class="recruiter-chip px-3 py-2 text-sm">POC Build</span>
-                        </div>
+                            <div>
+                                <dt>Design challenge</dt>
+                                <dd>Initiative, AI orchestration, and workflow clarity</dd>
+                            </div>
+                        </dl>
                     </div>
                 </a>
 
-                <a href="ai-scenario-modeling.html" class="case-study-card work-grid-card border border-black">
-                    <span class="border-top"></span>
-                    <span class="border-right"></span>
-                    <span class="border-bottom"></span>
-                    <span class="border-left"></span>
-                    <div class="work-grid-media">
+                <a href="ai-scenario-modeling.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
                         <img src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview">
                     </div>
-                    <div class="work-grid-body p-6 md:p-8">
-                        <div>
-                            <div class="flex items-center gap-2 mb-5">
-                                <span class="mini-color-dot dot-blue"></span>
-                                <p class="text-sm uppercase text-black">03 / Lead UX + Strategy</p>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>03 / Enterprise decision systems</span>
+                            <span>Lead UX</span>
+                        </div>
+                        <h2>Scenario Modeling Workspace</h2>
+                        <p class="portfolio-card-summary">Led UX with Google and PepsiCo to turn fragmented GTM scenario planning into a governed workspace pattern.</p>
+                        <div class="portfolio-card-proof">
+                            <span>Proof</span>
+                            <p>Phase-one foundation for ownership, comparison, and future predictive modeling.</p>
+                        </div>
+                        <dl class="portfolio-card-details">
+                            <div>
+                                <dt>My role</dt>
+                                <dd>Lead UX, IA, and product strategy</dd>
                             </div>
-                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Scenario Modeling Workspace</h2>
-                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
-                                A governed planning workspace for defining scope, comparing runs, and helping teams trust high-stakes scenario work.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="recruiter-chip px-3 py-2 text-sm">Enterprise UX</span>
-                            <span class="recruiter-chip px-3 py-2 text-sm">Product Strategy</span>
-                        </div>
+                            <div>
+                                <dt>Design challenge</dt>
+                                <dd>Complex systems thinking and stakeholder alignment</dd>
+                            </div>
+                        </dl>
                     </div>
                 </a>
 
-                <a href="order-management.html" class="case-study-card work-grid-card border border-black">
-                    <span class="border-top"></span>
-                    <span class="border-right"></span>
-                    <span class="border-bottom"></span>
-                    <span class="border-left"></span>
-                    <div class="work-grid-media">
-                        <img class="align-left-card-image" src="assets/order-management-card.png" alt="Order Management modification request tracker dashboard preview">
+                <a href="cost-compass-redesign.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
+                        <img class="content-engine-card-image" src="assets/cost-compass-card.png" alt="Cost Compass redesigned Move Transport analytics page preview">
                     </div>
-                    <div class="work-grid-body p-6 md:p-8">
-                        <div>
-                            <div class="flex items-center gap-2 mb-5">
-                                <span class="mini-color-dot dot-red"></span>
-                                <p class="text-sm uppercase text-black">04 / Primary UX Design</p>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>04 / Visual design</span>
+                            <span>2 weeks</span>
+                        </div>
+                        <h2>Cost Compass Redesign</h2>
+                        <p class="portfolio-card-summary">Redesigned a dense agency-led analytics screen into a cleaner CTX direction with stronger hierarchy and suite alignment.</p>
+                        <div class="portfolio-card-proof">
+                            <span>Proof</span>
+                            <p>Two-week redesign grounded in Scoping Pro and stakeholder readability issues.</p>
+                        </div>
+                        <dl class="portfolio-card-details">
+                            <div>
+                                <dt>My role</dt>
+                                <dd>Redesign lead and consulting-group design partner</dd>
                             </div>
-                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Order Management</h2>
-                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
-                                Replaced fragmented order intake with a clearer workflow for submission, tracking, communication, and automation.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="recruiter-chip px-3 py-2 text-sm">Workflow Design</span>
-                            <span class="recruiter-chip px-3 py-2 text-sm">Internal Tools</span>
-                        </div>
+                            <div>
+                                <dt>Design challenge</dt>
+                                <dd>Visual judgment, tradeoffs, and suite alignment</dd>
+                            </div>
+                        </dl>
                     </div>
                 </a>
+            </div>
+        </section>
 
-                <a href="portfolio-case-study.html" class="case-study-card work-grid-card border border-black">
-                    <span class="border-top"></span>
-                    <span class="border-right"></span>
-                    <span class="border-bottom"></span>
-                    <span class="border-left"></span>
-                    <div class="work-grid-media">
-                        <img src="assets/portfolio-build-card.png" alt="Portfolio homepage preview with hero typography and horizontal work cards">
-                    </div>
-                    <div class="work-grid-body p-6 md:p-8">
-                        <div>
-                            <div class="flex items-center gap-2 mb-5">
-                                <span class="mini-color-dot dot-blue"></span>
-                                <p class="text-sm uppercase text-black">05 / Design Process</p>
-                            </div>
-                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Portfolio Build</h2>
-                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
-                                A meta case study on using modern design tools, fast prototyping, and handoff thinking to move from concept to responsive site.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="recruiter-chip px-3 py-2 text-sm">Prototyping</span>
-                            <span class="recruiter-chip px-3 py-2 text-sm">Systems Thinking</span>
-                        </div>
-                    </div>
+        <section class="mb-24 md:mb-36" aria-label="Additional work">
+            <div class="work-intro mb-8 md:mb-10">
+                <div>
+                    <p class="section-kicker mb-4">Additional work</p>
+                    <h2 class="text-4xl md:text-[56px] leading-tight text-black">More product surfaces.</h2>
+                </div>
+                <p class="text-xl md:text-2xl leading-tight text-[#4f4f4f]">
+                    Supporting projects that show workflow design, analytics UX, ecommerce clarity, and how I use prototyping to ship polished work.
+                </p>
+            </div>
+
+            <div class="additional-work-list">
+                <a href="order-management.html" class="additional-work-row">
+                    <span class="work-number">05</span>
+                    <h3>Order Management</h3>
+                    <p>Clarified a fragmented order-change workflow from intake to tracking.</p>
+                    <span class="work-arrow">&rarr;</span>
                 </a>
-
-                <a href="forecast-analysis.html" class="case-study-card work-grid-card border border-black">
-                    <span class="border-top"></span>
-                    <span class="border-right"></span>
-                    <span class="border-bottom"></span>
-                    <span class="border-left"></span>
-                    <div class="work-grid-media">
-                        <img src="FA UI Workload.png" alt="Forecast analysis workflow preview">
-                    </div>
-                    <div class="work-grid-body p-6 md:p-8">
-                        <div>
-                            <div class="flex items-center gap-2 mb-5">
-                                <span class="mini-color-dot dot-yellow"></span>
-                                <p class="text-sm uppercase text-black">06 / Data-heavy UX</p>
-                            </div>
-                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Forecast Analysis</h2>
-                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
-                                A decision-support tool that helps analysts work more independently with complex data and clearer model outputs.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="recruiter-chip px-3 py-2 text-sm">Analytics UX</span>
-                            <span class="recruiter-chip px-3 py-2 text-sm">Decision Support</span>
-                        </div>
-                    </div>
+                <a href="forecast-analysis.html" class="additional-work-row">
+                    <span class="work-number">06</span>
+                    <h3>Forecast Analysis</h3>
+                    <p>Helped analysts interpret complex forecast outputs with less dependency.</p>
+                    <span class="work-arrow">&rarr;</span>
                 </a>
-
-                <a href="wonder-3d-prints.html" class="case-study-card work-grid-card border border-black">
-                    <span class="border-top"></span>
-                    <span class="border-right"></span>
-                    <span class="border-bottom"></span>
-                    <span class="border-left"></span>
-                    <div class="work-grid-media">
-                        <img src="Wonder3DPrintsHomePage.png" alt="Wonder 3D Prints ecommerce homepage preview">
-                    </div>
-                    <div class="work-grid-body p-6 md:p-8">
-                        <div>
-                            <div class="flex items-center gap-2 mb-5">
-                                <span class="mini-color-dot dot-green"></span>
-                                <p class="text-sm uppercase text-black">07 / Ecommerce UX</p>
-                            </div>
-                            <h2 class="text-3xl md:text-[52px] leading-tight text-black mb-4">Wonder 3D Prints</h2>
-                            <p class="text-base md:text-xl leading-[1.42] text-[#4f4f4f]">
-                                A fast ecommerce design sprint focused on clearer browsing, trust-building product presentation, and checkout momentum.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="recruiter-chip px-3 py-2 text-sm">Ecommerce</span>
-                            <span class="recruiter-chip px-3 py-2 text-sm">Conversion Flow</span>
-                        </div>
-                    </div>
+                <a href="portfolio-case-study.html" class="additional-work-row">
+                    <span class="work-number">07</span>
+                    <h3>Portfolio Build</h3>
+                    <p>Shows how I use prototyping and AI-assisted development to ship.</p>
+                    <span class="work-arrow">&rarr;</span>
+                </a>
+                <a href="wonder-3d-prints.html" class="additional-work-row">
+                    <span class="work-number">08</span>
+                    <h3>Wonder 3D Prints</h3>
+                    <p>Improved ecommerce browsing clarity, trust signals, and checkout momentum.</p>
+                    <span class="work-arrow">&rarr;</span>
                 </a>
             </div>
         </section>
