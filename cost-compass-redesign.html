@@ -273,6 +273,148 @@
             background: #fff;
         }
 
+        .image-comparison {
+            --comparison-position: 50%;
+            position: relative;
+            width: min(100%, 820px);
+            max-width: 100%;
+            aspect-ratio: 1440 / 1953;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 1px solid rgba(31, 37, 35, 0.16);
+            border-radius: 8px;
+            background: #f7f9fb;
+        }
+
+        .image-comparison img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 125%;
+            object-fit: fill;
+            object-position: top center;
+            display: block;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .image-comparison-after {
+            clip-path: inset(0 calc(100% - var(--comparison-position)) 0 0);
+        }
+
+        .image-comparison-divider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: var(--comparison-position);
+            width: 2px;
+            background: #fff;
+            box-shadow: 0 0 0 1px rgba(31, 37, 35, 0.28);
+            transform: translateX(-1px);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .image-comparison-handle {
+            position: absolute;
+            top: 50%;
+            left: var(--comparison-position);
+            z-index: 3;
+            width: 3rem;
+            height: 3rem;
+            display: grid;
+            place-items: center;
+            border: 1px solid #1f2523;
+            border-radius: 999px;
+            background: #fff;
+            color: #1f2523;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            box-shadow: 0 8px 24px rgba(31, 37, 35, 0.16);
+        }
+
+        .image-comparison-input {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            z-index: 4;
+            width: 100%;
+            height: 4rem;
+            margin: 0;
+            opacity: 0;
+            cursor: ew-resize;
+            transform: translateY(-50%);
+        }
+
+        .image-comparison-input:focus-visible + .image-comparison-handle {
+            outline: 3px solid #315dff;
+            outline-offset: 3px;
+        }
+
+        .comparison-layout {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem clamp(1.5rem, 3vw, 3rem);
+            align-items: start;
+            width: min(100%, 1040px);
+            margin: 0 auto;
+        }
+
+        .comparison-visual {
+            grid-column: 1 / -1;
+            grid-row: 1;
+        }
+
+        .comparison-before-notes,
+        .comparison-after-notes {
+            grid-row: 2;
+        }
+
+        .comparison-notes {
+            border-top: 1px solid #d8dfdc;
+        }
+
+        .comparison-note {
+            padding: 1rem 0;
+            border-bottom: 1px solid #d8dfdc;
+        }
+
+        .comparison-note strong {
+            display: block;
+            margin-bottom: 0.35rem;
+            color: #1f2523;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .comparison-note p {
+            color: #66706d;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 900px) {
+            .comparison-layout {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .comparison-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-before-notes,
+            .comparison-after-notes {
+                grid-row: auto;
+            }
+        }
+
         .audit-impact {
             margin-top: 0.6rem;
             color: #66706d;
@@ -445,26 +587,51 @@
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
-                    <figure>
-                        <div class="flex items-center justify-between gap-3 mb-4">
-                            <figcaption class="compare-label">Original agency direction</figcaption>
-                            <p class="text-sm text-[#4f4f4f]">Dense hierarchy</p>
+                <div class="comparison-layout">
+                    <aside class="comparison-notes comparison-before-notes" aria-label="Original design annotations">
+                        <div class="comparison-note">
+                            <strong>Heavy framing</strong>
+                            <p>Large branded regions compete with the analytical content.</p>
                         </div>
-                        <div class="screen-frame">
-                            <img src="assets/cost-compass-original.png" alt="Original Cost Compass Move Transport screen with dark header, large blue PepsiCo banner, dense controls, matrix, and prioritization chart">
+                        <div class="comparison-note">
+                            <strong>Competing controls</strong>
+                            <p>Filters and actions lack a clear order of importance.</p>
+                        </div>
+                        <div class="comparison-note">
+                            <strong>Dense hierarchy</strong>
+                            <p>Key decisions are difficult to scan across the full page.</p>
+                        </div>
+                    </aside>
+
+                    <figure class="comparison-visual">
+                        <figcaption class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                            <span class="compare-label">Original</span>
+                            <span class="text-sm text-[#4f4f4f]">Drag to compare</span>
+                            <span class="compare-label">Redesign</span>
+                        </figcaption>
+                        <div class="image-comparison" id="costCompassComparison">
+                            <img src="assets/cost-compass-redesign.png?v=20260825" alt="Redesigned Cost Compass Move Transport screen with a cleaner CTX-aligned workspace">
+                            <img class="image-comparison-after" src="assets/cost-compass-original.png" alt="Original Cost Compass Move Transport screen with a dense agency-led hierarchy">
+                            <div class="image-comparison-divider" aria-hidden="true"></div>
+                            <input class="image-comparison-input" id="costCompassComparisonSlider" type="range" min="0" max="100" value="50" aria-label="Compare original and redesigned Cost Compass screens" aria-valuetext="50 percent original visible">
+                            <div class="image-comparison-handle" aria-hidden="true">↔</div>
                         </div>
                     </figure>
 
-                    <figure>
-                        <div class="flex items-center justify-between gap-3 mb-4">
-                            <figcaption class="compare-label">Redesigned CTX direction</figcaption>
-                            <p class="text-sm text-[#4f4f4f]">Cleaner workspace</p>
+                    <aside class="comparison-notes comparison-after-notes" aria-label="Redesigned screen annotations">
+                        <div class="comparison-note">
+                            <strong>Suite alignment</strong>
+                            <p>Navigation and styling now follow the cleaner CTX language.</p>
                         </div>
-                        <div class="screen-frame">
-                            <img src="assets/cost-compass-redesign.png" alt="Redesigned Cost Compass Move Transport screen with white header, clearer module navigation, cohort controls, opportunity summary, matrix, and prioritization chart">
+                        <div class="comparison-note">
+                            <strong>Decision summary</strong>
+                            <p>The opportunity headline makes the primary signal immediate.</p>
                         </div>
-                    </figure>
+                        <div class="comparison-note">
+                            <strong>Clear grouping</strong>
+                            <p>Controls, matrix, and chart read as distinct workflow steps.</p>
+                        </div>
+                    </aside>
                 </div>
             </section>
 
@@ -661,6 +828,17 @@
             updateProgress();
             window.addEventListener('scroll', updateProgress, { passive: true });
             window.addEventListener('resize', updateProgress);
+        }
+
+        const comparison = document.getElementById('costCompassComparison');
+        const comparisonSlider = document.getElementById('costCompassComparisonSlider');
+
+        if (comparison && comparisonSlider) {
+            comparisonSlider.addEventListener('input', () => {
+                const position = `${comparisonSlider.value}%`;
+                comparison.style.setProperty('--comparison-position', position);
+                comparisonSlider.setAttribute('aria-valuetext', `${comparisonSlider.value} percent original visible`);
+            });
         }
     </script>
     <script src="assets/case-study-nav.js"></script>

@@ -347,6 +347,194 @@
             line-height: 1.35;
         }
 
+        .visual-flow {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .visual-flow.visual-flow--three {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .visual-flow-step {
+            position: relative;
+            border: 1px solid #111;
+            padding: clamp(1rem, 2vw, 1.5rem);
+            min-height: 11rem;
+            background: #fff;
+        }
+
+        .visual-flow-step:nth-child(even) {
+            background: #eef4ff;
+        }
+
+        .visual-flow-step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            left: calc(100% + 0.55rem);
+            top: 50%;
+            color: #315dff;
+            font-size: 1.5rem;
+            transform: translateY(-50%);
+        }
+
+        .visual-label {
+            color: #315dff;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.65rem;
+        }
+
+        .visual-flow-step h3,
+        .persona-card h3,
+        .capability-card h3 {
+            color: #111;
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+        }
+
+        .visual-flow-step p:last-child,
+        .persona-card p,
+        .persona-card li,
+        .capability-card li {
+            color: #4f4f4f;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .persona-card {
+            border: 1px solid #111;
+            padding: clamp(1.25rem, 2.5vw, 2rem);
+            background: #eef4ff;
+        }
+
+        .persona-card:nth-child(2) {
+            background: #f7f9fb;
+        }
+
+        .persona-card ul,
+        .capability-card ul {
+            margin-top: 0.85rem;
+            padding-left: 1.1rem;
+            list-style: disc;
+        }
+
+        .persona-card .persona-goal {
+            color: #111;
+            font-size: 1.1rem;
+            line-height: 1.35;
+        }
+
+        .capability-flow {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .capability-card {
+            position: relative;
+            border: 1px solid #111;
+            padding: clamp(1.25rem, 2vw, 1.75rem);
+            background: #fff;
+        }
+
+        .capability-card:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            top: 1.3rem;
+            right: -0.8rem;
+            z-index: 2;
+            display: grid;
+            place-items: center;
+            width: 1.6rem;
+            height: 1.6rem;
+            border: 1px solid #315dff;
+            border-radius: 50%;
+            background: #fff;
+            color: #315dff;
+        }
+
+        .value-chain {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .value-stage {
+            border: 1px solid #111;
+            padding: clamp(1.25rem, 2.5vw, 2rem);
+            min-height: 9rem;
+            display: flex;
+            align-items: center;
+            color: #111;
+            font-size: clamp(1.35rem, 2.3vw, 2rem);
+            line-height: 1.15;
+        }
+
+        .value-stage:nth-of-type(2) {
+            background: #eef4ff;
+        }
+
+        .value-arrow {
+            color: #315dff;
+            font-size: 1.75rem;
+        }
+
+        .diagram-slot {
+            border: 1px dashed #66706d;
+            padding: 1rem 1.25rem;
+            margin-top: 1.25rem;
+            color: #66706d;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            background: #fbfcfd;
+        }
+
+        @media (max-width: 900px) {
+            .visual-flow,
+            .visual-flow.visual-flow--three,
+            .capability-flow {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .visual-flow-step::after,
+            .capability-card::after {
+                display: none !important;
+            }
+
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-chain {
+                grid-template-columns: 1fr;
+            }
+
+            .value-arrow {
+                transform: rotate(90deg);
+                justify-self: center;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .visual-flow,
+            .visual-flow.visual-flow--three,
+            .capability-flow {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (min-width: 768px) {
             .agent-core {
                 grid-column: 1 / -1;
@@ -424,24 +612,24 @@
                 <nav class="case-toc" aria-label="Jump to sections">
                     <div class="case-toc-inner">
                         <a href="#overview">Overview</a>
-                        <a href="#origin">Story</a>
                         <a href="#problem">Problem</a>
-                        <a href="#workflow-delta">Workflow Delta</a>
-                        <a href="#system">POC</a>
+                        <a href="#users">Users</a>
+                        <a href="#origin">UX Process</a>
+                        <a href="#system">Product</a>
                         <a href="#architecture">Architecture</a>
                         <a href="#decisions">Decisions</a>
-                        <a href="#next">Next</a>
+                        <a href="#next">Impact</a>
                     </div>
                 </nav>
             </div>
 
             <header id="overview" class="mb-8 md:mb-10 scroll-mt-32">
-                <p class="text-sm md:text-base uppercase text-black mb-5">Product design + strategy / Exploratory POC</p>
+                <p class="text-sm md:text-base uppercase text-black mb-5">Product design + strategy / User-informed prototype</p>
                 <h1 class="text-5xl md:text-[76px] leading-[1.02] text-black max-w-[1060px]">
                     Content Operations Agent
                 </h1>
                 <p class="text-xl md:text-2xl leading-[1.35] text-black mt-5 md:mt-6 max-w-[820px]">
-                    I turned a manager pain point into a working AI workflow that earned executive validation and funding.
+                    I turned a manager pain point into a working proof of value prototype that earned executive validation and funding.
                 </p>
             </header>
 
@@ -449,11 +637,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
                     <div>
                         <p class="text-sm uppercase text-black mb-1">Role</p>
-                        <p class="text-base md:text-lg text-black">Initiated, designed, built</p>
+                        <p class="text-base md:text-lg text-black">Discovered, researched, designed, built</p>
                     </div>
                     <div>
                         <p class="text-sm uppercase text-black mb-1">Timeline</p>
-                        <p class="text-base md:text-lg text-black">3-week MVP</p>
+                        <p class="text-base md:text-lg text-black">3-week value prototype</p>
                     </div>
                     <div>
                         <p class="text-sm uppercase text-black mb-1">Stack</p>
@@ -461,12 +649,38 @@
                     </div>
                     <div>
                         <p class="text-sm uppercase text-black mb-1">Outcome</p>
-                        <p class="text-base md:text-lg text-black">Funded global rollout</p>
+                        <p class="text-base md:text-lg text-black">User-tested → funded product</p>
                     </div>
                 </div>
             </section>
 
-            <section class="mb-16 md:mb-20" aria-label="AI content workflow POC demo">
+            <section class="mb-16 md:mb-20 border-t border-black pt-8" aria-label="Project trajectory">
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From Heard Problem to Funded Product</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+                    <article class="border border-black p-5 md:p-6">
+                        <p class="text-sm uppercase text-[#315dff] mb-4">01 / Heard</p>
+                        <h3 class="text-xl md:text-2xl leading-tight text-black mb-3">A recurring user problem</h3>
+                        <p class="text-base leading-[1.45] text-black">I listened closely enough to recognize that scattered requests, market nuance, and review complexity were symptoms of a larger workflow gap.</p>
+                    </article>
+                    <article class="border border-black p-5 md:p-6 section-soft">
+                        <p class="text-sm uppercase text-[#315dff] mb-4">02 / Learned</p>
+                        <h3 class="text-xl md:text-2xl leading-tight text-black mb-3">User-informed direction</h3>
+                        <p class="text-base leading-[1.45] text-black">I worked with UX partners and the people closest to the work to understand user needs, trust requirements, and enterprise constraints.</p>
+                    </article>
+                    <article class="border border-black p-5 md:p-6">
+                        <p class="text-sm uppercase text-[#315dff] mb-4">03 / Built + tested</p>
+                        <h3 class="text-xl md:text-2xl leading-tight text-black mb-3">A prototype to prove value</h3>
+                        <p class="text-base leading-[1.45] text-black">I designed and built the working experience, tested it with users, and iterated on the moments that shaped clarity, control, and confidence.</p>
+                    </article>
+                    <article class="border border-black p-5 md:p-6 section-soft">
+                        <p class="text-sm uppercase text-[#315dff] mb-4">04 / Funded</p>
+                        <h3 class="text-xl md:text-2xl leading-tight text-black mb-3">Evidence created demand</h3>
+                        <p class="text-base leading-[1.45] text-black">The tested build made the opportunity tangible, generated cross-team desire and leadership buy-in, and became a funded product direction.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="mb-16 md:mb-20" aria-label="AI content workflow prototype demo">
                 <figure class="demo-media">
                     <video
                         autoplay
@@ -476,7 +690,7 @@
                         muted
                         playsinline
                         preload="metadata"
-                        aria-label="AI content workflow POC demo showing the seven-agent workflow moving around the core orchestrator."
+                        aria-label="AI content workflow prototype showing the seven-agent workflow moving around the core orchestrator."
                     >
                         <source src="assets/my-pepsico-agents-demo.mp4" type="video/mp4">
                         <source src="assets/my-pepsico-agents-demo.mov" type="video/quicktime">
@@ -484,123 +698,112 @@
                     </video>
                     <figcaption class="demo-media-caption">
                         <p>
-                            Demo moment showing the POC's agent workflow in motion.
+                            Working prototype used to test the agent workflow with users and make the product value tangible to stakeholders.
                         </p>
                         <span>Agent workflow demo</span>
                     </figcaption>
                 </figure>
             </section>
 
-            <section id="origin" class="mb-16 md:mb-20 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The Story</h2>
+            <section class="mb-16 md:mb-20 border-t border-black pt-8" aria-label="My ownership">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                     <div class="lg:col-span-5">
-                        <p class="text-2xl md:text-3xl leading-tight text-black max-w-[540px]">
-                            This did not start as a formal brief. It started as a conversation where I heard a real workflow gap and saw a way to prototype something useful.
-                        </p>
+                        <p class="text-sm uppercase text-[#315dff] mb-4">What I drove</p>
+                        <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">I created the opportunity—not just the interface.</h2>
+                        <p class="text-xl md:text-2xl leading-tight text-black">The work moved from an observed problem to a tested product direction because I took initiative across discovery, UX strategy, prototyping, and stakeholder alignment.</p>
                     </div>
-                    <div class="lg:col-span-7">
-                        <div class="space-y-5">
-                            <article class="story-step">
-                                <p class="story-number">01</p>
-                                <div>
-                                    <h3>A manager named the pain.</h3>
-                                    <p>He was describing a project workflow with scattered content requests, market nuance, and review complexity. I said, "Wait, I think I can build that."</p>
-                                </div>
-                            </article>
-                            <article class="story-step">
-                                <p class="story-number">02</p>
-                                <div>
-                                    <h3>I learned from the people closest to the work.</h3>
-                                    <p>I talked with UX designers who deeply understood the users and the existing internal website, then used those conversations to understand what the POC needed to prove.</p>
-                                </div>
-                            </article>
-                            <article class="story-step">
-                                <p class="story-number">03</p>
-                                <div>
-                                    <h3>I shaped the POC with real user context.</h3>
-                                    <p>I listened for where authors, reviewers, and content owners needed confidence: intake clarity, market-specific guidance, consistent language, compliance visibility, and a human decision point.</p>
-                                </div>
-                            </article>
-                            <article class="story-step">
-                                <p class="story-number">04</p>
-                                <div>
-                                    <h3>The prototype created a path forward.</h3>
-                                    <p>The proof-of-concept gave leadership something concrete to evaluate: a working product direction, not a slide deck or abstract AI strategy.</p>
-                                </div>
-                            </article>
-                        </div>
+                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-black p-5"><p class="text-base md:text-lg leading-[1.45] text-black">Identified the opportunity without a formal brief.</p></div>
+                        <div class="border border-black p-5 section-soft"><p class="text-base md:text-lg leading-[1.45] text-black">Gathered context from UX partners and workflow users.</p></div>
+                        <div class="border border-black p-5 section-soft"><p class="text-base md:text-lg leading-[1.45] text-black">Defined the product hypothesis and what the prototype needed to prove.</p></div>
+                        <div class="border border-black p-5"><p class="text-base md:text-lg leading-[1.45] text-black">Designed and built the end-to-end human–AI workflow.</p></div>
+                        <div class="border border-black p-5"><p class="text-base md:text-lg leading-[1.45] text-black">Tested with users and translated feedback into product decisions.</p></div>
+                        <div class="border border-black p-5 section-soft"><p class="text-base md:text-lg leading-[1.45] text-black">Used the working product to create alignment, desire, and investment.</p></div>
                     </div>
                 </div>
             </section>
 
             <section id="problem" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The Problem I Heard</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <p class="visual-label">The problem</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">Knowledge creation was fragmented by design.</h2>
+                <p class="text-xl md:text-2xl leading-tight text-black max-w-[920px] mb-8">Creating knowledge articles was difficult, inconsistent, and treated as extra work—yet those articles help employees understand nearly every part of PepsiCo.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                     <div class="border border-black p-6">
-                        <p class="text-sm uppercase text-black mb-4">Workflow</p>
-                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Content work was too distributed to manage cleanly.</h3>
-                        <p class="text-base md:text-lg leading-[1.45] text-black">
-                            Content could involve HR partners, comms leads, market teams, source documents, templates, and reviewers across regions.
-                        </p>
+                        <p class="visual-label">Effort</p>
+                        <h3 class="text-2xl leading-tight text-black mb-3">Experts became accidental content operators.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">Authors relied on content teams for support, pulling both groups away from their primary responsibilities.</p>
                     </div>
                     <div class="border border-black p-6 section-soft">
-                        <p class="text-sm uppercase text-black mb-4">User risk</p>
-                        <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Small inconsistencies created trust issues.</h3>
-                        <ul class="space-y-3 text-base md:text-lg leading-[1.45] text-black list-disc pl-5">
-                            <li>Wrong locale formatting</li>
-                            <li>Inconsistent spelling or tone</li>
-                            <li>Policy language drifting by market</li>
-                        </ul>
+                        <p class="visual-label">Quality</p>
+                        <h3 class="text-2xl leading-tight text-black mb-3">Standards changed from article to article.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">Structure, tone, accessibility, and publishing requirements were applied inconsistently.</p>
                     </div>
+                    <div class="border border-black p-6">
+                        <p class="visual-label">Governance</p>
+                        <h3 class="text-2xl leading-tight text-black mb-3">No one could see content health end to end.</h3>
+                        <p class="text-base md:text-lg leading-[1.45] text-black">Ownership, status, review dates, duplication, and stale content lacked a central view.</p>
+                    </div>
+                </div>
+                <div class="border border-black p-6 md:p-8 mt-4 md:mt-6 bg-[#eef4ff]">
+                    <p class="visual-label">Why it matters</p>
+                    <p class="text-2xl md:text-3xl leading-tight text-black max-w-[1050px]">When internal knowledge is inconsistent or outdated, employees do not know what to trust—and teams spend more time creating, correcting, and moderating it.</p>
                 </div>
             </section>
 
-            <section id="workflow-delta" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Before vs. After</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-                    <article class="border border-black p-6 md:p-8">
-                        <p class="text-sm uppercase text-black mb-4">Legacy framework</p>
-                        <p class="text-3xl md:text-4xl leading-tight text-black mb-6">2-3 weeks per article</p>
-                        <ol class="space-y-3 text-base md:text-lg leading-[1.45] text-black">
-                            <li>01 / Manual briefs</li>
-                            <li>02 / Decentralized emails</li>
-                            <li>03 / Siloed market translation</li>
-                            <li>04 / Manual policy compliance review</li>
-                        </ol>
+            <section id="users" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <p class="visual-label">Research synthesis</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">Three roles. One connected lifecycle.</h2>
+                <p class="text-xl md:text-2xl leading-tight text-black max-w-[900px] mb-8">User testing revealed distinct patterns in who creates, reviews, and governs knowledge—and where each role needs confidence.</p>
+                <div class="persona-grid">
+                    <article class="persona-card">
+                        <p class="visual-label">Create</p><h3>Content Writer</h3>
+                        <p class="persona-goal">Turn subject-matter expertise into an employee-ready article.</p>
+                        <ul><li>Guided writing support</li><li>Clear requirements</li><li>Readiness feedback</li><li>Simple approval path</li></ul>
                     </article>
-                    <article class="border border-black p-6 md:p-8 section-soft">
-                        <p class="text-sm uppercase text-black mb-4">Orchestrated framework</p>
-                        <p class="text-3xl md:text-4xl leading-tight text-black mb-6">Under 15 minutes</p>
-                        <ol class="space-y-3 text-base md:text-lg leading-[1.45] text-black">
-                            <li>01 / Unified intake</li>
-                            <li>02 / Parallel multi-agent validation</li>
-                            <li>03 / Single human-in-the-loop review pipeline</li>
-                        </ol>
+                    <article class="persona-card">
+                        <p class="visual-label">Review</p><h3>People Manager</h3>
+                        <p class="persona-goal">Create content and manage the work of a team.</p>
+                        <ul><li>Review and approval queues</li><li>Ownership and status</li><li>Audience and access</li><li>Quality signals</li></ul>
+                    </article>
+                    <article class="persona-card">
+                        <p class="visual-label">Govern</p><h3>Content Owner</h3>
+                        <p class="persona-goal">Keep organizational knowledge trustworthy at scale.</p>
+                        <ul><li>Organization-wide visibility</li><li>Roles and permissions</li><li>Content health reporting</li><li>Areas requiring action</li></ul>
                     </article>
                 </div>
-                <div class="border border-black p-6 md:p-8 mt-4 md:mt-6">
-                    <p class="text-sm uppercase text-black mb-4">Why it matters</p>
-                    <p class="text-xl md:text-2xl leading-tight text-black max-w-[980px]">
-                        Framing the speedup next to the problem grounds the engineering and interaction decisions in business value: less coordination drag, faster market localization, and one clearer path from brief to review-ready article.
-                    </p>
+                <!-- FUTURE VISUAL: Replace or complement these cards with a persona-to-workflow swimlane showing permissions and handoffs across create, review, and govern. -->
+            </section>
+
+            <section id="origin" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <p class="visual-label">How UX worked</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">Build to learn. Test to earn belief.</h2>
+                <p class="text-xl md:text-2xl leading-tight text-black max-w-[900px] mb-8">I kept research, design, prototyping, and validation in one continuous loop—moving from an overheard problem to a funded direction.</p>
+                <div class="visual-flow">
+                    <article class="visual-flow-step"><p class="visual-label">01</p><h3>Hear</h3><p>Recognized a systemic problem without waiting for a formal brief.</p></article>
+                    <article class="visual-flow-step"><p class="visual-label">02</p><h3>Define</h3><p>Learned from UX partners and future users, then framed what the product needed to prove.</p></article>
+                    <article class="visual-flow-step"><p class="visual-label">03</p><h3>Build</h3><p>Designed and coded a realistic end-to-end prototype with AI-assisted development.</p></article>
+                    <article class="visual-flow-step"><p class="visual-label">04</p><h3>Test</h3><p>Observed real users, listened for trust gaps, and iterated on their feedback.</p></article>
+                    <article class="visual-flow-step"><p class="visual-label">05</p><h3>Fund</h3><p>Used evidence from the working product to create desire, alignment, and investment.</p></article>
                 </div>
             </section>
 
             <section id="system" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The POC I Built</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
-                    <div class="border border-black p-6">
-                        <p class="text-sm uppercase text-black mb-4">Intake</p>
-                        <p class="text-xl md:text-2xl leading-tight text-black">Capture the brief, sector, market, audience, and source context in one place.</p>
-                    </div>
-                    <div class="border border-black p-6 section-soft">
-                        <p class="text-sm uppercase text-black mb-4">Agent workflow</p>
-                        <p class="text-xl md:text-2xl leading-tight text-black">Draft, check, and revise content against market and compliance needs.</p>
-                    </div>
-                    <div class="border border-black p-6">
-                        <p class="text-sm uppercase text-black mb-4">Human review</p>
-                        <p class="text-xl md:text-2xl leading-tight text-black">Keep the final decision with the reviewer, with flags and rationale visible.</p>
+                <p class="visual-label">Product model</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">One system for the full knowledge lifecycle.</h2>
+                <p class="text-xl md:text-2xl leading-tight text-black max-w-[950px] mb-8">The prototype connects creation, quality, governance, and scale instead of treating each as a separate tool.</p>
+                <div class="capability-flow">
+                    <article class="capability-card"><p class="visual-label">01</p><h3>Create & improve</h3><ul><li>Guided conversation or form</li><li>Existing-content upload</li><li>AI-assisted writing</li></ul></article>
+                    <article class="capability-card section-soft"><p class="visual-label">02</p><h3>Standardize quality</h3><ul><li>Content and design standards</li><li>Consistent tone and structure</li><li>Accessibility guidance</li></ul></article>
+                    <article class="capability-card"><p class="visual-label">03</p><h3>Review & govern</h3><ul><li>Approval workflows</li><li>Roles and permissions</li><li>Review dates and duplicates</li></ul></article>
+                    <article class="capability-card section-soft"><p class="visual-label">04</p><h3>Manage & scale</h3><ul><li>Central article library</li><li>Status and health visibility</li><li>Canonical source of truth</li></ul></article>
+                </div>
+                <!-- FUTURE VISUAL: Add an annotated four-screen montage here—Create, Review, Library, and Governance—with one callout per screen tied to the lifecycle above. -->
+                <div class="mt-10">
+                    <p class="visual-label">Value chain</p>
+                    <div class="value-chain">
+                        <div class="value-stage">Self-service + standards + governance</div><div class="value-arrow">→</div>
+                        <div class="value-stage">Less effort + higher quality</div><div class="value-arrow">→</div>
+                        <div class="value-stage">Greater trust + sustainability</div>
                     </div>
                 </div>
             </section>
@@ -648,6 +851,7 @@
                                 <p>Prepares localized variants once the source content is approved.</p>
                             </div>
                         </div>
+                        <!-- FUTURE VISUAL: Replace this code-native map with a system diagram showing inputs, the orchestrator, specialist agents, human checkpoints, and the final article/library outputs. -->
                     </div>
                     <figure class="demo-media">
                         <video
@@ -658,7 +862,7 @@
                             muted
                             playsinline
                             preload="metadata"
-                            aria-label="AI content workflow POC demo showing the POC moving from brief to reviewed article."
+                            aria-label="AI content workflow prototype demo showing the experience moving from brief to reviewed article."
                         >
                             <source src="assets/my-pepsico-poc-review-demo.mp4" type="video/mp4">
                             <source src="assets/my-pepsico-poc-review-demo.mov" type="video/quicktime">
@@ -666,11 +870,22 @@
                         </video>
                         <figcaption class="demo-media-caption">
                             <p>
-                                Demo clip showing the POC moving from brief to review-ready content.
+                            Demo clip showing the user-informed prototype moving from brief to review-ready content.
                             </p>
-                            <span>POC review demo / 2x</span>
+                            <span>Prototype review demo / 2x</span>
                         </figcaption>
                     </figure>
+                </div>
+            </section>
+
+            <section class="mb-16 md:mb-20 border-t border-black pt-8" aria-label="How AI accelerated the work">
+                <p class="visual-label">AI as an accelerator</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">The prototype reduced the cost of learning.</h2>
+                <p class="text-xl md:text-2xl leading-tight text-black max-w-[950px] mb-8">AI-assisted development helped me turn product strategy into a realistic experience quickly. UX judgment still determined what to build, what to test, and what the evidence meant.</p>
+                <div class="visual-flow visual-flow--three">
+                    <article class="visual-flow-step"><p class="visual-label">Lower risk</p><h3>Validate before full investment</h3><p>Test the problem, demand, and experience before committing to full development.</p></article>
+                    <article class="visual-flow-step"><p class="visual-label">Faster feedback</p><h3>Put real interactions in users’ hands</h3><p>Learn from behavior and reactions instead of relying only on static screens.</p></article>
+                    <article class="visual-flow-step"><p class="visual-label">Stronger evidence</p><h3>Make the opportunity tangible</h3><p>Give users and leaders something concrete to evaluate, discuss, and support.</p></article>
                 </div>
             </section>
 
@@ -724,7 +939,7 @@
                             </div>
                             <div>
                                 <p class="text-sm uppercase text-black mb-2">Result</p>
-                                <p>Authors choose "PFNA → United States," so the POC feels specific to PepsiCo's operating model.</p>
+                                <p>Authors choose "PFNA → United States," so the prototype feels specific to PepsiCo's operating model.</p>
                             </div>
                             <div class="md:col-span-3 border border-black p-4 section-soft">
                                 <p class="text-sm uppercase text-black mb-2">Technical Alignment</p>
@@ -766,7 +981,7 @@
                         <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
                             <div>
                                 <p class="text-sm uppercase text-black mb-2">Problem</p>
-                                <p>Repeated source setup would make the POC feel slower than the workflow it was meant to improve.</p>
+                                <p>Repeated source setup would make the prototype feel slower than the workflow it was meant to improve.</p>
                             </div>
                             <div>
                                 <p class="text-sm uppercase text-black mb-2">Move</p>
@@ -787,20 +1002,26 @@
             </section>
 
             <section id="next" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Outcome + What's Next</h2>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From Prototype to Funded Product</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                     <div class="border border-black p-6 md:p-8 section-soft">
                         <p class="text-sm uppercase text-black mb-5">Current outcome</p>
                         <p class="text-2xl md:text-3xl leading-tight text-black">
-                            The functional proof-of-concept passed executive validation and secured corporate funding for a centralized global rollout.
+                            User testing demonstrated value and helped create desire across teams. The working prototype earned executive validation and secured corporate funding for continued product development.
                         </p>
                     </div>
                     <div class="border border-black p-6 md:p-8">
-                        <p class="text-sm uppercase text-black mb-5">Next validation</p>
+                        <p class="text-sm uppercase text-black mb-5">Enterprise direction</p>
                         <p class="text-2xl md:text-3xl leading-tight text-black">
-                            Architecting the phase-one production pipeline, establishing LLM evaluation metrics for market-specific compliance accuracy, and kickstarting engineering integration.
+                            The funded direction is designed to scale across PepsiCo globally, with the potential to improve how every employee creates, maintains, localizes, and accesses trusted internal content.
                         </p>
                     </div>
+                </div>
+                <div class="border border-black p-6 md:p-8 mt-4 md:mt-6">
+                    <p class="text-sm uppercase text-[#315dff] mb-4">What this shows about how I work</p>
+                    <p class="text-xl md:text-2xl leading-tight text-black max-w-[1040px]">
+                        I listen closely enough to recognize opportunities, act before every requirement is defined, stay near users while shaping the solution, and use working prototypes and evidence to help an organization decide what should become real.
+                    </p>
                 </div>
             </section>
 
