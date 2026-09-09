@@ -340,7 +340,7 @@
         }
 
         .orchestration-explorer {
-            --md-primary: #0b57d0;
+            --md-primary: #6f83d8;
             --md-on-surface: #1f1f1f;
             --md-on-surface-variant: #444746;
             --md-outline: #747775;
@@ -355,8 +355,301 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        #architecture { scroll-margin-top: 13rem; }
+        #architecture { scroll-margin-top: 10rem; }
         .architecture-heading { color: #073763 !important; }
+
+        /* Lighter, recruiter-first case-study treatment */
+        :root {
+            --google-blue: #5268c7;
+            --google-ink: #1f1f1f;
+            --google-muted: #5f6368;
+            --google-line: #dadce0;
+            --google-surface: #f8fafd;
+            --google-blue-surface: #edf0ff;
+        }
+
+        body { color: var(--google-ink); }
+        .case-sticky-cluster {
+            border-bottom-color: var(--google-line);
+            box-shadow: 0 1px 2px rgba(60, 64, 67, .08);
+        }
+        .case-toc { border-left-color: var(--google-line); }
+        .case-toc-inner { text-transform: none; font-size: .875rem; letter-spacing: 0; }
+        .case-toc a { padding: .4rem .65rem; border-radius: 999px; }
+        .case-toc a:hover { border-bottom-color: transparent; background: #f1f3f4; }
+        .visual-label,
+        .decision-kicker { color: var(--google-blue) !important; font-weight: 500; letter-spacing: .05em; }
+        main h1, main h2, main h3 { font-weight: 400; letter-spacing: -.025em; }
+        main section[id], main section[aria-label] { border-top-color: var(--google-line) !important; }
+        main section h2 { max-width: 880px; }
+        main section > p.text-xl,
+        main section > p.text-lg { color: var(--google-muted) !important; max-width: 820px; }
+        .border.border-black,
+        .persona-card,
+        .capability-card,
+        .visual-flow-step,
+        .product-frame,
+        .iteration-screen-button,
+        #decisions article,
+        .roadmap-stage {
+            border-color: var(--google-line) !important;
+            border-radius: 20px;
+        }
+        .section-soft,
+        .persona-card:nth-child(2n),
+        .capability-card:nth-child(2n) { background: var(--google-surface) !important; }
+        .primary-button,
+        header a[href*="content-engine"] { border-radius: 999px; }
+        .case-redundant,
+        .case-supporting-detail { display: none !important; }
+        .case-ownership-points { display: grid; gap: .75rem; }
+        .case-ownership-points > div {
+            background: var(--google-surface);
+            border: 1px solid var(--google-line) !important;
+            border-radius: 16px;
+            padding: 1rem 1.15rem !important;
+        }
+        .persona-card { padding: 1.4rem; }
+        .persona-card li:nth-child(n+4) { display: none; }
+        .iteration-visual { border-top-color: var(--google-line); }
+        .iteration-screen-button { overflow: hidden; background: white; }
+        #findings blockquote { color: var(--google-ink); }
+        #decisions .space-y-8 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+        #decisions .space-y-8 > * { margin-top: 0 !important; }
+        #decisions article { display: block; padding: 1.5rem; background: white !important; }
+        #decisions article > div:first-child { margin-bottom: 1rem; }
+        #decisions article > div:last-child { display: block; }
+        #decisions article > div:last-child > div { display: none; }
+        #decisions article > div:last-child > div:nth-child(2),
+        #decisions article > div:last-child > div:nth-child(3) { display: block; }
+        #decisions article > div:last-child > div > p:first-child { display: none; }
+        #decisions article > div:last-child > div:nth-child(2)::before {
+            content: 'Design move'; display: block; color: var(--google-blue); font-size: .72rem;
+            text-transform: uppercase; letter-spacing: .06em; margin-bottom: .35rem;
+        }
+        #decisions article > div:last-child > div:nth-child(3) { margin-top: .85rem; color: var(--google-muted); }
+        #decisions article > div:last-child > div:nth-child(3)::before {
+            content: 'Why it mattered'; display: block; color: var(--google-blue); font-size: .72rem;
+            text-transform: uppercase; letter-spacing: .06em; margin-bottom: .35rem;
+        }
+        .case-impact-summary { background: var(--google-blue-surface); border-radius: 24px; padding: 1.75rem; }
+        @media (min-width: 768px) {
+            main section { margin-bottom: 4.5rem !important; }
+            main section h2 { font-size: 2.75rem !important; line-height: 1.12 !important; }
+            main section > p.text-xl, main section > p.text-lg { font-size: 1.125rem !important; line-height: 1.55 !important; }
+            .case-ownership-points { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        @media (max-width: 767px) {
+            #decisions .space-y-8 { grid-template-columns: 1fr; }
+            main section h2 { font-size: 2.25rem !important; }
+        }
+
+        /* Material 3 page system — scoped to this case study */
+        .material-case {
+            --md-sys-color-primary: #4f659f;
+            --md-sys-color-on-primary: #ffffff;
+            --md-sys-color-primary-container: #e8effa;
+            --md-sys-color-on-primary-container: #233552;
+            --md-sys-color-surface: #ffffff;
+            --md-sys-color-surface-container-low: #f4f7fb;
+            --md-sys-color-surface-container: #f1f3f4;
+            --md-sys-color-surface-container-high: #e9eef6;
+            --md-sys-color-on-surface: #1f1f1f;
+            --md-sys-color-on-surface-variant: #5f6368;
+            --md-sys-color-outline: #747775;
+            --md-sys-color-outline-variant: #c4c7c5;
+            background: var(--md-sys-color-surface) !important;
+            color: var(--md-sys-color-on-surface);
+            font-family: 'Roboto', 'Instrument Sans', sans-serif;
+        }
+        .material-case .content-container > nav,
+        .material-case .mobile-menu { background: rgba(255,255,255,.96); border-color: var(--md-sys-color-outline-variant) !important; }
+        .material-case .content-container > .max-w-\[1271px\] { max-width: 1200px; }
+        .material-case .case-back-link { padding: .45rem 0; border-radius: 8px; color: var(--md-sys-color-on-surface-variant); }
+        .material-case .case-back-link:hover { background: var(--md-sys-color-surface-container); opacity: 1; }
+        .material-case .case-toc { border-left: 0; padding-left: 0; }
+        .material-case .case-toc a { padding: .55rem .85rem; color: var(--md-sys-color-on-surface-variant); }
+        .material-case .case-toc a.is-active,
+        .material-case .case-toc a[aria-current="location"] { color: var(--md-sys-color-primary); background: var(--md-sys-color-primary-container); }
+        .material-case #overview {
+            position: relative;
+            padding: clamp(1.5rem, 4vw, 3.5rem);
+            border-radius: 28px;
+            background: var(--md-sys-color-primary-container);
+            margin-bottom: 1rem !important;
+        }
+        .material-case #overview h1 {
+            color: var(--md-sys-color-on-primary-container) !important;
+            font-size: clamp(3.25rem, 7vw, 5.2rem) !important;
+            font-weight: 400;
+            line-height: 1.02;
+        }
+        .material-case #overview > p:first-child { color: var(--md-sys-color-primary) !important; font-weight: 500; letter-spacing: .04em; }
+        .material-case #overview > p:nth-of-type(2) { color: var(--md-sys-color-on-surface-variant) !important; }
+        .material-case #overview > .prototype-link {
+            background: var(--md-sys-color-primary) !important;
+            border-color: transparent !important;
+            color: var(--md-sys-color-on-primary) !important;
+            min-height: 48px;
+            box-shadow: 0 1px 2px rgba(60,64,67,.25);
+        }
+        .material-case #overview > .prototype-link:hover { box-shadow: 0 3px 8px rgba(60,64,67,.25); filter: brightness(.96); }
+        .material-case #overview > .case-back-link {
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            color: var(--md-sys-color-on-surface-variant) !important;
+            font-size: .95rem;
+            font-weight: 500;
+            line-height: 1.25;
+            text-decoration: none;
+        }
+        .material-case #overview > .case-back-link:hover {
+            background: rgba(255,255,255,.55) !important;
+            color: var(--md-sys-color-on-primary-container) !important;
+        }
+        .material-case .page-index {
+            position: fixed;
+            top: 53px;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            width: 100%;
+            padding: .55rem 1rem;
+            border-bottom: 1px solid #e1e6ee;
+            background: rgba(255,255,255,.97);
+            box-shadow: 0 1px 3px rgba(60,64,67,.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-case .page-index-label {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+        }
+        .material-case .page-index-menu {
+            display: flex;
+            justify-content: center;
+            gap: .25rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .material-case .page-index-menu::-webkit-scrollbar { display: none; }
+        .material-case .page-index-menu a {
+            display: inline-flex;
+            flex: 0 0 auto;
+            align-items: center;
+            min-height: 34px;
+            padding: .45rem .75rem;
+            border-radius: 999px;
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: .875rem;
+            font-weight: 400;
+            line-height: 1.2;
+            text-decoration: none;
+        }
+        .material-case .page-index-menu a:hover,
+        .material-case .page-index-menu a.is-active,
+        .material-case .page-index-menu a[aria-current="location"] {
+            background: #e7f1fc;
+            color: #17365d;
+            font-weight: 500;
+        }
+        .material-case .case-page-shell { padding-top: 7.25rem !important; }
+        .material-case #overview + section {
+            border: 0 !important;
+            border-radius: 24px;
+            background: var(--md-sys-color-surface);
+            padding: 1.4rem;
+            box-shadow: 0 1px 2px rgba(60,64,67,.12);
+        }
+        .material-case main section[id],
+        .material-case main section[aria-label="Strategic design position"],
+        .material-case main section[aria-label="My ownership"] {
+            border: 0 !important;
+            border-radius: 28px;
+            background: var(--md-sys-color-surface);
+            padding: clamp(1.5rem, 3.5vw, 3rem) !important;
+            box-shadow: 0 1px 3px rgba(60,64,67,.07);
+        }
+        .material-case main section[aria-label="Strategic design position"] {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+        }
+        .material-case main section[aria-label="AI content workflow prototype demo"] {
+            padding: 0;
+            border: 0 !important;
+            background: transparent;
+        }
+        .material-case .demo-media {
+            overflow: hidden;
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: 28px;
+            background: var(--md-sys-color-surface);
+            box-shadow: 0 2px 8px rgba(60,64,67,.12);
+        }
+        .material-case .demo-media video { border: 0; }
+        .material-case .demo-media-caption { border-top: 0; background: var(--md-sys-color-surface-container-low); }
+        .material-case .visual-label,
+        .material-case .decision-kicker,
+        .material-case .roadmap-status { color: var(--md-sys-color-primary) !important; }
+        .material-case main section h2,
+        .material-case main section h3 { color: var(--md-sys-color-on-surface) !important; }
+        .material-case main section p,
+        .material-case main section li { color: var(--md-sys-color-on-surface-variant); }
+        .material-case .persona-card,
+        .material-case .capability-card,
+        .material-case #decisions article,
+        .material-case .roadmap-stage,
+        .material-case .case-ownership-points > div {
+            border: 0 !important;
+            background: var(--md-sys-color-surface-container-low) !important;
+            box-shadow: none;
+        }
+        .material-case .persona-card:hover,
+        .material-case #decisions article:hover {
+            border-color: var(--md-sys-color-outline) !important;
+            box-shadow: 0 2px 8px rgba(60,64,67,.12);
+        }
+        .material-case .iteration-visual { border-top: 0; }
+        .material-case .iteration-visual + .iteration-visual { padding-top: clamp(1.5rem, 4vw, 3rem); }
+        .material-case .iteration-screen-button {
+            border: 1px solid #e1e6ee !important;
+            border-radius: 20px;
+            background: var(--md-sys-color-surface);
+            box-shadow: 0 1px 2px rgba(60,64,67,.08);
+        }
+        .material-case .iteration-screen-button:hover { box-shadow: 0 3px 10px rgba(60,64,67,.16); }
+        .material-case .iteration-screen-button:focus-visible,
+        .material-case button:focus-visible,
+        .material-case a:focus-visible { outline: 3px solid #a8c7fa; outline-offset: 3px; }
+        .material-case .capability-flow { gap: .75rem; }
+        .material-case .capability-card { border-radius: 20px; }
+        .material-case .orchestration-explorer { border-color: var(--md-sys-color-outline-variant); border-radius: 28px; background: var(--md-sys-color-surface-container-low); }
+        .material-case .orchestration-handoff { border-top: 0; padding-top: 0; margin-top: 1.5rem; }
+        .material-case #decisions .space-y-8 { gap: 1rem; }
+        .material-case #decisions article { border-radius: 24px; transition: box-shadow .2s ease, border-color .2s ease; }
+        .material-case .roadmap-ui { gap: .75rem; }
+        .material-case .roadmap-stage { border-radius: 20px; }
+        .material-case .case-impact-summary { background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); }
+        .material-case footer,
+        .material-case main > section:last-of-type { background: transparent; box-shadow: none; }
+        @media (max-width: 1099px) {
+            .material-case .page-index-menu { justify-content: flex-start; }
+        }
+        @media (max-width: 767px) {
+            .material-case .page-index { top: 49px; padding-inline: .65rem; }
+            .material-case .case-page-shell { padding-top: 6.8rem !important; }
+            .material-case #overview { border-radius: 24px; }
+            .material-case main section[id],
+            .material-case main section[aria-label="Strategic design position"],
+            .material-case main section[aria-label="My ownership"] { border-radius: 22px; }
+        }
 
         .orchestration-stage {
             position: relative;
@@ -815,9 +1108,9 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="visual-refresh.css">
+    <link rel="stylesheet" href="visual-refresh.css?v=20260909-material-nav">
 </head>
-<body class="bg-white">
+<body class="material-case bg-white">
     <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div id="mainContent" class="content-container">
         <nav class="w-full bg-white fixed top-0 z-50">
@@ -844,26 +1137,23 @@
             <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
         </div>
 
-        <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
-            <div class="case-sticky-cluster">
-                <a href="work.html" class="case-back-link shrink-0 inline-flex items-center">← Back</a>
-                <nav class="case-toc" aria-label="Jump to sections">
-                    <div class="case-toc-inner">
-                        <a href="#overview">Overview</a>
-                        <a href="#problem">Problem</a>
-                        <a href="#users">Users</a>
-                        <a href="#findings">Research</a>
-                        <a href="#origin">UX Process</a>
-                        <a href="#system">Product</a>
-                        <a href="#architecture">Architecture</a>
-                        <a href="#accelerator">AI Accelerator</a>
-                        <a href="#decisions">Decisions</a>
-                        <a href="#next">Impact</a>
-                    </div>
-                </nav>
-            </div>
+        <aside class="page-index" id="pageIndex" aria-label="Case study sections">
+            <p class="page-index-label">On this page</p>
+            <nav class="page-index-menu">
+                <a href="#overview">Overview</a>
+                <a href="#problem">The problem</a>
+                <a href="#users">Users</a>
+                <a href="#findings">Research</a>
+                <a href="#system">Product model</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#decisions">Key decisions</a>
+                <a href="#next">Impact</a>
+            </nav>
+        </aside>
 
+        <div class="case-page-shell max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
             <header id="overview" class="mb-8 md:mb-10 scroll-mt-32">
+                <a href="work.html" class="case-back-link inline-flex items-center mb-7">← Back to work</a>
                 <p class="text-sm md:text-base uppercase text-black mb-5">Product design + strategy / User-informed prototype</p>
                 <h1 class="text-5xl md:text-[76px] leading-[1.02] text-black max-w-[1060px]">
                     Content Operations Agent
@@ -871,7 +1161,7 @@
                 <p class="text-xl md:text-2xl leading-[1.35] text-black mt-5 md:mt-6 max-w-[820px]">
                     I turned a problem raised by the UX design manager leading myPepsiCo into a working proof-of-value prototype that created immediate pilot demand and an active funding case.
                 </p>
-                <a href="https://content-engine-sand-eta.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 mt-7 border border-black bg-black text-white px-5 py-3 text-base md:text-lg hover:bg-[#315dff] hover:border-[#315dff] transition-colors">
+                <a href="https://content-engine-sand-eta.vercel.app" target="_blank" rel="noopener noreferrer" class="prototype-link inline-flex items-center gap-3 mt-7 border border-black bg-black text-white px-5 py-3 text-base md:text-lg hover:bg-[#315dff] hover:border-[#315dff] transition-colors">
                     View working prototype <span aria-hidden="true">↗</span>
                 </a>
             </header>
@@ -897,14 +1187,14 @@
                 </div>
             </section>
 
-            <section class="mb-16 md:mb-20 border-t border-black pt-8" aria-label="Strategic design position">
+            <section id="design-position" class="mb-16 md:mb-20 pt-8" aria-label="Strategic design position">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                     <p class="lg:col-span-3 visual-label">My design position</p>
                     <p class="lg:col-span-9 text-3xl md:text-[44px] leading-tight text-black">AI content generation is not enough. A trustworthy product must connect creation, standards, human review, ownership, and governance.</p>
                 </div>
             </section>
 
-            <section class="mb-16 md:mb-20 border-t border-black pt-8" aria-label="Project trajectory">
+            <section class="case-redundant mb-16 md:mb-20 border-t border-black pt-8" aria-label="Project trajectory">
                 <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From Heard Problem to Pilot Demand</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
                     <article class="border border-black p-5 md:p-6">
@@ -965,13 +1255,10 @@
                         <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">I created the opportunity—not just the interface.</h2>
                         <p class="text-xl md:text-2xl leading-tight text-black">The work moved from an observed problem to a tested product direction because I took initiative across discovery, UX strategy, prototyping, and stakeholder alignment.</p>
                     </div>
-                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="border border-black p-5"><p class="text-base md:text-lg leading-[1.45] text-black">Identified the opportunity without a formal brief.</p></div>
-                        <div class="border border-black p-5 section-soft"><p class="text-base md:text-lg leading-[1.45] text-black">Gathered context from UX partners and workflow users.</p></div>
-                        <div class="border border-black p-5 section-soft"><p class="text-base md:text-lg leading-[1.45] text-black">Defined the product hypothesis and what the prototype needed to prove.</p></div>
-                        <div class="border border-black p-5"><p class="text-base md:text-lg leading-[1.45] text-black">Designed and built the end-to-end human–AI workflow.</p></div>
-                        <div class="border border-black p-5"><p class="text-base md:text-lg leading-[1.45] text-black">Tested with users and translated feedback into product decisions.</p></div>
-                        <div class="border border-black p-5 section-soft"><p class="text-base md:text-lg leading-[1.45] text-black">Used the working product to create alignment, pilot demand, and a credible funding case.</p></div>
+                    <div class="case-ownership-points lg:col-span-7">
+                        <div><p class="text-base md:text-lg leading-[1.45] text-black">Recognized and framed the opportunity without a formal brief.</p></div>
+                        <div><p class="text-base md:text-lg leading-[1.45] text-black">Designed, built, and tested the end-to-end human–AI workflow.</p></div>
+                        <div><p class="text-base md:text-lg leading-[1.45] text-black">Turned user evidence into pilot demand and an active funding case.</p></div>
                     </div>
                 </div>
             </section>
@@ -1024,7 +1311,7 @@
                         <ul><li>Organization-wide visibility</li><li>Roles and permissions</li><li>Content health reporting</li><li>Areas requiring action</li></ul>
                     </article>
                 </div>
-                <div class="mt-8">
+                <div class="case-supporting-detail mt-8">
                     <p class="visual-label">Role-to-workflow map</p>
                     <div class="role-workflow" aria-label="How three user roles participate across the content lifecycle">
                         <div class="workflow-head">Role</div><div class="workflow-head">Create</div><div class="workflow-head">Improve</div><div class="workflow-head">Review</div><div class="workflow-head">Govern</div>
@@ -1130,10 +1417,9 @@
                             </article>
                         </div>
                     </div>
-                    <div class="p-6 md:p-8 mt-8 md:mt-10 bg-[#eef4ff]">
+                    <div class="p-6 md:p-8 mt-8 md:mt-10 bg-[#eef4ff] rounded-[24px]">
                         <p class="visual-label">What users said</p>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xl md:text-2xl leading-tight text-black">
-                            <blockquote>“This is super amazing—and super, super friendly. A great user experience.”</blockquote>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xl md:text-2xl leading-tight text-black">
                             <blockquote>“We can see our feedback influencing what was implemented since the last time we talked. This is so awesome.”</blockquote>
                             <blockquote>“How can we get this next week? This is going to provide so much value, and we need to get it out ASAP.”</blockquote>
                         </div>
@@ -1141,7 +1427,7 @@
                 </div>
             </section>
 
-            <section id="origin" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+            <section id="origin" class="case-redundant mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <p class="visual-label">How UX worked</p>
                 <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">Build to learn. Test to earn belief.</h2>
                 <p class="text-xl md:text-2xl leading-tight text-black max-w-[900px] mb-8">I kept research, design, prototyping, and validation in one continuous loop—moving from a heard problem to demonstrated user demand.</p>
@@ -1164,7 +1450,7 @@
                     <article class="capability-card"><p class="visual-label">03</p><h3>Review & govern</h3><ul><li>Approval workflows</li><li>Roles and permissions</li><li>Review dates and duplicates</li></ul></article>
                     <article class="capability-card section-soft"><p class="visual-label">04</p><h3>Manage & scale</h3><ul><li>Central article library</li><li>Status and health visibility</li><li>Canonical source of truth</li></ul></article>
                 </div>
-                <div class="mt-8">
+                <div class="case-supporting-detail mt-8">
                     <p class="visual-label">Product experience</p>
                     <div class="ui-montage">
                         <figure class="product-frame">
@@ -1199,7 +1485,7 @@
                         </figure>
                     </div>
                 </div>
-                <div class="mt-10">
+                <div class="case-supporting-detail mt-10">
                     <p class="visual-label">Value chain</p>
                     <div class="value-chain">
                         <div class="value-stage">Self-service + standards + governance</div><div class="value-arrow">→</div>
@@ -1253,7 +1539,7 @@
                 </div>
             </section>
 
-            <section id="accelerator" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32" aria-label="How AI accelerated the work">
+            <section id="accelerator" class="case-redundant mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32" aria-label="How AI accelerated the work">
                 <p class="visual-label">AI as an accelerator</p>
                 <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">The prototype reduced the cost of learning.</h2>
                 <p class="text-xl md:text-2xl leading-tight text-black max-w-[950px] mb-8">AI-assisted development helped me turn product strategy into a realistic experience quickly. UX judgment still determined what to build, what to test, and what the evidence meant.</p>
@@ -1383,34 +1669,17 @@
                     <article class="roadmap-stage"><span class="roadmap-status">Developing toward pilot</span><h3>Canada test readiness</h3><p>The team is maturing the conceptual prototype so it can test speed, independence, and reduced support effort.</p></article>
                     <article class="roadmap-stage"><span class="roadmap-status">Future direction</span><h3>Connected operations</h3><p>End-to-end governance, administration, messaging, notifications, and deeper PepsiCo workspace integration.</p></article>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-                    <div class="border border-black p-6 md:p-8 section-soft">
-                        <p class="text-sm uppercase text-black mb-5">Current outcome</p>
-                        <p class="text-2xl md:text-3xl leading-tight text-black">
-                            User feedback demonstrated value and created urgency from the people closest to the problem. Canada has been proposed as the first real pilot, while the team continues developing the still-conceptual prototype toward pilot readiness. Funding proposals are actively being written, with no decision yet.
-                        </p>
+                <div class="case-impact-summary mt-6 md:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-10 items-start">
+                    <div class="lg:col-span-4">
+                        <p class="visual-label mb-3">Current outcome</p>
+                        <p class="text-2xl md:text-3xl leading-tight text-black">Users asked for the product immediately, and Canada was proposed as the first pilot market.</p>
                     </div>
-                    <div class="border border-black p-6 md:p-8">
-                        <p class="text-sm uppercase text-black mb-5">Validated now</p>
-                        <p class="text-2xl md:text-3xl leading-tight text-black">
-                            AI-assisted article creation can help users produce content that meets PepsiCo standards with less manual checking and rewriting.
-                        </p>
+                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 text-base md:text-lg leading-[1.5]">
+                        <div><p class="visual-label mb-2">Pilot test</p><p>Measure faster article creation, greater employee independence, and less hands-on support from content teams.</p></div>
+                        <div><p class="visual-label mb-2">Status</p><p>The prototype is still being developed toward pilot readiness; funding proposals are active, with no decision yet.</p></div>
                     </div>
                 </div>
-                <div class="border border-black p-6 md:p-8 mt-4 md:mt-6 section-soft">
-                    <p class="text-sm uppercase text-black mb-5">Future product direction</p>
-                    <p class="text-2xl md:text-3xl leading-tight text-black">Extend the validated creation experience into end-to-end governance, administration, messaging, email notifications, and deeper integration with the PepsiCo workspace.</p>
-                </div>
-                <div class="border border-black p-6 md:p-8 mt-4 md:mt-6">
-                    <p class="text-sm uppercase text-[#315dff] mb-5">Proposed pilot success criteria</p>
-                    <p class="text-2xl md:text-3xl leading-tight text-black">Determine whether the product accelerates article creation, reduces hands-on support from the content team, and enables employees to create standards-aligned articles independently.</p>
-                </div>
-                <div class="border border-black p-6 md:p-8 mt-4 md:mt-6">
-                    <p class="text-sm uppercase text-[#315dff] mb-4">What this shows about how I work</p>
-                    <p class="text-xl md:text-2xl leading-tight text-black max-w-[1040px]">
-                        I listen closely enough to recognize opportunities, act before every requirement is defined, stay near users while shaping the solution, and use working prototypes and evidence to help an organization decide what should become real.
-                    </p>
-                </div>
+                <p class="mt-8 text-xl md:text-2xl leading-tight text-black max-w-[980px]"><strong class="font-medium">What this shows about how I work:</strong> I recognize opportunities, stay close to users, and use working prototypes and evidence to help an organization decide what should become real.</p>
             </section>
 
             <section class="py-8 md:py-16 mb-16">

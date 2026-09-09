@@ -1,0 +1,192 @@
+.material-home {
+    --md-primary: #4f659f;
+    --md-primary-container: #e8effa;
+    --md-on-primary-container: #233552;
+    --md-surface: #ffffff;
+    --md-surface-low: #f4f7fb;
+    --md-surface-container: #f1f3f4;
+    --md-on-surface: #1f1f1f;
+    --md-on-surface-variant: #5f6368;
+    --md-outline: #747775;
+    --md-outline-variant: #c4c7c5;
+    background: var(--md-surface) !important;
+    color: var(--md-on-surface);
+    font-family: 'Roboto', 'Instrument Sans', sans-serif;
+}
+
+.material-home .home-shell {
+    width: min(1200px, calc(100% - 2rem));
+    padding-top: 5.75rem;
+}
+
+.material-home .home-hero {
+    margin-top: 1.5rem !important;
+    margin-bottom: 6rem !important;
+    padding: clamp(2.5rem, 7vw, 6rem) clamp(1rem, 5vw, 4rem);
+    border-radius: 0;
+    background: transparent;
+}
+
+.material-home .home-hero .section-kicker,
+.material-home .featured-work-header .section-kicker,
+.material-home .work-methods .section-kicker {
+    color: var(--md-primary) !important;
+    font-weight: 500;
+    letter-spacing: .04em;
+}
+
+.material-home .home-hero h1 {
+    max-width: 900px;
+    color: var(--md-on-primary-container) !important;
+    font-size: clamp(3rem, 6vw, 4.6rem) !important;
+    font-weight: 400;
+    line-height: 1.04 !important;
+    letter-spacing: -.035em !important;
+    text-wrap: balance;
+}
+
+.material-home .home-hero p:last-child,
+.material-home .featured-work-header > p,
+.material-home .work-methods > div:first-child > p:last-child {
+    color: var(--md-on-surface-variant) !important;
+}
+
+.material-home #featured-work {
+    margin-bottom: 7rem !important;
+    scroll-margin-top: 6rem;
+}
+
+.material-home .featured-work-header {
+    align-items: end;
+    gap: clamp(2rem, 7vw, 6rem);
+    margin-bottom: 2.25rem;
+}
+
+.material-home .featured-work-header h2,
+.material-home .work-methods h2,
+.material-home footer h2 {
+    color: var(--md-on-surface) !important;
+    font-weight: 400;
+    letter-spacing: -.025em !important;
+}
+
+.material-home .portfolio-card {
+    min-height: 430px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 28px;
+    background: var(--md-surface);
+    box-shadow: 0 1px 3px rgba(60, 64, 67, .08);
+    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.material-home .portfolio-card:hover {
+    box-shadow: 0 8px 24px rgba(60, 64, 67, .12);
+    transform: translateY(-2px);
+}
+
+.material-home .portfolio-card:focus-visible,
+.material-home a:focus-visible,
+.material-home button:focus-visible {
+    outline: 3px solid #b7c2ff;
+    outline-offset: 3px;
+}
+
+.material-home .portfolio-card-media {
+    height: 220px;
+    border-bottom: 0;
+    background: var(--md-surface-container);
+}
+
+.material-home .portfolio-card-body {
+    gap: .9rem;
+    padding: 1.5rem 1.6rem 1.65rem;
+}
+
+.material-home .portfolio-card-meta {
+    color: var(--md-on-surface-variant);
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .04em;
+}
+
+.material-home .portfolio-card h3 {
+    color: var(--md-on-surface) !important;
+    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -.025em !important;
+}
+
+.material-home .portfolio-card-summary {
+    color: var(--md-on-surface-variant);
+    font-size: 1rem;
+    line-height: 1.48;
+}
+
+.material-home .portfolio-card-details {
+    display: none;
+}
+
+.material-home .portfolio-card-details > div {
+    padding: .8rem .9rem;
+    border: 0;
+    border-radius: 14px;
+    background: var(--md-surface-low);
+}
+
+.material-home .portfolio-card-details dt {
+    color: var(--md-primary);
+    font-size: .7rem;
+    font-weight: 500;
+    letter-spacing: .05em;
+}
+
+.material-home .portfolio-card-details dd {
+    color: var(--md-on-surface-variant);
+}
+
+.material-home section[aria-label="How I work"] {
+    margin-bottom: 6rem !important;
+    padding: clamp(1.75rem, 4vw, 3.5rem);
+    border-radius: 28px;
+    background: var(--md-surface);
+    box-shadow: 0 1px 3px rgba(60, 64, 67, .08);
+}
+
+.material-home .work-methods { gap: clamp(2rem, 6vw, 5rem); }
+
+.material-home .method-list { gap: .75rem; }
+
+.material-home .method-item {
+    padding: 1.25rem;
+    border: 0;
+    border-radius: 20px;
+    background: var(--md-surface-low);
+}
+
+.material-home .method-number { color: var(--md-primary); }
+.material-home .method-item h3 { color: var(--md-on-surface); font-weight: 400; }
+.material-home .method-item p { color: var(--md-on-surface-variant); }
+
+.material-home footer {
+    margin-bottom: 1rem !important;
+    padding: clamp(1.75rem, 4vw, 3.5rem);
+    border-radius: 28px;
+    background: var(--md-primary-container);
+}
+
+.material-home footer a { color: var(--md-on-primary-container) !important; }
+.material-home footer > div:last-child { border-top: 0 !important; padding-top: 0; }
+.material-home footer > div:last-child p { color: var(--md-on-surface-variant) !important; }
+
+@media (max-width: 767px) {
+    .material-home .home-shell { width: calc(100% - 1.25rem); padding-top: 5rem; }
+    .material-home .home-hero { border-radius: 0; padding: 2.75rem .75rem; margin-bottom: 3.75rem !important; }
+    .material-home .home-hero h1 { font-size: clamp(2.35rem, 10vw, 3.25rem) !important; }
+    .material-home .featured-work-header { align-items: start; }
+    .material-home .portfolio-card { border-radius: 22px; }
+    .material-home .portfolio-card-media { height: 180px; }
+    .material-home section[aria-label="How I work"],
+    .material-home footer { border-radius: 22px; }
+}

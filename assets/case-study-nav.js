@@ -19,7 +19,6 @@
             .case-toc a:hover,
             .case-toc a.${activeClass} {
                 color: #315dff !important;
-                border-bottom-color: #315dff !important;
             }
 
             .case-toc a.${activeClass} {
@@ -35,7 +34,7 @@
     }
 
     function collectNavItems() {
-        navLinks = Array.from(document.querySelectorAll('.case-toc a[href^="#"]'));
+        navLinks = Array.from(document.querySelectorAll('.case-toc a[href^="#"], .page-index-menu a[href^="#"]'));
         sections = navLinks
             .map((link) => {
                 const id = decodeURIComponent(link.getAttribute('href').slice(1));
