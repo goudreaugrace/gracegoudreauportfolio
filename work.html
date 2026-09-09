@@ -151,8 +151,9 @@
             background: #fff;
         }
 
-        .portfolio-card-media img.atlas-thumbnail-image {
-            object-position: top center;
+        .portfolio-card-media img.atlas-thumbnail-image,
+        .portfolio-card-media img.scenario-thumbnail-image {
+            object-position: center top;
         }
 
         .portfolio-card-body {
@@ -176,8 +177,8 @@
 
         .portfolio-card h2,
         .portfolio-card h3 {
-            font-size: clamp(1.9rem, 3.4vw, 2.85rem);
-            line-height: 1;
+            font-size: clamp(1.75rem, 2.8vw, 2.4rem);
+            line-height: 1.04;
             color: #111;
             overflow-wrap: anywhere;
             word-break: break-word;
@@ -371,65 +372,17 @@
 
         <section class="mb-20 md:mb-28" aria-label="Featured case studies">
             <div class="featured-work-grid">
-                <a href="atlas-decision-intelligence.html" class="portfolio-card">
-                    <div class="portfolio-card-media">
-                        <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts">
-                    </div>
-                    <div class="portfolio-card-body">
-                        <div class="portfolio-card-meta">
-                            <span>01 / AI product strategy</span>
-                            <span>3 weeks</span>
-                        </div>
-                        <h2>3-Week Decision-Intelligence POC</h2>
-                        <p class="portfolio-card-summary">Led a fast AI product sprint from vague opportunity to working decision-intelligence POC, shaping the thesis, IA, and roadmap.</p>
-                        <dl class="portfolio-card-details">
-                            <div>
-                                <dt>My role</dt>
-                                <dd>UX strategy and functional prototype lead</dd>
-                            </div>
-                            <div>
-                                <dt>Design challenge</dt>
-                                <dd>Ambiguity to product direction</dd>
-                            </div>
-                        </dl>
-                    </div>
-                </a>
-
-                <a href="my-pepsico-content-agent.html" class="portfolio-card">
-                    <div class="portfolio-card-media">
-                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="MyPepsiCo content engine workflow showing submit, agents work, and review stages">
-                    </div>
-                    <div class="portfolio-card-body">
-                        <div class="portfolio-card-meta">
-                            <span>02 / AI workflow design</span>
-                            <span>POC</span>
-                        </div>
-                        <h2>Content Operations Agent</h2>
-                        <p class="portfolio-card-summary">Self-initiated an AI content workflow POC that moved from manager pain point to executive validation and funding.</p>
-                        <dl class="portfolio-card-details">
-                            <div>
-                                <dt>My role</dt>
-                                <dd>Self-initiated product strategy and prototype</dd>
-                            </div>
-                            <div>
-                                <dt>Design challenge</dt>
-                                <dd>Initiative, AI orchestration, and workflow clarity</dd>
-                            </div>
-                        </dl>
-                    </div>
-                </a>
-
                 <a href="ai-scenario-modeling.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview">
+                        <img class="scenario-thumbnail-image" src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>03 / Enterprise decision systems</span>
+                            <span>01 / Scenario Modeling</span>
                             <span>Lead UX</span>
                         </div>
-                        <h2>Scenario Modeling Workspace</h2>
-                        <p class="portfolio-card-summary">Led UX with Google and PepsiCo to turn fragmented GTM scenario planning into a governed workspace pattern.</p>
+                        <h2>Turning Fragmented Scenario Planning Into One Governed Workspace</h2>
+                        <p class="portfolio-card-summary">Led UX with Google and PepsiCo across product strategy, information architecture, and a reusable planning workflow.</p>
                         <dl class="portfolio-card-details">
                             <div>
                                 <dt>My role</dt>
@@ -443,17 +396,65 @@
                     </div>
                 </a>
 
+                <a href="my-pepsico-content-agent.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
+                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="MyPepsiCo content engine workflow showing submit, agents work, and review stages">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>02 / Content Operations</span>
+                            <span>Pilot proposed</span>
+                        </div>
+                        <h2>From User Pain to an AI Content Platform Teams Want to Pilot</h2>
+                        <p class="portfolio-card-summary">Designed, built, and tested a proof-of-value prototype now being developed toward a proposed Canada pilot.</p>
+                        <dl class="portfolio-card-details">
+                            <div>
+                                <dt>My role</dt>
+                                <dd>Self-initiated product strategy and prototype</dd>
+                            </div>
+                            <div>
+                                <dt>Design challenge</dt>
+                                <dd>Initiative, AI orchestration, and workflow clarity</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </a>
+
+                <a href="atlas-decision-intelligence.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
+                        <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>03 / ATLAS</span>
+                            <span>3 weeks</span>
+                        </div>
+                        <h2>Defining an AI Decision Product in Three Weeks</h2>
+                        <p class="portfolio-card-summary">Turned an ambiguous executive opportunity into a functional decision-intelligence concept, product thesis, and roadmap.</p>
+                        <dl class="portfolio-card-details">
+                            <div>
+                                <dt>My role</dt>
+                                <dd>UX strategy and functional prototype lead</dd>
+                            </div>
+                            <div>
+                                <dt>Design challenge</dt>
+                                <dd>Ambiguity to product direction</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </a>
+
                 <a href="cost-compass-redesign.html" class="portfolio-card">
                     <div class="portfolio-card-media">
                         <img class="content-engine-card-image" src="assets/cost-compass-card.png?v=20260825" alt="Cost Compass redesigned Move Transport analytics page preview">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>04 / Visual design</span>
+                            <span>04 / Cost Compass</span>
                             <span>2 weeks</span>
                         </div>
-                        <h2>Cost Compass Redesign</h2>
-                        <p class="portfolio-card-summary">Redesigned a dense agency-led analytics screen into a cleaner CTX direction with stronger hierarchy and suite alignment.</p>
+                        <h2>Making a Dense Analytics Product Clear and Actionable</h2>
+                        <p class="portfolio-card-summary">Reframed an agency-led analytics screen with clearer hierarchy, stronger suite alignment, and more confident interaction patterns.</p>
                         <dl class="portfolio-card-details">
                             <div>
                                 <dt>My role</dt>
@@ -483,8 +484,8 @@
             <div class="additional-work-list">
                 <a href="order-management.html" class="additional-work-row">
                     <span class="work-number">05</span>
-                    <h3>Order Management</h3>
-                    <p>Clarified a fragmented order-change workflow from intake to tracking.</p>
+                    <h3>Scaling a Fragmented Order Workflow Into a Shipped Platform</h3>
+                    <p>Led UX for a released order engine connecting intake, validation, tracking, and SAP confirmation.</p>
                     <span class="work-arrow">&rarr;</span>
                 </a>
                 <a href="forecast-analysis.html" class="additional-work-row">

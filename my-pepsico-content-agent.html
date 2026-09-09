@@ -8,30 +8,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Instrument Sans', sans-serif;
             font-variation-settings: 'wdth' 100;
         }
 
-        .password-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
         .content-container {
-            display: none;
-        }
-
-        .password-input {
-            outline: none;
-        }
-
-        .password-input:focus {
-            border-color: black;
+            display: block;
         }
 
         .case-sticky-cluster {
@@ -84,6 +69,7 @@
             display: flex;
             flex-wrap: nowrap;
             align-items: center;
+            justify-content: center;
             gap: 0.75rem 1.125rem;
             font-size: 0.8125rem;
             line-height: 1.2;
@@ -95,6 +81,12 @@
             min-height: 0;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
+        }
+
+        @media (max-width: 1100px) {
+            .case-toc-inner {
+                justify-content: flex-start;
+            }
         }
 
         .case-toc-inner::-webkit-scrollbar {
@@ -347,6 +339,113 @@
             line-height: 1.35;
         }
 
+        .orchestration-explorer {
+            --md-primary: #0b57d0;
+            --md-on-surface: #1f1f1f;
+            --md-on-surface-variant: #444746;
+            --md-outline: #747775;
+            --md-outline-variant: #c4c7c5;
+            --md-surface-container: #f0f4f9;
+            display: grid;
+            grid-template-columns: minmax(370px, 1fr) minmax(310px, .9fr);
+            min-height: 455px;
+            max-width: 1040px;
+            margin-inline: auto;
+            background: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #architecture { scroll-margin-top: 13rem; }
+        .architecture-heading { color: #073763 !important; }
+
+        .orchestration-stage {
+            position: relative;
+            width: min(100%, 440px);
+            aspect-ratio: 1;
+            align-self: center;
+            justify-self: center;
+        }
+
+        .orchestration-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+        .orchestration-lines line { stroke: #dce4ec; stroke-width: .55; transition: stroke .25s ease, stroke-width .25s ease; }
+        .orchestration-lines line.is-active { stroke: var(--md-primary); stroke-width: 1.15; }
+        .orchestration-ring { fill: none; stroke: #d4e3f0; stroke-width: .55; stroke-dasharray: 1.6 3.2; }
+
+        .orchestrator-core {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: grid;
+            place-items: center;
+            width: clamp(92px, 22%, 108px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: #252a2e;
+            color: #fff;
+            text-align: center;
+            font-size: clamp(.82rem, 1.3vw, 1rem);
+            line-height: 1.15;
+            z-index: 2;
+        }
+
+        .orchestrator-core::before,
+        .orchestrator-core::after { content: ''; position: absolute; inset: -10px; border: 1px solid #cad0d5; border-radius: 50%; }
+        .orchestrator-core::after { inset: -17px; border-color: #e2e6e9; }
+
+        .orchestrator-core span { display: block; color: #bfc7cf; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; margin-bottom: .35rem; }
+
+        .agent-orbit-button {
+            --x: 50%;
+            --y: 50%;
+            position: absolute;
+            left: var(--x);
+            top: var(--y);
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 66px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: var(--md-on-surface-variant);
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .agent-orbit-dot { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 28px; height: 28px; border: 2px solid var(--md-primary); border-radius: 50%; background: #fff; transition: width .25s ease, height .25s ease, background .25s ease, box-shadow .25s ease; }
+        .agent-orbit-button:nth-of-type(4n) .agent-orbit-dot { border-color: #d26c00; }
+        .agent-orbit-button:nth-of-type(5n) .agent-orbit-dot { border-color: #657380; }
+        .agent-orbit-button span:last-child { position: absolute; top: calc(50% + 21px); left: 50%; transform: translateX(-50%); font-size: clamp(.7rem, 1.1vw, .82rem); letter-spacing: .01em; white-space: nowrap; }
+        .agent-orbit-button[data-agent="intake"] span:last-child,
+        .agent-orbit-button[data-agent="clarifier"] span:last-child { top: auto; bottom: calc(50% + 21px); }
+        .agent-orbit-button[data-agent="router"] span:last-child { top: 50%; left: calc(50% + 24px); transform: translateY(-50%); }
+        .agent-orbit-button[data-agent="translation"] span:last-child { top: 50%; left: auto; right: calc(50% + 24px); transform: translateY(-50%); }
+        .agent-orbit-button:hover .agent-orbit-dot,
+        .agent-orbit-button:focus-visible .agent-orbit-dot { width: 32px; height: 32px; }
+        .agent-orbit-button:focus-visible { outline: 3px solid var(--md-primary); outline-offset: 2px; border-radius: 12px; }
+        .agent-orbit-button.is-active { color: #111; font-weight: 600; }
+        .agent-orbit-button.is-active .agent-orbit-dot { border-color: #d76c00; background: #d76c00; box-shadow: 0 0 0 5px #fff, 0 0 0 7px #efc8a8; }
+
+        .orchestration-detail {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(1.5rem, 3.5vw, 2.75rem);
+            background: #fff;
+        }
+
+        .orchestration-count { color: var(--md-on-surface-variant); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
+        .orchestration-detail h3 { margin: .75rem 0 .9rem; font-size: clamp(2.25rem, 3.5vw, 3.2rem); line-height: 1; font-weight: 500; color: var(--md-on-surface); }
+        .orchestration-detail > p { color: var(--md-on-surface-variant); font-size: clamp(1rem, 1.45vw, 1.18rem); line-height: 1.45; max-width: 31rem; }
+        .orchestration-handoff { margin-top: 1rem; padding-top: .85rem; border-top: 1px solid #e1e6eb; color: #4f5c68 !important; font-size: .92rem !important; }
+        .orchestration-handoff span { display: block; color: #66706d; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .35rem; }
+        .orchestration-controls { display: flex; flex-direction: column; align-items: flex-start; gap: .9rem; margin-top: 1.25rem; }
+        .orchestration-toggle { border: 0; border-radius: 999px; background: var(--md-surface-container); color: var(--md-primary); padding: .65rem 1rem; font-weight: 500; cursor: pointer; text-decoration: none; }
+        .orchestration-progress { display: flex; flex-wrap: wrap; gap: .55rem; }
+        .orchestration-progress button { min-height: 34px; border: 1px solid var(--md-outline-variant); border-radius: 9px; background: #fff; color: var(--md-on-surface-variant); padding: .35rem .65rem; font-size: .78rem; font-weight: 500; cursor: pointer; }
+        .orchestration-progress button:hover { background: var(--md-surface-container); }
+        .orchestration-progress button.is-active { border-color: var(--md-outline); background: var(--md-surface-container); color: var(--md-on-surface); }
+
         .visual-flow {
             display: grid;
             grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -501,6 +600,143 @@
             background: #fbfcfd;
         }
 
+        .role-workflow {
+            display: grid;
+            grid-template-columns: minmax(150px, .8fr) repeat(4, minmax(150px, 1fr));
+            border: 1px solid #111;
+            overflow-x: auto;
+        }
+
+        .role-workflow > div {
+            min-width: 0;
+            padding: 1rem;
+            border-right: 1px solid #b9c0c8;
+            border-bottom: 1px solid #b9c0c8;
+        }
+
+        .role-workflow > div:nth-child(5n) { border-right: 0; }
+        .role-workflow > div:nth-last-child(-n + 5) { border-bottom: 0; }
+        .role-workflow .workflow-head { background: #111; color: #fff; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+        .role-workflow .workflow-role { background: #eef4ff; color: #111; font-weight: 600; }
+        .role-workflow .workflow-cell { color: #4f4f4f; line-height: 1.35; }
+        .role-workflow .workflow-cell strong { display: block; color: #111; font-weight: 500; margin-bottom: .25rem; }
+
+        .iteration-visual {
+            margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+            background: #fff;
+        }
+
+        .iteration-summary {
+            display: grid;
+            grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+            gap: 2rem;
+            align-items: end;
+            padding: 0 0 1.5rem;
+        }
+
+        .iteration-summary h3 {
+            font-size: clamp(1.7rem, 3vw, 2.65rem);
+            line-height: 1.08;
+        }
+
+        .iteration-summary p:last-child {
+            color: #4f4f4f;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+
+        .iteration-screens {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(1rem, 2.5vw, 2rem);
+        }
+
+        .iteration-screens.iteration-screens--single {
+            grid-template-columns: 1fr;
+        }
+
+        .iteration-visual.iteration-visual--side {
+            display: grid;
+            grid-template-columns: minmax(280px, .7fr) minmax(0, 1.3fr);
+            gap: clamp(2rem, 4vw, 4rem);
+            align-items: center;
+        }
+
+        .iteration-visual--side .iteration-summary {
+            display: block;
+            padding: 0;
+        }
+
+        .iteration-visual--side .iteration-summary h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .iteration-screen { min-width: 0; }
+        .iteration-screen-button { display: block; width: 100%; padding: 0; border: 0; border-radius: 0; background: transparent; cursor: zoom-in; }
+        .iteration-screen-button:focus-visible { outline: 3px solid #315dff; outline-offset: 3px; }
+        .iteration-screen img { display: block; width: 100%; height: auto; object-fit: contain; border: 1px solid #d8dde2; background: #f7f9fb; }
+        .iteration-caption { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 0 0; }
+        .iteration-caption strong { font-weight: 500; }
+        .iteration-caption span { color: #66706d; font-size: .85rem; text-align: right; }
+        .iteration-summary .mock-chip { border: 0; background: #eef4ff; }
+
+        .image-lightbox {
+            width: min(96vw, 1800px);
+            max-width: none;
+            max-height: 94vh;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            overflow: visible;
+        }
+        .image-lightbox::backdrop { background: rgba(15, 20, 24, .88); }
+        .image-lightbox-frame { position: relative; display: grid; place-items: center; }
+        .image-lightbox img { display: block; max-width: 96vw; max-height: 90vh; width: auto; height: auto; border: 1px solid rgba(255,255,255,.45); background: #fff; }
+        .image-lightbox-close { position: absolute; top: .75rem; right: .75rem; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid #111; border-radius: 50%; background: #fff; color: #111; font-size: 1.5rem; cursor: pointer; }
+
+        .decision-kicker { color: #66706d; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .5rem; }
+
+        .ui-montage {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .product-frame { border: 1px solid #111; background: #fff; overflow: hidden; }
+        .product-frame figcaption { padding: 1rem 1.25rem; border-bottom: 1px solid #111; }
+        .product-frame figcaption strong { display: block; font-size: 1.25rem; font-weight: 500; }
+        .product-frame figcaption span { color: #66706d; font-size: .9rem; }
+        .mock-ui { min-height: 260px; padding: 1rem; background: #f7f9fb; }
+        .mock-bar { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: 1rem; }
+        .mock-dots { color: #315dff; letter-spacing: .2em; }
+        .mock-chip { display: inline-block; border: 1px solid #8a929b; border-radius: 999px; padding: .3rem .65rem; background: #fff; font-size: .78rem; }
+        .mock-panel { border: 1px solid #c4cad0; background: #fff; padding: .85rem; margin-top: .65rem; }
+        .mock-panel--accent { background: #eef4ff; border-color: #8aa4ff; }
+        .mock-line { height: 8px; background: #d9dee3; margin: .5rem 0; }
+        .mock-line.short { width: 55%; }
+        .mock-line.medium { width: 78%; }
+        .mock-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .85rem; }
+        .mock-button { border-radius: 999px; padding: .45rem .8rem; background: #315dff; color: #fff; font-size: .75rem; }
+        .mock-button.secondary { border: 1px solid #8a929b; background: #fff; color: #111; }
+        .mock-stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+        .mock-stat { border: 1px solid #c4cad0; background: #fff; padding: .75rem; }
+        .mock-stat strong { display: block; font-size: 1.45rem; font-weight: 500; }
+        .mock-row { display: grid; grid-template-columns: 1.3fr .8fr .6fr; gap: .5rem; padding: .65rem 0; border-bottom: 1px solid #d9dee3; font-size: .8rem; }
+        .mock-status { color: #17613a; }
+
+        .roadmap-ui {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            border: 1px solid #111;
+        }
+        .roadmap-stage { padding: clamp(1.25rem, 2.5vw, 2rem); border-right: 1px solid #111; }
+        .roadmap-stage:last-child { border-right: 0; }
+        .roadmap-stage:nth-child(2) { background: #eef4ff; }
+        .roadmap-status { display: inline-flex; align-items: center; gap: .45rem; margin-bottom: 1.25rem; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+        .roadmap-status::before { content: ''; width: .65rem; height: .65rem; border-radius: 50%; background: #315dff; }
+        .roadmap-stage h3 { font-size: clamp(1.5rem, 2.5vw, 2.25rem); line-height: 1.1; margin-bottom: .8rem; }
+        .roadmap-stage p { color: #4f4f4f; line-height: 1.45; }
+
         @media (max-width: 900px) {
             .visual-flow,
             .visual-flow.visual-flow--three,
@@ -521,6 +757,18 @@
                 grid-template-columns: 1fr;
             }
 
+            .roadmap-ui { grid-template-columns: 1fr; }
+
+            .iteration-summary { grid-template-columns: 1fr; gap: 1rem; }
+            .iteration-visual.iteration-visual--side { grid-template-columns: 1fr; gap: 1.5rem; }
+
+            .orchestration-explorer { grid-template-columns: 1fr; }
+            .orchestration-stage { width: min(100%, 440px); }
+            .orchestration-detail { border-left: 0; padding-top: 1rem; }
+
+            .roadmap-stage { border-right: 0; border-bottom: 1px solid #111; }
+            .roadmap-stage:last-child { border-bottom: 0; }
+
             .value-arrow {
                 transform: rotate(90deg);
                 justify-self: center;
@@ -533,6 +781,22 @@
             .capability-flow {
                 grid-template-columns: 1fr;
             }
+
+            .ui-montage { grid-template-columns: 1fr; }
+            .iteration-screens { grid-template-columns: 1fr; }
+            .iteration-screens { gap: 2rem; }
+            .orchestration-explorer { min-height: 0; }
+            .orchestration-stage { width: 100%; }
+            .agent-orbit-dot { width: 24px; height: 24px; }
+            .agent-orbit-button { width: 76px; height: 58px; }
+            .orchestrator-core { width: 82px; }
+            .role-workflow { display: block; border: 0; }
+            .role-workflow > div { border: 1px solid #b9c0c8; border-bottom: 0; }
+            .role-workflow > div:nth-child(5n) { border-right: 1px solid #b9c0c8; }
+            .role-workflow > div:last-child { border-bottom: 1px solid #b9c0c8; }
+            .role-workflow .workflow-head:not(:first-child) { display: none; }
+            .role-workflow .workflow-role { margin-top: 1rem; border-color: #111; }
+            .role-workflow .workflow-cell::before { content: attr(data-stage); display: block; color: #315dff; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .35rem; }
         }
 
         @media (min-width: 768px) {
@@ -555,32 +819,6 @@
 </head>
 <body class="bg-white">
     <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
-    <div id="passwordScreen" class="password-container">
-        <div class="max-w-md w-full px-6">
-            <h1 class="text-4xl md:text-5xl text-black mb-4 text-center">Content Operations Agent</h1>
-            <p class="text-lg text-black mb-8 text-center">This project is password protected</p>
-
-            <div class="border border-black p-8">
-                <label for="password" class="block text-lg text-black mb-3">Enter Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    class="password-input w-full border border-black px-4 py-3 text-lg text-black mb-4"
-                    placeholder="Password"
-                    onkeypress="if(event.key === 'Enter') checkPassword()"
-                >
-                <div id="errorMessage" class="error-message hidden">Incorrect password. Please try again.</div>
-                <button onclick="checkPassword()" class="submit-button w-full border border-black bg-white px-4 py-3 mt-4">
-                    <span class="text-lg text-black">Submit</span>
-                </button>
-            </div>
-
-            <div class="text-center mt-8">
-                <a href="index.html" class="text-lg text-black hover:opacity-70 transition-opacity">← Back to Portfolio</a>
-            </div>
-        </div>
-    </div>
-
     <div id="mainContent" class="content-container">
         <nav class="w-full bg-white fixed top-0 z-50">
             <div class="max-w-[1271px] mx-auto flex">
@@ -614,9 +852,11 @@
                         <a href="#overview">Overview</a>
                         <a href="#problem">Problem</a>
                         <a href="#users">Users</a>
+                        <a href="#findings">Research</a>
                         <a href="#origin">UX Process</a>
                         <a href="#system">Product</a>
                         <a href="#architecture">Architecture</a>
+                        <a href="#accelerator">AI Accelerator</a>
                         <a href="#decisions">Decisions</a>
                         <a href="#next">Impact</a>
                     </div>
@@ -629,8 +869,11 @@
                     Content Operations Agent
                 </h1>
                 <p class="text-xl md:text-2xl leading-[1.35] text-black mt-5 md:mt-6 max-w-[820px]">
-                    I turned a manager pain point into a working proof of value prototype that earned executive validation and funding.
+                    I turned a problem raised by the UX design manager leading myPepsiCo into a working proof-of-value prototype that created immediate pilot demand and an active funding case.
                 </p>
+                <a href="https://content-engine-sand-eta.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 mt-7 border border-black bg-black text-white px-5 py-3 text-base md:text-lg hover:bg-[#315dff] hover:border-[#315dff] transition-colors">
+                    View working prototype <span aria-hidden="true">↗</span>
+                </a>
             </header>
 
             <section class="mb-10 md:mb-12 border-t border-black pt-5">
@@ -649,13 +892,20 @@
                     </div>
                     <div>
                         <p class="text-sm uppercase text-black mb-1">Outcome</p>
-                        <p class="text-base md:text-lg text-black">User-tested → funded product</p>
+                        <p class="text-base md:text-lg text-black">9 users engaged → Canada pilot proposed</p>
                     </div>
                 </div>
             </section>
 
+            <section class="mb-16 md:mb-20 border-t border-black pt-8" aria-label="Strategic design position">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                    <p class="lg:col-span-3 visual-label">My design position</p>
+                    <p class="lg:col-span-9 text-3xl md:text-[44px] leading-tight text-black">AI content generation is not enough. A trustworthy product must connect creation, standards, human review, ownership, and governance.</p>
+                </div>
+            </section>
+
             <section class="mb-16 md:mb-20 border-t border-black pt-8" aria-label="Project trajectory">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From Heard Problem to Funded Product</h2>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From Heard Problem to Pilot Demand</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
                     <article class="border border-black p-5 md:p-6">
                         <p class="text-sm uppercase text-[#315dff] mb-4">01 / Heard</p>
@@ -673,9 +923,9 @@
                         <p class="text-base leading-[1.45] text-black">I designed and built the working experience, tested it with users, and iterated on the moments that shaped clarity, control, and confidence.</p>
                     </article>
                     <article class="border border-black p-5 md:p-6 section-soft">
-                        <p class="text-sm uppercase text-[#315dff] mb-4">04 / Funded</p>
+                        <p class="text-sm uppercase text-[#315dff] mb-4">04 / Demand</p>
                         <h3 class="text-xl md:text-2xl leading-tight text-black mb-3">Evidence created demand</h3>
-                        <p class="text-base leading-[1.45] text-black">The tested build made the opportunity tangible, generated cross-team desire and leadership buy-in, and became a funded product direction.</p>
+                        <p class="text-base leading-[1.45] text-black">The tested build made the opportunity tangible, created urgency from users, and led to Canada being proposed as the first real pilot market.</p>
                     </article>
                 </div>
             </section>
@@ -700,7 +950,10 @@
                         <p>
                             Working prototype used to test the agent workflow with users and make the product value tangible to stakeholders.
                         </p>
-                        <span>Agent workflow demo</span>
+                        <div class="flex flex-col items-start gap-2">
+                            <span>Agent workflow demo</span>
+                            <a href="https://content-engine-sand-eta.vercel.app" target="_blank" rel="noopener noreferrer" class="text-black underline underline-offset-4 normal-case tracking-normal">Open live build ↗</a>
+                        </div>
                     </figcaption>
                 </figure>
             </section>
@@ -718,7 +971,7 @@
                         <div class="border border-black p-5 section-soft"><p class="text-base md:text-lg leading-[1.45] text-black">Defined the product hypothesis and what the prototype needed to prove.</p></div>
                         <div class="border border-black p-5"><p class="text-base md:text-lg leading-[1.45] text-black">Designed and built the end-to-end human–AI workflow.</p></div>
                         <div class="border border-black p-5"><p class="text-base md:text-lg leading-[1.45] text-black">Tested with users and translated feedback into product decisions.</p></div>
-                        <div class="border border-black p-5 section-soft"><p class="text-base md:text-lg leading-[1.45] text-black">Used the working product to create alignment, desire, and investment.</p></div>
+                        <div class="border border-black p-5 section-soft"><p class="text-base md:text-lg leading-[1.45] text-black">Used the working product to create alignment, pilot demand, and a credible funding case.</p></div>
                     </div>
                 </div>
             </section>
@@ -771,19 +1024,133 @@
                         <ul><li>Organization-wide visibility</li><li>Roles and permissions</li><li>Content health reporting</li><li>Areas requiring action</li></ul>
                     </article>
                 </div>
-                <!-- FUTURE VISUAL: Replace or complement these cards with a persona-to-workflow swimlane showing permissions and handoffs across create, review, and govern. -->
+                <div class="mt-8">
+                    <p class="visual-label">Role-to-workflow map</p>
+                    <div class="role-workflow" aria-label="How three user roles participate across the content lifecycle">
+                        <div class="workflow-head">Role</div><div class="workflow-head">Create</div><div class="workflow-head">Improve</div><div class="workflow-head">Review</div><div class="workflow-head">Govern</div>
+                        <div class="workflow-role">Employee author</div>
+                        <div class="workflow-cell" data-stage="Create"><strong>Start with what they have</strong>Conversation, structured form, or document upload</div>
+                        <div class="workflow-cell" data-stage="Improve"><strong>Receive guidance</strong>AI applies standards, structure, tone, and accessibility</div>
+                        <div class="workflow-cell" data-stage="Review"><strong>Submit confidently</strong>See readiness and respond to requested changes</div>
+                        <div class="workflow-cell" data-stage="Govern"><strong>Track progress</strong>Know ownership, status, and next action</div>
+                        <div class="workflow-role">People manager</div>
+                        <div class="workflow-cell" data-stage="Create"><strong>Support team content</strong>See drafts across direct reports</div>
+                        <div class="workflow-cell" data-stage="Improve"><strong>Strengthen quality</strong>Spot gaps before formal review</div>
+                        <div class="workflow-cell" data-stage="Review"><strong>Manage the queue</strong>Approve, return, or route work</div>
+                        <div class="workflow-cell" data-stage="Govern"><strong>Maintain accountability</strong>See owners, audiences, and access</div>
+                        <div class="workflow-role">Content owner</div>
+                        <div class="workflow-cell" data-stage="Create"><strong>Set the guardrails</strong>Define templates, criteria, and source context</div>
+                        <div class="workflow-cell" data-stage="Improve"><strong>Standardize quality</strong>Manage reusable organization-wide standards</div>
+                        <div class="workflow-cell" data-stage="Review"><strong>Resolve exceptions</strong>Handle permissions, escalations, and policy risk</div>
+                        <div class="workflow-cell" data-stage="Govern"><strong>See system health</strong>Monitor stale, duplicate, and at-risk content</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="findings" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
+                <p class="visual-label">User feedback that informed the build</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">Nine users shaped what the prototype became.</h2>
+                <p class="text-xl md:text-2xl leading-tight text-black max-w-[980px] mb-8">The nine participants all create or support content alongside their primary jobs. Across three interviews and four prototype feedback sessions, I studied the current workflow and used each demo to validate, extend, or pivot the product direction.</p>
+                <div>
+                    <article class="iteration-visual">
+                        <div class="iteration-summary">
+                            <div>
+                                <p class="decision-kicker">Insight 1</p>
+                                <h3>We made conversation the primary path without removing the form.</h3>
+                            </div>
+                            <p>Users were already turning to ChatGPT and Copilot to draft articles. The redesign meets that learned behavior immediately, while preserving a structured alternative for people who prefer not to use AI.</p>
+                        </div>
+                        <div class="iteration-screens">
+                            <figure class="iteration-screen">
+                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-before-form.png" data-expand-alt="Earlier New Article experience using a structured form as the primary entry point" aria-label="Expand the earlier form-first article creation screen">
+                                    <img src="assets/content-agent-before-form.png" alt="Earlier New Article experience using a structured form as the primary entry point">
+                                </button>
+                                <figcaption class="iteration-caption"><strong>Before</strong><span>Form-first creation</span></figcaption>
+                            </figure>
+                            <figure class="iteration-screen">
+                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-after-conversation.png" data-expand-alt="Updated New Article experience using an AI conversation as the primary entry point with an option to switch to the form" aria-label="Expand the updated conversation-first article creation screen">
+                                    <img src="assets/content-agent-after-conversation.png" alt="Updated New Article experience using an AI conversation as the primary entry point with an option to switch to the form">
+                                </button>
+                                <figcaption class="iteration-caption"><strong>After</strong><span>Conversation first, form still available</span></figcaption>
+                            </figure>
+                        </div>
+                    </article>
+                    <article class="iteration-visual">
+                        <div class="iteration-summary">
+                            <div>
+                                <p class="decision-kicker">Insight 2</p>
+                                <h3>We expanded the admin view from managing articles to understanding content health.</h3>
+                            </div>
+                            <p>Content owners told us a list was not enough. The latest direction introduces system-level health, discovery, maintenance, and follow-up insights so administrators can see where attention is needed—not just what articles exist.</p>
+                        </div>
+                        <div class="iteration-screens">
+                            <figure class="iteration-screen">
+                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-admin-before-list.png" data-expand-alt="Earlier Super Admin view centered on a table listing all articles" aria-label="Expand the earlier Super Admin article-list screen">
+                                    <img src="assets/content-agent-admin-before-list.png" alt="Earlier Super Admin view centered on a table listing all articles">
+                                </button>
+                                <figcaption class="iteration-caption"><strong>Before</strong><span>Article inventory and status</span></figcaption>
+                            </figure>
+                            <figure class="iteration-screen">
+                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-admin-after-dashboard-wip.png" data-expand-alt="Latest work-in-progress Super Admin dashboard concept with discovery, governance, and content health insights" aria-label="Expand the latest work-in-progress Super Admin dashboard screen">
+                                    <img src="assets/content-agent-admin-after-dashboard-wip.png" alt="Latest work-in-progress Super Admin dashboard concept with discovery, governance, and content health insights">
+                                </button>
+                                <figcaption class="iteration-caption"><strong>Latest direction</strong><span>WIP concept · Illustrative prototype data</span></figcaption>
+                            </figure>
+                        </div>
+                    </article>
+                    <article class="iteration-visual iteration-visual--side">
+                        <div class="iteration-summary">
+                            <div>
+                                <p class="decision-kicker">Insight 3</p>
+                                <h3>“Let me upload what I have and have the agents write it for me.”</h3>
+                            </div>
+                            <p>We added a more passive creation path that accepts existing source material and asks the agents to turn it into a standards-ready draft. Users can review the result in My Articles rather than building every article field by field.</p>
+                        </div>
+                        <div class="iteration-screens iteration-screens--single">
+                            <figure class="iteration-screen">
+                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-upload-agent-draft.png" data-expand-alt="Agent-led article creation screen where users upload source files and ask the system to produce a standards-ready draft" aria-label="Expand the agent-led article creation screen">
+                                    <img src="assets/content-agent-upload-agent-draft.png" alt="Agent-led article creation screen where users upload source files and ask the system to produce a standards-ready draft">
+                                </button>
+                                <figcaption class="iteration-caption"><strong>Feature added from user feedback</strong><span>Upload source material → agent-produced draft</span></figcaption>
+                            </figure>
+                        </div>
+                    </article>
+                    <div class="mt-10 md:mt-14">
+                        <p class="visual-label">Additional findings</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                            <article class="p-6 section-soft">
+                                <p class="visual-label">Standards</p>
+                                <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Important criteria were difficult to apply manually.</h3>
+                                <p class="text-base md:text-lg leading-[1.45] text-black">Writers valued PepsiCo standards but rarely had time to check and rewrite against every requirement. We embedded structure, tone, accessibility, and publishing guidance into AI-assisted creation.</p>
+                            </article>
+                            <article class="p-6 bg-[#f7f9fb]">
+                                <p class="visual-label">Learnability</p>
+                                <h3 class="text-2xl md:text-3xl leading-tight text-black mb-4">Infrequent use made simplicity essential.</h3>
+                                <p class="text-base md:text-lg leading-[1.45] text-black">Because this would not be a daily tool, users could not relearn a specialized workflow each time. We used familiar AI patterns, simplified onboarding, and kept guidance visible.</p>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 mt-8 md:mt-10 bg-[#eef4ff]">
+                        <p class="visual-label">What users said</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xl md:text-2xl leading-tight text-black">
+                            <blockquote>“This is super amazing—and super, super friendly. A great user experience.”</blockquote>
+                            <blockquote>“We can see our feedback influencing what was implemented since the last time we talked. This is so awesome.”</blockquote>
+                            <blockquote>“How can we get this next week? This is going to provide so much value, and we need to get it out ASAP.”</blockquote>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="origin" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <p class="visual-label">How UX worked</p>
                 <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">Build to learn. Test to earn belief.</h2>
-                <p class="text-xl md:text-2xl leading-tight text-black max-w-[900px] mb-8">I kept research, design, prototyping, and validation in one continuous loop—moving from an overheard problem to a funded direction.</p>
+                <p class="text-xl md:text-2xl leading-tight text-black max-w-[900px] mb-8">I kept research, design, prototyping, and validation in one continuous loop—moving from a heard problem to demonstrated user demand.</p>
                 <div class="visual-flow">
                     <article class="visual-flow-step"><p class="visual-label">01</p><h3>Hear</h3><p>Recognized a systemic problem without waiting for a formal brief.</p></article>
                     <article class="visual-flow-step"><p class="visual-label">02</p><h3>Define</h3><p>Learned from UX partners and future users, then framed what the product needed to prove.</p></article>
                     <article class="visual-flow-step"><p class="visual-label">03</p><h3>Build</h3><p>Designed and coded a realistic end-to-end prototype with AI-assisted development.</p></article>
                     <article class="visual-flow-step"><p class="visual-label">04</p><h3>Test</h3><p>Observed real users, listened for trust gaps, and iterated on their feedback.</p></article>
-                    <article class="visual-flow-step"><p class="visual-label">05</p><h3>Fund</h3><p>Used evidence from the working product to create desire, alignment, and investment.</p></article>
+                    <article class="visual-flow-step"><p class="visual-label">05</p><h3>Build support</h3><p>Used evidence from the working product to create urgency, propose a first pilot, and support active funding proposals.</p></article>
                 </div>
             </section>
 
@@ -797,7 +1164,41 @@
                     <article class="capability-card"><p class="visual-label">03</p><h3>Review & govern</h3><ul><li>Approval workflows</li><li>Roles and permissions</li><li>Review dates and duplicates</li></ul></article>
                     <article class="capability-card section-soft"><p class="visual-label">04</p><h3>Manage & scale</h3><ul><li>Central article library</li><li>Status and health visibility</li><li>Canonical source of truth</li></ul></article>
                 </div>
-                <!-- FUTURE VISUAL: Add an annotated four-screen montage here—Create, Review, Library, and Governance—with one callout per screen tied to the lifecycle above. -->
+                <div class="mt-8">
+                    <p class="visual-label">Product experience</p>
+                    <div class="ui-montage">
+                        <figure class="product-frame">
+                            <figcaption><strong>Create from any starting point</strong><span>Conversation, form, or source-document upload</span></figcaption>
+                            <div class="mock-ui">
+                                <div class="mock-bar"><span class="mock-chip">New article</span><span class="mock-dots">•••</span></div>
+                                <div class="mock-panel mock-panel--accent"><strong>What would you like employees to understand or do?</strong><div class="mock-line medium"></div><div class="mock-line short"></div></div>
+                                <div class="mock-actions"><span class="mock-button">Start a conversation</span><span class="mock-button secondary">Upload a document</span></div>
+                            </div>
+                        </figure>
+                        <figure class="product-frame">
+                            <figcaption><strong>Make standards visible</strong><span>AI support reduces manual checking and rewriting</span></figcaption>
+                            <div class="mock-ui">
+                                <div class="mock-bar"><span class="mock-chip">Article quality</span><span class="mock-chip">4 of 5 ready</span></div>
+                                <div class="mock-panel"><strong>Structure and readability</strong><div class="mock-line"></div><span class="mock-status">✓ Meets standard</span></div>
+                                <div class="mock-panel mock-panel--accent"><strong>Accessibility</strong><div class="mock-line medium"></div><span>1 recommendation to review</span></div>
+                            </div>
+                        </figure>
+                        <figure class="product-frame">
+                            <figcaption><strong>Keep review work moving</strong><span>Ownership, status, and next action in one place</span></figcaption>
+                            <div class="mock-ui">
+                                <div class="mock-bar"><span class="mock-chip">Review queue</span><span class="mock-chip">Awaiting action</span></div>
+                                <div class="mock-panel"><div class="mock-row"><strong>Article</strong><strong>Owner</strong><strong>Status</strong></div><div class="mock-row"><span>Benefits guide</span><span>People team</span><span class="mock-status">Ready</span></div><div class="mock-row"><span>Travel policy</span><span>Finance</span><span>Changes</span></div></div>
+                            </div>
+                        </figure>
+                        <figure class="product-frame">
+                            <figcaption><strong>Govern the whole system</strong><span>Requested dashboard concept for content owners</span></figcaption>
+                            <div class="mock-ui">
+                                <div class="mock-stat-grid"><div class="mock-stat"><span>Healthy</span><strong>On track</strong></div><div class="mock-stat"><span>Review</span><strong>Due</strong></div><div class="mock-stat"><span>Stale</span><strong>Attention</strong></div></div>
+                                <div class="mock-panel"><strong>Content health by area</strong><div class="mock-line"></div><div class="mock-line medium"></div><div class="mock-line short"></div></div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
                 <div class="mt-10">
                     <p class="visual-label">Value chain</p>
                     <div class="value-chain">
@@ -809,76 +1210,50 @@
             </section>
 
             <section id="architecture" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The Multi-Agent Architecture</h2>
-                <div class="space-y-10 md:space-y-12">
+                <p class="visual-label mb-3">Section · 03</p>
+                <h2 class="architecture-heading text-4xl md:text-[50px] leading-tight mb-4">The Multi-Agent Architecture</h2>
+                <div class="space-y-6 md:space-y-8">
                     <div>
-                        <p class="text-2xl md:text-3xl leading-tight text-black max-w-[920px]">
+                        <p class="text-lg md:text-xl leading-[1.45] text-[#4f4f4f] max-w-[900px]">
                             I architected the interaction model around a visible orchestrator, giving human authors transparent control over modular AI sub-processes instead of hiding automation inside a black box.
                         </p>
                     </div>
-                    <div>
-                        <div class="agent-architecture-map">
-                            <div class="agent-core">
-                                <p>Core Orchestrator</p>
-                                <p>Coordinates the agent sequence, preserves handoffs, and keeps the author aware of what is happening at each step.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Intake</p>
-                                <p>Checks that the brief has the minimum context needed to begin.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Clarifier</p>
-                                <p>Surfaces missing details before the system commits to generation.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Router</p>
-                                <p>Directs the request to the right sector, market, audience, and source logic.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Market</p>
-                                <p>Adapts content against local conventions, language, and operating context.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Compliance</p>
-                                <p>Flags policy-sensitive content so reviewers can see risk before publication.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Revision</p>
-                                <p>Turns critique into an updated draft while preserving reviewer intent.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Translation</p>
-                                <p>Prepares localized variants once the source content is approved.</p>
+                    <div class="orchestration-explorer" data-orchestration-explorer>
+                        <div class="orchestration-stage" aria-label="Seven specialist agents arranged around the core orchestrator">
+                            <svg class="orchestration-lines" viewBox="0 0 100 100" aria-hidden="true">
+                                <circle class="orchestration-ring" cx="50" cy="50" r="38"></circle>
+                                <line data-agent-line="intake" x1="50" y1="50" x2="50" y2="10"></line>
+                                <line data-agent-line="clarifier" x1="50" y1="50" x2="77" y2="20"></line>
+                                <line data-agent-line="router" x1="50" y1="50" x2="90" y2="46"></line>
+                                <line data-agent-line="market" x1="50" y1="50" x2="78" y2="78"></line>
+                                <line data-agent-line="compliance" x1="50" y1="50" x2="50" y2="90"></line>
+                                <line data-agent-line="revision" x1="50" y1="50" x2="22" y2="78"></line>
+                                <line data-agent-line="translation" x1="50" y1="50" x2="10" y2="46"></line>
+                            </svg>
+                            <div class="orchestrator-core"><div><span>Core</span>Orchestrator</div></div>
+                            <button type="button" class="agent-orbit-button is-active" style="--x:50%;--y:10%" data-agent="intake" aria-pressed="true"><span class="agent-orbit-dot"></span><span>Intake</span></button>
+                            <button type="button" class="agent-orbit-button" style="--x:77%;--y:20%" data-agent="clarifier" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Clarifier</span></button>
+                            <button type="button" class="agent-orbit-button" style="--x:90%;--y:46%" data-agent="router" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Router</span></button>
+                            <button type="button" class="agent-orbit-button" style="--x:78%;--y:78%" data-agent="market" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Market</span></button>
+                            <button type="button" class="agent-orbit-button" style="--x:50%;--y:90%" data-agent="compliance" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Compliance</span></button>
+                            <button type="button" class="agent-orbit-button" style="--x:22%;--y:78%" data-agent="revision" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Revision</span></button>
+                            <button type="button" class="agent-orbit-button" style="--x:10%;--y:46%" data-agent="translation" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Translation</span></button>
+                        </div>
+                        <div class="orchestration-detail" aria-live="polite">
+                            <span class="orchestration-count" data-agent-count>Part · 01 of 07</span>
+                            <h3 data-agent-title>Intake</h3>
+                            <p data-agent-description>Checks that the brief has the minimum context needed to begin.</p>
+                            <p class="orchestration-handoff"><span>Handoff</span><strong data-agent-handoff>Passes a complete brief to Clarifier</strong></p>
+                            <div class="orchestration-controls">
+                                <button type="button" class="orchestration-toggle" data-orchestration-toggle aria-pressed="false">Pause sequence</button>
+                                <div class="orchestration-progress" data-orchestration-progress aria-label="Choose an agent"></div>
                             </div>
                         </div>
-                        <!-- FUTURE VISUAL: Replace this code-native map with a system diagram showing inputs, the orchestrator, specialist agents, human checkpoints, and the final article/library outputs. -->
                     </div>
-                    <figure class="demo-media">
-                        <video
-                            autoplay
-                            class="poc-demo-video"
-                            controls
-                            loop
-                            muted
-                            playsinline
-                            preload="metadata"
-                            aria-label="AI content workflow prototype demo showing the experience moving from brief to reviewed article."
-                        >
-                            <source src="assets/my-pepsico-poc-review-demo.mp4" type="video/mp4">
-                            <source src="assets/my-pepsico-poc-review-demo.mov" type="video/quicktime">
-                            Your browser does not support embedded video.
-                        </video>
-                        <figcaption class="demo-media-caption">
-                            <p>
-                            Demo clip showing the user-informed prototype moving from brief to review-ready content.
-                            </p>
-                            <span>Prototype review demo / 2x</span>
-                        </figcaption>
-                    </figure>
                 </div>
             </section>
 
-            <section class="mb-16 md:mb-20 border-t border-black pt-8" aria-label="How AI accelerated the work">
+            <section id="accelerator" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32" aria-label="How AI accelerated the work">
                 <p class="visual-label">AI as an accelerator</p>
                 <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">The prototype reduced the cost of learning.</h2>
                 <p class="text-xl md:text-2xl leading-tight text-black max-w-[950px] mb-8">AI-assisted development helped me turn product strategy into a realistic experience quickly. UX judgment still determined what to build, what to test, and what the evidence meant.</p>
@@ -1002,20 +1377,33 @@
             </section>
 
             <section id="next" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From Prototype to Funded Product</h2>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From Prototype to Pilot Demand</h2>
+                <div class="roadmap-ui mb-6">
+                    <article class="roadmap-stage"><span class="roadmap-status">Validated now</span><h3>AI-assisted creation</h3><p>Users can create standards-aligned articles with less manual checking and rewriting.</p></article>
+                    <article class="roadmap-stage"><span class="roadmap-status">Developing toward pilot</span><h3>Canada test readiness</h3><p>The team is maturing the conceptual prototype so it can test speed, independence, and reduced support effort.</p></article>
+                    <article class="roadmap-stage"><span class="roadmap-status">Future direction</span><h3>Connected operations</h3><p>End-to-end governance, administration, messaging, notifications, and deeper PepsiCo workspace integration.</p></article>
+                </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                     <div class="border border-black p-6 md:p-8 section-soft">
                         <p class="text-sm uppercase text-black mb-5">Current outcome</p>
                         <p class="text-2xl md:text-3xl leading-tight text-black">
-                            User testing demonstrated value and helped create desire across teams. The working prototype earned executive validation and secured corporate funding for continued product development.
+                            User feedback demonstrated value and created urgency from the people closest to the problem. Canada has been proposed as the first real pilot, while the team continues developing the still-conceptual prototype toward pilot readiness. Funding proposals are actively being written, with no decision yet.
                         </p>
                     </div>
                     <div class="border border-black p-6 md:p-8">
-                        <p class="text-sm uppercase text-black mb-5">Enterprise direction</p>
+                        <p class="text-sm uppercase text-black mb-5">Validated now</p>
                         <p class="text-2xl md:text-3xl leading-tight text-black">
-                            The funded direction is designed to scale across PepsiCo globally, with the potential to improve how every employee creates, maintains, localizes, and accesses trusted internal content.
+                            AI-assisted article creation can help users produce content that meets PepsiCo standards with less manual checking and rewriting.
                         </p>
                     </div>
+                </div>
+                <div class="border border-black p-6 md:p-8 mt-4 md:mt-6 section-soft">
+                    <p class="text-sm uppercase text-black mb-5">Future product direction</p>
+                    <p class="text-2xl md:text-3xl leading-tight text-black">Extend the validated creation experience into end-to-end governance, administration, messaging, email notifications, and deeper integration with the PepsiCo workspace.</p>
+                </div>
+                <div class="border border-black p-6 md:p-8 mt-4 md:mt-6">
+                    <p class="text-sm uppercase text-[#315dff] mb-5">Proposed pilot success criteria</p>
+                    <p class="text-2xl md:text-3xl leading-tight text-black">Determine whether the product accelerates article creation, reduces hands-on support from the content team, and enables employees to create standards-aligned articles independently.</p>
                 </div>
                 <div class="border border-black p-6 md:p-8 mt-4 md:mt-6">
                     <p class="text-sm uppercase text-[#315dff] mb-4">What this shows about how I work</p>
@@ -1042,37 +1430,17 @@
         </div>
     </div>
 
-    <script>
-        const correctPassword = "Design";
+    <dialog class="image-lightbox" id="imageLightbox" aria-label="Expanded case study image">
+        <div class="image-lightbox-frame">
+            <img id="imageLightboxContent" src="" alt="">
+            <button type="button" class="image-lightbox-close" id="imageLightboxClose" aria-label="Close expanded image">×</button>
+        </div>
+    </dialog>
 
+    <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('active');
-        }
-
-        if (sessionStorage.getItem('authenticated') === 'true') {
-            showContent();
-        }
-
-        function checkPassword() {
-            const input = document.getElementById('password');
-            const errorMessage = document.getElementById('errorMessage');
-
-            if (input.value === correctPassword) {
-                sessionStorage.setItem('authenticated', 'true');
-                showContent();
-            } else {
-                errorMessage.classList.remove('hidden');
-                input.value = '';
-                input.focus();
-            }
-        }
-
-        function showContent() {
-            document.getElementById('passwordScreen').style.display = 'none';
-            document.getElementById('mainContent').style.display = 'block';
-            setDemoVideoSpeed();
-            initReadingProgress();
         }
 
         function setDemoVideoSpeed() {
@@ -1103,6 +1471,119 @@
             window.addEventListener('scroll', updateProgress, { passive: true });
             window.addEventListener('resize', updateProgress);
         }
+
+        function initImageLightbox() {
+            const dialog = document.getElementById('imageLightbox');
+            const expandedImage = document.getElementById('imageLightboxContent');
+            const closeButton = document.getElementById('imageLightboxClose');
+            if (!dialog || !expandedImage || !closeButton) return;
+
+            document.querySelectorAll('[data-expand-image]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    expandedImage.src = button.dataset.expandImage;
+                    expandedImage.alt = button.dataset.expandAlt || '';
+                    dialog.showModal();
+                });
+            });
+
+            closeButton.addEventListener('click', () => dialog.close());
+            dialog.addEventListener('click', (event) => {
+                if (event.target === dialog) dialog.close();
+            });
+            dialog.addEventListener('close', () => {
+                expandedImage.src = '';
+                expandedImage.alt = '';
+            });
+        }
+
+        function initOrchestrationExplorer() {
+            const explorer = document.querySelector('[data-orchestration-explorer]');
+            if (!explorer) return;
+
+            const agents = [
+                { id: 'intake', title: 'Intake', description: 'Checks that the brief has the minimum context needed to begin.', handoff: 'Passes a complete brief to Clarifier' },
+                { id: 'clarifier', title: 'Clarifier', description: 'Surfaces missing details before the system commits to generation.', handoff: 'Passes clarified intent to Router' },
+                { id: 'router', title: 'Router', description: 'Directs the request to the right sector, market, audience, and source logic.', handoff: 'Passes the grounded request to Market' },
+                { id: 'market', title: 'Market', description: 'Adapts content against local conventions, language, and operating context.', handoff: 'Passes the localized draft to Compliance' },
+                { id: 'compliance', title: 'Compliance', description: 'Flags policy-sensitive content so reviewers can see risk before publication.', handoff: 'Passes findings and the draft to Revision' },
+                { id: 'revision', title: 'Revision', description: 'Turns critique into an updated draft while preserving reviewer intent.', handoff: 'Passes the approved source draft to Translation' },
+                { id: 'translation', title: 'Translation', description: 'Prepares localized variants once the source content is approved.', handoff: 'Returns completed variants to the orchestrator for human review' }
+            ];
+
+            const buttons = Array.from(explorer.querySelectorAll('[data-agent]'));
+            const title = explorer.querySelector('[data-agent-title]');
+            const description = explorer.querySelector('[data-agent-description]');
+            const handoff = explorer.querySelector('[data-agent-handoff]');
+            const count = explorer.querySelector('[data-agent-count]');
+            const toggle = explorer.querySelector('[data-orchestration-toggle]');
+            const progress = explorer.querySelector('[data-orchestration-progress]');
+            let activeIndex = 0;
+            let timer;
+            let isPlaying = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            agents.forEach((agent, index) => {
+                const progressButton = document.createElement('button');
+                progressButton.type = 'button';
+                progressButton.textContent = agent.title;
+                progressButton.setAttribute('aria-label', `Show ${agent.title}, part ${index + 1} of ${agents.length}`);
+                progressButton.addEventListener('click', () => {
+                    render(index);
+                    isPlaying = false;
+                    updatePlayback();
+                });
+                progress.appendChild(progressButton);
+            });
+
+            function render(index) {
+                activeIndex = index;
+                const agent = agents[index];
+                title.textContent = agent.title;
+                description.textContent = agent.description;
+                handoff.textContent = agent.handoff;
+                count.textContent = `Part · ${String(index + 1).padStart(2, '0')} of ${String(agents.length).padStart(2, '0')}`;
+                buttons.forEach((button) => {
+                    const active = button.dataset.agent === agent.id;
+                    button.classList.toggle('is-active', active);
+                    button.setAttribute('aria-pressed', String(active));
+                });
+                explorer.querySelectorAll('[data-agent-line]').forEach((line) => line.classList.toggle('is-active', line.dataset.agentLine === agent.id));
+                Array.from(progress.children).forEach((progressButton, buttonIndex) => {
+                    const active = buttonIndex === index;
+                    progressButton.classList.toggle('is-active', active);
+                    progressButton.setAttribute('aria-pressed', String(active));
+                });
+            }
+
+            function updatePlayback() {
+                window.clearInterval(timer);
+                toggle.textContent = isPlaying ? 'Pause sequence' : 'Play sequence';
+                toggle.setAttribute('aria-pressed', String(!isPlaying));
+                if (isPlaying) timer = window.setInterval(() => render((activeIndex + 1) % agents.length), 1800);
+            }
+
+            buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    render(agents.findIndex((agent) => agent.id === button.dataset.agent));
+                    isPlaying = false;
+                    updatePlayback();
+                });
+            });
+
+            toggle.addEventListener('click', () => {
+                isPlaying = !isPlaying;
+                updatePlayback();
+            });
+
+            render(0);
+            updatePlayback();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setDemoVideoSpeed();
+            initReadingProgress();
+            initImageLightbox();
+            initOrchestrationExplorer();
+        });
     </script>
     <script src="assets/case-study-nav.js"></script>
 </body>
