@@ -503,10 +503,15 @@
             font-weight: 500;
             line-height: 1.25;
             text-decoration: none;
+            transition: background-color .2s ease, color .2s ease, opacity .2s ease;
         }
         .material-case #overview > .case-back-link:hover {
             background: rgba(255,255,255,.55) !important;
             color: var(--md-sys-color-on-primary-container) !important;
+        }
+        .material-case #overview > .case-back-link:focus-visible {
+            outline: 2px solid var(--md-sys-color-primary);
+            outline-offset: 3px;
         }
         .material-case .page-index {
             position: fixed;
@@ -532,9 +537,10 @@
         }
         .material-case .page-index-menu {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: .25rem;
-            max-width: 1200px;
+            width: max-content;
+            max-width: 100%;
             margin: 0 auto;
             overflow-x: auto;
             scrollbar-width: none;
