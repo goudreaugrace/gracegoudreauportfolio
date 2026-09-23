@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recent Work - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html {
             overflow-x: hidden;
@@ -115,7 +115,7 @@
             color: inherit;
             display: flex;
             flex-direction: column;
-            min-height: 520px;
+            min-height: 0;
             background: #fff;
             transition: transform 0.2s ease, border-color 0.2s ease;
             min-width: 0;
@@ -335,11 +335,11 @@
         <div class="max-w-[1271px] mx-auto flex">
             <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
                 <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
-                <div class="hamburger" onclick="toggleMobileMenu()">
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
             <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
                 <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
@@ -374,7 +374,7 @@
             <div class="featured-work-grid">
                 <a href="ai-scenario-modeling.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="scenario-thumbnail-image" src="gtm-scenario-workspace.png" alt="Scoping Pro scenario modeling workspace interface preview">
+                        <img class="scenario-thumbnail-image" src="gtm-scenario-workspace.png" alt="Scoping Pro scenario modeling workspace interface preview" loading="lazy">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
@@ -399,7 +399,7 @@
 
                 <a href="order-management.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img src="assets/order-management-card.png" alt="PEP Order Engine workspace for intake, validation, tracking, and SAP confirmation">
+                        <img src="assets/order-management-card.png" alt="PEP Order Engine workspace for intake, validation, tracking, and SAP confirmation" loading="lazy">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
@@ -423,7 +423,7 @@
 
                 <a href="my-pepsico-content-agent.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="Content Agent workflow showing submit, agents work, and review stages">
+                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="Content Agent workflow showing submit, agents work, and review stages" loading="lazy">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
@@ -447,7 +447,7 @@
 
                 <a href="atlas-decision-intelligence.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts">
+                        <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts" loading="lazy">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
@@ -526,5 +526,6 @@
             </div>
         </footer>
     </main>
+    <script src="assets/site.js"></script>
 </body>
 </html>
