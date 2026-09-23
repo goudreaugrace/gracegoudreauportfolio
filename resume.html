@@ -144,6 +144,18 @@
                 display: none !important;
             }
         }
+
+        @media print {
+            nav, .mobile-menu, .hamburger, .primary-button, .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+            }
+            .pt-16, .md\:pt-20 {
+                padding-top: 0 !important;
+            }
+        }
     </style>
     <script>
         // Toggle mobile menu
@@ -191,7 +203,7 @@
                         Grace Goudreau
                     </h1>
                     <p class="text-2xl md:text-[32px] leading-tight tracking-[-0.5px] text-black">
-                        UX Designer
+                        Senior UX Designer
                     </p>
                 </div>
                 <a href="GraceGoudreau_Resume.pdf" download="GraceGoudreau_Resume.pdf" class="primary-button border border-black bg-white px-5 py-2.5 flex items-center gap-2 w-fit">
@@ -218,7 +230,7 @@
         <section class="mb-12 md:mb-16">
             <h2 class="text-2xl md:text-[28px] tracking-[-0.5px] text-black mb-4">Summary</h2>
             <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black max-w-[1020px]">
-                Enterprise UX Designer specializing in transforming deep ambiguity into high-craft, scalable digital experiences. Proven track record of driving cross-functional alignment across product and engineering to build trust-first AI systems and complex supply chain tools. Pioneer in AI-native design methodologies - utilizing advanced AI prototyping workflows to accelerate validation loops, secure executive buy-in, and deliver measurable business impact.
+                Senior UX Designer for enterprise AI, planning, and operations products. I partner with product, engineering, and Google Cloud UX to turn ambiguous workflow problems into tools teams can inspect, trust, and adopt. Work ranges from shipped production products to user-tested prototypes and time-boxed POCs, each labeled for what it actually is.
             </p>
         </section>
 
@@ -233,19 +245,13 @@
                 </div>
                 <ul class="list-disc pl-5 space-y-3">
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">UX Strategy &amp; Leadership:</span> Spearheaded the UX vision and prototype strategy for a next-generation AI negotiation-support tool that directly impacts 60% of PepsiCo's European revenue.
+                        <span class="font-semibold">Scoping Pro:</span> Lead UX for Scoping Pro, a scenario modeling workspace, in partnership with Google Cloud UX. Shipped to production; location-level planning time moved from ~3 days to under 1 hour.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Executive Buy-In &amp; Funding:</span> Transformed fragmented data and unadopted AI agents into a trust-first decision experience; delivered a proof-of-concept that shifted leadership's perspective on the value of UX, securing corporate investment to scale AI-driven workflows across the enterprise.
+                        <span class="font-semibold">ATLAS:</span> Led UX strategy and a 3-week proof-of-concept for a negotiation-support concept, delivering a working prototype, product thesis, and roadmap. Not a shipped production product.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">AI-Accelerated Innovation:</span> Designed and validated a high-fidelity prototype within an accelerated 3-week sprint by leveraging AI-native design tools and validating concepts through cross-functional alignment and synthetic user feedback loops.
-                    </li>
-                    <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Product Strategy &amp; BigTech Collaboration:</span> Co-developed a predictive scenario-modeling tool in direct partnership with Google, empowering an elite team of US planners to rapidly simulate and optimize complex supply chain logistics.
-                    </li>
-                    <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Enterprise Product Integration:</span> Spearheaded the design and architecture of strategic AI content tools, successfully integrating them into PepsiCo's centralized global employee platform.
+                        <span class="font-semibold">Content Operations Agent:</span> Designed and built a proof-of-value prototype with 9 users. A Canada pilot has been proposed; funding has not been decided. Not integrated into myPepsiCo.
                     </li>
                 </ul>
             </div>
@@ -257,13 +263,13 @@
                 </div>
                 <ul class="list-disc pl-5 space-y-3">
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Global Product Rollout:</span> Served as the core designer for a high-volume internal order-monitoring tool handling the end-to-end lifecycle from initial intake to SAP confirmation, scaling the product across Poland, DACH, France, the UK, and NWE markets.
+                        <span class="font-semibold">PEP Order Engine:</span> Core UX designer for the order workspace covering intake through SAP confirmation. v1.0 shipped January 28, 2026 for PFNA FSV customers.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Workflow Modernization:</span> Redesigned a fragmented, legacy multi-system process into a single, cohesive guided workflow, providing operations teams with real-time tracking and accelerating end-to-end processing speeds.
+                        <span class="font-semibold">Workflow design:</span> Replaced fragmented email, fax, and PDF intake with a guided, trackable workflow so operations teams can see order status in one place.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Cross-Functional Collaboration:</span> Partnered closely with product owners, engineering teams, and global business stakeholders to translate dense operational constraints into a scalable, intuitive interface.
+                        <span class="font-semibold">Collaboration:</span> Partnered with product owners, engineering, and business stakeholders to translate operational constraints into a usable interface.
                     </li>
                 </ul>
             </div>
@@ -326,7 +332,7 @@
         </section>
 
         <!-- Let's Connect Section -->
-        <section class="py-8 md:py-16 mb-16">
+        <section class="py-8 md:py-16 mb-16 no-print">
             <div class="mb-10">
                 <div class="w-full h-px bg-black mb-5"></div>
                 <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>

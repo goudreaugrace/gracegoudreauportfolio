@@ -39,7 +39,7 @@ Use this document to supply missing facts without overstating outcomes. Replace 
 5. System diagram: inputs → orchestrator → specialist agents → human approval → governed article.
 6. Sanitized buy-in or roadmap artifact separating validated, funded, and future scope.
 
-## Scenario Modeling Workspace
+## Scoping Pro (scenario modeling workspace)
 
 ### Information to supply
 
