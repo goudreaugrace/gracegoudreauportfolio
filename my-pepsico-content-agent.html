@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Content Operations Agent: a proof-of-value prototype tested with nine users. Canada pilot proposed; funding not decided.">
+    <meta property="og:title" content="Content Operations Agent - Grace Goudreau">
+    <meta property="og:description" content="Content Operations Agent: a proof-of-value prototype tested with nine users. Canada pilot proposed; funding not decided.">
+    <meta property="og:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gracegoudreau.com/my-pepsico-content-agent">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
     <title>Content Operations Agent - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Instrument Sans', sans-serif;
@@ -352,7 +360,7 @@
             max-width: 1040px;
             margin-inline: auto;
             background: #fff;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Instrument Sans', sans-serif;
         }
 
         #architecture { scroll-margin-top: 10rem; }
@@ -460,7 +468,7 @@
             --md-sys-color-outline-variant: #c4c7c5;
             background: var(--md-sys-color-surface) !important;
             color: var(--md-sys-color-on-surface);
-            font-family: 'Roboto', 'Instrument Sans', sans-serif;
+            font-family: 'Instrument Sans', sans-serif;
         }
         .material-case .content-container > nav,
         .material-case .mobile-menu { background: rgba(255,255,255,.96); border-color: var(--md-sys-color-outline-variant) !important; }
@@ -1114,20 +1122,22 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="visual-refresh.css?v=20260909-material-nav">
+    <link rel="stylesheet" href="visual-refresh.css?v=20260923-card-stroke">
 </head>
 <body class="material-case bg-white">
+    <a class="skip-link" href="#overview">Skip to content</a>
+
     <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div id="mainContent" class="content-container">
         <nav class="w-full bg-white fixed top-0 z-50">
             <div class="max-w-[1271px] mx-auto flex">
                 <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
                     <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
-                    <div class="hamburger" onclick="toggleMobileMenu()">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <button type="button" class="hamburger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 </div>
                 <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
                     <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
@@ -1158,14 +1168,14 @@
         </aside>
 
         <div class="case-page-shell max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
-            <header id="overview" class="mb-8 md:mb-10 scroll-mt-32">
+            <header id="overview" tabindex="-1" class="mb-8 md:mb-10 scroll-mt-32">
                 <a href="work.html" class="case-back-link inline-flex items-center mb-7">← Back to work</a>
                 <p class="text-sm md:text-base uppercase text-black mb-5">Product design + strategy / User-informed prototype</p>
                 <h1 class="text-5xl md:text-[76px] leading-[1.02] text-black max-w-[1060px]">
                     Content Operations Agent
                 </h1>
                 <p class="text-xl md:text-2xl leading-[1.35] text-black mt-5 md:mt-6 max-w-[820px]">
-                    I turned a problem raised by the UX design manager leading myPepsiCo into a working proof-of-value prototype that created immediate pilot demand and an active funding case.
+                    I turned a problem raised by the UX design manager leading myPepsiCo into a working proof-of-value prototype. Nine users tested it; a Canada pilot is proposed; funding is not decided.
                 </p>
                 <a href="https://content-engine-sand-eta.vercel.app" target="_blank" rel="noopener noreferrer" class="prototype-link inline-flex items-center gap-3 mt-7 border border-black bg-black text-white px-5 py-3 text-base md:text-lg hover:bg-[#315dff] hover:border-[#315dff] transition-colors">
                     View working prototype <span aria-hidden="true">↗</span>
@@ -1200,45 +1210,17 @@
                 </div>
             </section>
 
-            <section class="case-redundant mb-16 md:mb-20 border-t border-black pt-8" aria-label="Project trajectory">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From Heard Problem to Pilot Demand</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-                    <article class="border border-black p-5 md:p-6">
-                        <p class="text-sm uppercase text-[#315dff] mb-4">01 / Heard</p>
-                        <h3 class="text-xl md:text-2xl leading-tight text-black mb-3">A recurring user problem</h3>
-                        <p class="text-base leading-[1.45] text-black">I listened closely enough to recognize that scattered requests, market nuance, and review complexity were symptoms of a larger workflow gap.</p>
-                    </article>
-                    <article class="border border-black p-5 md:p-6 section-soft">
-                        <p class="text-sm uppercase text-[#315dff] mb-4">02 / Learned</p>
-                        <h3 class="text-xl md:text-2xl leading-tight text-black mb-3">User-informed direction</h3>
-                        <p class="text-base leading-[1.45] text-black">I worked with UX partners and the people closest to the work to understand user needs, trust requirements, and enterprise constraints.</p>
-                    </article>
-                    <article class="border border-black p-5 md:p-6">
-                        <p class="text-sm uppercase text-[#315dff] mb-4">03 / Built + tested</p>
-                        <h3 class="text-xl md:text-2xl leading-tight text-black mb-3">A prototype to prove value</h3>
-                        <p class="text-base leading-[1.45] text-black">I designed and built the working experience, tested it with users, and iterated on the moments that shaped clarity, control, and confidence.</p>
-                    </article>
-                    <article class="border border-black p-5 md:p-6 section-soft">
-                        <p class="text-sm uppercase text-[#315dff] mb-4">04 / Demand</p>
-                        <h3 class="text-xl md:text-2xl leading-tight text-black mb-3">Evidence created demand</h3>
-                        <p class="text-base leading-[1.45] text-black">The tested build made the opportunity tangible, created urgency from users, and led to Canada being proposed as the first real pilot market.</p>
-                    </article>
-                </div>
-            </section>
-
             <section class="mb-16 md:mb-20" aria-label="AI content workflow prototype demo">
-                <figure class="demo-media">
                     <video
-                        autoplay
-                        class="agent-demo-video"
+                        class="agent-demo-video" poster="assets/posters/content-agent.jpg"
                         controls
                         loop
                         muted
                         playsinline
-                        preload="metadata"
+                        preload="none"
                         aria-label="AI content workflow prototype showing the seven-agent workflow moving around the core orchestrator."
                     >
-                        <source src="assets/my-pepsico-agents-demo.mp4" type="video/mp4">
+                        <source src="assets/demos/content-agent.mp4" type="video/mp4">
                         <source src="assets/my-pepsico-agents-demo.mov" type="video/quicktime">
                         Your browser does not support embedded video.
                     </video>
@@ -1264,7 +1246,7 @@
                     <div class="case-ownership-points lg:col-span-7">
                         <div><p class="text-base md:text-lg leading-[1.45] text-black">Recognized and framed the opportunity without a formal brief.</p></div>
                         <div><p class="text-base md:text-lg leading-[1.45] text-black">Designed, built, and tested the end-to-end human–AI workflow.</p></div>
-                        <div><p class="text-base md:text-lg leading-[1.45] text-black">Turned user evidence into pilot demand and an active funding case.</p></div>
+                        <div><p class="text-base md:text-lg leading-[1.45] text-black">Turned user evidence into a proposed Canada pilot. Funding is not decided.</p></div>
                     </div>
                 </div>
             </section>
@@ -1356,13 +1338,13 @@
                         <div class="iteration-screens">
                             <figure class="iteration-screen">
                                 <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-before-form.png" data-expand-alt="Earlier New Article experience using a structured form as the primary entry point" aria-label="Expand the earlier form-first article creation screen">
-                                    <img src="assets/content-agent-before-form.png" alt="Earlier New Article experience using a structured form as the primary entry point">
+                                    <img src="assets/content-agent-before-form.png" alt="Earlier New Article experience using a structured form as the primary entry point" loading="lazy">
                                 </button>
                                 <figcaption class="iteration-caption"><strong>Before</strong><span>Form-first creation</span></figcaption>
                             </figure>
                             <figure class="iteration-screen">
                                 <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-after-conversation.png" data-expand-alt="Updated New Article experience using an AI conversation as the primary entry point with an option to switch to the form" aria-label="Expand the updated conversation-first article creation screen">
-                                    <img src="assets/content-agent-after-conversation.png" alt="Updated New Article experience using an AI conversation as the primary entry point with an option to switch to the form">
+                                    <img src="assets/content-agent-after-conversation.png" alt="Updated New Article experience using an AI conversation as the primary entry point with an option to switch to the form" loading="lazy">
                                 </button>
                                 <figcaption class="iteration-caption"><strong>After</strong><span>Conversation first, form still available</span></figcaption>
                             </figure>
@@ -1379,13 +1361,13 @@
                         <div class="iteration-screens">
                             <figure class="iteration-screen">
                                 <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-admin-before-list.png" data-expand-alt="Earlier Super Admin view centered on a table listing all articles" aria-label="Expand the earlier Super Admin article-list screen">
-                                    <img src="assets/content-agent-admin-before-list.png" alt="Earlier Super Admin view centered on a table listing all articles">
+                                    <img src="assets/content-agent-admin-before-list.png" alt="Earlier Super Admin view centered on a table listing all articles" loading="lazy">
                                 </button>
                                 <figcaption class="iteration-caption"><strong>Before</strong><span>Article inventory and status</span></figcaption>
                             </figure>
                             <figure class="iteration-screen">
                                 <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-admin-after-dashboard-wip.png" data-expand-alt="Latest work-in-progress Super Admin dashboard concept with discovery, governance, and content health insights" aria-label="Expand the latest work-in-progress Super Admin dashboard screen">
-                                    <img src="assets/content-agent-admin-after-dashboard-wip.png" alt="Latest work-in-progress Super Admin dashboard concept with discovery, governance, and content health insights">
+                                    <img src="assets/content-agent-admin-after-dashboard-wip.png" alt="Latest work-in-progress Super Admin dashboard concept with discovery, governance, and content health insights" loading="lazy">
                                 </button>
                                 <figcaption class="iteration-caption"><strong>Latest direction</strong><span>WIP concept · Illustrative prototype data</span></figcaption>
                             </figure>
@@ -1402,7 +1384,7 @@
                         <div class="iteration-screens iteration-screens--single">
                             <figure class="iteration-screen">
                                 <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-upload-agent-draft.png" data-expand-alt="Agent-led article creation screen where users upload source files and ask the system to produce a standards-ready draft" aria-label="Expand the agent-led article creation screen">
-                                    <img src="assets/content-agent-upload-agent-draft.png" alt="Agent-led article creation screen where users upload source files and ask the system to produce a standards-ready draft">
+                                    <img src="assets/content-agent-upload-agent-draft.png" alt="Agent-led article creation screen where users upload source files and ask the system to produce a standards-ready draft" loading="lazy">
                                 </button>
                                 <figcaption class="iteration-caption"><strong>Feature added from user feedback</strong><span>Upload source material → agent-produced draft</span></figcaption>
                             </figure>
@@ -1690,7 +1672,7 @@
 
             <section class="py-8 md:py-16 mb-16">
                 <div class="mb-10">
-                    <h2 class="text-4xl md:text-[64px] leading-tight text-black">Let's Connect!</h2>
+                    <h2 class="text-4xl md:text-[64px] leading-tight text-black">Let's connect</h2>
                 </div>
 
                 <div class="flex flex-col gap-4">
@@ -1707,7 +1689,7 @@
 
     <dialog class="image-lightbox" id="imageLightbox" aria-label="Expanded case study image">
         <div class="image-lightbox-frame">
-            <img id="imageLightboxContent" src="" alt="">
+            <img id="imageLightboxContent" src="" alt="" loading="lazy">
             <button type="button" class="image-lightbox-close" id="imageLightboxClose" aria-label="Close expanded image">×</button>
         </div>
     </dialog>
@@ -1861,5 +1843,7 @@
         });
     </script>
     <script src="assets/case-study-nav.js"></script>
+    <p class="site-credit">Built by Grace Goudreau + AI tools</p>
+    <script src="assets/site.js"></script>
 </body>
 </html>

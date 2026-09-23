@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Design process notes. Not listed on Work.">
+    <meta property="og:title" content="Design Process - Grace Goudreau">
+    <meta property="og:description" content="Design process notes. Not listed on Work.">
+    <meta property="og:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gracegoudreau.com/design-process">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
+    <meta name="robots" content="noindex, nofollow">
     <title>Design Process - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Instrument Sans', sans-serif;
@@ -139,19 +148,21 @@
             menu.classList.toggle('active');
         }
     </script>
-    <link rel="stylesheet" href="visual-refresh.css?v=20260909-site-system">
+    <link rel="stylesheet" href="visual-refresh.css?v=20260923-card-stroke">
 </head>
 <body class="material-site bg-white">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <!-- Navigation -->
     <nav class="w-full bg-white fixed top-0 z-50">
         <div class="max-w-[1271px] mx-auto flex">
             <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
                 <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
-                <div class="hamburger" onclick="toggleMobileMenu()">
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
             <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
                 <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
@@ -169,7 +180,7 @@
     </div>
 
     <!-- Main Container -->
-    <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
+    <div id="main-content" tabindex="-1" class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
         <!-- Sticky Back Button -->
         <div class="sticky-back-button mb-4 md:mb-6">
             <a href="index.html" class="primary-button inline-flex items-center gap-2 border border-black bg-white px-4 py-2">
@@ -217,9 +228,8 @@
         <!-- Video Section -->
         <section class="mb-8 md:mb-16">
             <div class="w-full aspect-video bg-black border border-black">
-                <video 
+                <video preload="none" 
                     class="w-full h-full object-cover" 
-                    autoplay 
                     loop 
                     muted 
                     playsinline
@@ -411,7 +421,7 @@
         <section class="py-8 md:py-16 mb-16">
             <div class="mb-10">
                 <div class="w-full h-px bg-black mb-5"></div>
-                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
+                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's connect</h2>
             </div>
 
             <div class="flex flex-col gap-4">
@@ -424,5 +434,7 @@
             </div>
         </section>
     </div>
+    <p class="site-credit">Built by Grace Goudreau + AI tools</p>
+    <script src="assets/site.js"></script>
 </body>
 </html>

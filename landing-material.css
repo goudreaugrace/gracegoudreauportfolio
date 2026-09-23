@@ -11,7 +11,7 @@
     --md-outline-variant: #c4c7c5;
     background: var(--md-surface) !important;
     color: var(--md-on-surface);
-    font-family: 'Roboto', 'Instrument Sans', sans-serif;
+    font-family: 'Instrument Sans', sans-serif;
 }
 
 .material-home .home-shell {
@@ -39,7 +39,7 @@
     max-width: 900px;
     color: var(--md-on-primary-container) !important;
     font-size: clamp(3rem, 6vw, 4.6rem) !important;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.04 !important;
     letter-spacing: -.035em !important;
     text-wrap: balance;
@@ -66,23 +66,22 @@
 .material-home .work-methods h2,
 .material-home footer h2 {
     color: var(--md-on-surface) !important;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: -.025em !important;
 }
 
 .material-home .portfolio-card {
-    min-height: 430px;
-    overflow: hidden;
-    border: 0;
-    border-radius: 28px;
+    min-height: 0;
+    overflow: visible;
+    border: none;
+    border-radius: 8px;
     background: var(--md-surface);
-    box-shadow: 0 1px 3px rgba(60, 64, 67, .08);
-    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    box-shadow: none;
 }
 
 .material-home .portfolio-card:hover {
-    box-shadow: 0 8px 24px rgba(60, 64, 67, .12);
-    transform: translateY(-2px);
+    box-shadow: none;
+    transform: none;
 }
 
 .material-home .portfolio-card:focus-visible,
@@ -113,7 +112,7 @@
 .material-home .portfolio-card h3 {
     color: var(--md-on-surface) !important;
     font-size: clamp(1.75rem, 2.6vw, 2.25rem);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.08;
     letter-spacing: -.025em !important;
 }
@@ -125,7 +124,7 @@
 }
 
 .material-home .portfolio-card-details {
-    display: none;
+    display: grid;
 }
 
 .material-home .portfolio-card-details > div {
@@ -149,9 +148,10 @@
 .material-home section[aria-label="How I work"] {
     margin-bottom: 6rem !important;
     padding: clamp(1.75rem, 4vw, 3.5rem);
-    border-radius: 28px;
+    border-radius: 8px;
     background: var(--md-surface);
-    box-shadow: 0 1px 3px rgba(60, 64, 67, .08);
+    box-shadow: none;
+    border: 1px solid #e1e6ee;
 }
 
 .material-home .work-methods { gap: clamp(2rem, 6vw, 5rem); }
@@ -161,18 +161,18 @@
 .material-home .method-item {
     padding: 1.25rem;
     border: 0;
-    border-radius: 20px;
+    border-radius: 8px;
     background: var(--md-surface-low);
 }
 
 .material-home .method-number { color: var(--md-primary); }
-.material-home .method-item h3 { color: var(--md-on-surface); font-weight: 400; }
+.material-home .method-item h3 { color: var(--md-on-surface); font-weight: 600; }
 .material-home .method-item p { color: var(--md-on-surface-variant); }
 
 .material-home footer {
     margin-bottom: 1rem !important;
     padding: clamp(1.75rem, 4vw, 3.5rem);
-    border-radius: 28px;
+    border-radius: 8px;
     background: var(--md-primary-container);
 }
 
@@ -185,7 +185,7 @@
     .material-home .home-hero { border-radius: 0; padding: 2.75rem .75rem; margin-bottom: 3.75rem !important; }
     .material-home .home-hero h1 { font-size: clamp(2.35rem, 10vw, 3.25rem) !important; }
     .material-home .featured-work-header { align-items: start; }
-    .material-home .portfolio-card { border-radius: 22px; }
+    .material-home .portfolio-card { border-radius: 8px; }
     .material-home .portfolio-card-media { height: 180px; }
     .material-home section[aria-label="How I work"],
     .material-home footer { border-radius: 22px; }

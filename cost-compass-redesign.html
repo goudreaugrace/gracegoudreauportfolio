@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cost Compass: a two-week visual redesign. Adoption is not confirmed.">
+    <meta property="og:title" content="Cost Compass Visual Redesign - Grace Goudreau">
+    <meta property="og:description" content="Cost Compass: a two-week visual redesign. Adoption is not confirmed.">
+    <meta property="og:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gracegoudreau.com/cost-compass-redesign">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
     <title>Cost Compass Visual Redesign - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Instrument Sans', sans-serif;
@@ -440,14 +448,22 @@
             padding: 0;
         }
     </style>
-    <link rel="stylesheet" href="visual-refresh.css?v=20260909-site-system">
+    <link rel="stylesheet" href="visual-refresh.css?v=20260923-card-stroke">
 </head>
 <body class="material-site bg-white">
+    <a class="skip-link" href="#passwordScreen">Skip to content</a>
+
     <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
-    <div id="passwordScreen" class="password-container">
-        <div class="max-w-md w-full px-6">
-            <h1 class="text-4xl md:text-5xl text-black mb-4 text-center">Cost Compass Visual Redesign</h1>
-            <p class="text-lg text-black mb-2 text-center">This project is password protected</p>
+    <div id="passwordScreen" tabindex="-1" class="password-container">
+        <div class="max-w-lg w-full px-6">
+            <h1 class="text-4xl md:text-5xl text-black mb-5 text-center">Cost Compass</h1>
+            <dl class="case-gate-teaser">
+                <div><dt>Problem</dt><dd>A dense, agency-led analytics concept was hard to read and did not match the CTX product language.</dd></div>
+                <div><dt>Role</dt><dd>Redesign lead, partnering with the consulting designer.</dd></div>
+                <div><dt>Status</dt><dd>Two-week visual redesign. Adoption not confirmed.</dd></div>
+                <div><dt>Metric</dt><dd>Aligned the page structure and UI to Scoping Pro as the CTX reference.</dd></div>
+            </dl>
+            <p class="text-lg text-black mb-2 text-center">Full case is password protected</p>
             <p class="text-sm text-[#767676] mb-8 text-center">Access details are provided with application materials.</p>
 
             <div class="border border-black p-8">
@@ -479,11 +495,11 @@
             <div class="max-w-[1271px] mx-auto flex">
                 <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
                     <a href="index.html" class="text-[#111111] text-lg md:text-xl hover:text-[#767676] transition-colors">Grace Goudreau</a>
-                    <div class="hamburger" onclick="toggleMobileMenu()">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <button type="button" class="hamburger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 </div>
                 <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
                     <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl">Work</a>
@@ -516,7 +532,7 @@
                 </nav>
             </div>
 
-            <header id="overview" class="mb-12 md:mb-16 scroll-mt-32">
+            <header id="overview" tabindex="-1" class="mb-12 md:mb-16 scroll-mt-32">
                 <p class="text-sm md:text-base uppercase text-[#315dff] mb-5">Visual design / Enterprise UX / CTX suite alignment</p>
                 <h1 class="text-5xl md:text-[84px] leading-[0.98] text-black max-w-[1080px]">
                     Cost Compass Visual Redesign
@@ -541,8 +557,8 @@
                         <p class="text-base md:text-lg text-black">Cost Compass, CTX suite</p>
                     </div>
                     <div class="border border-black p-4 md:p-6">
-                        <p class="text-sm uppercase text-black mb-2">Reference system</p>
-                        <p class="text-base md:text-lg text-black">Scoping Pro scenario modeling</p>
+                        <p class="text-sm uppercase text-black mb-2">Status</p>
+                        <p class="text-base md:text-lg text-black">Visual exploration · 2 weeks. Adoption and implementation not confirmed — treated as a concept for visual direction, not a shipped product.</p>
                     </div>
                 </div>
             </section>
@@ -552,8 +568,7 @@
                     <p class="lg:col-span-3 text-sm uppercase text-[#315dff]">My design position</p>
                     <p class="lg:col-span-9 text-3xl md:text-[44px] leading-tight text-black">Dense analytics should reveal the next decision through hierarchy—not ask users to interpret every signal at once.</p>
                 </div>
-                <!-- INPUT NEEDED: Add any user or stakeholder feedback on the redesign and clarify whether the direction was approved, implemented, or remains conceptual. -->
-                <!-- VISUAL NEEDED: Add 3-4 annotated crops explaining hierarchy, navigation, controls, and accessibility improvements. -->
+                <p class="mt-8 text-lg text-[#66706d] max-w-[720px]">Stakeholder quotes, approval, and whether this visual direction was implemented are not recorded on this page.</p>
             </section>
 
             <section id="outcome-snapshot" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
@@ -573,7 +588,7 @@
                         <div class="audit-list-item">
                             <p class="text-sm uppercase text-black mb-3">My move</p>
                             <p class="text-xl md:text-2xl leading-tight text-black">I redesigned the page around Scoping Pro's cleaner CTX language.</p>
-                            <p class="audit-impact">I partnered with the consulting designer while using the existing Scenario Modeling product as the visual reference point.</p>
+                            <p class="audit-impact">I partnered with the consulting designer while using the existing Scoping Pro product as the visual reference point.</p>
                         </div>
                         <div class="audit-list-item">
                             <p class="text-sm uppercase text-black mb-3">Tradeoff</p>
@@ -620,8 +635,8 @@
                             <span class="compare-label">Redesign</span>
                         </figcaption>
                         <div class="image-comparison" id="costCompassComparison">
-                            <img src="assets/cost-compass-redesign.png?v=20260825" alt="Redesigned Cost Compass Move Transport screen with a cleaner CTX-aligned workspace">
-                            <img class="image-comparison-after" src="assets/cost-compass-original.png" alt="Original Cost Compass Move Transport screen with a dense agency-led hierarchy">
+                            <img src="assets/cost-compass-redesign.png?v=20260825" alt="Redesigned Cost Compass Move Transport screen with a cleaner CTX-aligned workspace" loading="lazy">
+                            <img class="image-comparison-after" src="assets/cost-compass-original.png" alt="Original Cost Compass Move Transport screen with a dense agency-led hierarchy" loading="lazy">
                             <div class="image-comparison-divider" aria-hidden="true"></div>
                             <input class="image-comparison-input" id="costCompassComparisonSlider" type="range" min="0" max="100" value="50" aria-label="Compare original and redesigned Cost Compass screens" aria-valuetext="50 percent original visible">
                             <div class="image-comparison-handle" aria-hidden="true">↔</div>
@@ -778,7 +793,7 @@
             <section class="py-8 md:py-16 mb-16">
                 <div class="mb-10">
                     <div class="w-full h-px bg-black mb-5"></div>
-                    <h2 class="text-4xl md:text-[64px] leading-tight text-black">Let's Connect!</h2>
+                    <h2 class="text-4xl md:text-[64px] leading-tight text-black">Let's connect</h2>
                 </div>
 
                 <div class="flex flex-col gap-4">
@@ -852,5 +867,7 @@
         }
     </script>
     <script src="assets/case-study-nav.js"></script>
+    <p class="site-credit">Built by Grace Goudreau + AI tools</p>
+    <script src="assets/site.js"></script>
 </body>
 </html>

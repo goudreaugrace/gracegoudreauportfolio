@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resume for Grace Goudreau, Senior UX Designer. PepsiCo work on Scoping Pro, PEP Order Engine, Content Agent, and ATLAS.">
+    <meta property="og:title" content="Resume — Grace Goudreau">
+    <meta property="og:description" content="Resume for Grace Goudreau, Senior UX Designer. PepsiCo work on Scoping Pro, PEP Order Engine, Content Agent, and ATLAS.">
+    <meta property="og:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gracegoudreau.com/resume">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
     <title>Resume - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Instrument Sans', sans-serif;
@@ -144,6 +152,18 @@
                 display: none !important;
             }
         }
+
+        @media print {
+            nav, .mobile-menu, .hamburger, .primary-button, .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+            }
+            .pt-16, .md\:pt-20 {
+                padding-top: 0 !important;
+            }
+        }
     </style>
     <script>
         // Toggle mobile menu
@@ -152,24 +172,26 @@
             menu.classList.toggle('active');
         }
     </script>
-    <link rel="stylesheet" href="visual-refresh.css?v=20260909-site-system">
+    <link rel="stylesheet" href="visual-refresh.css?v=20260923-card-stroke">
 </head>
 <body class="material-site bg-white">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <!-- Navigation -->
     <nav class="w-full bg-white fixed top-0 z-50">
         <div class="max-w-[1271px] mx-auto flex">
             <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
                 <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
-                <div class="hamburger" onclick="toggleMobileMenu()">
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
             <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
                 <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
                 <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">About</a>
-                <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
+                <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]" aria-current="page">Resume</a>
             </div>
         </div>
     </nav>
@@ -178,11 +200,11 @@
     <div id="mobileMenu" class="mobile-menu">
         <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
         <a href="about.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">About</a>
-        <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
+        <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()" aria-current="page">Resume</a>
     </div>
 
     <!-- Main Container -->
-    <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
+    <div id="main-content" tabindex="-1" class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
         <!-- Header Section -->
         <section class="mb-12 md:mb-16">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -191,7 +213,7 @@
                         Grace Goudreau
                     </h1>
                     <p class="text-2xl md:text-[32px] leading-tight tracking-[-0.5px] text-black">
-                        UX Designer
+                        Senior UX Designer
                     </p>
                 </div>
                 <a href="GraceGoudreau_Resume.pdf" download="GraceGoudreau_Resume.pdf" class="primary-button border border-black bg-white px-5 py-2.5 flex items-center gap-2 w-fit">
@@ -218,7 +240,7 @@
         <section class="mb-12 md:mb-16">
             <h2 class="text-2xl md:text-[28px] tracking-[-0.5px] text-black mb-4">Summary</h2>
             <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black max-w-[1020px]">
-                Enterprise UX Designer specializing in transforming deep ambiguity into high-craft, scalable digital experiences. Proven track record of driving cross-functional alignment across product and engineering to build trust-first AI systems and complex supply chain tools. Pioneer in AI-native design methodologies - utilizing advanced AI prototyping workflows to accelerate validation loops, secure executive buy-in, and deliver measurable business impact.
+                Senior UX Designer for enterprise AI, planning, and operations products. I partner with product, engineering, and Google Cloud UX to turn ambiguous workflow problems into tools teams can inspect, trust, and adopt. Work ranges from shipped production products to user-tested prototypes and time-boxed POCs, each labeled for what it actually is.
             </p>
         </section>
 
@@ -233,19 +255,13 @@
                 </div>
                 <ul class="list-disc pl-5 space-y-3">
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">UX Strategy &amp; Leadership:</span> Spearheaded the UX vision and prototype strategy for a next-generation AI negotiation-support tool that directly impacts 60% of PepsiCo's European revenue.
+                        <span class="font-semibold">Scoping Pro:</span> Lead UX for Scoping Pro, a scenario modeling workspace, in partnership with Google Cloud UX. Shipped to production; location-level planning time moved from ~3 days to under 1 hour.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Executive Buy-In &amp; Funding:</span> Transformed fragmented data and unadopted AI agents into a trust-first decision experience; delivered a proof-of-concept that shifted leadership's perspective on the value of UX, securing corporate investment to scale AI-driven workflows across the enterprise.
+                        <span class="font-semibold">ATLAS:</span> Led UX strategy and a 3-week proof-of-concept for a negotiation-support concept, delivering a working prototype, product thesis, and roadmap. Not a shipped production product.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">AI-Accelerated Innovation:</span> Designed and validated a high-fidelity prototype within an accelerated 3-week sprint by leveraging AI-native design tools and validating concepts through cross-functional alignment and synthetic user feedback loops.
-                    </li>
-                    <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Product Strategy &amp; BigTech Collaboration:</span> Co-developed a predictive scenario-modeling tool in direct partnership with Google, empowering an elite team of US planners to rapidly simulate and optimize complex supply chain logistics.
-                    </li>
-                    <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Enterprise Product Integration:</span> Spearheaded the design and architecture of strategic AI content tools, successfully integrating them into PepsiCo's centralized global employee platform.
+                        <span class="font-semibold">Content Operations Agent:</span> Designed and built a proof-of-value prototype with 9 users. A Canada pilot has been proposed; funding has not been decided. Not integrated into myPepsiCo.
                     </li>
                 </ul>
             </div>
@@ -257,13 +273,13 @@
                 </div>
                 <ul class="list-disc pl-5 space-y-3">
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Global Product Rollout:</span> Served as the core designer for a high-volume internal order-monitoring tool handling the end-to-end lifecycle from initial intake to SAP confirmation, scaling the product across Poland, DACH, France, the UK, and NWE markets.
+                        <span class="font-semibold">PEP Order Engine:</span> Core UX designer for the order workspace covering intake through SAP confirmation. v1.0 shipped January 28, 2026 for PFNA FSV customers.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Workflow Modernization:</span> Redesigned a fragmented, legacy multi-system process into a single, cohesive guided workflow, providing operations teams with real-time tracking and accelerating end-to-end processing speeds.
+                        <span class="font-semibold">Workflow design:</span> Replaced fragmented email, fax, and PDF intake with a guided, trackable workflow so operations teams can see order status in one place.
                     </li>
                     <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                        <span class="font-semibold">Cross-Functional Collaboration:</span> Partnered closely with product owners, engineering teams, and global business stakeholders to translate dense operational constraints into a scalable, intuitive interface.
+                        <span class="font-semibold">Collaboration:</span> Partnered with product owners, engineering, and business stakeholders to translate operational constraints into a usable interface.
                     </li>
                 </ul>
             </div>
@@ -286,13 +302,13 @@
             <h2 class="text-3xl md:text-[40px] leading-tight tracking-[-0.5px] text-black mb-8 md:mb-10">Projects &amp; Leadership</h2>
             <ul class="list-disc pl-5 space-y-3">
                 <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                    <span class="font-semibold">Open-Source AI Workflow Architecture (Figma &amp; Dev Mode Integration):</span> Built and publicly shared an end-to-end POC demonstrating the AI-first design workflow - a working argument for designing experiences over screens.
+                    <span class="font-semibold">Shared prototype of an AI design workflow:</span> Built a public proof-of-concept that connects Figma and Dev Mode to a working experience, to show designing behavior rather than only screens.
                 </li>
                 <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                    <span class="font-semibold">AI Workflow Enablement:</span> Delivered multiple presentations to UX designers and developers on integrating AI into team workflows, showing how AI-assisted design and build accelerate iteration, reduce design-to-development friction, and increase team efficiency.
+                    <span class="font-semibold">Team talks:</span> Presented to UX designers and developers on using AI tools in design-to-build loops to shorten iteration.
                 </li>
                 <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                    <span class="font-semibold">Thought Leadership:</span> Ongoing LinkedIn writing on the "Design Thinking Era," documenting firsthand AI workflow experiments and the shift toward designing experiences over screens.
+                    <span class="font-semibold">Writing:</span> Notes on LinkedIn about how design work is changing as tools shift from screens to working prototypes.
                 </li>
             </ul>
         </section>
@@ -311,7 +327,7 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold tracking-[-0.5px] text-black mb-2">Collaboration</h3>
-                    <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">Executive Stakeholder Management, Cross-Functional Leadership, Engineering Enablement</p>
+                    <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">Working with executives, product owners, and engineering on constraints, reviews, and handoff</p>
                 </div>
             </div>
         </section>
@@ -326,10 +342,10 @@
         </section>
 
         <!-- Let's Connect Section -->
-        <section class="py-8 md:py-16 mb-16">
+        <section class="py-8 md:py-16 mb-16 no-print">
             <div class="mb-10">
                 <div class="w-full h-px bg-black mb-5"></div>
-                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
+                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's connect</h2>
             </div>
 
             <div class="flex flex-col gap-4">
@@ -342,5 +358,7 @@
             </div>
         </section>
     </div>
+    <p class="site-credit">Built by Grace Goudreau + AI tools</p>
+    <script src="assets/site.js"></script>
 </body>
 </html>

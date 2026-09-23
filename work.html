@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Selected case studies by Grace Goudreau: Scoping Pro, PEP Order Engine, Content Agent prototype, and ATLAS POC.">
+    <meta property="og:title" content="Work — Grace Goudreau">
+    <meta property="og:description" content="Selected case studies by Grace Goudreau: Scoping Pro, PEP Order Engine, Content Agent prototype, and ATLAS POC.">
+    <meta property="og:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gracegoudreau.com/work">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
     <title>Recent Work - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html {
             overflow-x: hidden;
@@ -89,7 +97,7 @@
             width: min(1271px, calc(100% - 2rem));
             margin: 0 auto;
             padding-top: 5rem;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .work-intro {
@@ -110,14 +118,13 @@
         }
 
         .portfolio-card {
-            border: 1px solid #d8dfdc;
+            border: none;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
-            min-height: 520px;
+            min-height: 0;
             background: #fff;
-            transition: transform 0.2s ease, border-color 0.2s ease;
             min-width: 0;
             max-width: 100%;
         }
@@ -328,21 +335,23 @@
             menu.classList.toggle('active');
         }
     </script>
-    <link rel="stylesheet" href="visual-refresh.css?v=20260909-site-system">
+    <link rel="stylesheet" href="visual-refresh.css?v=20260923-card-stroke">
 </head>
 <body class="material-site bg-white">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <nav class="w-full bg-white fixed top-0 z-50">
         <div class="max-w-[1271px] mx-auto flex">
             <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
                 <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
-                <div class="hamburger" onclick="toggleMobileMenu()">
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
             <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
-                <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]" aria-current="page">Work</a>
                 <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">About</a>
                 <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
             </div>
@@ -350,12 +359,12 @@
     </nav>
 
     <div id="mobileMenu" class="mobile-menu">
-        <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+        <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()" aria-current="page">Work</a>
         <a href="about.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">About</a>
         <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
     </div>
 
-    <main class="work-page-shell">
+    <main id="main-content" tabindex="-1" class="work-page-shell">
         <header class="mt-8 md:mt-14 mb-16 md:mb-20">
             <div class="work-intro">
                 <div>
@@ -365,7 +374,7 @@
                     </h1>
                 </div>
                 <p class="text-xl md:text-2xl leading-tight text-[#4f4f4f] max-w-[640px]">
-                    A curated view of product strategy, AI-enabled workflow design, enterprise decision systems, and visual craft across complex tools.
+                    Featured work leads with shipped products. Additional work covers visual explorations and earlier cases.
                 </p>
             </div>
         </header>
@@ -374,23 +383,24 @@
             <div class="featured-work-grid">
                 <a href="ai-scenario-modeling.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="scenario-thumbnail-image" src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview">
+                        <img class="scenario-thumbnail-image" src="gtm-scenario-workspace.png" alt="Scoping Pro scenario modeling workspace interface preview" loading="lazy">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>01 / Scenario Modeling</span>
-                            <span>Lead UX</span>
+                            <span>01 / Scoping Pro</span>
+                            <span>Shipped · PepsiCo × Google Cloud</span>
                         </div>
-                        <h2>Turning Fragmented Scenario Planning Into One Governed Workspace</h2>
-                        <p class="portfolio-card-summary">Led UX with Google and PepsiCo across product strategy, information architecture, and a reusable planning workflow.</p>
+                        <h2>Scoping Pro</h2>
+                        <p class="portfolio-card-subtitle">scenario modeling workspace</p>
+                        <p class="portfolio-card-summary">Lead UX with Google Cloud UX. Location-level planning moved from ~3 days to under 1 hour.</p>
                         <dl class="portfolio-card-details">
                             <div>
                                 <dt>My role</dt>
-                                <dd>Lead UX, IA, and product strategy</dd>
+                                <dd>Lead UX, in partnership with Google Cloud UX</dd>
                             </div>
                             <div>
-                                <dt>Design challenge</dt>
-                                <dd>Complex systems thinking and stakeholder alignment</dd>
+                                <dt>Outcome</dt>
+                                <dd>~3 days → &lt;1 hour / location</dd>
                             </div>
                         </dl>
                     </div>
@@ -398,23 +408,24 @@
 
                 <a href="my-pepsico-content-agent.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="MyPepsiCo content engine workflow showing submit, agents work, and review stages">
+                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="Content Engine (Content Agent) workflow showing submit, agents work, and review stages" loading="lazy">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>02 / Content Operations</span>
-                            <span>Pilot proposed</span>
+                            <span>02 / Content Engine</span>
+                            <span>Prototype · pilot proposed</span>
                         </div>
-                        <h2>From User Pain to an AI Content Platform Teams Want to Pilot</h2>
-                        <p class="portfolio-card-summary">Designed, built, and tested a proof-of-value prototype now being developed toward a proposed Canada pilot.</p>
+                        <h2>Content Engine</h2>
+                        <p class="portfolio-card-subtitle">Content Agent</p>
+                        <p class="portfolio-card-summary">Proof-of-value prototype tested with 9 users. Canada pilot proposed; funding not decided.</p>
                         <dl class="portfolio-card-details">
                             <div>
                                 <dt>My role</dt>
-                                <dd>Self-initiated product strategy and prototype</dd>
+                                <dd>Opportunity, product definition, and working prototype</dd>
                             </div>
                             <div>
-                                <dt>Design challenge</dt>
-                                <dd>Initiative, AI orchestration, and workflow clarity</dd>
+                                <dt>Status</dt>
+                                <dd>Prototype · Canada pilot proposed</dd>
                             </div>
                         </dl>
                     </div>
@@ -422,47 +433,47 @@
 
                 <a href="atlas-decision-intelligence.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts">
+                        <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts" loading="lazy">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
                             <span>03 / ATLAS</span>
-                            <span>3 weeks</span>
+                            <span>POC · 3 weeks</span>
                         </div>
-                        <h2>Defining an AI Decision Product in Three Weeks</h2>
-                        <p class="portfolio-card-summary">Turned an ambiguous executive opportunity into a functional decision-intelligence concept, product thesis, and roadmap.</p>
+                        <h2>ATLAS</h2>
+                        <p class="portfolio-card-summary">3-week proof-of-concept: a working decision-intelligence prototype, product thesis, and roadmap. Not a shipped product.</p>
                         <dl class="portfolio-card-details">
                             <div>
                                 <dt>My role</dt>
                                 <dd>UX strategy and functional prototype lead</dd>
                             </div>
                             <div>
-                                <dt>Design challenge</dt>
-                                <dd>Ambiguity to product direction</dd>
+                                <dt>Status</dt>
+                                <dd>POC · working prototype + roadmap</dd>
                             </div>
                         </dl>
                     </div>
                 </a>
 
-                <a href="cost-compass-redesign.html" class="portfolio-card">
+                <a href="order-management.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="content-engine-card-image" src="assets/cost-compass-card.png?v=20260825" alt="Cost Compass redesigned Move Transport analytics page preview">
+                        <img src="assets/order-management-card.png" alt="PEP Order Engine workspace for intake, validation, tracking, and SAP confirmation" loading="lazy">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>04 / Cost Compass</span>
-                            <span>2 weeks</span>
+                            <span>04 / PEP Order Engine</span>
+                            <span>Shipped Jan 2026</span>
                         </div>
-                        <h2>Making a Dense Analytics Product Clear and Actionable</h2>
-                        <p class="portfolio-card-summary">Reframed an agency-led analytics screen with clearer hierarchy, stronger suite alignment, and more confident interaction patterns.</p>
+                        <h2>PEP Order Engine</h2>
+                        <p class="portfolio-card-summary">Shipped order workspace connecting intake, validation, tracking, and SAP confirmation. v1.0 released Jan 28, 2026 for PFNA FSV customers.</p>
                         <dl class="portfolio-card-details">
                             <div>
                                 <dt>My role</dt>
-                                <dd>Redesign lead and consulting-group design partner</dd>
+                                <dd>Primary UX designer</dd>
                             </div>
                             <div>
-                                <dt>Design challenge</dt>
-                                <dd>Visual judgment, tradeoffs, and suite alignment</dd>
+                                <dt>Status</dt>
+                                <dd>Shipped Jan 2026 · PFNA FSV</dd>
                             </div>
                         </dl>
                     </div>
@@ -477,33 +488,15 @@
                     <h2 class="text-4xl md:text-[56px] leading-tight text-black">More product surfaces.</h2>
                 </div>
                 <p class="text-xl md:text-2xl leading-tight text-[#4f4f4f]">
-                    Supporting projects that show workflow design, analytics UX, ecommerce clarity, and how I use prototyping to ship polished work.
+                    Supporting visual exploration in the CTX suite. Older consumer and process cases are not part of this packet.
                 </p>
             </div>
 
             <div class="additional-work-list">
-                <a href="order-management.html" class="additional-work-row">
+                <a href="cost-compass-redesign.html" class="additional-work-row">
                     <span class="work-number">05</span>
-                    <h3>Scaling a Fragmented Order Workflow Into a Shipped Platform</h3>
-                    <p>Led UX for a released order engine connecting intake, validation, tracking, and SAP confirmation.</p>
-                    <span class="work-arrow">&rarr;</span>
-                </a>
-                <a href="forecast-analysis.html" class="additional-work-row">
-                    <span class="work-number">06</span>
-                    <h3>Forecast Analysis</h3>
-                    <p>Helped analysts interpret complex forecast outputs with less dependency.</p>
-                    <span class="work-arrow">&rarr;</span>
-                </a>
-                <a href="portfolio-case-study.html" class="additional-work-row">
-                    <span class="work-number">07</span>
-                    <h3>Portfolio Build</h3>
-                    <p>Shows how I use prototyping and AI-assisted development to ship.</p>
-                    <span class="work-arrow">&rarr;</span>
-                </a>
-                <a href="wonder-3d-prints.html" class="additional-work-row">
-                    <span class="work-number">08</span>
-                    <h3>Wonder 3D Prints</h3>
-                    <p>Improved ecommerce browsing clarity, trust signals, and checkout momentum.</p>
+                    <h3>Cost Compass</h3>
+                    <p>Two-week visual redesign aligning a dense analytics concept to Scoping Pro. Adoption not confirmed.</p>
                     <span class="work-arrow">&rarr;</span>
                 </a>
             </div>
@@ -512,7 +505,7 @@
         <footer class="mb-16 md:mb-24">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                 <div class="lg:col-span-7">
-                    <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
+                    <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's connect</h2>
                 </div>
                 <div class="lg:col-span-5 flex flex-col justify-end gap-4">
                     <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.5px] text-black">
@@ -525,5 +518,7 @@
             </div>
         </footer>
     </main>
+    <p class="site-credit">Built by Grace Goudreau + AI tools</p>
+    <script src="assets/site.js"></script>
 </body>
 </html>
