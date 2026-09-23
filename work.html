@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Selected case studies by Grace Goudreau: Scoping Pro, PEP Order Engine, Content Agent prototype, and ATLAS POC.">
+    <meta property="og:title" content="Work — Grace Goudreau">
+    <meta property="og:description" content="Selected case studies by Grace Goudreau: Scoping Pro, PEP Order Engine, Content Agent prototype, and ATLAS POC.">
+    <meta property="og:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gracegoudreau.com/work">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
     <title>Recent Work - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="site.css">
@@ -328,9 +336,11 @@
             menu.classList.toggle('active');
         }
     </script>
-    <link rel="stylesheet" href="visual-refresh.css?v=20260909-site-system">
+    <link rel="stylesheet" href="visual-refresh.css?v=20260923-p2p3">
 </head>
 <body class="material-site bg-white">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <nav class="w-full bg-white fixed top-0 z-50">
         <div class="max-w-[1271px] mx-auto flex">
             <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
@@ -342,7 +352,7 @@
                 </button>
             </div>
             <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
-                <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
+                <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]" aria-current="page">Work</a>
                 <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">About</a>
                 <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
             </div>
@@ -350,12 +360,12 @@
     </nav>
 
     <div id="mobileMenu" class="mobile-menu">
-        <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
+        <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()" aria-current="page">Work</a>
         <a href="about.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">About</a>
         <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
     </div>
 
-    <main class="work-page-shell">
+    <main id="main-content" tabindex="-1" class="work-page-shell">
         <header class="mt-8 md:mt-14 mb-16 md:mb-20">
             <div class="work-intro">
                 <div>
@@ -478,7 +488,7 @@
                     <h2 class="text-4xl md:text-[56px] leading-tight text-black">More product surfaces.</h2>
                 </div>
                 <p class="text-xl md:text-2xl leading-tight text-[#4f4f4f]">
-                    Supporting projects that show workflow design, analytics UX, ecommerce clarity, and how I use prototyping to ship polished work.
+                    Supporting visual exploration in the CTX suite. Older consumer and process cases are not part of this packet.
                 </p>
             </div>
 
@@ -489,31 +499,13 @@
                     <p>Two-week visual redesign aligning a dense analytics concept to Scoping Pro. Adoption not confirmed.</p>
                     <span class="work-arrow">&rarr;</span>
                 </a>
-                <a href="forecast-analysis.html" class="additional-work-row">
-                    <span class="work-number">06</span>
-                    <h3>Forecast Analysis</h3>
-                    <p>Helped analysts interpret complex forecast outputs with less dependency.</p>
-                    <span class="work-arrow">&rarr;</span>
-                </a>
-                <a href="portfolio-case-study.html" class="additional-work-row">
-                    <span class="work-number">07</span>
-                    <h3>Portfolio Build</h3>
-                    <p>Shows how I use prototyping and AI-assisted development to ship.</p>
-                    <span class="work-arrow">&rarr;</span>
-                </a>
-                <a href="wonder-3d-prints.html" class="additional-work-row">
-                    <span class="work-number">08</span>
-                    <h3>Wonder 3D Prints</h3>
-                    <p>Improved ecommerce browsing clarity, trust signals, and checkout momentum.</p>
-                    <span class="work-arrow">&rarr;</span>
-                </a>
             </div>
         </section>
 
         <footer class="mb-16 md:mb-24">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                 <div class="lg:col-span-7">
-                    <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
+                    <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's connect</h2>
                 </div>
                 <div class="lg:col-span-5 flex flex-col justify-end gap-4">
                     <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl tracking-[-0.5px] text-black">
@@ -526,6 +518,7 @@
             </div>
         </footer>
     </main>
+    <p class="site-credit">Built by Grace Goudreau + AI tools</p>
     <script src="assets/site.js"></script>
 </body>
 </html>

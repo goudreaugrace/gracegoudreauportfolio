@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /design-process.html
+Disallow: /forecast-analysis.html
+Disallow: /portfolio-case-study.html
+Disallow: /wonder-3d-prints.html

@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grace Goudreau is a Senior UX Designer at PepsiCo. Enterprise AI, planning, and operations products, including a Google Cloud UX partnership on Scoping Pro.">
+    <meta property="og:title" content="About — Grace Goudreau">
+    <meta property="og:description" content="Grace Goudreau is a Senior UX Designer at PepsiCo. Enterprise AI, planning, and operations products, including a Google Cloud UX partnership on Scoping Pro.">
+    <meta property="og:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gracegoudreau.com/about">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
     <title>About - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="site.css">
@@ -157,11 +165,11 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const answers = {
-                diagnosis: "I treat user friction as a business diagnostic. I work backward from the core operational bottleneck to map out multi-layered technical workflows early, isolating where user agency fails and defining where a modular feature framework can drive clear business value.",
-                engineering: "I speak code fluently. Instead of handing off static layouts, I use a build stack including React, TypeScript, and component-driven AI tools to engineer functional interactive prototypes. This gives developers a precise target for frontend state management, massively accelerating implementation.",
-                strategy: "True strategy means knowing what not to build. I don't just dress up predefined feature lists—I question the underlying assumptions to structure systems that ensure complex tasks, like scaling multi-agent workflows, align with long-term product metrics.",
-                ambiguity: "I lean into functional proof-of-concepts. When structural guidelines don't exist, I rapidly build high-fidelity working spaces to validate concepts directly with engineering teams, converting executive skepticism into direct project funding.",
-                craft: "Craft is the uncompromising elimination of visual and cognitive noise. For complex enterprise products, high craft means stripping away non-essential elements so the user's focus is entirely directed toward strict information architecture and zero-friction interactions."
+                diagnosis: "I start from the operational bottleneck, not the requested feature. I map the workflow with the people who run it, then isolate where they lose control of a decision or a handoff.",
+                engineering: "I build interactive prototypes in React and TypeScript instead of handing off static layouts, so engineers can see states and behavior before they implement.",
+                strategy: "I write down what we will not build this cycle. I test the assumption behind a request—who uses it, how often, what happens if it is wrong—before I add a surface.",
+                ambiguity: "When there is no spec, I make a clickable prototype and walk it with engineering and the operators who would use it. The conversation is about the working object, not a deck.",
+                craft: "For dense enterprise tools, craft is removing chrome until the next decision is obvious: hierarchy, labels, and states that hold up at a glance."
             };
 
             const answerText = document.getElementById('askAnswerText');
@@ -184,9 +192,11 @@
             setAnswer('diagnosis');
         });
     </script>
-    <link rel="stylesheet" href="visual-refresh.css?v=20260909-site-system">
+    <link rel="stylesheet" href="visual-refresh.css?v=20260923-p2p3">
 </head>
 <body class="material-site bg-white">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <nav class="w-full bg-white fixed top-0 z-50">
         <div class="max-w-[1271px] mx-auto flex">
             <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
@@ -199,7 +209,7 @@
             </div>
             <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
                 <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
-                <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">About</a>
+                <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]" aria-current="page">About</a>
                 <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
             </div>
         </div>
@@ -207,11 +217,11 @@
 
     <div id="mobileMenu" class="mobile-menu">
         <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
-        <a href="about.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">About</a>
+        <a href="about.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()" aria-current="page">About</a>
         <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
     </div>
 
-    <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-20 md:pt-24">
+    <div id="main-content" tabindex="-1" class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-20 md:pt-24">
         <section class="mt-8 md:mt-14 mb-20 md:mb-28">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
                 <div class="lg:col-span-4">
@@ -231,6 +241,7 @@
                         <li>Self-initiated agent: Content Operations Agent prototype; 9 users; Canada pilot proposed; funding not decided.</li>
                     </ol>
                     <p class="text-lg leading-[1.5] max-w-[62ch]">I prototype in React, TypeScript, and Node so partners can use the thing, not only a deck — <a class="underline" href="https://content-engine-sand-eta.vercel.app" target="_blank" rel="noopener noreferrer">Content Agent live build</a> and <a class="underline" href="https://atlas-build-eight.vercel.app" target="_blank" rel="noopener noreferrer">ATLAS live build</a>.</p>
+                    <p class="text-lg leading-[1.5] max-w-[62ch] mt-4">How I prototype: I build the interaction in code (Cursor, Figma Make, Dev Mode) until a teammate can click through states. This site is that same loop—not a separate case study.</p>
                 </div>
             </div>
         </section>
@@ -256,7 +267,7 @@
 
         <section class="mb-32 md:mb-48 pt-8 md:pt-16">
             <div class="mb-10">
-                <h2 class="text-4xl md:text-[64px] leading-tight text-black">Let's Connect!</h2>
+                <h2 class="text-4xl md:text-[64px] leading-tight text-black">Let's connect</h2>
             </div>
             <div class="flex flex-col gap-4">
                 <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl text-black">goudreaugrace@gmail.com</a>
@@ -264,6 +275,7 @@
             </div>
         </section>
     </div>
+    <p class="site-credit">Built by Grace Goudreau + AI tools</p>
     <script src="assets/site.js"></script>
 </body>
 </html>

@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resume for Grace Goudreau, Senior UX Designer. PepsiCo work on Scoping Pro, PEP Order Engine, Content Agent, and ATLAS.">
+    <meta property="og:title" content="Resume — Grace Goudreau">
+    <meta property="og:description" content="Resume for Grace Goudreau, Senior UX Designer. PepsiCo work on Scoping Pro, PEP Order Engine, Content Agent, and ATLAS.">
+    <meta property="og:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gracegoudreau.com/resume">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://gracegoudreau.com/assets/og-scoping-pro.png">
     <title>Resume - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="site.css">
@@ -164,9 +172,11 @@
             menu.classList.toggle('active');
         }
     </script>
-    <link rel="stylesheet" href="visual-refresh.css?v=20260909-site-system">
+    <link rel="stylesheet" href="visual-refresh.css?v=20260923-p2p3">
 </head>
 <body class="material-site bg-white">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <!-- Navigation -->
     <nav class="w-full bg-white fixed top-0 z-50">
         <div class="max-w-[1271px] mx-auto flex">
@@ -181,7 +191,7 @@
             <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
                 <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
                 <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">About</a>
-                <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
+                <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]" aria-current="page">Resume</a>
             </div>
         </div>
     </nav>
@@ -190,11 +200,11 @@
     <div id="mobileMenu" class="mobile-menu">
         <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
         <a href="about.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">About</a>
-        <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
+        <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()" aria-current="page">Resume</a>
     </div>
 
     <!-- Main Container -->
-    <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
+    <div id="main-content" tabindex="-1" class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-16 md:pt-20">
         <!-- Header Section -->
         <section class="mb-12 md:mb-16">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -292,13 +302,13 @@
             <h2 class="text-3xl md:text-[40px] leading-tight tracking-[-0.5px] text-black mb-8 md:mb-10">Projects &amp; Leadership</h2>
             <ul class="list-disc pl-5 space-y-3">
                 <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                    <span class="font-semibold">Open-Source AI Workflow Architecture (Figma &amp; Dev Mode Integration):</span> Built and publicly shared an end-to-end POC demonstrating the AI-first design workflow - a working argument for designing experiences over screens.
+                    <span class="font-semibold">Shared prototype of an AI design workflow:</span> Built a public proof-of-concept that connects Figma and Dev Mode to a working experience, to show designing behavior rather than only screens.
                 </li>
                 <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                    <span class="font-semibold">AI Workflow Enablement:</span> Delivered multiple presentations to UX designers and developers on integrating AI into team workflows, showing how AI-assisted design and build accelerate iteration, reduce design-to-development friction, and increase team efficiency.
+                    <span class="font-semibold">Team talks:</span> Presented to UX designers and developers on using AI tools in design-to-build loops to shorten iteration.
                 </li>
                 <li class="text-lg leading-[1.5] tracking-[-0.5px] text-black">
-                    <span class="font-semibold">Thought Leadership:</span> Ongoing LinkedIn writing on the "Design Thinking Era," documenting firsthand AI workflow experiments and the shift toward designing experiences over screens.
+                    <span class="font-semibold">Writing:</span> Notes on LinkedIn about how design work is changing as tools shift from screens to working prototypes.
                 </li>
             </ul>
         </section>
@@ -317,7 +327,7 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold tracking-[-0.5px] text-black mb-2">Collaboration</h3>
-                    <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">Executive Stakeholder Management, Cross-Functional Leadership, Engineering Enablement</p>
+                    <p class="text-lg leading-[1.5] tracking-[-0.5px] text-black">Working with executives, product owners, and engineering on constraints, reviews, and handoff</p>
                 </div>
             </div>
         </section>
@@ -335,7 +345,7 @@
         <section class="py-8 md:py-16 mb-16 no-print">
             <div class="mb-10">
                 <div class="w-full h-px bg-black mb-5"></div>
-                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's Connect!</h2>
+                <h2 class="text-4xl md:text-[64px] leading-tight tracking-[-0.5px] text-black">Let's connect</h2>
             </div>
 
             <div class="flex flex-col gap-4">
@@ -348,6 +358,7 @@
             </div>
         </section>
     </div>
+    <p class="site-credit">Built by Grace Goudreau + AI tools</p>
     <script src="assets/site.js"></script>
 </body>
 </html>

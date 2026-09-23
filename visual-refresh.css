@@ -351,23 +351,62 @@ section .signal-bg[class*="border"] {
 
 .primary-button::before,
 .submit-button::before {
-    background-color: var(--accent) !important;
+    content: none !important;
+    display: none !important;
+    height: auto !important;
+    transition: none !important;
 }
 
 .primary-button,
-.submit-button,
-.question-button,
-section a[class*="hover:bg-black"] {
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+.submit-button {
+    transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, border-color 0.2s ease !important;
 }
 
 .primary-button:hover,
-.submit-button:hover,
+.submit-button:hover {
+    background-color: #111 !important;
+    color: #fff !important;
+    transform: none !important;
+    opacity: 0.92;
+    border-color: #111 !important;
+}
+
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 1000;
+    padding: 0.6rem 1rem;
+    background: #111;
+    color: #fff;
+}
+
+.skip-link:focus {
+    top: 0.75rem;
+    outline: 2px solid #111;
+    outline-offset: 3px;
+}
+
+.site-credit {
+    margin: 0 auto 2.5rem;
+    max-width: 1271px;
+    padding: 1rem 1rem 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.question-button,
+section a[class*="hover:bg-black"] {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
 .question-button:hover,
 .question-button.active,
 section a[class*="hover:bg-black"]:hover {
     border-color: var(--accent) !important;
-    transform: translateY(-1px);
 }
 
 .primary-button:hover,
