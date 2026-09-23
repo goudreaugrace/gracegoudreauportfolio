@@ -23,6 +23,7 @@ html {
 body {
     background: var(--page) !important;
     color: var(--ink);
+    font-family: 'Instrument Sans', sans-serif !important;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
