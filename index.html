@@ -143,14 +143,13 @@
         }
 
         .portfolio-card {
-            border: 1px solid #d8dfdc;
+            border: none;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
             min-height: 0;
             background: #fff;
-            transition: transform 0.2s ease, border-color 0.2s ease;
             min-width: 0;
             max-width: 100%;
         }
@@ -500,7 +499,7 @@
             revealItems.forEach((item) => revealObserver.observe(item));
         });
     </script>
-    <link rel="stylesheet" href="visual-refresh.css?v=20260923-p2p3">
+    <link rel="stylesheet" href="visual-refresh.css?v=20260923-card-stroke">
     <link rel="stylesheet" href="landing-material.css">
 </head>
 <body class="material-home bg-white">
@@ -579,34 +578,17 @@
                     </div>
                 </a>
 
-                <a href="order-management.html" class="portfolio-card">
-                    <div class="portfolio-card-media">
-                        <img src="assets/order-management-card.png" alt="PEP Order Engine workspace for intake, validation, tracking, and SAP confirmation" loading="lazy">
-                    </div>
-                    <div class="portfolio-card-body">
-                        <div class="portfolio-card-meta">
-                            <span>02 / PEP Order Engine</span>
-                            <span>Shipped Jan 2026</span>
-                        </div>
-                        <h3>PEP Order Engine</h3>
-                        <p class="portfolio-card-summary">Shipped order workspace connecting intake, validation, tracking, and SAP confirmation. v1.0 released Jan 28, 2026 for PFNA FSV customers.</p>
-                        <dl class="portfolio-card-details">
-                            <div><dt>My role</dt><dd>Primary UX designer</dd></div>
-                            <div><dt>Status</dt><dd>Shipped Jan 2026 · PFNA FSV</dd></div>
-                        </dl>
-                    </div>
-                </a>
-
                 <a href="my-pepsico-content-agent.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="Content Agent workflow showing submit, agents work, and review stages" loading="lazy">
+                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="Content Engine (Content Agent) workflow showing submit, agents work, and review stages" loading="lazy">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>03 / Content Agent</span>
+                            <span>02 / Content Engine</span>
                             <span>Prototype · pilot proposed</span>
                         </div>
-                        <h3>Content Agent</h3>
+                        <h3>Content Engine</h3>
+                        <p class="portfolio-card-subtitle">Content Agent</p>
                         <p class="portfolio-card-summary">Proof-of-value prototype tested with 9 users. Canada pilot proposed; funding not decided.</p>
                         <dl class="portfolio-card-details">
                             <div><dt>My role</dt><dd>Opportunity, product definition, and working prototype</dd></div>
@@ -621,7 +603,7 @@
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>04 / ATLAS</span>
+                            <span>03 / ATLAS</span>
                             <span>POC · 3 weeks</span>
                         </div>
                         <h3>ATLAS</h3>
@@ -629,6 +611,24 @@
                         <dl class="portfolio-card-details">
                             <div><dt>My role</dt><dd>UX strategy and functional prototype lead</dd></div>
                             <div><dt>Status</dt><dd>POC · working prototype + roadmap</dd></div>
+                        </dl>
+                    </div>
+                </a>
+
+                <a href="order-management.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
+                        <img src="assets/order-management-card.png" alt="PEP Order Engine workspace for intake, validation, tracking, and SAP confirmation" loading="lazy">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>04 / PEP Order Engine</span>
+                            <span>Shipped Jan 2026</span>
+                        </div>
+                        <h3>PEP Order Engine</h3>
+                        <p class="portfolio-card-summary">Shipped order workspace connecting intake, validation, tracking, and SAP confirmation. v1.0 released Jan 28, 2026 for PFNA FSV customers.</p>
+                        <dl class="portfolio-card-details">
+                            <div><dt>My role</dt><dd>Primary UX designer</dd></div>
+                            <div><dt>Status</dt><dd>Shipped Jan 2026 · PFNA FSV</dd></div>
                         </dl>
                     </div>
                 </a>

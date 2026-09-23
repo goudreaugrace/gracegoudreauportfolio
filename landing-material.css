@@ -73,11 +73,10 @@
 .material-home .portfolio-card {
     min-height: 0;
     overflow: visible;
-    border: 1px solid #1f2523;
+    border: none;
     border-radius: 8px;
     background: var(--md-surface);
     box-shadow: none;
-    transition: border-color .2s ease, opacity .2s ease;
 }
 
 .material-home .portfolio-card:hover {
