@@ -571,35 +571,83 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="visual-refresh.css?v=20260909-site-system">
+    <link rel="stylesheet" href="visual-refresh.css?v=20261006-public-preview">
 </head>
 <body class="material-site bg-white">
     <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
-    <div id="passwordScreen" class="password-container">
-        <div class="max-w-md w-full px-6">
-            <h1 class="text-4xl md:text-5xl text-black mb-4 text-center">3-Week Decision-Intelligence POC</h1>
-            <p class="text-lg text-black mb-2 text-center">This project is password protected</p>
-            <p class="text-sm text-[#767676] mb-8 text-center">Access details are provided with application materials.</p>
-
-            <div class="border border-black p-8">
-                <label for="password" class="block text-lg text-black mb-3">Enter Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    class="password-input w-full border border-black px-4 py-3 text-lg text-black mb-4"
-                    placeholder="Password"
-                    onkeypress="if(event.key === 'Enter') checkPassword()"
-                >
-                <div id="errorMessage" class="error-message hidden">Incorrect password. Please try again.</div>
-                <button onclick="checkPassword()" class="submit-button w-full border border-black bg-white px-4 py-3 mt-4">
-                    <span class="text-lg text-black">Submit</span>
-                </button>
+    <div id="passwordScreen" class="password-container public-case-preview">
+        <nav class="public-preview-nav" aria-label="Portfolio navigation">
+            <a href="index.html" class="text-lg md:text-xl">Grace Goudreau</a>
+            <div class="public-preview-nav-links"><a href="work.html">Work</a><a href="about.html">About</a><a href="resume.html">Resume</a></div>
+        </nav>
+        <main class="preview-shell">
+            <div class="preview-hero-grid">
+                <div>
+                    <a href="work.html" class="case-back-link">← Back to work</a>
+                    <p class="preview-kicker mt-8">Public case study preview · AI decision intelligence</p>
+                    <h1 class="preview-title">From an ambiguous AI opportunity to a testable product direction in three weeks.</h1>
+                    <p class="preview-lede">I led UX strategy and the working POC, turning a broad executive prompt into an explainable decision-intelligence product for commercial negotiators.</p>
+                    <div class="preview-metrics" aria-label="Project summary">
+                        <div class="preview-metric"><span class="preview-stat-label">Role</span><strong>UX strategy + POC lead</strong></div>
+                        <div class="preview-metric"><span class="preview-stat-label">Timeline</span><strong>3 weeks</strong></div>
+                        <div class="preview-metric"><span class="preview-stat-label">Users</span><strong>Commercial negotiators</strong></div>
+                        <div class="preview-metric"><span class="preview-stat-label">Output</span><strong>Working POC + prioritized roadmap</strong></div>
+                    </div>
+                </div>
+                <aside class="unlock-panel" aria-labelledby="atlas-unlock-title">
+                    <p class="preview-kicker">Full case study</p>
+                    <h2 id="atlas-unlock-title">See the complete product story</h2>
+                    <p class="unlock-panel-copy">Enter the password to view the working model, product decisions, user-feedback translation, and interface demonstrations.</p>
+                    <form class="unlock-form" onsubmit="event.preventDefault(); checkPassword();">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="password-input" placeholder="Enter password" autocomplete="current-password">
+                        <div id="errorMessage" class="error-message hidden" role="alert">Incorrect password. Please try again.</div>
+                        <button type="submit" class="unlock-button">Unlock full case study</button>
+                    </form>
+                    <p class="preview-protected-note">The public preview below covers my role, product judgment, and outcome without exposing proprietary product visuals.</p>
+                </aside>
             </div>
 
-            <div class="text-center mt-8">
-                <a href="index.html" class="text-lg text-black hover:opacity-70 transition-opacity">← Back to Portfolio</a>
+            <div class="preview-content">
+                <section class="preview-section">
+                    <p class="preview-section-label">The challenge</p>
+                    <div><h2>A fast AI sprint could easily produce novelty instead of utility.</h2><div class="preview-section-copy mt-5"><p>Pricing, margin, market, buyer, and negotiation information was fragmented. The opportunity was broad, but the product needed a clear point of view about which decisions it should improve.</p><p>Commercial teams did not need another source of information. They needed confidence about what changed, why it mattered, what move to make, and what evidence could defend it.</p></div></div>
+                </section>
+                <section class="preview-section">
+                    <p class="preview-section-label">My role</p>
+                    <div><h2>I used the prototype to turn ambiguity into product decisions.</h2><div class="preview-section-copy mt-5"><p>I led UX strategy and the POC, focused the sprint on real negotiation decisions, translated user feedback into product capabilities, and prioritized what the team could responsibly validate within three weeks.</p><p>The working model gave users and partners something concrete to critique, allowing UX to shape the product thesis and roadmap before the direction hardened.</p></div></div>
+                </section>
+                <section class="preview-section">
+                    <p class="preview-section-label">Key decisions</p>
+                    <div><h2>We prioritized confidence in what to do next.</h2><ul class="preview-decision-list preview-section-copy mt-6">
+                        <li><strong>Direct attention before adding information.</strong> Shift from a report-first experience to a triage model that surfaced priority signals and next actions.</li>
+                        <li><strong>Make trust visible in the product.</strong> Treat source, freshness, confidence, and known gaps as product behavior—not explanatory copy.</li>
+                        <li><strong>Build a closed decision loop.</strong> Connect risk diagnosis, scenario comparison, recommended moves, and negotiation outcomes so future guidance could improve.</li>
+                    </ul></div>
+                </section>
+                <section class="preview-section">
+                    <p class="preview-section-label">What changed</p>
+                    <div><h2>The team moved from an open-ended AI idea to a direction it could test and prioritize.</h2><div class="preview-section-copy mt-5"><p>In three weeks, ATLAS became a functional decision-intelligence POC, a sharper product thesis, and a prioritized roadmap grounded in user feedback.</p></div></div>
+                </section>
             </div>
-        </div>
+
+            <section class="preview-impact" aria-labelledby="atlas-preview-impact">
+                <p class="preview-section-label">Outcome</p>
+                <h2 id="atlas-preview-impact" class="preview-impact-value">3 weeks → working POC + roadmap</h2>
+                <p>The sprint turned design exploration into a concrete artifact the team could critique, refine, and use to make roadmap decisions. This is a product-direction outcome—not a claim of production adoption or measured business impact.</p>
+            </section>
+
+            <section class="preview-section mt-8">
+                <p class="preview-section-label">What this proves</p>
+                <div><h2>Rapid, evidence-backed product definition under ambiguity.</h2><ul class="preview-proof-list preview-section-copy mt-6">
+                    <li>Framing a broad AI opportunity around real user decisions</li>
+                    <li>Turning feedback into product capabilities and priorities</li>
+                    <li>Using a working prototype to test value and align a team</li>
+                    <li>Making AI guidance explainable and defensible</li>
+                    <li>Creating a sharper product thesis and roadmap in three weeks</li>
+                </ul><p class="preview-protected-note">The complete case study is protected because it contains proprietary workflows and interface details. Use the unlock panel above to view the full experience.</p></div>
+            </section>
+        </main>
     </div>
 
     <div id="mainContent" class="content-container">

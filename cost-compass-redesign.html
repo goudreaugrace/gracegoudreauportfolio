@@ -440,38 +440,83 @@
             padding: 0;
         }
     </style>
-    <link rel="stylesheet" href="visual-refresh.css?v=20260909-site-system">
+    <link rel="stylesheet" href="visual-refresh.css?v=20261006-public-preview">
 </head>
 <body class="material-site bg-white">
     <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
-    <div id="passwordScreen" class="password-container">
-        <div class="max-w-md w-full px-6">
-            <h1 class="text-4xl md:text-5xl text-black mb-4 text-center">Cost Compass Visual Redesign</h1>
-            <p class="text-lg text-black mb-2 text-center">This project is password protected</p>
-            <p class="text-sm text-[#767676] mb-8 text-center">Access details are provided with application materials.</p>
-
-            <div class="border border-black p-8">
-                <label for="password" class="block text-lg text-black mb-3">Enter Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    class="password-input w-full border border-black px-4 py-3 text-lg text-black mb-4"
-                    placeholder="Password"
-                    onkeypress="if(event.key === 'Enter') checkPassword()"
-                >
-                <div id="errorMessage" class="error-message hidden">Incorrect password. Please try again.</div>
-                <button
-                    onclick="checkPassword()"
-                    class="submit-button w-full border border-black bg-white px-4 py-3 mt-4"
-                >
-                    <span class="text-lg text-black">Submit</span>
-                </button>
+    <div id="passwordScreen" class="password-container public-case-preview">
+        <nav class="public-preview-nav" aria-label="Portfolio navigation">
+            <a href="index.html" class="text-lg md:text-xl">Grace Goudreau</a>
+            <div class="public-preview-nav-links"><a href="work.html">Work</a><a href="about.html">About</a><a href="resume.html">Resume</a></div>
+        </nav>
+        <main class="preview-shell">
+            <div class="preview-hero-grid">
+                <div>
+                    <a href="work.html" class="case-back-link">← Back to work</a>
+                    <p class="preview-kicker mt-8">Public case study preview · Enterprise analytics redesign</p>
+                    <h1 class="preview-title">From a dense agency concept to a coherent CTX product experience.</h1>
+                    <p class="preview-lede">I led a focused redesign of Cost Compass, improving hierarchy, navigation, controls, and data presentation while preserving the underlying workflow and aligning the product with the broader CTX suite.</p>
+                    <div class="preview-metrics" aria-label="Project summary">
+                        <div class="preview-metric"><span class="preview-stat-label">Role</span><strong>Redesign lead + design partner</strong></div>
+                        <div class="preview-metric"><span class="preview-stat-label">Timeline</span><strong>2 weeks</strong></div>
+                        <div class="preview-metric"><span class="preview-stat-label">Product</span><strong>Cost Compass, CTX suite</strong></div>
+                        <div class="preview-metric"><span class="preview-stat-label">Reference system</span><strong>Scoping Pro scenario modeling</strong></div>
+                    </div>
+                </div>
+                <aside class="unlock-panel" aria-labelledby="cost-unlock-title">
+                    <p class="preview-kicker">Full case study</p>
+                    <h2 id="cost-unlock-title">See the complete redesign</h2>
+                    <p class="unlock-panel-copy">Enter the password to view the before-and-after comparison, visual audit, design details, and interface examples.</p>
+                    <form class="unlock-form" onsubmit="event.preventDefault(); checkPassword();">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="password-input" placeholder="Enter password" autocomplete="current-password">
+                        <div id="errorMessage" class="error-message hidden" role="alert">Incorrect password. Please try again.</div>
+                        <button type="submit" class="unlock-button">Unlock full case study</button>
+                    </form>
+                    <p class="preview-protected-note">The public preview below covers my role, design judgment, and outcome without exposing proprietary product visuals.</p>
+                </aside>
             </div>
 
-            <div class="text-center mt-8">
-                <a href="index.html" class="text-lg text-black hover:opacity-70 transition-opacity">&larr; Back to Portfolio</a>
+            <div class="preview-content">
+                <section class="preview-section">
+                    <p class="preview-section-label">The challenge</p>
+                    <div><h2>The product had strong functional coverage, but the interface obscured what mattered.</h2><div class="preview-section-copy mt-5"><p>The agency direction was dense, heavily branded, and disconnected from the cleaner product language emerging across the CTX suite.</p><p>Page-level and local navigation were difficult to distinguish, every element competed for attention, and controls and analytical content arrived without a clear reading path.</p></div></div>
+                </section>
+                <section class="preview-section">
+                    <p class="preview-section-label">My role</p>
+                    <div><h2>I set a clearer visual direction without reopening the entire product model.</h2><div class="preview-section-copy mt-5"><p>I led the two-week redesign in partnership with the consulting-group designer, using Scoping Pro as the reference point for a quieter, more product-led CTX experience.</p><p>The scope required deliberate restraint: preserve the benchmarking workflow, clarify the hierarchy, and create patterns future Cost Compass pages could follow.</p></div></div>
+                </section>
+                <section class="preview-section">
+                    <p class="preview-section-label">Key decisions</p>
+                    <div><h2>Reduce noise—not analytical depth.</h2><ul class="preview-decision-list preview-section-copy mt-6">
+                        <li><strong>Clarify navigation ownership.</strong> Make page-level structure visually distinct so users understand which controls govern the entire experience.</li>
+                        <li><strong>Create a deliberate reading path.</strong> Reorder the page from module context to setup to insight, guiding attention toward the benchmarking decision.</li>
+                        <li><strong>Use one connected visual system.</strong> Simplify competing controls, lighten borders and color, and align Cost Compass with established CTX patterns.</li>
+                    </ul></div>
+                </section>
+                <section class="preview-section">
+                    <p class="preview-section-label">What changed</p>
+                    <div><h2>Cost Compass began to read as part of a product suite—not a one-off concept.</h2><div class="preview-section-copy mt-5"><p>The redesign created clearer hierarchy, calmer data surfaces, stronger navigation, and a reusable direction for future pages while keeping the underlying workflow intact.</p></div></div>
+                </section>
             </div>
-        </div>
+
+            <section class="preview-impact" aria-labelledby="cost-preview-impact">
+                <p class="preview-section-label">Outcome</p>
+                <h2 id="cost-preview-impact" class="preview-impact-value">2 weeks → a clearer suite direction</h2>
+                <p>The redesign gave stakeholders a more coherent path forward for Cost Compass and established a stronger visual foundation for future CTX pages. This case study demonstrates design direction and system alignment; it does not claim measured adoption or production impact.</p>
+            </section>
+
+            <section class="preview-section mt-8">
+                <p class="preview-section-label">What this proves</p>
+                <div><h2>Visual and systems judgment under real delivery constraints.</h2><ul class="preview-proof-list preview-section-copy mt-6">
+                    <li>Auditing a dense enterprise analytics experience</li>
+                    <li>Separating structural UX problems from visual-design problems</li>
+                    <li>Making deliberate tradeoffs inside a two-week window</li>
+                    <li>Improving suite consistency without unnecessarily reopening the workflow</li>
+                    <li>Creating a reusable visual direction for future product pages</li>
+                </ul><p class="preview-protected-note">The complete case study is protected because it contains proprietary workflows and interface details. Use the unlock panel above to view the full experience.</p></div>
+            </section>
+        </main>
     </div>
 
     <div id="mainContent" class="content-container">
