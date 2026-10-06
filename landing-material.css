@@ -73,16 +73,17 @@
 .material-home .portfolio-card {
     min-height: 430px;
     overflow: hidden;
-    border: 0;
-    border-radius: 28px;
+    border: 1px solid var(--md-outline-variant);
+    border-radius: 0;
     background: var(--md-surface);
-    box-shadow: 0 1px 3px rgba(60, 64, 67, .08);
+    box-shadow: none;
     transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
 .material-home .portfolio-card:hover {
-    box-shadow: 0 8px 24px rgba(60, 64, 67, .12);
-    transform: translateY(-2px);
+    border-color: var(--md-outline);
+    box-shadow: none;
+    transform: none;
 }
 
 .material-home .portfolio-card:focus-visible,
@@ -125,7 +126,7 @@
 }
 
 .material-home .portfolio-card-details {
-    display: none;
+    display: grid;
 }
 
 .material-home .portfolio-card-details > div {
@@ -185,7 +186,7 @@
     .material-home .home-hero { border-radius: 0; padding: 2.75rem .75rem; margin-bottom: 3.75rem !important; }
     .material-home .home-hero h1 { font-size: clamp(2.35rem, 10vw, 3.25rem) !important; }
     .material-home .featured-work-header { align-items: start; }
-    .material-home .portfolio-card { border-radius: 22px; }
+    .material-home .portfolio-card { border-radius: 0; }
     .material-home .portfolio-card-media { height: 180px; }
     .material-home section[aria-label="How I work"],
     .material-home footer { border-radius: 22px; }
