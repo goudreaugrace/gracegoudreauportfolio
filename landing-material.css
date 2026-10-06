@@ -127,13 +127,18 @@
 
 .material-home .portfolio-card-details {
     display: grid;
+    border-top: 0 !important;
 }
 
 .material-home .portfolio-card-details > div {
-    padding: .8rem .9rem;
+    padding: .65rem 0;
     border: 0;
-    border-radius: 14px;
-    background: var(--md-surface-low);
+    border-radius: 0;
+    background: transparent;
+}
+
+.material-home .portfolio-card-details > div + div {
+    border-top: 1px solid var(--md-outline-variant);
 }
 
 .material-home .portfolio-card-details dt {

@@ -202,7 +202,10 @@ nav,
 }
 
 .material-site .portfolio-card-media { border-bottom: 0; }
-.material-site .portfolio-card-details { display: grid; }
+.material-site .portfolio-card-details {
+    display: grid;
+    border-top: 0 !important;
+}
 
 .material-site .additional-work-list {
     display: grid;

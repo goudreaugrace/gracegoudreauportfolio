@@ -142,6 +142,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top;
             display: block;
         }
 
@@ -199,11 +200,21 @@
 
         .portfolio-card-details {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1rem;
+            grid-template-columns: 1fr;
+            gap: 0;
             padding-top: 1rem;
-            border-top: 1px solid #d8dfdc;
             margin-top: auto;
+        }
+
+        .portfolio-card-details > div {
+            display: grid;
+            grid-template-columns: 7.25rem minmax(0, 1fr);
+            gap: 1rem;
+            padding: 0.75rem 0;
+        }
+
+        .portfolio-card-details > div + div {
+            border-top: 1px solid #e7ebe9;
         }
 
         .portfolio-card-details dt {
@@ -313,6 +324,11 @@
                 grid-template-columns: 1fr;
             }
 
+            .portfolio-card-details > div {
+                grid-template-columns: 1fr;
+                gap: 0.35rem;
+            }
+
             .additional-work-row {
                 gap: 0.55rem;
             }
@@ -374,23 +390,26 @@
             <div class="featured-work-grid">
                 <a href="ai-scenario-modeling.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="scenario-thumbnail-image" src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview">
+                        <img src="assets/scenario-modeling-landing-card.png" alt="GTM Scenario Tool workspace showing scenario status, ownership, impact, and comparison controls">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
                             <span>01 / Scenario Modeling</span>
-                            <span>Lead UX</span>
+                            <span>Production systems UX</span>
                         </div>
-                        <h2>Turning Fragmented Scenario Planning Into One Governed Workspace</h2>
-                        <p class="portfolio-card-summary">Collaborated with Google and PepsiCo to design the GTM Scenario Tool workspace where teams define scope, establish baseline actuals, run scenarios, compare results, and track ownership and status in one place.</p>
+                        <h2>From Multi-Day Modeling to Decision-Ready Scenarios in Under an Hour</h2>
                         <dl class="portfolio-card-details">
                             <div>
-                                <dt>My role</dt>
-                                <dd>Lead UX and product strategy</dd>
+                                <dt>What I did</dt>
+                                <dd>Led UX across PepsiCo and Google Cloud, translating complex modeling into a trusted enterprise workflow.</dd>
                             </div>
                             <div>
-                                <dt>Design challenge</dt>
-                                <dd>Unifying fragmented scenario work across teams while keeping high-stakes planning clear and trustworthy</dd>
+                                <dt>What changed</dt>
+                                <dd>Cut modeling per location from roughly three days to under one hour; shipped to production.</dd>
+                            </div>
+                            <div>
+                                <dt>What this proves</dt>
+                                <dd>I bridge technical complexity, domain expertise, and cross-company alignment.</dd>
                             </div>
                         </dl>
                     </div>
@@ -403,18 +422,21 @@
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
                             <span>02 / Content Operations</span>
-                            <span>Pilot proposed</span>
+                            <span>Zero-to-one AI product</span>
                         </div>
-                        <h2>From User Pain to an AI Content Platform Teams Want to Pilot</h2>
-                        <p class="portfolio-card-summary">Initiated and built a POC that reduced the article workflow from 2–3 weeks to under 15 minutes by unifying intake, market and compliance validation, and human review—securing funding for a global PepsiCo rollout.</p>
+                        <h2>Turning a 2–3 Week Article Process Into a 15-Minute Governed Workflow</h2>
                         <dl class="portfolio-card-details">
                             <div>
-                                <dt>My role</dt>
-                                <dd>Initiated, designed, and built the POC</dd>
+                                <dt>What I did</dt>
+                                <dd>Identified the opportunity, shaped the product, and designed and built the AI-assisted POC.</dd>
                             </div>
                             <div>
-                                <dt>Design challenge</dt>
-                                <dd>Making article creation faster while preserving market accuracy, governance, compliance visibility, and human approval</dd>
+                                <dt>What changed</dt>
+                                <dd>Cut a 2–3 week process to under 15 minutes and secured funding for global rollout.</dd>
+                            </div>
+                            <div>
+                                <dt>What this proves</dt>
+                                <dd>Zero-to-one AI product leadership that balances speed, governance, and human control.</dd>
                             </div>
                         </dl>
                     </div>
@@ -422,23 +444,26 @@
 
                 <a href="atlas-decision-intelligence.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts">
+                        <img class="atlas-thumbnail-image" src="assets/atlas-landing-card.png" alt="ATLAS negotiation command center showing prioritized buying-group alerts and modeled scenario actions">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
                             <span>03 / ATLAS</span>
-                            <span>3 weeks</span>
+                            <span>Rapid product definition</span>
                         </div>
-                        <h2>Defining an AI Decision Product in Three Weeks</h2>
-                        <p class="portfolio-card-summary">In three weeks, turned fragmented pricing, margin, buyer, and negotiation data into a working POC that prioritized risks, compared possible moves, and established a validated product direction and roadmap grounded in user feedback.</p>
+                        <h2>Turning an Ambiguous AI Opportunity Into a Testable Product Direction</h2>
                         <dl class="portfolio-card-details">
                             <div>
-                                <dt>My role</dt>
-                                <dd>UX strategy and POC lead</dd>
+                                <dt>What I did</dt>
+                                <dd>Led UX strategy and the POC, turning an executive prompt into an explainable decision product.</dd>
                             </div>
                             <div>
-                                <dt>Design challenge</dt>
-                                <dd>Helping negotiators understand what changed, why it mattered, and which defensible action to take</dd>
+                                <dt>What changed</dt>
+                                <dd>In three weeks, validated the thesis, built the prototype, and prioritized the roadmap.</dd>
+                            </div>
+                            <div>
+                                <dt>What this proves</dt>
+                                <dd>I use prototyping and research to turn ambiguity into defensible product direction.</dd>
                             </div>
                         </dl>
                     </div>
@@ -446,23 +471,26 @@
 
                 <a href="cost-compass-redesign.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="content-engine-card-image" src="assets/cost-compass-card.png?v=20260825" alt="Cost Compass redesigned Move Transport analytics page preview">
+                        <img class="content-engine-card-image" src="assets/cost-compass-landing-card.png" alt="Cost Compass Move Transport opportunity workspace with cohort controls and opportunity levers">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
                             <span>04 / Cost Compass</span>
-                            <span>2 weeks</span>
+                            <span>Visual systems craft</span>
                         </div>
-                        <h2>Making a Dense Analytics Product Clear and Actionable</h2>
-                        <p class="portfolio-card-summary">Reframed an agency-led analytics screen with clearer hierarchy, stronger suite alignment, and more confident interaction patterns.</p>
+                        <h2>From a One-Off Analytics Concept to a Coherent Product Experience</h2>
                         <dl class="portfolio-card-details">
                             <div>
-                                <dt>My role</dt>
-                                <dd>Redesign lead and consulting-group design partner</dd>
+                                <dt>What I did</dt>
+                                <dd>Led a two-week redesign of hierarchy, navigation, controls, and data surfaces.</dd>
                             </div>
                             <div>
-                                <dt>Design challenge</dt>
-                                <dd>Visual judgment, tradeoffs, and suite alignment</dd>
+                                <dt>What changed</dt>
+                                <dd>Brought a dense agency concept into the clearer CTX system without changing the core workflow.</dd>
+                            </div>
+                            <div>
+                                <dt>What this proves</dt>
+                                <dd>Visual judgment and product-system consistency under real delivery constraints.</dd>
                             </div>
                         </dl>
                     </div>
