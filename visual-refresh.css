@@ -286,6 +286,61 @@ img {
     padding: 0.42rem 0.72rem;
 }
 
+.quick-signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.signal-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(31, 37, 35, 0.16);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--ink);
+    letter-spacing: 0.01em;
+}
+
+.signal-pill.is-featured {
+    border-color: rgba(31, 37, 35, 0.35);
+    background: var(--surface-soft);
+    font-weight: 600;
+}
+
+.metric-tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.5rem;
+}
+
+.metric-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.2;
+    padding: 0.28rem 0.6rem;
+    border-radius: 4px;
+    background: var(--surface-soft);
+    border: 1px solid rgba(31, 37, 35, 0.12);
+    color: var(--ink);
+    letter-spacing: 0.02em;
+}
+
+.metric-tag.google-tag {
+    border-color: rgba(31, 37, 35, 0.3);
+    background: #f0f4ff;
+    color: #1a3fb8;
+}
+
 .reveal-on-load,
 .reveal-on-scroll {
     opacity: 0;

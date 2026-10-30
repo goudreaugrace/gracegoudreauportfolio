@@ -132,7 +132,9 @@
         }
 
         .portfolio-card-media {
-            height: 205px;
+            aspect-ratio: 16 / 10;
+            width: 100%;
+            height: auto;
             overflow: hidden;
             border-bottom: 1px solid #d8dfdc;
             background: #f7f9fb;
@@ -142,12 +144,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top center;
             display: block;
         }
 
         .portfolio-card-media img.content-engine-card-image {
             object-fit: cover;
-            object-position: center top;
+            object-position: top center;
             background: #fff;
         }
 
@@ -364,36 +367,74 @@
                     </h1>
                 </div>
                 <p class="text-xl md:text-2xl leading-tight text-[#4f4f4f] max-w-[640px]">
-                    A curated view of product strategy, AI-enabled workflow design, enterprise decision systems, and visual craft across complex tools.
+                    A curated collection of flagship case studies demonstrating enterprise AI strategy, predictive systems architecture, human-in-the-loop workflows, and complex scale.
                 </p>
             </div>
         </header>
 
         <section class="mb-20 md:mb-28" aria-label="Featured case studies">
             <div class="featured-work-grid">
+                <a href="ai-scenario-modeling.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
+                        <img src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview co-developed with Google">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>01 / Google × PepsiCo Collaboration</span>
+                            <span>Lead UX & Systems</span>
+                        </div>
+                        <h2>Scenario Modeling Workspace</h2>
+                        <p class="portfolio-card-summary">Co-developed a predictive enterprise decision tool in direct partnership with Google, empowering US supply chain planners to simulate logistics and establishing the foundation for predictive AI modeling.</p>
+                        <div class="portfolio-card-proof">
+                            <span>Proof & Signals</span>
+                            <p>Direct Google co-design cadence, unified novice/power-user workspace, and foundational data loop for AI prediction.</p>
+                        </div>
+                        <div class="metric-tag-group">
+                            <span class="metric-tag google-tag">Google × PepsiCo Partner</span>
+                            <span class="metric-tag">Enterprise Supply Chain</span>
+                            <span class="metric-tag">AI-Ready Data Architecture</span>
+                        </div>
+                        <dl class="portfolio-card-details">
+                            <div>
+                                <dt>My role</dt>
+                                <dd>Lead UX, Systems IA, and Product Strategy</dd>
+                            </div>
+                            <div>
+                                <dt>Design challenge</dt>
+                                <dd>Enterprise Systems Architecture & Ambiguity</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </a>
+
                 <a href="atlas-decision-intelligence.html" class="portfolio-card">
                     <div class="portfolio-card-media">
                         <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>01 / AI product strategy</span>
-                            <span>3 weeks</span>
+                            <span>02 / AI Decision Strategy & Code POC</span>
+                            <span>UX Strategy Lead</span>
                         </div>
-                        <h2>3-Week Decision-Intelligence POC</h2>
-                        <p class="portfolio-card-summary">Led a fast AI product sprint from vague opportunity to working decision-intelligence POC, shaping the thesis, IA, and roadmap.</p>
+                        <h2>ATLAS Decision Intelligence</h2>
+                        <p class="portfolio-card-summary">Led UX strategy and functional code prototype for an AI negotiation engine, designing predictive buyer intelligence, scenario controls, and trust-first explainability for commercial teams.</p>
                         <div class="portfolio-card-proof">
-                            <span>Proof</span>
-                            <p>Working build, user-feedback loops, and prioritized roadmap choices.</p>
+                            <span>Proof & Signals</span>
+                            <p>Live Vercel code build, closed-loop decision architecture, and buyer memory prediction engine.</p>
+                        </div>
+                        <div class="metric-tag-group">
+                            <span class="metric-tag">Championed AI Workflow</span>
+                            <span class="metric-tag">Predictive Buyer Intelligence Loop</span>
+                            <span class="metric-tag">3-Week POC</span>
                         </div>
                         <dl class="portfolio-card-details">
                             <div>
                                 <dt>My role</dt>
-                                <dd>UX strategy and functional prototype lead</dd>
+                                <dd>UX Strategy, Prototyping Lead, and Systems IA</dd>
                             </div>
                             <div>
                                 <dt>Design challenge</dt>
-                                <dd>Ambiguity to product direction</dd>
+                                <dd>Decision Intelligence & Explainability under Pressure</dd>
                             </div>
                         </dl>
                     </div>
@@ -405,51 +446,28 @@
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>02 / AI workflow design</span>
-                            <span>POC</span>
+                            <span>03 / Multi-Agent AI Orchestration</span>
+                            <span>Self-Initiated Lead</span>
                         </div>
                         <h2>Content Operations Agent</h2>
-                        <p class="portfolio-card-summary">Self-initiated an AI content workflow POC that moved from manager pain point to executive validation and funding.</p>
+                        <p class="portfolio-card-summary">Self-initiated a multi-agent AI workflow POC that slashed localized content creation from 2–3 weeks to under 15 minutes, securing executive validation and funding for global enterprise rollout.</p>
                         <div class="portfolio-card-proof">
-                            <span>Proof</span>
-                            <p>Secured corporate funding for a centralized global rollout.</p>
+                            <span>Proof & Signals</span>
+                            <p>Slashed cycle time from 2–3 weeks to &lt;15 mins; secured corporate funding for centralized global deployment.</p>
+                        </div>
+                        <div class="metric-tag-group">
+                            <span class="metric-tag">2–3 Wks → &lt;15 Min Speedup</span>
+                            <span class="metric-tag">Funded Global Rollout</span>
+                            <span class="metric-tag">Human-in-the-Loop Pipeline</span>
                         </div>
                         <dl class="portfolio-card-details">
                             <div>
                                 <dt>My role</dt>
-                                <dd>Self-initiated product strategy and prototype</dd>
+                                <dd>Self-Initiated UX Strategy, Multi-Agent Architecture, and Prototype</dd>
                             </div>
                             <div>
                                 <dt>Design challenge</dt>
-                                <dd>Initiative, AI orchestration, and workflow clarity</dd>
-                            </div>
-                        </dl>
-                    </div>
-                </a>
-
-                <a href="ai-scenario-modeling.html" class="portfolio-card">
-                    <div class="portfolio-card-media">
-                        <img src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview">
-                    </div>
-                    <div class="portfolio-card-body">
-                        <div class="portfolio-card-meta">
-                            <span>03 / Enterprise decision systems</span>
-                            <span>Lead UX</span>
-                        </div>
-                        <h2>Scenario Modeling Workspace</h2>
-                        <p class="portfolio-card-summary">Led UX with Google and PepsiCo to turn fragmented GTM scenario planning into a governed workspace pattern.</p>
-                        <div class="portfolio-card-proof">
-                            <span>Proof</span>
-                            <p>Phase-one foundation for ownership, comparison, and future predictive modeling.</p>
-                        </div>
-                        <dl class="portfolio-card-details">
-                            <div>
-                                <dt>My role</dt>
-                                <dd>Lead UX, IA, and product strategy</dd>
-                            </div>
-                            <div>
-                                <dt>Design challenge</dt>
-                                <dd>Complex systems thinking and stakeholder alignment</dd>
+                                <dd>Proactive Leadership & Human-in-the-Loop AI Orchestration</dd>
                             </div>
                         </dl>
                     </div>
@@ -461,23 +479,28 @@
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>04 / Visual design</span>
-                            <span>2 weeks</span>
+                            <span>04 / Visual Hierarchy & Analytics</span>
+                            <span>2-Week Redesign</span>
                         </div>
                         <h2>Cost Compass Redesign</h2>
-                        <p class="portfolio-card-summary">Redesigned a dense agency-led analytics screen into a cleaner CTX direction with stronger hierarchy and suite alignment.</p>
+                        <p class="portfolio-card-summary">Redesigned a dense agency-led analytics screen into a cleaner enterprise direction with stronger hierarchy, opportunity levers, and suite alignment.</p>
                         <div class="portfolio-card-proof">
-                            <span>Proof</span>
-                            <p>Two-week redesign grounded in Scoping Pro and stakeholder readability issues.</p>
+                            <span>Proof & Signals</span>
+                            <p>Fast-turn redesign resolving CTX suite fragmentation, unclear opportunity levers, and cognitive load.</p>
+                        </div>
+                        <div class="metric-tag-group">
+                            <span class="metric-tag">Enterprise Analytics UI</span>
+                            <span class="metric-tag">Visual Hierarchy Overhaul</span>
+                            <span class="metric-tag">2-Week Sprint</span>
                         </div>
                         <dl class="portfolio-card-details">
                             <div>
                                 <dt>My role</dt>
-                                <dd>Redesign lead and consulting-group design partner</dd>
+                                <dd>Lead Redesign & Visual Architecture</dd>
                             </div>
                             <div>
                                 <dt>Design challenge</dt>
-                                <dd>Visual judgment, tradeoffs, and suite alignment</dd>
+                                <dd>Complex Analytics & Visual Scannability</dd>
                             </div>
                         </dl>
                     </div>
@@ -492,15 +515,15 @@
                     <h2 class="text-4xl md:text-[56px] leading-tight text-black">More product surfaces.</h2>
                 </div>
                 <p class="text-xl md:text-2xl leading-tight text-[#4f4f4f]">
-                    Supporting projects that show workflow design, analytics UX, ecommerce clarity, and how I use prototyping to ship polished work.
+                    Supporting projects that show operational workflow scale, analytics UX, ecommerce clarity, and prototyping craft.
                 </p>
             </div>
 
             <div class="additional-work-list">
                 <a href="order-management.html" class="additional-work-row">
                     <span class="work-number">05</span>
-                    <h3>Order Management</h3>
-                    <p>Clarified a fragmented order-change workflow from intake to tracking.</p>
+                    <h3>Global Order Monitoring</h3>
+                    <p>Scaled an end-to-end SAP order-tracking workflow across 5 European markets.</p>
                     <span class="work-arrow">&rarr;</span>
                 </a>
                 <a href="forecast-analysis.html" class="additional-work-row">
@@ -518,7 +541,7 @@
                 <a href="wonder-3d-prints.html" class="additional-work-row">
                     <span class="work-number">08</span>
                     <h3>Wonder 3D Prints</h3>
-                    <p>Improved ecommerce browsing clarity, trust signals, and checkout momentum.</p>
+                    <p>End-to-end consumer ecommerce and customized product ordering.</p>
                     <span class="work-arrow">&rarr;</span>
                 </a>
             </div>
@@ -537,6 +560,10 @@
                         LinkedIn
                     </a>
                 </div>
+            </div>
+            <div class="mt-12 pt-6 border-t border-[rgba(31,37,35,0.12)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-sm text-[#767676]">
+                <p>Made by Grace Goudreau &amp; Antigravity</p>
+                <p>© 2026</p>
             </div>
         </footer>
     </main>

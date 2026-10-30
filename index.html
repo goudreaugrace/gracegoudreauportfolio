@@ -109,7 +109,7 @@
         .home-shell {
             width: min(1271px, calc(100% - 2rem));
             margin: 0 auto;
-            padding-top: 5.5rem;
+            padding-top: 4.5rem;
         }
 
         .recruiter-chip {
@@ -168,7 +168,9 @@
 
         .portfolio-card-media {
             position: relative;
-            height: clamp(180px, 19vw, 248px);
+            aspect-ratio: 16 / 10;
+            width: 100%;
+            height: auto;
             overflow: hidden;
             border: 1px solid rgba(31, 37, 35, 0.12);
             background: #f8f8f6;
@@ -179,6 +181,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top center;
             display: block;
             transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
@@ -190,7 +193,7 @@
 
         .portfolio-card-media img.content-engine-card-image {
             object-fit: cover;
-            object-position: center top;
+            object-position: top center;
             background: #fff;
         }
 
@@ -510,42 +513,66 @@
     <!-- Main Container -->
     <div class="home-shell">
         <!-- Hero Section -->
-        <section class="mt-8 md:mt-12 mb-24 md:mb-32">
+        <section class="mt-6 md:mt-8 mb-12 md:mb-16">
             <div class="reveal-on-load">
-                <p class="section-kicker mb-5">Product Designer</p>
-                <h1 class="text-5xl md:text-6xl lg:text-[72px] leading-[1.04] text-black mb-6 max-w-[880px]">
-                    Clear product design for complex decisions.
+                <p class="section-kicker mb-4">Senior Product Designer — Enterprise AI & Complex Systems</p>
+                <h1 class="text-5xl md:text-6xl lg:text-[70px] leading-[1.04] text-black mb-5 max-w-[920px]">
+                    Designing decision intelligence and complex systems at scale.
                 </h1>
-                <p class="text-lg md:text-xl leading-[1.45] text-[#4f4f4f] max-w-[680px]">
-                    I turn ambiguous workflows into systems people can understand, trust, and move through with confidence.
+                <p class="text-lg md:text-xl leading-[1.45] text-[#4f4f4f] max-w-[720px]">
+                    I architect multi-agent AI workflows, predictive decision-support systems, and enterprise platforms—transforming deep operational ambiguity into high-trust digital experiences.
                 </p>
             </div>
         </section>
 
         <!-- Featured Work Section -->
-        <section id="featured-work" class="mb-28 md:mb-44 reveal-on-scroll">
-            <div class="featured-work-header">
+        <section id="featured-work" class="mb-28 md:mb-44">
+            <div class="featured-work-header reveal-on-load reveal-delay-1">
                 <div>
                     <p class="section-kicker mb-4">Selected case studies</p>
                     <h2 class="text-4xl md:text-[56px] leading-tight text-black">Work that shows how I think.</h2>
                 </div>
                 <p class="text-lg md:text-xl leading-[1.45] text-[#4f4f4f] max-w-[620px]">
-                    Four projects selected for product judgment, visual clarity, working prototypes, and measurable momentum.
+                    Four flagship projects selected for complex systems thinking, human-AI interaction design, working code prototypes, and measurable business impact.
                 </p>
             </div>
 
-            <div class="featured-work-grid" aria-label="Featured case studies">
+            <div class="featured-work-grid reveal-on-scroll" aria-label="Featured case studies">
+                <a href="ai-scenario-modeling.html" class="portfolio-card">
+                    <div class="portfolio-card-media">
+                        <img src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview co-developed with Google">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-meta">
+                            <span>01 / Google × PepsiCo Collaboration</span>
+                            <span>Lead UX & Systems</span>
+                        </div>
+                        <h3>Scenario Modeling Workspace</h3>
+                        <p class="portfolio-card-summary">Co-developed an enterprise decision tool in direct partnership with Google, empowering US supply chain planners to simulate logistics and establishing the foundation for predictive AI modeling.</p>
+                        <div class="metric-tag-group">
+                            <span class="metric-tag google-tag">Google × PepsiCo Partner</span>
+                            <span class="metric-tag">Enterprise Supply Chain</span>
+                            <span class="metric-tag">AI-Ready Data Architecture</span>
+                        </div>
+                    </div>
+                </a>
+
                 <a href="atlas-decision-intelligence.html" class="portfolio-card">
                     <div class="portfolio-card-media">
                         <img class="atlas-thumbnail-image" src="assets/atlas-case-study-thumbnail.png" alt="ATLAS negotiation command center interface with prioritized buying group alerts">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>01 / AI product strategy</span>
-                            <span>3 weeks</span>
+                            <span>02 / AI Decision Strategy & Code POC</span>
+                            <span>UX Strategy Lead</span>
                         </div>
-                        <h3>3-Week Decision-Intelligence POC</h3>
-                        <p class="portfolio-card-summary">Led a fast AI product sprint from vague opportunity to working decision-intelligence POC, shaping the thesis, IA, and roadmap.</p>
+                        <h3>ATLAS Decision Intelligence</h3>
+                        <p class="portfolio-card-summary">Led UX strategy and functional code prototype for an AI negotiation engine, designing predictive buyer intelligence, scenario controls, and trust-first explainability for commercial teams.</p>
+                        <div class="metric-tag-group">
+                            <span class="metric-tag">Championed AI Workflow</span>
+                            <span class="metric-tag">Predictive Buyer Intelligence Loop</span>
+                            <span class="metric-tag">3-Week POC</span>
+                        </div>
                     </div>
                 </a>
 
@@ -555,25 +582,16 @@
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>02 / AI workflow design</span>
-                            <span>POC</span>
+                            <span>03 / Multi-Agent AI Orchestration</span>
+                            <span>Self-Initiated Lead</span>
                         </div>
                         <h3>Content Operations Agent</h3>
-                        <p class="portfolio-card-summary">Self-initiated an AI content workflow POC that moved from manager pain point to executive validation and funding.</p>
-                    </div>
-                </a>
-
-                <a href="ai-scenario-modeling.html" class="portfolio-card">
-                    <div class="portfolio-card-media">
-                        <img src="gtm-scenario-workspace.png" alt="Scenario modeling workspace interface preview">
-                    </div>
-                    <div class="portfolio-card-body">
-                        <div class="portfolio-card-meta">
-                            <span>03 / Enterprise decision systems</span>
-                            <span>Lead UX</span>
+                        <p class="portfolio-card-summary">Self-initiated a multi-agent AI workflow POC that slashed localized content creation from 2–3 weeks to under 15 minutes, securing executive validation and funding for global enterprise rollout.</p>
+                        <div class="metric-tag-group">
+                            <span class="metric-tag">2–3 Wks → &lt;15 Mins</span>
+                            <span class="metric-tag">Funded Global Rollout</span>
+                            <span class="metric-tag">Human-in-the-Loop Pipeline</span>
                         </div>
-                        <h3>Scenario Modeling Workspace</h3>
-                        <p class="portfolio-card-summary">Led UX with Google and PepsiCo to turn fragmented GTM scenario planning into a governed workspace pattern.</p>
                     </div>
                 </a>
 
@@ -583,11 +601,16 @@
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
-                            <span>04 / Visual design</span>
-                            <span>2 weeks</span>
+                            <span>04 / Visual Hierarchy & Analytics</span>
+                            <span>2-Week Redesign</span>
                         </div>
                         <h3>Cost Compass Redesign</h3>
-                        <p class="portfolio-card-summary">Redesigned a dense agency-led analytics screen into a cleaner CTX direction with stronger hierarchy and suite alignment.</p>
+                        <p class="portfolio-card-summary">Redesigned a dense agency-led analytics screen into a cleaner enterprise direction with stronger hierarchy, opportunity levers, and suite alignment.</p>
+                        <div class="metric-tag-group">
+                            <span class="metric-tag">Enterprise Analytics UI</span>
+                            <span class="metric-tag">Visual Hierarchy Overhaul</span>
+                            <span class="metric-tag">2-Week Sprint</span>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -642,6 +665,10 @@
                         LinkedIn
                     </a>
                 </div>
+            </div>
+            <div class="mt-12 pt-6 border-t border-[rgba(31,37,35,0.12)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-sm text-[#767676]">
+                <p>Made by Grace Goudreau &amp; Antigravity</p>
+                <p>© 2026</p>
             </div>
         </footer>
     </div>
