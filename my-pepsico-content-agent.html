@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content Operations Agent - Grace Goudreau</title>
+    <title>Content Engine - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -792,6 +792,55 @@
             line-height: 1.35;
         }
 
+        .product-shot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .product-shot {
+            overflow: hidden;
+            border: 1px solid rgba(31, 37, 35, 0.14);
+            border-radius: 18px;
+            background: #fff;
+        }
+
+        .product-shot img { display: block; width: 100%; height: auto; }
+        .product-shot figcaption { padding: 1rem 1.15rem; border-top: 1px solid rgba(31, 37, 35, 0.12); }
+        .product-shot figcaption strong { display: block; font-size: 1.05rem; font-weight: 500; }
+        .product-shot figcaption span { color: #66706d; font-size: .88rem; }
+
+        .system-stack { display: grid; gap: .65rem; }
+        .system-layer {
+            display: grid;
+            grid-template-columns: minmax(170px, .65fr) minmax(0, 1.35fr);
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.15rem 1.35rem;
+            border: 1px solid #c7ccd2;
+            border-radius: 18px;
+            background: #fff;
+        }
+        .system-layer:nth-child(2), .system-layer:nth-child(4), .system-layer:nth-child(6) { background: #f7f9fb; }
+        .system-layer strong { font-size: 1rem; font-weight: 600; }
+        .system-layer span { color: #4f4f4f; line-height: 1.45; }
+
+        .authority-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+        .authority-card { padding: 1.5rem; border-radius: 24px; background: #f7f9fb; }
+        .authority-card:nth-child(2) { background: #eef4ff; }
+        .authority-card:nth-child(3) { background: #f1f7f1; }
+        .authority-card h3 { margin: .4rem 0 .75rem; font-size: 1.45rem; line-height: 1.15; }
+        .authority-card p { color: #4f4f4f; line-height: 1.5; }
+
+        .human-gates { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .5rem; }
+        .human-gate { padding: 1rem; border-top: 2px solid #315dff; background: #f7f9fb; }
+        .human-gate span { display: block; margin-bottom: .35rem; color: #315dff; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+
+        .evidence-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; overflow: hidden; border: 1px solid #c7ccd2; border-radius: 24px; background: #c7ccd2; }
+        .evidence-card { padding: 1.5rem; background: #fff; }
+        .evidence-card h3 { margin-bottom: .65rem; font-size: 1.35rem; line-height: 1.15; }
+        .evidence-card p { color: #4f4f4f; line-height: 1.45; }
+
         @media (min-width: 768px) {
             .agent-core {
                 grid-column: 1 / -1;
@@ -799,6 +848,11 @@
         }
 
         @media (max-width: 768px) {
+            .product-shot-grid,
+            .authority-grid,
+            .evidence-grid { grid-template-columns: 1fr; }
+            .system-layer { grid-template-columns: 1fr; gap: .35rem; }
+            .human-gates { grid-template-columns: 1fr; }
             .hamburger {
                 display: flex !important;
             }
@@ -832,13 +886,13 @@
                 <div>
                     <div class="preview-badge-row">
                         <span class="preview-pill">Protected Project Preview</span>
-                        <span class="preview-pill partner-pill">Multi-Agent AI Orchestration</span>
+                        <span class="preview-pill partner-pill">Governed AI Content Workflow</span>
                     </div>
-                    <h1 class="preview-title">Turning a 2–3 week article process into a 15-minute governed workflow.</h1>
-                    <p class="preview-lede">I self-initiated and designed an AI-assisted content operations POC, turning a manager pain point into an executive-validated and funded product for global enterprise rollout.</p>
+                    <h1 class="preview-title">Designing a governed AI workflow for enterprise content.</h1>
+                    <p class="preview-lede">I self-initiated, designed, built, and tested a proof of concept that connects source-led creation, deterministic controls, human review, and content governance.</p>
 
                     <div class="preview-teaser-frame">
-                        <img src="assets/my-pepsico-content-engine-ui.png?v=2" alt="MyPepsiCo Content Engine article creation interface with source upload and prompt controls" loading="eager">
+                        <img src="assets/content-engine-create-workspace.jpg" alt="Content Engine creation workspace with source upload and a guided conversation" loading="eager">
                     </div>
 
                     <div class="preview-metric-grid" aria-label="Project metrics">
@@ -848,15 +902,15 @@
                         </div>
                         <div class="preview-metric-card">
                             <span class="metric-label">Timeline</span>
-                            <span class="metric-value">4 Weeks to Validated POC</span>
+                            <span class="metric-value">3-Week Value Prototype</span>
                         </div>
                         <div class="preview-metric-card">
                             <span class="metric-label">Status</span>
-                            <span class="metric-value">Funded for Global Enterprise Rollout</span>
+                            <span class="metric-value">User-Tested POC</span>
                         </div>
                         <div class="preview-metric-card">
-                            <span class="metric-label">Measured Outcome</span>
-                            <span class="metric-value">2–3 Weeks → &lt;15 Mins / Article</span>
+                            <span class="metric-label">Outcome</span>
+                            <span class="metric-value">Shared Decision Artifact</span>
                         </div>
                     </div>
                 </div>
@@ -864,7 +918,7 @@
                 <aside class="preview-unlock-card" aria-labelledby="content-unlock-title">
                     <span class="unlock-status-badge">🔒 Confidential Project</span>
                     <h2 id="content-unlock-title" class="unlock-card-title">Explore Full Walkthrough</h2>
-                    <p class="unlock-card-desc">Enter password to view multi-agent orchestration architecture, prototype demo recordings, and governance gates.</p>
+                    <p class="unlock-card-desc">Enter the password to view the full product story, current interface designs, AI system layers, human authority model, and prototype boundaries.</p>
                     <form class="unlock-form" onsubmit="event.preventDefault(); checkPassword();">
                         <label for="password">Access Password</label>
                         <input type="password" id="password" class="unlock-input" placeholder="Enter password" autocomplete="current-password">
@@ -887,10 +941,10 @@
 
                 <section class="preview-section">
                     <p class="preview-section-kicker">My Role &amp; Ownership</p>
-                    <h2 class="preview-section-heading">I spotted the opportunity and built a working multi-agent prototype.</h2>
+                    <h2 class="preview-section-heading">I spotted the opportunity and built a working, user-tested prototype.</h2>
                     <div class="preview-body-text">
-                        <p>Hearing of the editorial bottleneck from program managers, I self-initiated the project—defining the product thesis, mapping the multi-agent orchestration model, and designing a functional conversational + structured prototype.</p>
-                        <p>I conducted research and feedback sessions with 9 corporate authors and managers, iteratively refining the agents' collaborative pipeline.</p>
+                        <p>Hearing of the workflow gap from program managers, I self-initiated the project—defining the product thesis, mapping the human–AI workflow, and designing a functional conversational and source-led prototype.</p>
+                        <p>Nine participants informed the direction through three interviews and four prototype feedback sessions.</p>
                     </div>
                 </section>
 
@@ -899,14 +953,14 @@
                     <h2 class="preview-section-heading">Human-in-the-loop governance over blind automation.</h2>
                     <div class="preview-decision-grid">
                         <div class="preview-decision-card">
-                            <span class="decision-number">01 / Specialized Agent Roles</span>
-                            <h3 class="decision-title">Specialized agent orchestration</h3>
-                            <p class="decision-description">Broken into distinct agent roles—Drafting, Compliance/Style Guide, and Metadata Tagging—rather than a single generic LLM prompt.</p>
+                            <span class="decision-number">01 / Hybrid Control Model</span>
+                            <h3 class="decision-title">Language intelligence plus deterministic rules</h3>
+                            <p class="decision-description">Language generation interprets and drafts, while required metadata, workflow states, and readiness checks stay predictable and testable.</p>
                         </div>
                         <div class="preview-decision-card">
                             <span class="decision-number">02 / Source Material Ingestion</span>
                             <h3 class="decision-title">Passive source document upload</h3>
-                            <p class="decision-description">Allowed authors to upload raw PDFs, decks, or notes, letting agents extract and structure drafts directly.</p>
+                            <p class="decision-description">Allowed authors to upload raw PDFs, decks, or notes so source context stays connected to the conversation and draft.</p>
                         </div>
                         <div class="preview-decision-card">
                             <span class="decision-number">03 / Human Supervisory Gates</span>
@@ -918,25 +972,25 @@
 
                 <section class="preview-section">
                     <p class="preview-section-kicker">Transformation</p>
-                    <h2 class="preview-section-heading">Drafting shifted from days of blank-page paralysis to minutes of editorial review.</h2>
+                    <h2 class="preview-section-heading">The concept became a realistic workflow people could evaluate.</h2>
                     <div class="preview-body-text">
-                        <p>Authors could input notes or documents, watch specialized agents research and synthesize drafts against brand criteria, and review compliant articles in under 15 minutes.</p>
+                        <p>Authors could add source material, clarify intent in conversation, review a draft, and move through human approval. Administrators could examine lifecycle and governance signals without allowing metrics to act on content automatically.</p>
                     </div>
                 </section>
             </div>
 
             <section class="preview-impact-banner" aria-labelledby="content-preview-impact">
-                <p class="impact-kicker">Measured Impact</p>
-                <h2 id="content-preview-impact" class="impact-headline">2–3 wks → &lt;15 mins</h2>
-                <p class="impact-desc">The working prototype validated that AI-assisted drafting could accelerate cycle time by over 90% while improving compliance with internal publication standards, securing corporate sponsorship and funding for centralized global deployment.</p>
+                <p class="impact-kicker">Demonstrated in the POC</p>
+                <h2 id="content-preview-impact" class="impact-headline">Working workflow → shared decision</h2>
+                <p class="impact-desc">The prototype made the interaction model, user roles, governance needs, and AI boundaries concrete. Funding, rollout, adoption, efficiency, and quality improvement remain outcomes for a future pilot to measure.</p>
             </section>
 
             <section class="preview-section mt-8">
                 <p class="preview-section-kicker">Core Competencies Demonstrated</p>
-                <h2 class="preview-section-heading">Zero-to-one AI product leadership and agentic system design.</h2>
+                <h2 class="preview-section-heading">Zero-to-one product leadership and governed AI system design.</h2>
                 <div class="preview-proof-list">
-                    <div class="preview-proof-item">Self-initiating high-impact AI innovation from user pain point to funded initiative</div>
-                    <div class="preview-proof-item">Designing multi-agent orchestration with human supervisory controls</div>
+                    <div class="preview-proof-item">Self-initiating an AI product opportunity from a recurring user problem</div>
+                    <div class="preview-proof-item">Defining AI, deterministic-rule, and human decision authority</div>
                     <div class="preview-proof-item">Balancing conversational generation with structured enterprise workflows</div>
                     <div class="preview-proof-item">Rapid iterative prototyping with real business stakeholders</div>
                 </div>
@@ -978,9 +1032,9 @@
                         <a href="#overview">Overview</a>
                         <a href="#origin">Story</a>
                         <a href="#problem">Problem</a>
-                        <a href="#workflow-delta">Workflow Delta</a>
+                        <a href="#workflow-delta">Workflow</a>
                         <a href="#system">POC</a>
-                        <a href="#architecture">Architecture</a>
+                        <a href="#architecture">AI System</a>
                         <a href="#decisions">Decisions</a>
                         <a href="#next">Next</a>
                     </div>
@@ -990,10 +1044,10 @@
             <header id="overview" class="mb-8 md:mb-10 scroll-mt-32">
                 <p class="text-sm md:text-base uppercase text-black mb-5">Product design + strategy / Exploratory POC</p>
                 <h1 class="text-5xl md:text-[76px] leading-[1.02] text-black max-w-[1060px]">
-                    Content Operations Agent
+                    Content Engine
                 </h1>
                 <p class="text-xl md:text-2xl leading-[1.35] text-black mt-5 md:mt-6 max-w-[820px]">
-                    I turned a manager pain point into a working AI workflow that earned executive validation and funding.
+                    I turned a recurring knowledge-creation problem into a working, user-tested proof of concept that made a governed AI workflow tangible enough to evaluate.
                 </p>
             </header>
 
@@ -1005,7 +1059,7 @@
                     </div>
                     <div>
                         <p class="text-sm uppercase text-black mb-1">Timeline</p>
-                        <p class="text-base md:text-lg text-black">3-week MVP</p>
+                        <p class="text-base md:text-lg text-black">3-week value prototype</p>
                     </div>
                     <div>
                         <p class="text-sm uppercase text-black mb-1">Stack</p>
@@ -1013,33 +1067,17 @@
                     </div>
                     <div>
                         <p class="text-sm uppercase text-black mb-1">Outcome</p>
-                        <p class="text-base md:text-lg text-black">Funded global rollout</p>
+                        <p class="text-base md:text-lg text-black">User-tested POC → next decision pending</p>
                     </div>
                 </div>
             </section>
 
             <section class="mb-16 md:mb-20" aria-label="AI content workflow POC demo">
                 <figure class="demo-media">
-                    <video
-                        autoplay
-                        class="agent-demo-video"
-                        controls
-                        loop
-                        muted
-                        playsinline
-                        preload="metadata"
-                        poster="assets/my-pepsico-content-engine-ui.png?v=2"
-                        aria-label="AI content workflow POC demo showing the seven-agent workflow moving around the core orchestrator."
-                    >
-                        <source src="assets/my-pepsico-agents-demo.mp4" type="video/mp4">
-                        <source src="assets/my-pepsico-agents-demo.mov" type="video/quicktime">
-                        Your browser does not support embedded video.
-                    </video>
+                    <img src="assets/content-engine-create-workspace.jpg" alt="Current Content Engine creation workspace combining source upload with a guided conversation" class="w-full h-auto">
                     <figcaption class="demo-media-caption">
-                        <p>
-                            Demo moment showing the POC's agent workflow in motion.
-                        </p>
-                        <span>Agent workflow demo</span>
+                        <p>Current creation workspace: source material stays visible beside a guided conversation, and generation begins only after the user provides enough context.</p>
+                        <span>Updated POC interface</span>
                     </figcaption>
                 </figure>
             </section>
@@ -1072,7 +1110,7 @@
                                 <p class="story-number">03</p>
                                 <div>
                                     <h3>I shaped the POC with real user context.</h3>
-                                    <p>I listened for where authors, reviewers, and content owners needed confidence: intake clarity, market-specific guidance, consistent language, compliance visibility, and a human decision point.</p>
+                                    <p>Across three interviews and four prototype feedback sessions, nine participants shaped where authors, reviewers, and content owners needed confidence: intake clarity, market-specific guidance, consistent language, compliance visibility, and a human decision point.</p>
                                 </div>
                             </article>
                             <article class="story-step">
@@ -1110,32 +1148,32 @@
             </section>
 
             <section id="workflow-delta" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Before vs. After</h2>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From fragmented work to one governed path</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                     <article class="border border-black p-6 md:p-8">
-                        <p class="text-sm uppercase text-black mb-4">Legacy framework</p>
-                        <p class="text-3xl md:text-4xl leading-tight text-black mb-6">2-3 weeks per article</p>
+                        <p class="text-sm uppercase text-black mb-4">Current-state pattern</p>
+                        <p class="text-3xl md:text-4xl leading-tight text-black mb-6">Manual coordination</p>
                         <ol class="space-y-3 text-base md:text-lg leading-[1.45] text-black">
                             <li>01 / Manual briefs</li>
                             <li>02 / Decentralized emails</li>
-                            <li>03 / Siloed market translation</li>
-                            <li>04 / Manual policy compliance review</li>
+                            <li>03 / Separate market adaptation</li>
+                            <li>04 / Manual standards review</li>
                         </ol>
                     </article>
                     <article class="border border-black p-6 md:p-8 section-soft">
-                        <p class="text-sm uppercase text-black mb-4">Orchestrated framework</p>
-                        <p class="text-3xl md:text-4xl leading-tight text-black mb-6">Under 15 minutes</p>
+                        <p class="text-sm uppercase text-black mb-4">POC workflow</p>
+                        <p class="text-3xl md:text-4xl leading-tight text-black mb-6">One governed path</p>
                         <ol class="space-y-3 text-base md:text-lg leading-[1.45] text-black">
-                            <li>01 / Unified intake</li>
-                            <li>02 / Parallel multi-agent validation</li>
-                            <li>03 / Single human-in-the-loop review pipeline</li>
+                            <li>01 / Intent and sources together</li>
+                            <li>02 / AI drafting plus deterministic checks</li>
+                            <li>03 / Visible human review and approval gates</li>
                         </ol>
                     </article>
                 </div>
                 <div class="border border-black p-6 md:p-8 mt-4 md:mt-6">
-                    <p class="text-sm uppercase text-black mb-4">Why it matters</p>
+                    <p class="text-sm uppercase text-black mb-4">Design hypothesis</p>
                     <p class="text-xl md:text-2xl leading-tight text-black max-w-[980px]">
-                        Framing the speedup next to the problem grounds the engineering and interaction decisions in business value: less coordination drag, faster market localization, and one clearer path from brief to review-ready article.
+                        Bringing intent, sources, drafting, checks, and review into one visible workflow could reduce coordination burden while making quality and decision authority easier to understand. A pilot would still need to measure whether that happens in practice.
                     </p>
                 </div>
             </section>
@@ -1148,71 +1186,80 @@
                         <p class="text-xl md:text-2xl leading-tight text-black">Capture the brief, sector, market, audience, and source context in one place.</p>
                     </div>
                     <div class="border border-black p-6 section-soft">
-                        <p class="text-sm uppercase text-black mb-4">Agent workflow</p>
-                        <p class="text-xl md:text-2xl leading-tight text-black">Draft, check, and revise content against market and compliance needs.</p>
+                        <p class="text-sm uppercase text-black mb-4">Language + controls</p>
+                        <p class="text-xl md:text-2xl leading-tight text-black">Use AI for interpretation and drafting while deterministic rules handle state, metadata, and readiness.</p>
                     </div>
                     <div class="border border-black p-6">
                         <p class="text-sm uppercase text-black mb-4">Human review</p>
                         <p class="text-xl md:text-2xl leading-tight text-black">Keep the final decision with the reviewer, with flags and rationale visible.</p>
                     </div>
                 </div>
-                <figure class="demo-media mt-8">
-                    <img 
-                        src="assets/my-pepsico-content-engine-ui.png?v=2" 
-                        alt="MyPepsiCo Content Engine article creation interface with source upload, contextual prompts, and structured generation controls"
-                        class="w-full h-auto border border-black shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
-                    >
-                    <figcaption class="demo-media-caption">
-                        <p>Working Content Engine UI: Article generation canvas with source document upload and structured prompt guidance.</p>
-                        <span>Interactive POC Interface</span>
-                    </figcaption>
-                </figure>
+                <div class="product-shot-grid mt-8" aria-label="Updated Content Engine interface designs">
+                    <figure class="product-shot">
+                        <img src="assets/content-engine-create-workspace.jpg" alt="Article creation workspace with sources and a guided conversation">
+                        <figcaption><strong>Create with sources in view</strong><span>Conversation and source upload share one workspace</span></figcaption>
+                    </figure>
+                    <figure class="product-shot">
+                        <img src="assets/content-engine-guided-conversation.jpg" alt="Guided article conversation after a user describes the employee need">
+                        <figcaption><strong>Confirm intent before drafting</strong><span>The workflow clarifies the brief instead of guessing</span></figcaption>
+                    </figure>
+                    <figure class="product-shot">
+                        <img src="assets/content-engine-article-metadata.jpg" alt="Article metadata and search settings">
+                        <figcaption><strong>Keep metadata digestible</strong><span>Operational context stays secondary to the article</span></figcaption>
+                    </figure>
+                    <figure class="product-shot">
+                        <img src="assets/content-engine-performance-signals.jpg" alt="Published article performance signals">
+                        <figcaption><strong>Use performance as evidence</strong><span>Search and audience patterns inform a human decision</span></figcaption>
+                    </figure>
+                    <figure class="product-shot">
+                        <img src="assets/content-engine-governance-insights.jpg" alt="Governance Center insights showing content demand gaps">
+                        <figcaption><strong>Govern the whole system</strong><span>Administrators can prioritize demand gaps and lifecycle risk</span></figcaption>
+                    </figure>
+                </div>
             </section>
 
             <section id="architecture" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The Multi-Agent Architecture</h2>
+                <p class="text-sm uppercase text-[#315dff] mb-3">AI system design</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">A governed workflow, not an autonomous black box.</h2>
                 <div class="space-y-10 md:space-y-12">
-                    <div>
-                        <p class="text-2xl md:text-3xl leading-tight text-black max-w-[920px]">
-                            I architected the interaction model around a visible orchestrator, giving human authors transparent control over modular AI sub-processes instead of hiding automation inside a black box.
-                        </p>
+                    <p class="text-xl md:text-2xl leading-tight text-black max-w-[980px]">I designed the AI layer as one part of a larger content system. Language generation handles interpretation and drafting; deterministic controls handle state and required rules; people retain authority over facts, exceptions, approval, and publication.</p>
+
+                    <div class="system-stack" aria-label="Content Engine AI system layers">
+                        <div class="system-layer"><strong>1 · Experience layer</strong><span>Source upload, guided conversation, article workspace, review, and governance views.</span></div>
+                        <div class="system-layer"><strong>2 · Workflow controller</strong><span>Moves work through intake, clarification, drafting, revision, approval, and publication states.</span></div>
+                        <div class="system-layer"><strong>3 · Context and grounding</strong><span>Combines user intent, source material, audience, market, and organizational standards.</span></div>
+                        <div class="system-layer"><strong>4 · Language intelligence</strong><span>Interprets requests, proposes structure, drafts, revises, localizes, and explains suggestions.</span></div>
+                        <div class="system-layer"><strong>5 · Deterministic controls</strong><span>Checks required metadata, status transitions, readiness, duplication, and lifecycle signals.</span></div>
+                        <div class="system-layer"><strong>6 · Human authority</strong><span>Confirms the brief, resolves findings, approves exceptions, and decides what becomes canonical.</span></div>
+                        <div class="system-layer"><strong>7 · Canonical article and signals</strong><span>Publishes the approved version, then returns performance and governance evidence for future review.</span></div>
                     </div>
+
+                    <div class="authority-grid" aria-label="Authority model">
+                        <article class="authority-card"><p class="text-sm uppercase text-[#315dff]">AI can</p><h3>Generate language and options</h3><p>Interpret a brief, organize source material, draft, revise, localize, and explain why it made a suggestion.</p></article>
+                        <article class="authority-card"><p class="text-sm uppercase text-[#315dff]">Rules control</p><h3>Enforce predictable workflow</h3><p>Required fields, article state, readiness checks, review dates, and duplicate or staleness signals stay deterministic.</p></article>
+                        <article class="authority-card"><p class="text-sm uppercase text-[#315dff]">People decide</p><h3>Own truth and publication</h3><p>Humans select sources, verify facts, resolve exceptions, approve the article, and act on performance or governance signals.</p></article>
+                    </div>
+
                     <div>
-                        <div class="agent-architecture-map">
-                            <div class="agent-core">
-                                <p>Core Orchestrator</p>
-                                <p>Coordinates the agent sequence, preserves handoffs, and keeps the author aware of what is happening at each step.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Intake</p>
-                                <p>Checks that the brief has the minimum context needed to begin.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Clarifier</p>
-                                <p>Surfaces missing details before the system commits to generation.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Router</p>
-                                <p>Directs the request to the right sector, market, audience, and source logic.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Market</p>
-                                <p>Adapts content against local conventions, language, and operating context.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Compliance</p>
-                                <p>Flags policy-sensitive content so reviewers can see risk before publication.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Revision</p>
-                                <p>Turns critique into an updated draft while preserving reviewer intent.</p>
-                            </div>
-                            <div class="agent-node">
-                                <p>Translation</p>
-                                <p>Prepares localized variants once the source content is approved.</p>
-                            </div>
+                        <p class="text-sm uppercase text-black mb-4">Human gates</p>
+                        <div class="human-gates">
+                            <div class="human-gate"><span>Gate 1</span>Confirm the brief</div>
+                            <div class="human-gate"><span>Gate 2</span>Review the draft</div>
+                            <div class="human-gate"><span>Gate 3</span>Resolve findings</div>
+                            <div class="human-gate"><span>Gate 4</span>Approve publication</div>
+                            <div class="human-gate"><span>Gate 5</span>Act on lifecycle signals</div>
                         </div>
                     </div>
+
+                    <div>
+                        <p class="text-sm uppercase text-black mb-4">Prototype boundaries</p>
+                        <div class="evidence-grid">
+                            <article class="evidence-card"><h3>Demonstrated in the POC</h3><p>Source-led creation, guided conversation, role-based workflows, article metadata, performance views, and governance views.</p></article>
+                            <article class="evidence-card"><h3>Simulated or partial</h3><p>Generated responses, some workflow transitions, analytics data, and policy checks use prototype logic or mock data.</p></article>
+                            <article class="evidence-card"><h3>Defined for production</h3><p>Source retrieval and citations, identity and permissions, durable audit history, model monitoring, integrations, and measurable evaluations.</p></article>
+                        </div>
+                    </div>
+
                     <figure class="demo-media">
                         <video
                             autoplay
@@ -1222,7 +1269,7 @@
                             muted
                             playsinline
                             preload="metadata"
-                            aria-label="AI content workflow POC demo showing the POC moving from brief to reviewed article."
+                            aria-label="Early AI content workflow POC moving from brief to reviewed article."
                         >
                             <source src="assets/my-pepsico-poc-review-demo.mp4" type="video/mp4">
                             <source src="assets/my-pepsico-poc-review-demo.mov" type="video/quicktime">
@@ -1230,141 +1277,36 @@
                         </video>
                         <figcaption class="demo-media-caption">
                             <p>
-                                Demo clip showing the POC moving from brief to review-ready content.
+                                Early workflow demo showing the POC moving from brief to review-ready content. The current system model separates language intelligence, deterministic controls, and human authority.
                             </p>
-                            <span>POC review demo / 2x</span>
+                            <span>Early POC review demo / 2x</span>
                         </figcaption>
                     </figure>
                 </div>
             </section>
 
             <section id="decisions" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Key Product Decisions</h2>
-                <div class="space-y-8">
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8 section-soft">
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-[#315dff] mb-3">01 / Permission model</p>
-                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Separate admin governance from author workflows</h3>
-                        </div>
-                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Problem</p>
-                                <p>A single view mixed enterprise governance with everyday article management.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Move</p>
-                                <p>Split the experience by permission level: admins get system-wide controls; writers and managers get focused ownership tools.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Result</p>
-                                <p>Each role sees the right scope without extra operational noise.</p>
-                            </div>
-                            <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="border border-black p-4 bg-white">
-                                    <p class="text-sm uppercase text-black mb-2">Admin view</p>
-                                    <p>Monitor article health, spot stale or low-performing content, and alert owners to review, update, consolidate, or remove.</p>
-                                </div>
-                                <div class="border border-black p-4 bg-white">
-                                    <p class="text-sm uppercase text-black mb-2">Non-admin view</p>
-                                    <p>Manage owned and direct-report articles, track stale reviews, filter by owner/status, transfer ownership, and make updates.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8">
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-[#315dff] mb-3">02 / IA model</p>
-                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Sector before market, not market alone</h3>
-                        </div>
-                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Problem</p>
-                                <p>Design conversations made it clear that market-only organization ignored how content ownership actually works.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Move</p>
-                                <p>Made sector the primary organizing tier across profiles, filters, and articles.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Result</p>
-                                <p>Authors choose "PFNA → United States," so the POC feels specific to PepsiCo's operating model.</p>
-                            </div>
-                            <div class="md:col-span-3 border border-black p-4 section-soft">
-                                <p class="text-sm uppercase text-black mb-2">Technical Alignment</p>
-                                <p>Ensured data indexing paths match PepsiCo's operational hierarchy, mapping API calls directly to sector boundaries.</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8 section-soft">
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-[#315dff] mb-3">03 / Workflow surface</p>
-                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Merge review queue into content library</h3>
-                        </div>
-                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Problem</p>
-                                <p>Users needed to understand what was in progress, what needed attention, and what was already live.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Move</p>
-                                <p>Collapsed review and library into one All Articles surface with three tabs.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Result</p>
-                                <p>Reviewers and authors can move between work-in-progress and live content without losing context.</p>
-                            </div>
-                            <div class="md:col-span-3 border border-black p-4 bg-white">
-                                <p class="text-sm uppercase text-black mb-2">Technical Alignment</p>
-                                <p>Optimized state management in React to prevent rendering lag when toggling between dense, real-time localized dataset tables.</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8">
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-[#315dff] mb-3">04 / Grounding model</p>
-                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Sources as profile data, not per-article attachments</h3>
-                        </div>
-                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Problem</p>
-                                <p>Repeated source setup would make the POC feel slower than the workflow it was meant to improve.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Move</p>
-                                <p>Put sources on sector, market, and audience profiles instead.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Result</p>
-                                <p>Grounding follows ownership: PFNA sources guide PFNA content; US sources guide US procedures.</p>
-                            </div>
-                            <div class="md:col-span-3 border border-black p-4 section-soft">
-                                <p class="text-sm uppercase text-black mb-2">Technical Alignment</p>
-                                <p>Caching system data globally on sector profiles drastically reduced payload sizes and context-window token overhead for subsequent Claude API inference cycles.</p>
-                            </div>
-                        </div>
-                    </article>
-
+                <p class="text-sm uppercase text-[#315dff] mb-3">Key product decisions</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The decisions that made the AI trustworthy.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <article class="authority-card"><p class="text-sm uppercase text-[#315dff]">01 / Entry point</p><h3>Conversation plus sources, not a blank prompt</h3><p>The workspace asks what employees need to know or do and keeps source material visible, giving the model context while preserving user control over evidence.</p></article>
+                    <article class="authority-card"><p class="text-sm uppercase text-[#315dff]">02 / Control model</p><h3>Separate probabilistic language from deterministic rules</h3><p>AI can propose language and structure. Required metadata, workflow state, review dates, and readiness checks remain predictable and testable.</p></article>
+                    <article class="authority-card"><p class="text-sm uppercase text-[#315dff]">03 / Authority</p><h3>Put human gates before canonical publication</h3><p>The system can recommend and explain, but a person verifies facts, resolves exceptions, approves the result, and decides when it becomes the source of truth.</p></article>
+                    <article class="authority-card"><p class="text-sm uppercase text-[#315dff]">04 / Lifecycle</p><h3>Treat performance and governance as evidence</h3><p>Search patterns, audience signals, staleness, and demand gaps surface where attention may be needed. They inform a human decision rather than silently editing content.</p></article>
                 </div>
             </section>
 
             <section id="next" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Outcome + What's Next</h2>
+                <p class="text-sm uppercase text-[#315dff] mb-3">Evidence and next steps</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">What the POC established—and what it did not.</h2>
+                <div class="evidence-grid mb-8">
+                    <article class="evidence-card"><h3>A coherent product model</h3><p>The POC connects source-led creation, human review, article management, performance, and governance in one realistic experience.</p></article>
+                    <article class="evidence-card"><h3>What a pilot should measure</h3><p>Time to a reviewable draft, correction burden, reviewer agreement, source coverage, exception rates, and user confidence.</p></article>
+                    <article class="evidence-card"><h3>What production still needs</h3><p>Retrieval and citations, identity, integrations, audit history, model monitoring, and formal evaluations.</p></article>
+                </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-                    <div class="border border-black p-6 md:p-8 section-soft">
-                        <p class="text-sm uppercase text-black mb-5">Current outcome</p>
-                        <p class="text-2xl md:text-3xl leading-tight text-black">
-                            The functional proof-of-concept passed executive validation and secured corporate funding for a centralized global rollout.
-                        </p>
-                    </div>
-                    <div class="border border-black p-6 md:p-8">
-                        <p class="text-sm uppercase text-black mb-5">Next validation</p>
-                        <p class="text-2xl md:text-3xl leading-tight text-black">
-                            Architecting the phase-one production pipeline, establishing LLM evaluation metrics for market-specific compliance accuracy, and kickstarting engineering integration.
-                        </p>
-                    </div>
+                    <div class="border border-black p-6 md:p-8 section-soft"><p class="text-sm uppercase text-black mb-5">What I can claim</p><p class="text-2xl md:text-3xl leading-tight text-black">I designed, built, and iterated a working prototype informed by user interviews and feedback sessions. It made the system, roles, and risks concrete.</p></div>
+                    <div class="border border-black p-6 md:p-8"><p class="text-sm uppercase text-black mb-5">What remains open</p><p class="text-2xl md:text-3xl leading-tight text-black">Funding, pilot timing, production adoption, operational savings, and quality improvements are not measured outcomes of this prototype.</p></div>
                 </div>
             </section>
 
