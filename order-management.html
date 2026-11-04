@@ -8,11 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Instrument Sans', sans-serif;
-            font-variation-settings: 'wdth' 100;
+            font-family: 'Google Sans', 'Google Sans Text', sans-serif;
         }
 
         .password-container {
@@ -22,8 +21,20 @@
             min-height: 100vh;
         }
 
+        #passwordScreen.hidden,
+        .password-container.hidden,
+        .password-container[style*="display: none"],
+        .password-container[style*="display:none"] {
+            display: none !important;
+        }
+
         .content-container {
             display: none;
+        }
+
+        #mainContent.revealed,
+        .content-container.revealed {
+            display: block !important;
         }
 
         .password-input {
@@ -250,23 +261,23 @@
             <h1 class="text-4xl md:text-5xl tracking-[-0.5px] text-black mb-4 text-center">Order Management</h1>
             <p class="text-lg tracking-[-0.5px] text-[#767676] mb-8 text-center">This project is password protected</p>
             
-            <div class="border border-black p-8">
+            <form class="border border-black p-8" onsubmit="event.preventDefault(); checkPassword();">
                 <label for="password" class="block text-lg tracking-[-0.5px] text-black mb-3">Enter Password</label>
                 <input 
                     type="password" 
                     id="password" 
                     class="password-input w-full border border-black px-4 py-3 text-lg tracking-[-0.5px] text-black mb-4"
                     placeholder="Password"
-                    onkeypress="if(event.key === 'Enter') checkPassword()"
+                    autocomplete="current-password"
                 >
                 <div id="errorMessage" class="error-message hidden">Incorrect password. Please try again.</div>
                 <button 
-                    onclick="checkPassword()" 
+                    type="submit" 
                     class="submit-button w-full border border-black bg-white px-4 py-3 mt-4"
                 >
                     <span class="text-lg tracking-[-0.5px] text-black">Submit</span>
                 </button>
-            </div>
+            </form>
 
             <div class="text-center mt-8">
                 <a href="index.html" class="text-lg tracking-[-0.5px] text-[#767676] hover:text-black transition-colors">← Back to Portfolio</a>
@@ -671,7 +682,10 @@
             menu.classList.toggle('active');
         }
 
-        // Check if user already authenticated in this session
+        if (window.location.search.includes('lock=true')) {
+            sessionStorage.removeItem('authenticated');
+        }
+
         if (sessionStorage.getItem('authenticated') === 'true') {
             showContent();
         }
@@ -679,20 +693,36 @@
         function checkPassword() {
             const input = document.getElementById('password');
             const errorMessage = document.getElementById('errorMessage');
-            
-            if (input.value === correctPassword) {
+            if (!input) return;
+
+            const entered = (input.value || '').trim();
+            if (entered.toLowerCase() === correctPassword.toLowerCase()) {
                 sessionStorage.setItem('authenticated', 'true');
+                if (errorMessage) errorMessage.classList.add('hidden');
                 showContent();
             } else {
-                errorMessage.classList.remove('hidden');
+                if (errorMessage) errorMessage.classList.remove('hidden');
                 input.value = '';
                 input.focus();
             }
         }
 
         function showContent() {
-            document.getElementById('passwordScreen').style.display = 'none';
-            document.getElementById('mainContent').style.display = 'block';
+            const passwordScreen = document.getElementById('passwordScreen');
+            const mainContent = document.getElementById('mainContent');
+            if (passwordScreen) {
+                passwordScreen.style.setProperty('display', 'none', 'important');
+                passwordScreen.style.display = 'none';
+                passwordScreen.classList.add('hidden');
+                passwordScreen.setAttribute('aria-hidden', 'true');
+            }
+            if (mainContent) {
+                mainContent.style.setProperty('display', 'block', 'important');
+                mainContent.style.display = 'block';
+                mainContent.classList.remove('hidden');
+                mainContent.classList.add('revealed');
+                mainContent.removeAttribute('aria-hidden');
+            }
         }
     </script>
     <script src="assets/case-study-nav.js"></script>

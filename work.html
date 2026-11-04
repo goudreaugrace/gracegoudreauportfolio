@@ -8,15 +8,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         html {
             overflow-x: hidden;
         }
 
         body {
-            font-family: 'Instrument Sans', sans-serif;
-            font-variation-settings: 'wdth' 100;
+            font-family: 'Google Sans', 'Google Sans Text', sans-serif;
             overflow-x: hidden;
             max-width: 100vw;
         }
@@ -88,8 +87,7 @@
         .work-page-shell {
             width: min(1271px, calc(100% - 2rem));
             margin: 0 auto;
-            padding-top: 5rem;
-            overflow: hidden;
+            padding-top: 4.5rem;
         }
 
         .work-intro {
@@ -102,22 +100,29 @@
 
         .featured-work-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: 1fr;
+            gap: 0;
             min-width: 0;
             width: 100%;
             max-width: 100%;
+            border-top: 1px solid rgba(31, 37, 35, 0.14);
         }
 
         .portfolio-card {
-            border: 1px solid #d8dfdc;
+            border: 0;
+            border-bottom: 1px solid rgba(31, 37, 35, 0.14);
             text-decoration: none;
             color: inherit;
-            display: flex;
-            flex-direction: column;
-            min-height: 520px;
-            background: #fff;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            display: grid;
+            grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+            gap: clamp(1.5rem, 4vw, 4rem);
+            align-items: center;
+            min-height: 0;
+            background: transparent;
+            border-radius: 0;
+            overflow: visible;
+            padding: clamp(1.65rem, 3.5vw, 3rem) 0;
+            transition: color 0.2s ease;
             min-width: 0;
             max-width: 100%;
         }
@@ -128,16 +133,19 @@
 
         .portfolio-card:hover {
             transform: none;
-            border-color: #1f2523;
+            border-color: rgba(31, 37, 35, 0.14);
+            box-shadow: none;
         }
 
         .portfolio-card-media {
+            position: relative;
             aspect-ratio: 16 / 10;
             width: 100%;
             height: auto;
             overflow: hidden;
-            border-bottom: 1px solid #d8dfdc;
-            background: #f7f9fb;
+            border: 1px solid rgba(31, 37, 35, 0.12);
+            background: #f8f8f6;
+            border-radius: 4px;
         }
 
         .portfolio-card-media img {
@@ -146,6 +154,12 @@
             object-fit: cover;
             object-position: top center;
             display: block;
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .portfolio-card:hover .portfolio-card-media img {
+            transform: scale(1.018);
+            filter: saturate(1.02);
         }
 
         .portfolio-card-media img.content-engine-card-image {
@@ -162,8 +176,8 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            padding: 1.5rem;
+            gap: 0.75rem;
+            padding: 0;
             min-width: 0;
         }
 
@@ -174,13 +188,13 @@
             font-size: 0.8rem;
             line-height: 1.2;
             text-transform: uppercase;
-            color: #66706d;
+            color: #7b817f;
         }
 
         .portfolio-card h2,
         .portfolio-card h3 {
-            font-size: clamp(1.9rem, 3.4vw, 2.85rem);
-            line-height: 1;
+            font-size: clamp(1.75rem, 3vw, 2.75rem);
+            line-height: 1.04;
             color: #111;
             overflow-wrap: anywhere;
             word-break: break-word;
@@ -191,35 +205,11 @@
 
         .portfolio-card-summary {
             font-size: 1.05rem;
-            line-height: 1.42;
+            line-height: 1.5;
             color: #4f4f4f;
-            max-width: 34rem;
+            max-width: 44rem;
             min-width: 0;
             overflow-wrap: anywhere;
-            max-width: 100%;
-        }
-
-        .portfolio-card-details {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #d8dfdc;
-            margin-top: auto;
-        }
-
-        .portfolio-card-details dt {
-            font-size: 0.72rem;
-            line-height: 1.2;
-            text-transform: uppercase;
-            color: #66706d;
-            margin-bottom: 0.35rem;
-        }
-
-        .portfolio-card-details dd {
-            font-size: 0.95rem;
-            line-height: 1.35;
-            color: #1f2523;
         }
 
         .additional-work-list {
@@ -288,6 +278,8 @@
             }
 
             .portfolio-card {
+                grid-template-columns: 1fr;
+                gap: 1rem;
                 min-height: auto;
                 width: 100%;
             }
@@ -309,10 +301,6 @@
             .portfolio-card-summary {
                 font-size: 0.96rem;
                 line-height: 1.38;
-            }
-
-            .portfolio-card-details {
-                grid-template-columns: 1fr;
             }
 
             .additional-work-row {
@@ -384,26 +372,12 @@
                             <span>Lead UX & Systems</span>
                         </div>
                         <h2>Scenario Modeling Workspace</h2>
-                        <p class="portfolio-card-summary">Co-developed a predictive enterprise decision tool in direct partnership with Google, empowering US supply chain planners to simulate logistics and establishing the foundation for predictive AI modeling.</p>
-                        <div class="portfolio-card-proof">
-                            <span>Proof & Signals</span>
-                            <p>Direct Google co-design cadence, unified novice/power-user workspace, and foundational data loop for AI prediction.</p>
-                        </div>
+                        <p class="portfolio-card-summary">Co-developed an enterprise decision tool in direct partnership with Google, empowering US supply chain planners to simulate logistics and establishing the foundation for predictive AI modeling.</p>
                         <div class="metric-tag-group">
                             <span class="metric-tag google-tag">Google × PepsiCo Partner</span>
                             <span class="metric-tag">Enterprise Supply Chain</span>
                             <span class="metric-tag">AI-Ready Data Architecture</span>
                         </div>
-                        <dl class="portfolio-card-details">
-                            <div>
-                                <dt>My role</dt>
-                                <dd>Lead UX, Systems IA, and Product Strategy</dd>
-                            </div>
-                            <div>
-                                <dt>Design challenge</dt>
-                                <dd>Enterprise Systems Architecture & Ambiguity</dd>
-                            </div>
-                        </dl>
                     </div>
                 </a>
 
@@ -418,31 +392,17 @@
                         </div>
                         <h2>ATLAS Decision Intelligence</h2>
                         <p class="portfolio-card-summary">Led UX strategy and functional code prototype for an AI negotiation engine, designing predictive buyer intelligence, scenario controls, and trust-first explainability for commercial teams.</p>
-                        <div class="portfolio-card-proof">
-                            <span>Proof & Signals</span>
-                            <p>Live Vercel code build, closed-loop decision architecture, and buyer memory prediction engine.</p>
-                        </div>
                         <div class="metric-tag-group">
                             <span class="metric-tag">Championed AI Workflow</span>
                             <span class="metric-tag">Predictive Buyer Intelligence Loop</span>
                             <span class="metric-tag">3-Week POC</span>
                         </div>
-                        <dl class="portfolio-card-details">
-                            <div>
-                                <dt>My role</dt>
-                                <dd>UX Strategy, Prototyping Lead, and Systems IA</dd>
-                            </div>
-                            <div>
-                                <dt>Design challenge</dt>
-                                <dd>Decision Intelligence & Explainability under Pressure</dd>
-                            </div>
-                        </dl>
                     </div>
                 </a>
 
                 <a href="my-pepsico-content-agent.html" class="portfolio-card">
                     <div class="portfolio-card-media">
-                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-card.png" alt="MyPepsiCo content engine workflow showing submit, agents work, and review stages">
+                        <img class="content-engine-card-image" src="assets/my-pepsico-content-engine-ui.png?v=2" alt="MyPepsiCo Content Engine article creation interface with source upload and prompt controls">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-meta">
@@ -451,25 +411,11 @@
                         </div>
                         <h2>Content Operations Agent</h2>
                         <p class="portfolio-card-summary">Self-initiated a multi-agent AI workflow POC that slashed localized content creation from 2–3 weeks to under 15 minutes, securing executive validation and funding for global enterprise rollout.</p>
-                        <div class="portfolio-card-proof">
-                            <span>Proof & Signals</span>
-                            <p>Slashed cycle time from 2–3 weeks to &lt;15 mins; secured corporate funding for centralized global deployment.</p>
-                        </div>
                         <div class="metric-tag-group">
-                            <span class="metric-tag">2–3 Wks → &lt;15 Min Speedup</span>
+                            <span class="metric-tag">2–3 Wks → &lt;15 Mins</span>
                             <span class="metric-tag">Funded Global Rollout</span>
                             <span class="metric-tag">Human-in-the-Loop Pipeline</span>
                         </div>
-                        <dl class="portfolio-card-details">
-                            <div>
-                                <dt>My role</dt>
-                                <dd>Self-Initiated UX Strategy, Multi-Agent Architecture, and Prototype</dd>
-                            </div>
-                            <div>
-                                <dt>Design challenge</dt>
-                                <dd>Proactive Leadership & Human-in-the-Loop AI Orchestration</dd>
-                            </div>
-                        </dl>
                     </div>
                 </a>
 
@@ -484,25 +430,11 @@
                         </div>
                         <h2>Cost Compass Redesign</h2>
                         <p class="portfolio-card-summary">Redesigned a dense agency-led analytics screen into a cleaner enterprise direction with stronger hierarchy, opportunity levers, and suite alignment.</p>
-                        <div class="portfolio-card-proof">
-                            <span>Proof & Signals</span>
-                            <p>Fast-turn redesign resolving CTX suite fragmentation, unclear opportunity levers, and cognitive load.</p>
-                        </div>
                         <div class="metric-tag-group">
                             <span class="metric-tag">Enterprise Analytics UI</span>
                             <span class="metric-tag">Visual Hierarchy Overhaul</span>
                             <span class="metric-tag">2-Week Sprint</span>
                         </div>
-                        <dl class="portfolio-card-details">
-                            <div>
-                                <dt>My role</dt>
-                                <dd>Lead Redesign & Visual Architecture</dd>
-                            </div>
-                            <div>
-                                <dt>Design challenge</dt>
-                                <dd>Complex Analytics & Visual Scannability</dd>
-                            </div>
-                        </dl>
                     </div>
                 </a>
             </div>
