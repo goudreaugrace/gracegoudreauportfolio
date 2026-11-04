@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content Operations Agent - Grace Goudreau</title>
+    <title>Content Engine - Grace Goudreau</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1036,6 +1036,95 @@
         .roadmap-stage h3 { font-size: clamp(1.5rem, 2.5vw, 2.25rem); line-height: 1.1; margin-bottom: .8rem; }
         .roadmap-stage p { color: #4f4f4f; line-height: 1.45; }
 
+        .case-shot {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid #d8dde2;
+            background: #f7f9fb;
+        }
+
+        .case-shot-button {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            cursor: zoom-in;
+        }
+
+        .case-shot-button:focus-visible {
+            outline: 3px solid #315dff;
+            outline-offset: 4px;
+        }
+
+        .system-stack {
+            display: grid;
+            gap: .65rem;
+            margin-top: 2rem;
+        }
+
+        .system-layer {
+            display: grid;
+            grid-template-columns: minmax(160px, .65fr) minmax(0, 1.35fr);
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.15rem 1.35rem;
+            border: 1px solid #c7ccd2;
+            border-radius: 18px;
+            background: #fff;
+        }
+
+        .system-layer:nth-child(2),
+        .system-layer:nth-child(4),
+        .system-layer:nth-child(6) { background: #f7f9fb; }
+
+        .system-layer strong { font-size: 1rem; font-weight: 600; }
+        .system-layer span { color: #4f4f4f; line-height: 1.45; }
+
+        .authority-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .authority-card {
+            min-height: 100%;
+            padding: 1.5rem;
+            border-radius: 24px;
+            background: #f7f9fb;
+        }
+
+        .authority-card:nth-child(2) { background: #eef4ff; }
+        .authority-card:nth-child(3) { background: #f1f7f1; }
+        .authority-card h3 { margin-bottom: .75rem; font-size: 1.45rem; line-height: 1.15; }
+        .authority-card p { color: #4f4f4f; line-height: 1.5; }
+
+        .human-gates {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: .5rem;
+            margin-top: 1.5rem;
+        }
+
+        .human-gate { padding: 1rem; border-top: 2px solid #315dff; background: #f7f9fb; }
+        .human-gate span { display: block; margin-bottom: .35rem; color: #315dff; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            overflow: hidden;
+            border: 1px solid #c7ccd2;
+            border-radius: 24px;
+            background: #c7ccd2;
+        }
+
+        .evidence-card { padding: 1.5rem; background: #fff; }
+        .evidence-card h3 { margin-bottom: .65rem; font-size: 1.35rem; line-height: 1.15; }
+        .evidence-card p { color: #4f4f4f; line-height: 1.45; }
+
         @media (max-width: 900px) {
             .visual-flow,
             .visual-flow.visual-flow--three,
@@ -1057,6 +1146,9 @@
             }
 
             .roadmap-ui { grid-template-columns: 1fr; }
+            .authority-grid,
+            .evidence-grid { grid-template-columns: 1fr; }
+            .human-gates { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
             .iteration-summary { grid-template-columns: 1fr; gap: 1rem; }
             .iteration-visual.iteration-visual--side { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -1082,6 +1174,8 @@
             }
 
             .ui-montage { grid-template-columns: 1fr; }
+            .system-layer { grid-template-columns: 1fr; gap: .35rem; }
+            .human-gates { grid-template-columns: 1fr; }
             .iteration-screens { grid-template-columns: 1fr; }
             .iteration-screens { gap: 2rem; }
             .orchestration-explorer { min-height: 0; }
@@ -1151,9 +1245,9 @@
                 <a href="#users">Users</a>
                 <a href="#findings">Research</a>
                 <a href="#system">Product model</a>
-                <a href="#architecture">Architecture</a>
+                <a href="#architecture">AI system</a>
                 <a href="#decisions">Key decisions</a>
-                <a href="#next">Impact</a>
+                <a href="#next">Evidence &amp; next</a>
             </nav>
         </aside>
 
@@ -1162,10 +1256,10 @@
                 <a href="work.html" class="case-back-link inline-flex items-center mb-7">← Back to work</a>
                 <p class="text-sm md:text-base uppercase text-black mb-5">Product design + strategy / User-informed prototype</p>
                 <h1 class="text-5xl md:text-[76px] leading-[1.02] text-black max-w-[1060px]">
-                    Content Operations Agent
+                    Content Engine
                 </h1>
                 <p class="text-xl md:text-2xl leading-[1.35] text-black mt-5 md:mt-6 max-w-[820px]">
-                    I turned a problem raised by the UX design manager leading myPepsiCo into a working proof-of-value prototype that created immediate pilot demand and an active funding case.
+                    I turned a recurring knowledge-creation problem into a working, user-tested proof of concept that made a governed AI workflow tangible enough for users and stakeholders to evaluate.
                 </p>
                 <a href="https://content-engine-sand-eta.vercel.app" target="_blank" rel="noopener noreferrer" class="prototype-link inline-flex items-center gap-3 mt-7 border border-black bg-black text-white px-5 py-3 text-base md:text-lg hover:bg-[#315dff] hover:border-[#315dff] transition-colors">
                     View working prototype <span aria-hidden="true">↗</span>
@@ -1188,7 +1282,7 @@
                     </div>
                     <div>
                         <p class="text-sm uppercase text-black mb-1">Outcome</p>
-                        <p class="text-base md:text-lg text-black">9 users engaged → Canada pilot proposed</p>
+                        <p class="text-base md:text-lg text-black">User-tested POC → next decision pending</p>
                     </div>
                 </div>
             </section>
@@ -1201,7 +1295,7 @@
             </section>
 
             <section class="case-redundant mb-16 md:mb-20 border-t border-black pt-8" aria-label="Project trajectory">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From Heard Problem to Pilot Demand</h2>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From a heard problem to a testable product</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
                     <article class="border border-black p-5 md:p-6">
                         <p class="text-sm uppercase text-[#315dff] mb-4">01 / Heard</p>
@@ -1219,9 +1313,9 @@
                         <p class="text-base leading-[1.45] text-black">I designed and built the working experience, tested it with users, and iterated on the moments that shaped clarity, control, and confidence.</p>
                     </article>
                     <article class="border border-black p-5 md:p-6 section-soft">
-                        <p class="text-sm uppercase text-[#315dff] mb-4">04 / Demand</p>
-                        <h3 class="text-xl md:text-2xl leading-tight text-black mb-3">Evidence created demand</h3>
-                        <p class="text-base leading-[1.45] text-black">The tested build made the opportunity tangible, created urgency from users, and led to Canada being proposed as the first real pilot market.</p>
+                        <p class="text-sm uppercase text-[#315dff] mb-4">04 / Decide</p>
+                        <h3 class="text-xl md:text-2xl leading-tight text-black mb-3">Evidence supported a next decision</h3>
+                        <p class="text-base leading-[1.45] text-black">The tested build gave users and stakeholders a shared experience for discussing value, risks, and what a pilot would need to measure.</p>
                     </article>
                 </div>
             </section>
@@ -1236,7 +1330,7 @@
                         muted
                         playsinline
                         preload="metadata"
-                        aria-label="AI content workflow prototype showing the seven-agent workflow moving around the core orchestrator."
+                        aria-label="Early AI content workflow concept showing a sequence of specialist tasks."
                     >
                         <source src="assets/my-pepsico-agents-demo.mp4" type="video/mp4">
                         <source src="assets/my-pepsico-agents-demo.mov" type="video/quicktime">
@@ -1244,10 +1338,10 @@
                     </video>
                     <figcaption class="demo-media-caption">
                         <p>
-                            Working prototype used to test the agent workflow with users and make the product value tangible to stakeholders.
+                            Early working prototype used to test whether a guided AI workflow made the product concept understandable and useful to users.
                         </p>
                         <div class="flex flex-col items-start gap-2">
-                            <span>Agent workflow demo</span>
+                            <span>Early workflow demo</span>
                             <a href="https://content-engine-sand-eta.vercel.app" target="_blank" rel="noopener noreferrer" class="text-black underline underline-offset-4 normal-case tracking-normal">Open live build ↗</a>
                         </div>
                     </figcaption>
@@ -1264,7 +1358,7 @@
                     <div class="case-ownership-points lg:col-span-7">
                         <div><p class="text-base md:text-lg leading-[1.45] text-black">Recognized and framed the opportunity without a formal brief.</p></div>
                         <div><p class="text-base md:text-lg leading-[1.45] text-black">Designed, built, and tested the end-to-end human–AI workflow.</p></div>
-                        <div><p class="text-base md:text-lg leading-[1.45] text-black">Turned user evidence into pilot demand and an active funding case.</p></div>
+                        <div><p class="text-base md:text-lg leading-[1.45] text-black">Turned user evidence into a clearer product direction, system model, and set of questions for the next decision.</p></div>
                     </div>
                 </div>
             </section>
@@ -1349,22 +1443,22 @@
                         <div class="iteration-summary">
                             <div>
                                 <p class="decision-kicker">Insight 1</p>
-                                <h3>We made conversation the primary path without removing the form.</h3>
+                                <h3>Start with intent and sources, not a long form.</h3>
                             </div>
-                            <p>Users were already turning to ChatGPT and Copilot to draft articles. The redesign meets that learned behavior immediately, while preserving a structured alternative for people who prefer not to use AI.</p>
+                            <p>Users were already turning to conversational tools for drafting. I redesigned creation as a focused workspace where they can describe the employee need, add source material, and decide when the system has enough context to begin.</p>
                         </div>
                         <div class="iteration-screens">
                             <figure class="iteration-screen">
-                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-before-form.png" data-expand-alt="Earlier New Article experience using a structured form as the primary entry point" aria-label="Expand the earlier form-first article creation screen">
-                                    <img src="assets/content-agent-before-form.png" alt="Earlier New Article experience using a structured form as the primary entry point">
+                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-engine-create-workspace.jpg" data-expand-alt="Content Engine creation workspace with an expandable source panel and guided starting prompts" aria-label="Expand the article creation workspace">
+                                    <img src="assets/content-engine-create-workspace.jpg" alt="Content Engine creation workspace with an expandable source panel and guided starting prompts">
                                 </button>
-                                <figcaption class="iteration-caption"><strong>Before</strong><span>Form-first creation</span></figcaption>
+                                <figcaption class="iteration-caption"><strong>Source-led start</strong><span>Add context before generation</span></figcaption>
                             </figure>
                             <figure class="iteration-screen">
-                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-after-conversation.png" data-expand-alt="Updated New Article experience using an AI conversation as the primary entry point with an option to switch to the form" aria-label="Expand the updated conversation-first article creation screen">
-                                    <img src="assets/content-agent-after-conversation.png" alt="Updated New Article experience using an AI conversation as the primary entry point with an option to switch to the form">
+                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-engine-guided-conversation.jpg" data-expand-alt="Content Engine guided conversation after a user describes an article need" aria-label="Expand the guided article conversation">
+                                    <img src="assets/content-engine-guided-conversation.jpg" alt="Content Engine guided conversation after a user describes an article need">
                                 </button>
-                                <figcaption class="iteration-caption"><strong>After</strong><span>Conversation first, form still available</span></figcaption>
+                                <figcaption class="iteration-caption"><strong>Guided conversation</strong><span>Confirm the brief before drafting</span></figcaption>
                             </figure>
                         </div>
                     </article>
@@ -1372,39 +1466,39 @@
                         <div class="iteration-summary">
                             <div>
                                 <p class="decision-kicker">Insight 2</p>
-                                <h3>We expanded the admin view from managing articles to understanding content health.</h3>
+                                <h3>Make article context readable without competing with the article.</h3>
                             </div>
-                            <p>Content owners told us a list was not enough. The latest direction introduces system-level health, discovery, maintenance, and follow-up insights so administrators can see where attention is needed—not just what articles exist.</p>
-                        </div>
-                        <div class="iteration-screens">
-                            <figure class="iteration-screen">
-                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-admin-before-list.png" data-expand-alt="Earlier Super Admin view centered on a table listing all articles" aria-label="Expand the earlier Super Admin article-list screen">
-                                    <img src="assets/content-agent-admin-before-list.png" alt="Earlier Super Admin view centered on a table listing all articles">
-                                </button>
-                                <figcaption class="iteration-caption"><strong>Before</strong><span>Article inventory and status</span></figcaption>
-                            </figure>
-                            <figure class="iteration-screen">
-                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-admin-after-dashboard-wip.png" data-expand-alt="Latest work-in-progress Super Admin dashboard concept with discovery, governance, and content health insights" aria-label="Expand the latest work-in-progress Super Admin dashboard screen">
-                                    <img src="assets/content-agent-admin-after-dashboard-wip.png" alt="Latest work-in-progress Super Admin dashboard concept with discovery, governance, and content health insights">
-                                </button>
-                                <figcaption class="iteration-caption"><strong>Latest direction</strong><span>WIP concept · Illustrative prototype data</span></figcaption>
-                            </figure>
-                        </div>
-                    </article>
-                    <article class="iteration-visual iteration-visual--side">
-                        <div class="iteration-summary">
-                            <div>
-                                <p class="decision-kicker">Insight 3</p>
-                                <h3>“Let me upload what I have and have the agents write it for me.”</h3>
-                            </div>
-                            <p>We added a more passive creation path that accepts existing source material and asks the agents to turn it into a standards-ready draft. Users can review the result in My Articles rather than building every article field by field.</p>
+                            <p>I separated the published content from its operational metadata. Details, search settings, ownership, and history are grouped into a scan-friendly secondary view instead of crowding the reading experience.</p>
                         </div>
                         <div class="iteration-screens iteration-screens--single">
                             <figure class="iteration-screen">
-                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-agent-upload-agent-draft.png" data-expand-alt="Agent-led article creation screen where users upload source files and ask the system to produce a standards-ready draft" aria-label="Expand the agent-led article creation screen">
-                                    <img src="assets/content-agent-upload-agent-draft.png" alt="Agent-led article creation screen where users upload source files and ask the system to produce a standards-ready draft">
+                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-engine-article-metadata.jpg" data-expand-alt="Article details view organizing ownership, knowledge base, markets, language, and search metadata" aria-label="Expand the article metadata view">
+                                    <img src="assets/content-engine-article-metadata.jpg" alt="Article details view organizing ownership, knowledge base, markets, language, and search metadata">
                                 </button>
-                                <figcaption class="iteration-caption"><strong>Feature added from user feedback</strong><span>Upload source material → agent-produced draft</span></figcaption>
+                                <figcaption class="iteration-caption"><strong>Article metadata</strong><span>Operational context without card overload</span></figcaption>
+                            </figure>
+                        </div>
+                    </article>
+                    <article class="iteration-visual">
+                        <div class="iteration-summary">
+                            <div>
+                                <p class="decision-kicker">Insight 3</p>
+                                <h3>Show evidence for human action; do not let metrics act on their own.</h3>
+                            </div>
+                            <p>Performance and governance views surface search behavior, audience signals, and content gaps. They help people decide what deserves review, but they do not automatically change or remove canonical content.</p>
+                        </div>
+                        <div class="iteration-screens">
+                            <figure class="iteration-screen">
+                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-engine-performance-signals.jpg" data-expand-alt="Published article performance view with engagement, search terms, and audience signals" aria-label="Expand the published article performance view">
+                                    <img src="assets/content-engine-performance-signals.jpg" alt="Published article performance view with engagement, search terms, and audience signals">
+                                </button>
+                                <figcaption class="iteration-caption"><strong>Performance signals</strong><span>Evidence, not automated action</span></figcaption>
+                            </figure>
+                            <figure class="iteration-screen">
+                                <button type="button" class="iteration-screen-button" data-expand-image="assets/content-engine-governance-insights.jpg" data-expand-alt="Governance Center insights view showing content demand gaps for administrators" aria-label="Expand the governance insights view">
+                                    <img src="assets/content-engine-governance-insights.jpg" alt="Governance Center insights view showing content demand gaps for administrators">
+                                </button>
+                                <figcaption class="iteration-caption"><strong>Governance insights</strong><span>Prioritize gaps across the system</span></figcaption>
                             </figure>
                         </div>
                     </article>
@@ -1436,13 +1530,13 @@
             <section id="origin" class="case-redundant mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
                 <p class="visual-label">How UX worked</p>
                 <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">Build to learn. Test to earn belief.</h2>
-                <p class="text-xl md:text-2xl leading-tight text-black max-w-[900px] mb-8">I kept research, design, prototyping, and validation in one continuous loop—moving from a heard problem to demonstrated user demand.</p>
+                <p class="text-xl md:text-2xl leading-tight text-black max-w-[900px] mb-8">I kept research, design, prototyping, and validation in one continuous loop—moving from a heard problem to evidence the team could evaluate.</p>
                 <div class="visual-flow">
                     <article class="visual-flow-step"><p class="visual-label">01</p><h3>Hear</h3><p>Recognized a systemic problem without waiting for a formal brief.</p></article>
                     <article class="visual-flow-step"><p class="visual-label">02</p><h3>Define</h3><p>Learned from UX partners and future users, then framed what the product needed to prove.</p></article>
                     <article class="visual-flow-step"><p class="visual-label">03</p><h3>Build</h3><p>Designed and coded a realistic end-to-end prototype with AI-assisted development.</p></article>
                     <article class="visual-flow-step"><p class="visual-label">04</p><h3>Test</h3><p>Observed real users, listened for trust gaps, and iterated on their feedback.</p></article>
-                    <article class="visual-flow-step"><p class="visual-label">05</p><h3>Build support</h3><p>Used evidence from the working product to create urgency, propose a first pilot, and support active funding proposals.</p></article>
+                    <article class="visual-flow-step"><p class="visual-label">05</p><h3>Support a decision</h3><p>Used evidence from the working product to clarify value, risk, and what the next phase would need to prove.</p></article>
                 </div>
             </section>
 
@@ -1460,34 +1554,28 @@
                     <p class="visual-label">Product experience</p>
                     <div class="ui-montage">
                         <figure class="product-frame">
-                            <figcaption><strong>Create from any starting point</strong><span>Conversation, form, or source-document upload</span></figcaption>
-                            <div class="mock-ui">
-                                <div class="mock-bar"><span class="mock-chip">New article</span><span class="mock-dots">•••</span></div>
-                                <div class="mock-panel mock-panel--accent"><strong>What would you like employees to understand or do?</strong><div class="mock-line medium"></div><div class="mock-line short"></div></div>
-                                <div class="mock-actions"><span class="mock-button">Start a conversation</span><span class="mock-button secondary">Upload a document</span></div>
-                            </div>
+                            <figcaption><strong>Create with sources in view</strong><span>Conversation and source upload share one workspace</span></figcaption>
+                            <button type="button" class="case-shot-button" data-expand-image="assets/content-engine-create-workspace.jpg" data-expand-alt="Article creation workspace with sources and a conversation composer" aria-label="Expand the article creation workspace screenshot">
+                                <img class="case-shot" src="assets/content-engine-create-workspace.jpg" alt="Article creation workspace with sources and a conversation composer">
+                            </button>
                         </figure>
                         <figure class="product-frame">
-                            <figcaption><strong>Make standards visible</strong><span>AI support reduces manual checking and rewriting</span></figcaption>
-                            <div class="mock-ui">
-                                <div class="mock-bar"><span class="mock-chip">Article quality</span><span class="mock-chip">4 of 5 ready</span></div>
-                                <div class="mock-panel"><strong>Structure and readability</strong><div class="mock-line"></div><span class="mock-status">✓ Meets standard</span></div>
-                                <div class="mock-panel mock-panel--accent"><strong>Accessibility</strong><div class="mock-line medium"></div><span>1 recommendation to review</span></div>
-                            </div>
+                            <figcaption><strong>Keep article metadata digestible</strong><span>Details and search settings stay secondary to the content</span></figcaption>
+                            <button type="button" class="case-shot-button" data-expand-image="assets/content-engine-article-metadata.jpg" data-expand-alt="Article metadata and search settings" aria-label="Expand the article metadata screenshot">
+                                <img class="case-shot" src="assets/content-engine-article-metadata.jpg" alt="Article metadata and search settings">
+                            </button>
                         </figure>
                         <figure class="product-frame">
-                            <figcaption><strong>Keep review work moving</strong><span>Ownership, status, and next action in one place</span></figcaption>
-                            <div class="mock-ui">
-                                <div class="mock-bar"><span class="mock-chip">Review queue</span><span class="mock-chip">Awaiting action</span></div>
-                                <div class="mock-panel"><div class="mock-row"><strong>Article</strong><strong>Owner</strong><strong>Status</strong></div><div class="mock-row"><span>Benefits guide</span><span>People team</span><span class="mock-status">Ready</span></div><div class="mock-row"><span>Travel policy</span><span>Finance</span><span>Changes</span></div></div>
-                            </div>
+                            <figcaption><strong>Use performance as a signal</strong><span>Search and audience patterns inform the next human decision</span></figcaption>
+                            <button type="button" class="case-shot-button" data-expand-image="assets/content-engine-performance-signals.jpg" data-expand-alt="Published article performance signals" aria-label="Expand the performance signals screenshot">
+                                <img class="case-shot" src="assets/content-engine-performance-signals.jpg" alt="Published article performance signals">
+                            </button>
                         </figure>
                         <figure class="product-frame">
-                            <figcaption><strong>Govern the whole system</strong><span>Requested dashboard concept for content owners</span></figcaption>
-                            <div class="mock-ui">
-                                <div class="mock-stat-grid"><div class="mock-stat"><span>Healthy</span><strong>On track</strong></div><div class="mock-stat"><span>Review</span><strong>Due</strong></div><div class="mock-stat"><span>Stale</span><strong>Attention</strong></div></div>
-                                <div class="mock-panel"><strong>Content health by area</strong><div class="mock-line"></div><div class="mock-line medium"></div><div class="mock-line short"></div></div>
-                            </div>
+                            <figcaption><strong>Govern the whole system</strong><span>Demand gaps and lifecycle risk become visible to administrators</span></figcaption>
+                            <button type="button" class="case-shot-button" data-expand-image="assets/content-engine-governance-insights.jpg" data-expand-alt="Governance Center insights" aria-label="Expand the governance insights screenshot">
+                                <img class="case-shot" src="assets/content-engine-governance-insights.jpg" alt="Governance Center insights">
+                            </button>
                         </figure>
                     </div>
                 </div>
@@ -1502,187 +1590,101 @@
             </section>
 
             <section id="architecture" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <p class="visual-label mb-3">Section · 03</p>
-                <h2 class="architecture-heading text-4xl md:text-[50px] leading-tight mb-4">The Multi-Agent Architecture</h2>
-                <div class="space-y-6 md:space-y-8">
-                    <div>
-                        <p class="text-lg md:text-xl leading-[1.45] text-[#4f4f4f] max-w-[900px]">
-                            I architected the interaction model around a visible orchestrator, giving human authors transparent control over modular AI sub-processes instead of hiding automation inside a black box.
-                        </p>
+                <p class="visual-label mb-3">AI system design</p>
+                <h2 class="architecture-heading text-4xl md:text-[50px] leading-tight mb-4">A governed workflow, not an autonomous black box.</h2>
+                <p class="text-lg md:text-xl leading-[1.45] text-[#4f4f4f] max-w-[920px]">I designed the AI layer as one part of a larger content system. Language generation handles interpretation and drafting; deterministic controls handle state and required rules; people retain authority over facts, exceptions, approval, and publication.</p>
+
+                <div class="system-stack" aria-label="Content Engine AI system layers">
+                    <div class="system-layer"><strong>1 · Experience layer</strong><span>Source upload, guided conversation, article workspace, review, and governance views.</span></div>
+                    <div class="system-layer"><strong>2 · Workflow controller</strong><span>Moves work through intake, clarification, drafting, revision, approval, and publication states.</span></div>
+                    <div class="system-layer"><strong>3 · Context and grounding</strong><span>Combines user intent, source material, audience, market, and organizational standards.</span></div>
+                    <div class="system-layer"><strong>4 · Language intelligence</strong><span>Interprets requests, proposes structure, drafts, revises, localizes, and explains suggestions.</span></div>
+                    <div class="system-layer"><strong>5 · Deterministic controls</strong><span>Checks required metadata, status transitions, readiness, duplication, and lifecycle signals.</span></div>
+                    <div class="system-layer"><strong>6 · Human authority</strong><span>Confirms the brief, resolves findings, approves exceptions, and decides what becomes canonical.</span></div>
+                    <div class="system-layer"><strong>7 · Canonical article and signals</strong><span>Publishes the approved version, then returns performance and governance evidence for future review.</span></div>
+                </div>
+
+                <div class="authority-grid" aria-label="Authority model">
+                    <article class="authority-card"><p class="visual-label">AI can</p><h3>Generate language and options</h3><p>Interpret a brief, organize source material, draft, revise, localize, and explain why it made a suggestion.</p></article>
+                    <article class="authority-card"><p class="visual-label">Rules control</p><h3>Enforce predictable workflow</h3><p>Required fields, article state, readiness checks, review dates, and duplicate or staleness signals stay deterministic.</p></article>
+                    <article class="authority-card"><p class="visual-label">People decide</p><h3>Own truth and publication</h3><p>Humans select sources, verify facts, resolve exceptions, approve the article, and act on performance or governance signals.</p></article>
+                </div>
+
+                <div class="mt-10">
+                    <p class="visual-label">Human gates</p>
+                    <div class="human-gates">
+                        <div class="human-gate"><span>Gate 1</span>Confirm the brief</div>
+                        <div class="human-gate"><span>Gate 2</span>Review the draft</div>
+                        <div class="human-gate"><span>Gate 3</span>Resolve findings</div>
+                        <div class="human-gate"><span>Gate 4</span>Approve publication</div>
+                        <div class="human-gate"><span>Gate 5</span>Act on lifecycle signals</div>
                     </div>
-                    <div class="orchestration-explorer" data-orchestration-explorer>
-                        <div class="orchestration-stage" aria-label="Seven specialist agents arranged around the core orchestrator">
-                            <svg class="orchestration-lines" viewBox="0 0 100 100" aria-hidden="true">
-                                <circle class="orchestration-ring" cx="50" cy="50" r="38"></circle>
-                                <line data-agent-line="intake" x1="50" y1="50" x2="50" y2="10"></line>
-                                <line data-agent-line="clarifier" x1="50" y1="50" x2="77" y2="20"></line>
-                                <line data-agent-line="router" x1="50" y1="50" x2="90" y2="46"></line>
-                                <line data-agent-line="market" x1="50" y1="50" x2="78" y2="78"></line>
-                                <line data-agent-line="compliance" x1="50" y1="50" x2="50" y2="90"></line>
-                                <line data-agent-line="revision" x1="50" y1="50" x2="22" y2="78"></line>
-                                <line data-agent-line="translation" x1="50" y1="50" x2="10" y2="46"></line>
-                            </svg>
-                            <div class="orchestrator-core"><div><span>Core</span>Orchestrator</div></div>
-                            <button type="button" class="agent-orbit-button is-active" style="--x:50%;--y:10%" data-agent="intake" aria-pressed="true"><span class="agent-orbit-dot"></span><span>Intake</span></button>
-                            <button type="button" class="agent-orbit-button" style="--x:77%;--y:20%" data-agent="clarifier" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Clarifier</span></button>
-                            <button type="button" class="agent-orbit-button" style="--x:90%;--y:46%" data-agent="router" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Router</span></button>
-                            <button type="button" class="agent-orbit-button" style="--x:78%;--y:78%" data-agent="market" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Market</span></button>
-                            <button type="button" class="agent-orbit-button" style="--x:50%;--y:90%" data-agent="compliance" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Compliance</span></button>
-                            <button type="button" class="agent-orbit-button" style="--x:22%;--y:78%" data-agent="revision" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Revision</span></button>
-                            <button type="button" class="agent-orbit-button" style="--x:10%;--y:46%" data-agent="translation" aria-pressed="false"><span class="agent-orbit-dot"></span><span>Translation</span></button>
-                        </div>
-                        <div class="orchestration-detail" aria-live="polite">
-                            <span class="orchestration-count" data-agent-count>Part · 01 of 07</span>
-                            <h3 data-agent-title>Intake</h3>
-                            <p data-agent-description>Checks that the brief has the minimum context needed to begin.</p>
-                            <p class="orchestration-handoff"><span>Handoff</span><strong data-agent-handoff>Passes a complete brief to Clarifier</strong></p>
-                            <div class="orchestration-controls">
-                                <button type="button" class="orchestration-toggle" data-orchestration-toggle aria-pressed="false">Pause sequence</button>
-                                <div class="orchestration-progress" data-orchestration-progress aria-label="Choose an agent"></div>
-                            </div>
-                        </div>
+                </div>
+
+                <div class="mt-10">
+                    <p class="visual-label mb-4">What exists at each level</p>
+                    <div class="evidence-grid">
+                        <article class="evidence-card"><h3>Demonstrated in the POC</h3><p>Source-led creation, guided conversation, role-based workflows, article metadata, performance views, and governance views.</p></article>
+                        <article class="evidence-card"><h3>Simulated or partial</h3><p>Generated responses, some workflow transitions, analytics data, and policy checks use prototype logic or mock data.</p></article>
+                        <article class="evidence-card"><h3>Defined for production</h3><p>Source retrieval and citations, identity and permissions, durable audit history, model monitoring, integrations, and measurable evaluations.</p></article>
                     </div>
                 </div>
             </section>
 
             <section id="accelerator" class="case-redundant mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32" aria-label="How AI accelerated the work">
-                <p class="visual-label">AI as an accelerator</p>
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">The prototype reduced the cost of learning.</h2>
-                <p class="text-xl md:text-2xl leading-tight text-black max-w-[950px] mb-8">AI-assisted development helped me turn product strategy into a realistic experience quickly. UX judgment still determined what to build, what to test, and what the evidence meant.</p>
+                <p class="visual-label">AI in my design process</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-5">I used AI to build and learn, not to replace judgment.</h2>
+                <p class="text-xl md:text-2xl leading-tight text-black max-w-[950px] mb-8">AI-assisted development helped me translate product strategy into a realistic, testable experience. I remained responsible for the research questions, interaction model, accessibility, design quality, validation, and interpretation of evidence.</p>
                 <div class="visual-flow visual-flow--three">
-                    <article class="visual-flow-step"><p class="visual-label">Lower risk</p><h3>Validate before full investment</h3><p>Test the problem, demand, and experience before committing to full development.</p></article>
-                    <article class="visual-flow-step"><p class="visual-label">Faster feedback</p><h3>Put real interactions in users’ hands</h3><p>Learn from behavior and reactions instead of relying only on static screens.</p></article>
-                    <article class="visual-flow-step"><p class="visual-label">Stronger evidence</p><h3>Make the opportunity tangible</h3><p>Give users and leaders something concrete to evaluate, discuss, and support.</p></article>
+                    <article class="visual-flow-step"><p class="visual-label">Explore</p><h3>Try competing interaction models</h3><p>Move between form-first, conversational, and source-led ideas while the problem was still being defined.</p></article>
+                    <article class="visual-flow-step"><p class="visual-label">Prototype</p><h3>Put complete flows in users’ hands</h3><p>Test navigation, states, role differences, and handoffs that static screens could not fully communicate.</p></article>
+                    <article class="visual-flow-step"><p class="visual-label">Evaluate</p><h3>Separate reaction from evidence</h3><p>Use user behavior and feedback to refine the product while keeping production claims and measured outcomes out of the prototype story.</p></article>
                 </div>
             </section>
 
             <section id="decisions" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">Key Product Decisions</h2>
-                <div class="space-y-8">
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8 section-soft">
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-[#315dff] mb-3">01 / Permission model</p>
-                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Separate admin governance from author workflows</h3>
-                        </div>
-                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Problem</p>
-                                <p>A single view mixed enterprise governance with everyday article management.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Move</p>
-                                <p>Split the experience by permission level: admins get system-wide controls; writers and managers get focused ownership tools.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Result</p>
-                                <p>Each role sees the right scope without extra operational noise.</p>
-                            </div>
-                            <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="border border-black p-4 bg-white">
-                                    <p class="text-sm uppercase text-black mb-2">Admin view</p>
-                                    <p>Monitor article health, spot stale or low-performing content, and alert owners to review, update, consolidate, or remove.</p>
-                                </div>
-                                <div class="border border-black p-4 bg-white">
-                                    <p class="text-sm uppercase text-black mb-2">Non-admin view</p>
-                                    <p>Manage owned and direct-report articles, track stale reviews, filter by owner/status, transfer ownership, and make updates.</p>
-                                </div>
-                            </div>
-                        </div>
+                <p class="visual-label">Key product decisions</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">The design decisions that made the AI trustworthy.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <article class="authority-card">
+                        <p class="decision-kicker">01 / Entry point</p>
+                        <h3>Conversation plus sources, not a blank prompt</h3>
+                        <p>The workspace asks what employees need to know or do and keeps source material visible. That gives the model context while preserving the user’s control over what evidence belongs in the article.</p>
                     </article>
-
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8">
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-[#315dff] mb-3">02 / IA model</p>
-                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Sector before market, not market alone</h3>
-                        </div>
-                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Problem</p>
-                                <p>Design conversations made it clear that market-only organization ignored how content ownership actually works.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Move</p>
-                                <p>Made sector the primary organizing tier across profiles, filters, and articles.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Result</p>
-                                <p>Authors choose "PFNA → United States," so the prototype feels specific to PepsiCo's operating model.</p>
-                            </div>
-                            <div class="md:col-span-3 border border-black p-4 section-soft">
-                                <p class="text-sm uppercase text-black mb-2">Technical Alignment</p>
-                                <p>Ensured data indexing paths match PepsiCo's operational hierarchy, mapping API calls directly to sector boundaries.</p>
-                            </div>
-                        </div>
+                    <article class="authority-card">
+                        <p class="decision-kicker">02 / Control model</p>
+                        <h3>Separate probabilistic language from deterministic rules</h3>
+                        <p>AI can propose language and structure. Required metadata, workflow state, review dates, and readiness checks remain predictable and testable.</p>
                     </article>
-
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8 section-soft">
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-[#315dff] mb-3">03 / Workflow surface</p>
-                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Merge review queue into content library</h3>
-                        </div>
-                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Problem</p>
-                                <p>Users needed to understand what was in progress, what needed attention, and what was already live.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Move</p>
-                                <p>Collapsed review and library into one All Articles surface with three tabs.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Result</p>
-                                <p>Reviewers and authors can move between work-in-progress and live content without losing context.</p>
-                            </div>
-                            <div class="md:col-span-3 border border-black p-4 bg-white">
-                                <p class="text-sm uppercase text-black mb-2">Technical Alignment</p>
-                                <p>Optimized state management in React to prevent rendering lag when toggling between dense, real-time localized dataset tables.</p>
-                            </div>
-                        </div>
+                    <article class="authority-card">
+                        <p class="decision-kicker">03 / Authority</p>
+                        <h3>Put human gates before canonical publication</h3>
+                        <p>The system can recommend and explain, but a person verifies facts, resolves exceptions, approves the result, and decides when it becomes the source of truth.</p>
                     </article>
-
-                    <article class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border border-black p-6 md:p-8">
-                        <div class="lg:col-span-4">
-                            <p class="text-sm uppercase text-[#315dff] mb-3">04 / Grounding model</p>
-                            <h3 class="text-2xl md:text-3xl leading-tight text-black">Sources as profile data, not per-article attachments</h3>
-                        </div>
-                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-base md:text-lg leading-[1.45] text-black">
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Problem</p>
-                                <p>Repeated source setup would make the prototype feel slower than the workflow it was meant to improve.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Move</p>
-                                <p>Put sources on sector, market, and audience profiles instead.</p>
-                            </div>
-                            <div>
-                                <p class="text-sm uppercase text-black mb-2">Result</p>
-                                <p>Grounding follows ownership: PFNA sources guide PFNA content; US sources guide US procedures.</p>
-                            </div>
-                            <div class="md:col-span-3 border border-black p-4 section-soft">
-                                <p class="text-sm uppercase text-black mb-2">Technical Alignment</p>
-                                <p>Caching system data globally on sector profiles drastically reduced payload sizes and context-window token overhead for subsequent Claude API inference cycles.</p>
-                            </div>
-                        </div>
+                    <article class="authority-card">
+                        <p class="decision-kicker">04 / Lifecycle</p>
+                        <h3>Treat performance and governance as evidence</h3>
+                        <p>Search patterns, audience signals, staleness, and demand gaps surface where attention may be needed. They inform a human decision rather than silently editing or removing content.</p>
                     </article>
-
                 </div>
             </section>
 
             <section id="next" class="mb-16 md:mb-20 border-t border-black pt-8 scroll-mt-32">
-                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">From Prototype to Pilot Demand</h2>
+                <p class="visual-label">Evidence and next steps</p>
+                <h2 class="text-4xl md:text-[56px] leading-tight text-black mb-8">What the POC established—and what it did not.</h2>
                 <div class="roadmap-ui mb-6">
-                    <article class="roadmap-stage"><span class="roadmap-status">Validated now</span><h3>AI-assisted creation</h3><p>Users can create standards-aligned articles with less manual checking and rewriting.</p></article>
-                    <article class="roadmap-stage"><span class="roadmap-status">Developing toward pilot</span><h3>Canada test readiness</h3><p>The team is maturing the conceptual prototype so it can test speed, independence, and reduced support effort.</p></article>
-                    <article class="roadmap-stage"><span class="roadmap-status">Future direction</span><h3>Connected operations</h3><p>End-to-end governance, administration, messaging, notifications, and deeper PepsiCo workspace integration.</p></article>
+                    <article class="roadmap-stage"><span class="roadmap-status">Demonstrated now</span><h3>A coherent product model</h3><p>The POC connects source-led creation, human review, article management, performance, and governance in one realistic experience.</p></article>
+                    <article class="roadmap-stage"><span class="roadmap-status">Validate next</span><h3>Quality and workload</h3><p>A pilot should measure time to a reviewable draft, correction burden, reviewer agreement, source coverage, and exception rates.</p></article>
+                    <article class="roadmap-stage"><span class="roadmap-status">Production definition</span><h3>Grounding and operations</h3><p>Retrieval and citations, identity, integrations, audit history, model monitoring, and formal evaluations still require production engineering.</p></article>
                 </div>
                 <div class="case-impact-summary mt-6 md:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-10 items-start">
                     <div class="lg:col-span-4">
                         <p class="visual-label mb-3">Current outcome</p>
-                        <p class="text-2xl md:text-3xl leading-tight text-black">Users asked for the product immediately, and Canada was proposed as the first pilot market.</p>
+                        <p class="text-2xl md:text-3xl leading-tight text-black">The POC gave users and stakeholders a shared product experience they could evaluate together.</p>
                     </div>
                     <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 text-base md:text-lg leading-[1.5]">
-                        <div><p class="visual-label mb-2">Pilot test</p><p>Measure faster article creation, greater employee independence, and less hands-on support from content teams.</p></div>
-                        <div><p class="visual-label mb-2">Status</p><p>The prototype is still being developed toward pilot readiness; funding proposals are active, with no decision yet.</p></div>
+                        <div><p class="visual-label mb-2">What I can claim</p><p>I designed, built, and iterated a working prototype informed by user interviews and feedback sessions. It made the system, roles, and risks concrete.</p></div>
+                        <div><p class="visual-label mb-2">What remains open</p><p>Funding, pilot timing, production adoption, operational savings, and quality improvements are not measured outcomes of this prototype.</p></div>
                     </div>
                 </div>
                 <p class="mt-8 text-xl md:text-2xl leading-tight text-black max-w-[980px]"><strong class="font-medium">What this shows about how I work:</strong> I recognize opportunities, stay close to users, and use working prototypes and evidence to help an organization decide what should become real.</p>
