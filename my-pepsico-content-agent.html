@@ -1269,6 +1269,7 @@
                             muted
                             playsinline
                             preload="metadata"
+                            poster="assets/content-engine-guided-conversation.jpg"
                             aria-label="Early AI content workflow POC moving from brief to reviewed article."
                         >
                             <source src="assets/my-pepsico-poc-review-demo.mp4" type="video/mp4">
@@ -1393,8 +1394,15 @@
 
             const pocDemoVideos = document.querySelectorAll('.poc-demo-video');
             pocDemoVideos.forEach((demoVideo) => {
+                demoVideo.muted = true;
                 demoVideo.playbackRate = 2;
                 demoVideo.defaultPlaybackRate = 2;
+                const playbackAttempt = demoVideo.play();
+                if (playbackAttempt && typeof playbackAttempt.catch === 'function') {
+                    playbackAttempt.catch(() => {
+                        // The poster remains visible when the browser blocks autoplay.
+                    });
+                }
             });
         }
 
