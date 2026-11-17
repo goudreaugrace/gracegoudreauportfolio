@@ -193,3 +193,24 @@ strong { font-weight: 400; color: var(--ink); }
 @media (max-width: 700px) { .job ul { grid-column: auto; } }
 .button { display: inline-block; font-size: 15px; text-decoration: none; padding: 13px 24px; border-radius: 40px; border: 1px solid var(--ink); }
 .button:hover { background: var(--ink); color: #fff; }
+
+/* Numbers strip (process evidence) */
+.numbers { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; margin-top: 32px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.numbers > div { padding: 24px 20px 24px 0; display: flex; flex-direction: column; gap: 6px; }
+.numbers .n { font-size: clamp(32px, 3.4vw, 46px); line-height: 1; letter-spacing: -0.03em; }
+.numbers .d { font-size: 14px; line-height: 1.45; color: var(--muted); }
+
+/* Finding -> change rows */
+.changes { margin-top: 32px; border-bottom: 1px solid var(--line); }
+.changes .head, .changes .r { display: grid; grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr); gap: 16px; align-items: baseline; }
+.changes .head { font-size: 13px; color: var(--muted); padding-bottom: 10px; }
+.changes .r { padding: 18px 0; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.5; }
+.changes .r .from { color: var(--body); }
+.changes .r .to::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--dot); margin-right: 10px; vertical-align: 2px; }
+.changes .r .ar { color: var(--muted); text-align: center; }
+@media (max-width: 700px) {
+  .changes .head { display: none; }
+  .changes .r { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .changes .r .ar { display: none; }
+  .changes .r .from { color: var(--muted); font-size: 15px; }
+}
