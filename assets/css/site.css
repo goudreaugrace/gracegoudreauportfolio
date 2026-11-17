@@ -214,3 +214,24 @@ strong { font-weight: 400; color: var(--ink); }
   .changes .r .ar { display: none; }
   .changes .r .from { color: var(--muted); font-size: 15px; }
 }
+
+/* Annotated product stills */
+.annot { position: relative; }
+.annot img { display: block; width: 100%; }
+.pin { position: absolute; transform: translate(-50%, -50%); width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 13px; font-weight: 400; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 4px rgba(255,255,255,0.85); }
+@media (max-width: 600px) { .pin { width: 20px; height: 20px; font-size: 11px; box-shadow: 0 0 0 3px rgba(255,255,255,0.85); } }
+.notes { margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 32px; padding: 0; list-style: none; counter-reset: n; }
+.notes li { counter-increment: n; display: flex; gap: 12px; font-size: 15px; line-height: 1.55; color: var(--body); }
+.notes li::before { content: counter(n); flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 12px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.still-title { font-size: 19px; font-weight: 400; letter-spacing: -0.01em; margin-top: 22px; }
+
+/* Grouped numbers */
+.numgroups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; margin-top: 32px; }
+.numgroup { border-radius: 16px; padding: 24px 26px; box-shadow: inset 0 0 0 1px var(--line); }
+.numgroup.fill { background: var(--shade); box-shadow: none; }
+.numgroup .k { font-size: 14px; color: var(--muted); }
+.numgroup.fill .k { color: var(--deep); }
+.numgroup ul { list-style: none; padding: 0; margin-top: 14px; display: flex; flex-direction: column; gap: 12px; }
+.numgroup li { display: flex; align-items: baseline; gap: 12px; font-size: 15px; line-height: 1.4; color: var(--body); }
+.numgroup li b { font-weight: 300; font-size: 30px; letter-spacing: -0.03em; color: var(--ink); min-width: 3.2ch; }
+.resultline { display: inline-flex; align-items: center; gap: 12px; font-size: clamp(18px, 1.6vw, 21px); padding: 12px 20px; border-radius: 40px; background: var(--shade); color: var(--ink); width: fit-content; }
