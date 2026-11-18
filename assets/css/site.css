@@ -369,3 +369,10 @@ ol.plain li::before { content: ""; position: absolute; left: 0; top: 0.62em; wid
 .numgroups.wide .numgroup li { grid-template-columns: 124px minmax(0, 1fr); }
 ol.plain { padding-left: 0; margin-left: 0; }
 .duo.wide .shot { aspect-ratio: 16 / 10.4; }
+
+/* Freelance: how it works */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 16px; }
+.steps > div { border-top: 1px solid var(--line); padding-top: 18px; }
+.steps .k { display: block; font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+.steps p { color: var(--body); }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; gap: 20px; } }
