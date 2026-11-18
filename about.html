@@ -1,264 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Grace Goudreau</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Google Sans', 'Google Sans Text', sans-serif;
-        }
-
-        .nav-link {
-            transition: color 0.2s ease;
-        }
-
-        .nav-link:hover {
-            color: #767676;
-        }
-
-        .linkedin-link {
-            position: relative;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .linkedin-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            width: 0;
-            height: 1px;
-            background-color: black;
-            transition: width 0.3s ease;
-            right: 0;
-            left: auto;
-        }
-
-        .linkedin-link:hover::after {
-            width: 100%;
-            left: 0;
-            right: auto;
-        }
-
-        .primary-button {
-            position: relative;
-            overflow: hidden;
-            transition: color 0.4s ease;
-        }
-
-        .primary-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 0;
-            background-color: black;
-            transition: height 0.4s ease;
-            z-index: 0;
-        }
-
-        .primary-button:hover::before {
-            height: 100%;
-        }
-
-        .primary-button span {
-            position: relative;
-            z-index: 1;
-            transition: color 0.4s ease;
-        }
-
-        .primary-button:hover span {
-            color: white;
-        }
-
-        .signal-accent {
-            color: #0057ff;
-        }
-
-        .signal-bg {
-            background: #f4f7ff;
-        }
-
-        .signal-border {
-            border-color: #0057ff;
-        }
-
-        .ask-button {
-            border: 1px dashed #c9cfcc;
-            background: white;
-            color: #66706d;
-            text-align: left;
-            border-radius: 999px;
-            transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-        }
-
-        .ask-button:hover,
-        .ask-button.active {
-            background: #f7f9fb;
-            border-color: #315dff;
-            color: #1f2523;
-            transform: translateY(-1px);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background-color: black;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 46px;
-            left: 0;
-            right: 0;
-            background: white;
-            border-bottom: 1px solid black;
-            padding: 1.5rem 1rem 1rem 1rem;
-            z-index: 45;
-        }
-
-        .mobile-menu.active {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex !important;
-            }
-            .desktop-nav {
-                display: none !important;
-            }
-        }
-    </style>
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const answers = {
-                diagnosis: "I treat user friction as a business diagnostic. I work backward from the core operational bottleneck to map out multi-layered technical workflows early, isolating where user agency fails and defining where a modular feature framework can drive clear business value.",
-                engineering: "I speak code fluently. Instead of handing off static layouts, I use a build stack including React, TypeScript, and component-driven AI tools to engineer functional interactive prototypes. This gives developers a precise target for frontend state management, massively accelerating implementation.",
-                strategy: "True strategy means knowing what not to build. I don't just dress up predefined feature lists—I question the underlying assumptions to structure systems that ensure complex tasks, like scaling multi-agent workflows, align with long-term product metrics.",
-                ambiguity: "I lean into functional proof-of-concepts. When structural guidelines don't exist, I rapidly build high-fidelity working spaces to validate concepts directly with engineering teams, converting executive skepticism into direct project funding.",
-                craft: "Craft is the uncompromising elimination of visual and cognitive noise. For complex enterprise products, high craft means stripping away non-essential elements so the user's focus is entirely directed toward strict information architecture and zero-friction interactions."
-            };
-
-            const answerText = document.getElementById('askAnswerText');
-            const answerLabel = document.getElementById('askAnswerLabel');
-            const buttons = document.querySelectorAll('[data-answer]');
-
-            function setAnswer(key) {
-                const button = document.querySelector(`[data-answer="${key}"]`);
-                if (!answerText || !answerLabel || !button || !answers[key]) return;
-
-                answerLabel.textContent = button.textContent.trim();
-                answerText.textContent = answers[key];
-                buttons.forEach(item => item.classList.toggle('active', item.dataset.answer === key));
-            }
-
-            buttons.forEach(button => {
-                button.addEventListener('click', () => setAnswer(button.dataset.answer));
-            });
-
-            setAnswer('diagnosis');
-        });
-    </script>
-    <link rel="stylesheet" href="visual-refresh.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · Grace Goudreau</title>
+<meta name="description" content="Grace Goudreau designs the layer between people, data and decision-making, and designs with AI as well as for it.">
+<meta property="og:title" content="About · Grace Goudreau">
+<meta property="og:description" content="Grace Goudreau designs the layer between people, data and decision-making, and designs with AI as well as for it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gracegoudreau.com/about.html">
+<meta property="og:image" content="https://gracegoudreau.com/gtm-scenario-workspace.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body class="bg-white">
-    <nav class="w-full bg-white fixed top-0 z-50">
-        <div class="max-w-[1271px] mx-auto flex">
-            <div class="flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-between items-center">
-                <a href="index.html" class="text-[#111111] text-lg md:text-xl tracking-[-1px] hover:text-[#767676] transition-colors">Grace Goudreau</a>
-                <div class="hamburger" onclick="toggleMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div class="desktop-nav flex-1 border-b border-black px-4 md:px-[15px] py-3 flex justify-end gap-6 md:gap-12">
-                <a href="work.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Work</a>
-                <a href="about.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">About</a>
-                <a href="resume.html" class="nav-link text-[#111111] text-lg md:text-xl tracking-[-1px]">Resume</a>
-            </div>
-        </div>
-    </nav>
-
-    <div id="mobileMenu" class="mobile-menu">
-        <a href="work.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Work</a>
-        <a href="about.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">About</a>
-        <a href="resume.html" class="text-[#111111] text-lg tracking-[-1px] py-2 hover:text-[#767676] transition-colors" onclick="toggleMobileMenu()">Resume</a>
-    </div>
-
-    <div class="max-w-[1271px] mx-auto px-4 md:px-[15px] pt-20 md:pt-24">
-        <section class="mt-8 md:mt-14 mb-28 md:mb-40">
-            <div class="max-w-[980px]">
-                <p class="text-sm md:text-base uppercase signal-accent mb-5">About / design approach</p>
-                <h1 class="text-4xl md:text-6xl lg:text-[84px] leading-tight text-black mb-6">
-                    I design the layer between people, data, and decision-making.
-                </h1>
-                <p class="text-lg md:text-2xl leading-[1.4] text-[#4f4f4f] max-w-[800px]">
-                    My work is strongest where workflows are complex, stakes are high, and the product has to make information feel clear, usable, and trustworthy.
-                </p>
-            </div>
-        </section>
-
-        <section class="mb-40 md:mb-56">
-            <div class="mb-10 md:mb-14">
-                <h2 class="text-4xl md:text-[64px] leading-tight text-black">More about me</h2>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-                <div class="lg:col-span-6">
-                    <div class="flex flex-col items-start gap-4 md:gap-5">
-                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-0" data-answer="diagnosis">How do you diagnose a vague product problem?</button>
-                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-16" data-answer="engineering">Where do you bridge product and engineering?</button>
-                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-0" data-answer="strategy">What does product strategy look like in your workflow?</button>
-                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-24" data-answer="ambiguity">How do you handle severe project ambiguity?</button>
-                        <button type="button" class="ask-button px-6 md:px-8 py-4 text-xl md:text-2xl lg:ml-8" data-answer="craft">What does exceptional interface craft mean to you?</button>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-6 lg:pt-3">
-                    <p id="askAnswerLabel" class="text-sm uppercase signal-accent mb-4"></p>
-                    <p id="askAnswerText" class="text-2xl md:text-3xl leading-[1.35] text-[#4f4f4f] max-w-[680px]"></p>
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-32 md:mb-48 pt-8 md:pt-16">
-            <div class="mb-10">
-                <h2 class="text-4xl md:text-[64px] leading-tight text-black">Let's Connect!</h2>
-            </div>
-            <div class="flex flex-col gap-4">
-                <a href="mailto:goudreaugrace@gmail.com" class="text-xl md:text-2xl text-black">goudreaugrace@gmail.com</a>
-                <a href="https://www.linkedin.com/in/gracegoudreau/" target="_blank" class="linkedin-link text-xl md:text-2xl text-black w-fit">LinkedIn</a>
-            </div>
-            <div class="mt-12 pt-6 border-t border-[rgba(31,37,35,0.12)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-sm text-[#767676]">
-                <p>Made by Grace Goudreau &amp; Antigravity</p>
-                <p>© 2026</p>
-            </div>
-        </section>
-    </div>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site-header">
+  <a class="name" href="index.html">Grace Goudreau</a>
+  <nav aria-label="Primary">
+    <a href="work.html">Work</a>
+    <a href="about.html" aria-current="page">About</a>
+    <a href="resume.html">Resume</a>
+  </nav>
+</header>
+<main id="main">
+<section class="cs-head">
+  <h1 class="display">I decide what an AI product should do, then <mark class="hl">design it so people trust it</mark>.</h1>
+  <p class="lede">I’m a senior UX designer at PepsiCo in Chicago, working where product strategy and design meet on AI-native enterprise tools. I studied UX design at Purdue University.</p>
+</section>
+<section class="block" style="padding-top:24px" aria-labelledby="duo"><h2 class="label" id="duo">Two halves of the same job</h2>
+<div class="brought" style="margin-top:28px">
+ <div class="prio-built"><span class="k">Strategy</span><p class="why-t">Find the right problem, and the order to solve it in.</p><ol class="plain">
+  <li>Work back from the business bottleneck</li><li>Decide what to build first, and what waits</li><li>Bring UX into the conversation earlier</li></ol></div>
+ <div><span class="k">Design</span><p class="why-t">Make complex decisions clear and trustworthy.</p><ol class="plain">
+  <li>Interaction design for data-heavy tools</li><li>Working prototypes in code, tested early</li><li>Trust designed in: sources, confidence, human control</li></ol></div>
+</div></section>
+<section class="block" aria-labelledby="proof"><h2 class="label" id="proof">In practice</h2>
+<div class="brought cards3" style="margin-top:28px">
+ <div><span class="k">Scoping Pro</span><p>A product strategy built for today’s technology and tomorrow’s prediction. <a href="ai-scenario-modeling.html">Read →</a></p></div>
+ <div><span class="k">ATLAS</span><p>Changed how UX starts AI projects, now repeated across teams. <a href="atlas-decision-intelligence.html">Read →</a></p></div>
+ <div><span class="k">Content Engine</span><p>Found an unowned problem and drew the line on what AI decides. <a href="my-pepsico-content-agent.html">Read →</a></p></div>
+</div></section>
+<section class="block split" aria-labelledby="ai"><h2 class="label" id="ai">How I work with AI</h2>
+<div class="body"><p class="statement">I design with AI, not only for it.</p><div class="prose">
+<p>I move from Figma Make to Figma to Cursor, Codex and Claude Code, so reviewers and engineers can inspect a working build.</p>
+<p>I wrote a point of view on UX in an AI-enabled development process, and the VP of UX Design invited me to turn it into phased recommendations. I coach designers on AI-assisted prototyping, and led a workshop for about 100 engineers on Figma MCP and AI coding tools.</p>
+</div></div></section>
+<section class="block split" aria-labelledby="avail"><h2 class="label" id="avail">Working together</h2>
+<div class="body"><p class="statement">Open to product design and product strategy roles, and select independent projects.</p><div class="prose"><p>The best fit: AI decision tools, governed AI workflows and data-heavy products that need to be trusted. <a href="mailto:goudreaugrace@gmail.com">goudreaugrace@gmail.com</a></p></div></div></section>
+</main>
+<footer class="site-footer">
+  <p class="hello">Say hello. <a href="mailto:goudreaugrace@gmail.com">goudreaugrace@gmail.com</a></p>
+  <nav aria-label="Elsewhere">
+    <a href="https://www.linkedin.com/in/gracegoudreau/">LinkedIn</a>
+    <a href="resume.html">Resume</a>
+  </nav>
+</footer>
+</div>
 </body>
 </html>
